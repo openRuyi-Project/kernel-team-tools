@@ -251,7 +251,7 @@ def do_record(repo: GitRepo, db: dict, rev1: str, rev2: str):
                 old_subject = db[secondary].get("subject", "(Unknown)")
                 is_identical = " (identical subject)" if old_subject == clean else ""
                 print(f"Is new patch {primary}", file=sys.stderr)
-                print(f"  (stable branch commit {c.commit})", file=sys.stderr)
+                print(f"  (found as commit {c.commit})", file=sys.stderr)
                 print(f'  "{clean}"', file=sys.stderr)
                 print(
                     f"... the replacement of patch {secondary}?",
@@ -273,10 +273,10 @@ def do_record(repo: GitRepo, db: dict, rev1: str, rev2: str):
             )
             if known_merged:
                 continue
-            print(
-                f'{c.commit[:12]} ("{clean}") merged in {rev2}',
-                file=sys.stderr,
-            )
+            print(f'{rev2} has "{clean}"', file=sys.stderr)
+            if not is_mainline:
+                print(f"  stable commit {c.commit}", file=sys.stderr)
+            print(f"  identifier {primary}", file=sys.stderr)
             if "merged" not in db[primary]:
                 db[primary]["merged"] = []
             db[primary]["merged"].append(rev2)
