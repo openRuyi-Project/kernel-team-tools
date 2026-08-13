@@ -230,6 +230,58 @@ def do_diff_commits(
             print(f"    {primary}")
 
 
+def do_record(repo: GitRepo, db: dict, rev1: str, rev2: str):
+    is_mainline = parse_base(rev2)[2] == 0
+    for c in repo.commit_list([f"^{rev1}", rev2]):
+        upstream = []
+        if is_mainline:
+            upstream.append(f"commit:{c.commit}")
+        upstream.extend(guess_upstream_id(c.message))
+        if not upstream:
+            continue
+        primary = upstream[0]
+        clean = clean_subject(c.message)
+
+        is_useful = False
+
+        for secondary in upstream[1:]:
+            if secondary in db:
+                if db[secondary].get("replacement", None):
+                    continue
+                old_subject = db[secondary].get("subject", "(Unknown)")
+                is_identical = " (identical subject)" if old_subject == clean else ""
+                print(f"Is new patch {primary}", file=sys.stderr)
+                print(f"  (stable branch commit {c.commit})", file=sys.stderr)
+                print(f'  "{clean}"', file=sys.stderr)
+                print(
+                    f"... the replacement of patch {secondary}?",
+                    file=sys.stderr,
+                )
+                print(f'  "{old_subject}"{is_identical}', file=sys.stderr)
+                if prompt_yn():
+                    is_useful = True
+                    db[secondary]["replacement"] = primary
+
+        if is_useful and primary not in db:
+            db[primary] = {
+                "subject": clean,
+            }
+
+        if primary in db:
+            known_merged = any(
+                base_is_contained_in(m, rev2) for m in db[primary].get("merged", [])
+            )
+            if known_merged:
+                continue
+            print(
+                f'{c.commit[:12]} ("{clean}") merged in {rev2}',
+                file=sys.stderr,
+            )
+            if "merged" not in db[primary]:
+                db[primary]["merged"] = []
+            db[primary]["merged"].append(rev2)
+
+
 def main():
     repo = GitRepo(".")
     match sys.argv[1:]:
@@ -283,58 +335,7 @@ def main():
 
         case ["record", rev1, rev2]:
             db = read_patch_db()
-            is_mainline = parse_base(rev2)[2] == 0
-            for c in repo.commit_list([f"^{rev1}", rev2]):
-                upstream = []
-                if is_mainline:
-                    upstream.append(f"commit:{c.commit}")
-                upstream.extend(guess_upstream_id(c.message))
-                if not upstream:
-                    continue
-                primary = upstream[0]
-                clean = clean_subject(c.message)
-
-                is_useful = False
-
-                for secondary in upstream[1:]:
-                    if secondary in db:
-                        if db[secondary].get("replacement", None):
-                            continue
-                        old_subject = db[secondary].get("subject", "(Unknown)")
-                        is_identical = (
-                            " (identical subject)" if old_subject == clean else ""
-                        )
-                        print(f"Is new patch {primary}", file=sys.stderr)
-                        print(f"  (stable branch commit {c.commit})", file=sys.stderr)
-                        print(f'  "{clean}"', file=sys.stderr)
-                        print(
-                            f"... the replacement of patch {secondary}?",
-                            file=sys.stderr,
-                        )
-                        print(f'  "{old_subject}"{is_identical}', file=sys.stderr)
-                        if prompt_yn():
-                            is_useful = True
-                            db[secondary]["replacement"] = primary
-
-                if is_useful and primary not in db:
-                    db[primary] = {
-                        "subject": clean,
-                    }
-
-                if primary in db:
-                    known_merged = any(
-                        base_is_contained_in(m, rev2)
-                        for m in db[primary].get("merged", [])
-                    )
-                    if known_merged:
-                        continue
-                    print(
-                        f'{c.commit[:12]} ("{clean}") merged in {rev2}',
-                        file=sys.stderr,
-                    )
-                    if "merged" not in db[primary]:
-                        db[primary]["merged"] = []
-                    db[primary]["merged"].append(rev2)
+            do_record(repo, db, rev1, rev2)
             write_patch_db(db)
 
         case _:
