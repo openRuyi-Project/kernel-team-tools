@@ -335,7 +335,12 @@ def main():
 
         case ["record", rev1, rev2]:
             db = read_patch_db()
-            do_record(repo, db, rev1, rev2)
+            assert base_is_contained_in(rev1, rev2)
+            while not base_is_contained_in(rev2, rev1):
+                pre = guess_base(repo, f"{rev2}^1")
+                print(f"Checking {pre}...{rev2}", file=sys.stderr)
+                do_record(repo, db, pre, rev2)
+                rev2 = pre
             write_patch_db(db)
 
         case _:
