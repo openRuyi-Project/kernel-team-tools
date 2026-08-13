@@ -93,11 +93,20 @@ $ ./patl record <upstream-tag-1> <upstream-tag-2>
 
 Record patches that are included between `upstream-tag-1` and `upstream-tag-2`.
 
-Commit in `<upstream-tag-1>...<upstream-tag-2>` are inspected for potential matches in the database.
-If any commit hash matches are found, they're added to the database and recorded as being merged in `upstream-tag-2`.
+Commits in each version in the range of `<upstream-tag-1>...<upstream-tag-2>` are inspected for potential matches in the database.
+If any commit hash matches are found, they're added to the database and recorded as being merged in the version matched.
 If less precise matches are found, they're prompted for, similar to patch replacements.
 
-`upstream-tag-1` and `upstream-tag-2` should be adjacent, so that the patch information will be precise.
+For example, `./patl record v7.0 v7.1.2` would check the ranges
+
+- v7.1.1...v7.1.2
+- v7.1...v7.1.1
+- v7.1-rc7...v7.1
+- v7.1-rc6...v7.1-rc7
+- (More rc versions omitted)
+- v7.1-rc1...v7.1-rc2
+- v7.0...v7.1-rc1
+
 It is safe to run `./patl record <upstream-tag-1> <upstream-tag-2>` for the same tags multiple times.
 
 ### `diff`
