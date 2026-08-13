@@ -106,6 +106,130 @@ def prompt_yn():
             return False
 
 
+def do_diff_commits(
+    commits1: list[GitCommit],
+    commits2: list[GitCommit],
+    base2: str,
+    pre: str = "(before)",
+    post: str = "(after)",
+):
+    cl1 = [g[0] for c in commits1 if (g := guess_id(c.message))]
+    cl2 = [g[0] for c in commits2 if (g := guess_id(c.message))]
+    cs1, cs2 = set(cl1), set(cl2)
+    assert len(cl1) == len(cs1), f"{pre} contains duplicate patches"
+    assert len(cl2) == len(cs2), f"{post} contains duplicate patches"
+
+    new_patches = cs2 - cs1
+    removed_patches = cs1 - cs2
+    replacements = {}
+    replaces = {}
+
+    db = read_patch_db()
+    for removed in removed_patches:
+        remaining = {removed}
+        grabbed = set()
+        merged = set()
+        while remaining:
+            p = remaining.pop()
+
+            if p in cs2:
+                grabbed.add(p)
+                continue
+
+            if p not in db:
+                break
+
+            merged_bases = [
+                m for m in db[p].get("merged", []) if base_is_contained_in(m, base2)
+            ]
+            if merged_bases:
+                merged.add((p, merged_bases[0]))
+                continue
+
+            if db[p].get("replacement", None) is None:
+                break
+            elif isinstance(db[p]["replacement"], list):
+                remaining.update(db[p]["replacement"])
+            else:
+                remaining.add(db[p]["replacement"])
+        else:
+            replacements[removed] = (grabbed, merged)
+            new_patches -= grabbed
+            for g in grabbed:
+                if g not in replaces:
+                    replaces[g] = set()
+                replaces[g].add(removed)
+
+    # First pass, only collect patch numbers
+
+    patch_num = {}
+
+    for c in commits1:
+        guessed = guess_id(c.message)
+        if not guessed:
+            continue
+        primary = guessed[0]
+        if primary in replacements:
+            gs, ms = replacements[primary]
+            if gs:
+                patch_num[primary] = len(patch_num) + 1
+
+    for c in commits2:
+        guessed = guess_id(c.message)
+        if not guessed:
+            continue
+        primary = guessed[0]
+        if primary in replaces:
+            patch_num[primary] = len(patch_num) + 1
+
+    # Now we actually print everything
+
+    print(f"Removals from {pre}")
+    if not removed_patches:
+        print("  (None)")
+
+    for c in commits1:
+        guessed = guess_id(c.message)
+        if not guessed:
+            continue
+        primary = guessed[0]
+        if primary not in removed_patches:
+            continue
+        if primary in replacements:
+            gs, ms = replacements[primary]
+            prefix = f"[{patch_num[primary]}] Replaced" if gs else "Merged"
+            print(f'  {prefix} "{clean_subject(c.message)}"')
+            print(f"    - {primary}")
+            for g in gs:
+                print(f"    + [{patch_num[g]}] {g}")
+            for m, base in ms:
+                print(f"      in {base} ({m})")
+        else:
+            print(f'- Removed "{clean_subject(c.message)}"')
+            print(f"    {primary}")
+
+    print()
+    print(f"Additions to {post}")
+    if not new_patches and not replaces:
+        print("  (None)")
+
+    for c in commits2:
+        guessed = guess_id(c.message)
+        if not guessed:
+            continue
+        primary = guessed[0]
+        if primary not in new_patches and primary not in replaces:
+            continue
+        if primary in replaces:
+            print(f'  [{patch_num[primary]}] Replacement "{clean_subject(c.message)}"')
+            print(f"    + {primary}")
+            for r in replaces[primary]:
+                print(f"    - [{patch_num[r]}] {r}")
+        else:
+            print(f'+ New "{clean_subject(c.message)}"')
+            print(f"    {primary}")
+
+
 def main():
     repo = GitRepo(".")
     match sys.argv[1:]:
@@ -121,126 +245,7 @@ def main():
 
             commits1 = repo.commit_list([f"^refs/tags/{base1}", rev1])
             commits2 = repo.commit_list([f"^refs/tags/{base2}", rev2])
-            cl1 = [g[0] for c in commits1 if (g := guess_id(c.message))]
-            cl2 = [g[0] for c in commits2 if (g := guess_id(c.message))]
-            cs1, cs2 = set(cl1), set(cl2)
-            assert len(cl1) == len(cs1), f"{rev1} contains duplicate patches"
-            assert len(cl2) == len(cs2), f"{rev2} contains duplicate patches"
-
-            new_patches = cs2 - cs1
-            removed_patches = cs1 - cs2
-            replacements = {}
-            replaces = {}
-
-            db = read_patch_db()
-            for removed in removed_patches:
-                remaining = {removed}
-                grabbed = set()
-                merged = set()
-                while remaining:
-                    p = remaining.pop()
-
-                    if p in cs2:
-                        grabbed.add(p)
-                        continue
-
-                    if p not in db:
-                        break
-
-                    merged_bases = [
-                        m
-                        for m in db[p].get("merged", [])
-                        if base_is_contained_in(m, base2)
-                    ]
-                    if merged_bases:
-                        merged.add((p, merged_bases[0]))
-                        continue
-
-                    if db[p].get("replacement", None) is None:
-                        break
-                    elif isinstance(db[p]["replacement"], list):
-                        remaining.update(db[p]["replacement"])
-                    else:
-                        remaining.add(db[p]["replacement"])
-                else:
-                    replacements[removed] = (grabbed, merged)
-                    new_patches -= grabbed
-                    for g in grabbed:
-                        if g not in replaces:
-                            replaces[g] = set()
-                        replaces[g].add(removed)
-
-            # First pass, only collect patch numbers
-
-            patch_num = {}
-
-            for c in commits1:
-                guessed = guess_id(c.message)
-                if not guessed:
-                    continue
-                primary = guessed[0]
-                if primary in replacements:
-                    gs, ms = replacements[primary]
-                    if gs:
-                        patch_num[primary] = len(patch_num) + 1
-
-            for c in commits2:
-                guessed = guess_id(c.message)
-                if not guessed:
-                    continue
-                primary = guessed[0]
-                if primary in replaces:
-                    patch_num[primary] = len(patch_num) + 1
-
-            # Now we actually print everything
-
-            print(f"Removals from {rev1}")
-            if not removed_patches:
-                print("  (None)")
-
-            for c in commits1:
-                guessed = guess_id(c.message)
-                if not guessed:
-                    continue
-                primary = guessed[0]
-                if primary not in removed_patches:
-                    continue
-                if primary in replacements:
-                    gs, ms = replacements[primary]
-                    prefix = f"[{patch_num[primary]}] Replaced" if gs else "Merged"
-                    print(f'  {prefix} "{clean_subject(c.message)}"')
-                    print(f"    - {primary}")
-                    for g in gs:
-                        print(f"    + [{patch_num[g]}] {g}")
-                    for m, base in ms:
-                        print(f"      in {base} ({m})")
-                else:
-                    print(f'- Removed "{clean_subject(c.message)}"')
-                    print(f"    {primary}")
-
-            print()
-            print(f"Additions to {rev2}")
-            if not new_patches and not replaces:
-                print("  (None)")
-
-            for c in commits2:
-                guessed = guess_id(c.message)
-                if not guessed:
-                    continue
-                primary = guessed[0]
-                if primary not in new_patches and primary not in replaces:
-                    continue
-                if primary in replaces:
-                    print(
-                        f'  [{patch_num[primary]}] Replacement "{clean_subject(c.message)}"'
-                    )
-                    print(f"    + {primary}")
-                    for r in replaces[primary]:
-                        print(f"    - [{patch_num[r]}] {r}")
-                else:
-                    print(f'+ New "{clean_subject(c.message)}"')
-                    print(f"    {primary}")
-
+            do_diff_commits(commits1, commits2, base2, pre=rev1, post=rev2)
         case ["walk", ref]:
             base = guess_base(repo, ref)
             print(f"Base for {ref} is {base}", file=sys.stderr)
