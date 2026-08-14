@@ -62,6 +62,26 @@ Currently, these problems are diagnosed:
 
   The message contains content that would confuse `git mailsplit` or `git mailinfo`, which means that a patch generated from `git format-patch` on this commit would not be correctly handled by `git am`.
 
+### `status`
+
+```console
+$ ./patl status <rev>
+```
+
+Check patches in `rev` for possibly outdated patches, based on information in the database.
+
+An example output item is as follows:
+
+```
+Commit 677c9368d444 ("riscv: dts: spacemit: k3: add rfkill node for WLAN on Pico-ITX board"):
+  mail:20260716213314.3027969-5-aurelien@aurel32.net
+  has replacement:
+  - "riscv: dts: spacemit: k3: add rfkill node for WLAN"
+    mail:20260729172450.1660418-5-aurelien@aurel32.net
+```
+
+This shows that the commit `677c9368d444` (which is an ancestor of `rev`) is identified and, according to the database, it has a replacement.
+
 ### `walk`
 
 ```console
