@@ -95,13 +95,14 @@ def write_patch_db(db):
         f.write("\n")
 
 
-def prompt_yn():
+def prompt_yn(default: bool = False):
+    prompt = "[Y/n]? " if default else "[y/N]? "
     while True:
-        yn = input("[Y/n]? ").strip().lower()
-        if yn in ("y", ""):
+        yn = input(prompt).strip().lower()
+        if yn == "y" or (default and yn == ""):
             print("       (Yes)", file=sys.stderr)
             return True
-        elif yn == "n":
+        elif yn == "n" or (not default and yn == ""):
             print("       (No)", file=sys.stderr)
             return False
 
@@ -232,6 +233,16 @@ def do_diff_commits(
 
 def do_record(repo: GitRepo, db: dict, rev1: str, rev2: str):
     is_mainline = parse_base(rev2)[2] == 0
+
+    by_subject = {}
+
+    for pid, data in db.items():
+        if "subject" not in data:
+            continue
+        if data["subject"] not in by_subject:
+            by_subject[data["subject"]] = []
+        by_subject[data["subject"]].append(pid)
+
     for c in repo.commit_list([f"^{rev1}", rev2]):
         upstream = []
         if is_mainline:
@@ -242,25 +253,37 @@ def do_record(repo: GitRepo, db: dict, rev1: str, rev2: str):
         primary = upstream[0]
         clean = clean_subject(c.message)
 
+        possible_matches = set(pid for pid in upstream[1:] if pid in db)
+        possible_matches |= set(by_subject.get(clean, []))
+        possible_matches -= {primary}
+
+        possible_matches = {
+            pid
+            for pid in possible_matches
+            if pid in db and not db[pid].get("replacement", None)
+        }
+
         is_useful = False
 
-        for secondary in upstream[1:]:
-            if secondary in db:
-                if db[secondary].get("replacement", None):
-                    continue
-                old_subject = db[secondary].get("subject", "(Unknown)")
-                is_identical = " (identical subject)" if old_subject == clean else ""
-                print(f"Is new patch {primary}", file=sys.stderr)
-                print(f"  (found as commit {c.commit})", file=sys.stderr)
-                print(f'  "{clean}"', file=sys.stderr)
-                print(
-                    f"... the replacement of patch {secondary}?",
-                    file=sys.stderr,
-                )
-                print(f'  "{old_subject}"{is_identical}', file=sys.stderr)
-                if prompt_yn():
-                    is_useful = True
-                    db[secondary]["replacement"] = primary
+        if possible_matches:
+            print(f"Is new patch {primary}", file=sys.stderr)
+            print(f"  (found as commit {c.commit})", file=sys.stderr)
+            print(f'  "{clean}"', file=sys.stderr)
+
+        for possible in possible_matches:
+            old_subject = db[possible].get("subject", "(Unknown)")
+            is_identical = " (identical subject)" if old_subject == clean else ""
+            print(
+                f"... the replacement of patch {possible}?",
+                file=sys.stderr,
+            )
+            is_id_match = possible in upstream[1:]
+            if not is_id_match:
+                print(f"* (weak match)", file=sys.stderr)
+            print(f'  "{old_subject}"{is_identical}', file=sys.stderr)
+            if prompt_yn(is_id_match):
+                is_useful = True
+                db[possible]["replacement"] = primary
 
         if is_useful and primary not in db:
             db[primary] = {
