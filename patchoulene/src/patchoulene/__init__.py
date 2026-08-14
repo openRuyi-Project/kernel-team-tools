@@ -1,5 +1,6 @@
 import difflib
 import json
+import os
 import pathlib
 import re
 import shlex
@@ -306,6 +307,68 @@ def do_record(repo: GitRepo, db: dict, rev1: str, rev2: str):
             db[primary]["merged"].append(rev2)
 
 
+NO_COLOR = os.getenv("NO_COLOR", "") or not sys.stdout.isatty()
+
+
+def color_sel(color_msg: str, msg: str) -> str:
+    return msg if NO_COLOR else color_msg
+
+
+def dim(msg: str) -> str:
+    return color_sel(f"\x1b[90m{msg}\x1b[m", msg)
+
+
+def do_status(db: dict, commits: list[GitCommit], rev):
+    for c in commits:
+        clean = clean_subject(c.message)
+        guessed = guess_id(c.message)
+        if not guessed:
+            continue
+        primary = guessed[0]
+
+        if primary not in db:
+            print(f'Patch "{clean}":', file=sys.stderr)
+            print(
+                f"- This patch has not been recorded, please run './patl walk {rev}'",
+                file=sys.stderr,
+            )
+            continue
+
+        # Walk the replacment graph to find the set of patches that replaces c
+
+        replacements = set()
+        todo = {primary}
+
+        while todo:
+            pid = todo.pop()
+
+            if pid not in db or not db[pid].get("replacement", None):
+                replacements.add(pid)
+                continue
+
+            repl = db[pid]["replacement"]
+            if not isinstance(repl, list):
+                repl = [repl]
+
+            todo.update(repl)
+
+        if replacements != {primary}:
+            print(f'Commit {c.commit[:12]} ("{clean}"):')
+            print(f"  {dim(primary)}")
+            print(f"  has replacement:")
+            for pid in replacements:
+                subject = db.get(pid, {}).get("subject", "???")
+                subject_suffix = ""
+                if "subject" in db.get(pid, {}) and subject == clean:
+                    subject_suffix = " (identical subject)"
+                suffix = ""
+                if pid in db and (merged := db[pid].get("merged", [])):
+                    suffix = f" (merged {', '.join(merged)})"
+                print(f'  - "{subject}"{subject_suffix}')
+                print(f"    {dim(pid)}{suffix}")
+            print()
+
+
 def main():
     repo = GitRepo(".")
     match sys.argv[1:]:
@@ -313,6 +376,12 @@ def main():
             base = guess_base(repo, ref)
             print(f"Base for {ref} is {base}", file=sys.stderr)
             do_check_messages(repo, [f"^refs/tags/{base}", ref])
+        case ["status", rev]:
+            base = guess_base(repo, rev)
+            print(f"Base for {rev} is {base}", file=sys.stderr)
+            commits = repo.commit_list([f"^refs/tags/{base}", rev])
+            db = read_patch_db()
+            do_status(db, commits, rev)
         case ["diff", rev1, rev2]:
             base1 = guess_base(repo, rev1)
             print(f"Base for {rev1} is {base1}", file=sys.stderr)
