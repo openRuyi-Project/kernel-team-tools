@@ -98,7 +98,8 @@ def write_patch_db(db):
 def prompt_yn(default: bool = False):
     prompt = "[Y/n]? " if default else "[y/N]? "
     while True:
-        yn = input(prompt).strip().lower()
+        print(prompt, end="", file=sys.stderr)
+        yn = input().strip().lower()
         if yn == "y" or (default and yn == ""):
             print("       (Yes)", file=sys.stderr)
             return True
