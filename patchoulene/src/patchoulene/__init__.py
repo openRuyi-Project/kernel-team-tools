@@ -7,6 +7,7 @@ import shlex
 import subprocess
 import sys
 
+from . import b4
 from .message import *
 from .git import GitCommit, GitRepo
 
@@ -302,6 +303,266 @@ def do_status(db: dict, commits: list[GitCommit], rev: str):
             print()
 
 
+def do_mail_check(db: dict[str, dict]) -> list[dict[str, list[dict[str, str]]]]:
+    def msg_thread_replacement(
+        this_thread: list[b4.PatchHeader], latest_thread: list[b4.PatchHeader]
+    ) -> str:
+        msgs = [f"Patches:"]
+        for m in this_thread:
+            msgs.append(f"  {m.clean_subject()}")
+            msgs.append(f"    https://patch.msgid.link/{m.message_id()}")
+
+        msgs.append(f"... may have replacement:")
+        for m in latest_thread:
+            msgs.append(f"  {m.clean_subject()}")
+            msgs.append(f"    https://patch.msgid.link/{m.message_id()}")
+
+        return "\n".join(msgs)
+
+    result = []
+    checked = set()
+
+    for pid, data in db.items():
+        if data.get("replacement", None):
+            continue
+
+        if (m := re.fullmatch(r"mail:(\S+)", pid)) is None:
+            continue
+
+        msgid = m[1]
+
+        status = "Already checked" if msgid in checked else "Checking"
+        print(f'{status} "{data.get("subject", "???")}" {msgid}', file=sys.stderr)
+
+        if msgid in checked:
+            continue
+
+        if (res := b4.check_msgid(msgid)) is None:
+            continue
+
+        this_thread, latest_thread = res
+        this_ids = [m.message_id() for m in this_thread]
+        latest_ids = [m.message_id() for m in latest_thread]
+
+        checked.update(this_ids)
+        if set(this_ids) == set(latest_ids):
+            continue
+
+        print(msg_thread_replacement(this_thread, latest_thread), file=sys.stderr)
+
+        result.append(
+            {
+                "current": [m.headers for m in this_thread],
+                "replacement": [m.headers for m in latest_thread],
+            }
+        )
+
+    return result
+
+
+def do_mail_match(data: list[dict]):
+    db = read_patch_db()
+    for entry in data:
+        current: list[b4.PatchHeader]
+        replacement: list[b4.PatchHeader]
+        proc = lambda ps: [b4.PatchHeader(h) for h in ps]
+        current, replacement = proc(entry["current"]), proc(entry["replacement"])
+
+        ids = [f"mail:{h.message_id()}" for h in current]
+        if all(p not in db or db[p].get("replacement", None) for p in ids):
+            continue
+
+        curr_keys = [h.clean_subject() for h in current]
+        rep_keys = [h.clean_subject() for h in replacement]
+        if len(rep_keys) != len(set(rep_keys)):
+            print("Duplicates in patch list?", file=sys.stderr)
+        rep_map = {subj: idx for idx, subj in enumerate(rep_keys)}
+
+        valid = [pid in db and not db[pid].get("replacement", None) for pid in ids]
+        matrix: list[list[int] | None]
+        matrix = [None] * len(current)
+
+        # Guess an initial match based on subjects
+        for i in range(len(curr_keys)):
+            if valid[i] and curr_keys[i] in rep_map:
+                matrix[i] = [rep_map[curr_keys[i]]]
+
+        print("-" * 60, file=sys.stderr)
+        while True:
+            print("Current version:", file=sys.stderr)
+            for idxa, ha in enumerate(current):
+                if not valid[idxa]:
+                    if ids[idxa] not in db:
+                        why_invalid = "(not in db)"
+                    else:
+                        why_invalid = "(has replacement)"
+                    print(
+                        f"        {dim(f'({ha.subject()}) {why_invalid}')}",
+                        file=sys.stderr,
+                    )
+
+                    if ids[idxa] in db:
+                        assert "replacement" in db[ids[idxa]]
+                        rs = db[ids[idxa]]["replacement"]
+                        if not isinstance(rs, list):
+                            rs = [rs]
+                        for r in rs:
+                            if info := db.get(r):
+                                print(
+                                    f"         {dim('->')} {dim(info.get('subject', '???'))}",
+                                    file=sys.stderr,
+                                )
+                                print(f"            {dim(r)}", file=sys.stderr)
+                            else:
+                                print(
+                                    f"         {dim('->')} {dim(r)} {dim('(Unknown patch???)')}",
+                                    file=sys.stderr,
+                                )
+                    continue
+                print(f"  {f'(A{idxa + 1})':>6} {ha.subject()}", file=sys.stderr)
+                print(f"         {dim(f'mail:{ha.message_id()}')}", file=sys.stderr)
+                row = matrix[idxa]
+                if row is not None:
+                    for idxb in row:
+                        subj_b = replacement[idxb].subject()
+                        print(f"         -> (B{idxb + 1}) {subj_b}", file=sys.stderr)
+                else:
+                    print(f"         (no replacement)", file=sys.stderr)
+
+            print(file=sys.stderr)
+            print("Replacement version:", file=sys.stderr)
+            for idxb, hb in enumerate(replacement):
+                print(f"  {f'(B{idxb + 1})':>6} {hb.subject()}", file=sys.stderr)
+                print(f"         {dim(f'mail:{hb.message_id()}')}", file=sys.stderr)
+
+            print(file=sys.stderr)
+            print("Matrix:", file=sys.stderr)
+            for idxa in range(len(current)):
+                if not valid[idxa]:
+                    continue
+                if matrix[idxa] is not None:
+                    assert matrix[idxa]
+                mx = matrix[idxa] or []
+                mstr = f"{idxa + 1} ={''.join(' ' + str(ib + 1) for ib in mx)}"
+                print(f"    {mstr}", file=sys.stderr)
+
+            print(file=sys.stderr)
+
+            valids = sum(valid)
+            missing = sum(valid[i] and not matrix[i] for i in range(len(current)))
+
+            if missing == valids:
+                print(f"None of {valids} patch(es) have replacement", file=sys.stderr)
+                print(file=sys.stderr)
+            elif missing:
+                print(
+                    f"{missing}/{valids} patches missing replacement", file=sys.stderr
+                )
+                print(file=sys.stderr)
+
+            valid_options = []
+            valid_keys = []
+
+            if any(matrix):
+                valid_options.append("(Y)es, accept this replacement matrix")
+                valid_keys.append("y")
+                valid_options.append("(N)o, decline this replacement matrix")
+                valid_keys.append("n")
+            else:
+                valid_options.append(
+                    "(Y)es, accept that no replacements will be recorded"
+                )
+                valid_keys.append("y")
+
+            if len(current) == len(replacement):
+                valid_options.append("Match (c)orresponding patches by number")
+                valid_keys.append("c")
+
+            for opt in valid_options:
+                print(opt, file=sys.stderr)
+
+            while True:
+                match_row = None
+                more_keys = "".join("/" + k for k in valid_keys if k != "y")
+                print(f"[Y{more_keys}/(matrix row)]? ", end="", file=sys.stderr)
+                key = input().strip()
+
+                if key == "":
+                    assert "y" in valid_keys
+                    key = "y"
+                    break
+
+                if key.lower() in valid_keys:
+                    key = key.lower()
+                    break
+
+                if match_row := re.fullmatch(r"(\d+)\s*=((?:[,\s]*(?:\d+))*)", key):
+                    a = int(match_row[1])
+                    bs = match_row[2].strip()
+                    bs = re.split(r"[,\s]", bs) if bs else []
+                    bs = [int(x) for x in bs]
+                    if not (1 <= a <= len(current)) or not valid[a - 1]:
+                        print(f"Invalid row number {a}", file=sys.stderr)
+                        continue
+                    bad = False
+                    for b in bs:
+                        if not (1 <= b <= len(replacement)):
+                            print(f"Invalid replacement {b}", file=sys.stderr)
+                            bad = True
+                    if bad:
+                        continue
+                    a, bs = a - 1, [b - 1 for b in bs]
+
+                    break
+
+                print(f"Unrecognized action {key!r}", file=sys.stderr)
+
+            if match_row:
+                if bs:
+                    matrix[a] = sorted(set(bs))
+                else:
+                    matrix[a] = None
+                continue
+
+            assert key in valid_keys
+
+            match key:
+                case "y":
+                    print(f"(Accepted)", file=sys.stderr)
+                    for i in range(len(current)):
+                        row = matrix[i]
+
+                        if not valid[i] or not row:
+                            continue
+
+                        cur_pid = f"mail:{current[i].message_id()}"
+                        rs = [replacement[r] for r in row]
+
+                        for r in rs:
+                            rid = f"mail:{r.message_id()}"
+                            if rid not in db:
+                                db[rid] = {"subject": r.clean_subject()}
+
+                        rids = [f"mail:{r.message_id()}" for r in rs]
+                        assert "replacement" not in db[cur_pid]
+                        if len(rids) == 1:
+                            db[cur_pid]["replacement"] = rids[0]
+                        else:
+                            db[cur_pid]["replacement"] = rids
+                    break
+                case "n":
+                    print(f"(Ignored)", file=sys.stderr)
+                    break
+                case "c":
+                    for i in range(len(current)):
+                        if valid[i]:
+                            matrix[i] = [i]
+
+            print(file=sys.stderr)
+
+    write_patch_db(db)
+
+
 def main():
     repo = GitRepo(".")
     match sys.argv[1:]:
@@ -315,6 +576,25 @@ def main():
             commits = repo.commit_list([f"^refs/tags/{base}", rev])
             db = read_patch_db()
             do_status(db, commits, rev)
+        case ["mail-check"]:
+            db = read_patch_db()
+            result_file = "mail-check.json"
+            result = do_mail_check(db)
+            if result:
+                with open(result_file, "w") as f:
+                    print(f"Writing to {result_file}", file=sys.stderr)
+                    json.dump(result, f, indent=4)
+                    f.write("\n")
+            else:
+                print("No updates found", file=sys.stderr)
+        case ["mail-match"]:
+            with open("mail-check.json", "rb") as f:
+                data = json.load(f)
+            do_mail_match(data)
+        case ["mail-match", jsonfile]:
+            with open(jsonfile, "rb") as f:
+                data = json.load(f)
+            do_mail_match(data)
         case ["diff", rev1, rev2]:
             base1 = guess_base(repo, rev1)
             print(f"Base for {rev1} is {base1}", file=sys.stderr)

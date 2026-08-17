@@ -137,6 +137,154 @@ $ ./patl diff <rev1> <rev2>
 
 Compare patches between `rev1` and `rev2`, using information in the database.
 
+### `mail-check`
+
+```console
+$ ./patl mail-check
+```
+
+Check mailing lists for new versions of patches and patch series, and save to `mail-check.json`.
+Use `./patl mail-match` to interactively add replacement information from `mail-check.json`
+
+### `mail-match`
+
+```console
+$ ./patl mail-match `file`
+```
+
+The `file` argument is optional; if omitted, it defaults to `mail-check.json`, which is the default output file name of `./patl mail-check`.
+
+Interactively merge data from the `mail-check.json` file into the patch database.
+For each patch or patch series version update, a replacement view and a prompt would appear.
+The patches are matched heuristically by subject initially.
+You can edit, accept, discard each replacement item on each prompt.
+
+<details>
+
+<summary>Detailed example</summary>
+
+The view is divided into four sections.
+Firstly, the current version shows the current known version of the series.
+Patches are shown with their currently matched replacements, if any.
+
+Some patches may not be eligible for replacement.
+These patches are shown with parentheses around their subjects.
+The reason will be shown as well.
+
+```
+Current version:
+    (A1) [PATCH 1/4] riscv: defconfig: enable RFKILL and RFKILL_GPIO
+         mail:20260716213314.3027969-2-aurelien@aurel32.net
+         -> (B1) [PATCH v2 1/4] riscv: defconfig: enable RFKILL and RFKILL_GPIO
+        ([PATCH 2/4] riscv: dts: spacemit: k3: add rfkill node for Bluetooth on Pico-ITX board) (has replacement)
+         -> riscv: dts: spacemit: k3: add rfkill node for Bluetooth on Pico-ITX board
+            mail:20260729172450.1660418-3-aurelien@aurel32.net
+    (A3) [PATCH 3/4] riscv: dts: spacemit: k3: add USB3 B and C controllers for Pico-ITX board
+         mail:20260716213314.3027969-4-aurelien@aurel32.net
+         -> (B3) [PATCH v2 3/4] riscv: dts: spacemit: k3: add USB3 B and C controllers for Pico-ITX board
+    (A4) [PATCH 4/4] riscv: dts: spacemit: k3: add rfkill node for WLAN on Pico-ITX board
+         mail:20260716213314.3027969-5-aurelien@aurel32.net
+         (no replacement)
+```
+
+Secondly, the replacement series is shown.
+
+```
+Replacement version:
+    (B1) [PATCH v2 1/4] riscv: defconfig: enable RFKILL and RFKILL_GPIO
+         mail:20260729172450.1660418-2-aurelien@aurel32.net
+    (B2) [PATCH v2 2/4] riscv: dts: spacemit: k3: add rfkill node for Bluetooth on Pico-ITX board
+         mail:20260729172450.1660418-3-aurelien@aurel32.net
+    (B3) [PATCH v2 3/4] riscv: dts: spacemit: k3: add USB3 B and C controllers for Pico-ITX board
+         mail:20260729172450.1660418-4-aurelien@aurel32.net
+    (B4) [PATCH v2 4/4] riscv: dts: spacemit: k3: add rfkill node for WLAN
+         mail:20260729172450.1660418-5-aurelien@aurel32.net
+```
+
+Then the current replacement is shown again, concisely as a matrix.
+Here, it means that patch A1 corresponds to B1, and A3 corresponds to B3.
+Patch A4 has no replacement.
+
+```
+Matrix:
+    1 = 1
+    3 = 3
+    4 =
+
+1/3 patches missing replacement
+```
+
+Finally, the prompt shows available actions. You can type a letter and enter to perform one of these actions
+
+- `y`: Accept the replacements as shown.
+  This is also the default action performed if you type enter without a letter.
+- `n`: Discard the entire matrix. No replacements will be recorded.
+- `c`: If both series have the same number of patches, this creates a replacement matrix that matches patch A1 with B1, A2 with B2, etc.
+
+You can also type a matrix row to edit the replacement of a certain patch.
+For example, to say that patch A2 corresponds to B2 and B3, type `2=2,3`.
+To delete the replacement for patch A1, type `1=`.
+
+```
+(Y)es, accept this replacement matrix
+(N)o, decline this replacement matrix
+Match (c)orresponding patches by number
+[Y/n/c/(matrix row)]?
+```
+
+(If there's no replacement for this series at all, the prompt will be different to highlight this fact.)
+
+```
+(Y)es, accept that no replacements will be recorded
+[Y/(matrix row)]?
+```
+
+In this case, we can verify that patch A4 corresponds to B4.
+Therefore, we type `4=4`.
+Alternatively, since both series have four patches, `c` also performs the same action.
+This results in:
+
+```
+Current version:
+    (A1) [PATCH 1/4] riscv: defconfig: enable RFKILL and RFKILL_GPIO
+         mail:20260716213314.3027969-2-aurelien@aurel32.net
+         -> (B1) [PATCH v2 1/4] riscv: defconfig: enable RFKILL and RFKILL_GPIO
+        ([PATCH 2/4] riscv: dts: spacemit: k3: add rfkill node for Bluetooth on Pico-ITX board) (has replacement)
+         -> riscv: dts: spacemit: k3: add rfkill node for Bluetooth on Pico-ITX board
+            mail:20260729172450.1660418-3-aurelien@aurel32.net
+    (A3) [PATCH 3/4] riscv: dts: spacemit: k3: add USB3 B and C controllers for Pico-ITX board
+         mail:20260716213314.3027969-4-aurelien@aurel32.net
+         -> (B3) [PATCH v2 3/4] riscv: dts: spacemit: k3: add USB3 B and C controllers for Pico-ITX board
+    (A4) [PATCH 4/4] riscv: dts: spacemit: k3: add rfkill node for WLAN on Pico-ITX board
+         mail:20260716213314.3027969-5-aurelien@aurel32.net
+         -> (B4) [PATCH v2 4/4] riscv: dts: spacemit: k3: add rfkill node for WLAN
+
+Replacement version:
+    (B1) [PATCH v2 1/4] riscv: defconfig: enable RFKILL and RFKILL_GPIO
+         mail:20260729172450.1660418-2-aurelien@aurel32.net
+    (B2) [PATCH v2 2/4] riscv: dts: spacemit: k3: add rfkill node for Bluetooth on Pico-ITX board
+         mail:20260729172450.1660418-3-aurelien@aurel32.net
+    (B3) [PATCH v2 3/4] riscv: dts: spacemit: k3: add USB3 B and C controllers for Pico-ITX board
+         mail:20260729172450.1660418-4-aurelien@aurel32.net
+    (B4) [PATCH v2 4/4] riscv: dts: spacemit: k3: add rfkill node for WLAN
+         mail:20260729172450.1660418-5-aurelien@aurel32.net
+
+Matrix:
+    1 = 1
+    3 = 3
+    4 = 4
+
+(Y)es, accept this replacement matrix
+(N)o, decline this replacement matrix
+Match (c)orresponding patches by number
+[Y/n/c/(matrix row)]?
+```
+
+The replacement matrix is now complete and correct.
+Type enter or `y` then enter to accept this replacement.
+
+</details>
+
 ## Patch series and identifiers
 
 (TODO)
