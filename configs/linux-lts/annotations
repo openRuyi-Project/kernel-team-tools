@@ -2272,6 +2272,7 @@ CONFIG_DRM_DEBUG_DP_MST_TOPOLOGY_REFS           policy<{'riscv64': 'n', 'x86_64'
 CONFIG_DRM_DEBUG_MM                             policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_DRM_DEBUG_MODESET_LOCK                   policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_DRM_DISPLAY_CONNECTOR                    policy<{'riscv64': 'm'}>
+CONFIG_DRM_DISPLAY_DP_AUX_BUS                   policy<{'riscv64': 'm'}>
 CONFIG_DRM_DISPLAY_DP_AUX_CEC                   policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_DRM_DISPLAY_DP_AUX_CHARDEV               policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_DRM_DISPLAY_DP_HELPER                    policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -2500,6 +2501,7 @@ CONFIG_DRM_SIL_SII8620                          policy<{'riscv64': 'n'}>
 CONFIG_DRM_SIMPLEDRM                            policy<{'riscv64': 'y', 'x86_64': 'n'}>
 CONFIG_DRM_SIMPLE_BRIDGE                        policy<{'riscv64': 'n'}>
 CONFIG_DRM_SOLOMON_SSD2825                      policy<{'riscv64': 'n'}>
+CONFIG_DRM_SPACEMIT                             policy<{'riscv64': 'm'}>
 CONFIG_DRM_SSD130X                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_DRM_SSD130X_I2C                          policy<{'x86_64': 'm'}>
 CONFIG_DRM_SSD130X_SPI                          policy<{'x86_64': 'm'}>
@@ -3511,6 +3513,7 @@ CONFIG_GPIO_WM8994                              policy<{'x86_64': 'm'}>
 CONFIG_GPIO_WS16C48                             policy<{'x86_64': 'm'}>
 CONFIG_GPIO_XILINX                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_GPIO_XRA1403                             policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_GPU_BUDDY                                policy<{'riscv64': 'y'}>
 CONFIG_GP_PCI1XXXX                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_GRACE_PERIOD                             policy<{'riscv64': 'y', 'x86_64': 'm'}>
 CONFIG_GREENASIA_FF                             policy<{'riscv64': 'n', 'x86_64': 'y'}>
@@ -7184,6 +7187,7 @@ CONFIG_PHY_SPACEMIT_K1_PCIE                     policy<{'riscv64': 'y'}>
 CONFIG_PHY_SPACEMIT_K1_USB2                     policy<{'riscv64': 'm'}>
 CONFIG_PHY_SPACEMIT_K3_COMBO_PHY                policy<{'riscv64': 'm'}>
 CONFIG_PHY_SPACEMIT_K3_COMMON_OPS               policy<{'riscv64': 'm'}>
+CONFIG_PHY_SPACEMIT_K3_INNO_DP                  policy<{'riscv64': 'm'}>
 CONFIG_PHY_STARFIVE_JH7110_DPHY_RX              policy<{'riscv64': 'm'}>
 CONFIG_PHY_STARFIVE_JH7110_DPHY_TX              policy<{'riscv64': 'm'}>
 CONFIG_PHY_STARFIVE_JH7110_PCIE                 policy<{'riscv64': 'm'}>
@@ -9762,6 +9766,7 @@ CONFIG_SOUND_OSS_CORE                           policy<{'x86_64': 'y'}>
 CONFIG_SOUND_OSS_CORE_PRECLAIM                  policy<{'x86_64': 'n'}>
 CONFIG_SP5100_TCO                               policy<{'x86_64': 'm'}>
 CONFIG_SPACEMIT_CCU                             policy<{'riscv64': 'y'}>
+CONFIG_SPACEMIT_INNO_DP                         policy<{'riscv64': 'm'}>
 CONFIG_SPACEMIT_K1_CCU                          policy<{'riscv64': 'y'}>
 CONFIG_SPACEMIT_K1_EMAC                         policy<{'riscv64': 'm'}>
 CONFIG_SPACEMIT_K1_TSENSOR                      policy<{'riscv64': 'm'}>
