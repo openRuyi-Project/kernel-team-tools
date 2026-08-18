@@ -3298,8 +3298,8 @@ CONFIG_FXOS8700                                 policy<{'x86_64': 'm'}>
 CONFIG_FXOS8700_I2C                             policy<{'x86_64': 'm'}>
 CONFIG_FXOS8700_SPI                             policy<{'x86_64': 'm'}>
 CONFIG_GACT_PROB                                policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_GADGET_UAC1                              policy<{'x86_64': 'y'}>
-CONFIG_GADGET_UAC1_LEGACY                       policy<{'x86_64': 'n'}>
+CONFIG_GADGET_UAC1                              policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_GADGET_UAC1_LEGACY                       policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_GAMEPORT                                 policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_GAMEPORT_EMU10K1                         policy<{'x86_64': 'm'}>
 CONFIG_GAMEPORT_FM801                           policy<{'x86_64': 'm'}>
@@ -6223,7 +6223,7 @@ CONFIG_NET_9P                                   policy<{'riscv64': 'y', 'x86_64'
 CONFIG_NET_9P_DEBUG                             policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_NET_9P_FD                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_NET_9P_RDMA                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_NET_9P_USBG                              policy<{'x86_64': 'm'}>
+CONFIG_NET_9P_USBG                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_NET_9P_VIRTIO                            policy<{'riscv64': 'y', 'x86_64': 'm'}>
 CONFIG_NET_9P_XEN                               policy<{'x86_64': 'm'}>
 CONFIG_NET_ACT_BPF                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
@@ -9701,8 +9701,8 @@ CONFIG_SND_SYNTH_EMUX                           policy<{'x86_64': 'm'}>
 CONFIG_SND_TEST_COMPONENT                       policy<{'riscv64': 'n'}>
 CONFIG_SND_TIMER                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_SND_TRIDENT                              policy<{'x86_64': 'm'}>
-CONFIG_SND_UMP                                  policy<{'x86_64': 'm'}>
-CONFIG_SND_UMP_LEGACY_RAWMIDI                   policy<{'x86_64': 'y'}>
+CONFIG_SND_UMP                                  policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_SND_UMP_LEGACY_RAWMIDI                   policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_SND_USB                                  policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_SND_USB_6FIRE                            policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_SND_USB_AUDIO                            policy<{'riscv64': 'm', 'x86_64': 'm'}>
@@ -10539,22 +10539,22 @@ CONFIG_USB_ACM                                  policy<{'riscv64': 'm', 'x86_64'
 CONFIG_USB_ADUTUX                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_AIRSPY                               policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_USB_ALI_M5632                            policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_USB_AMD5536UDC                           policy<{'x86_64': 'm'}>
+CONFIG_USB_AMD5536UDC                           policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_AN2720                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_USB_ANNOUNCE_NEW_DEVICES                 policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_USB_APPLEDISPLAY                         policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_ARCH_HAS_HCD                         policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_USB_ARMLINUX                             policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_USB_ATM                                  policy<{'x86_64': 'm'}>
-CONFIG_USB_AUDIO                                policy<{'x86_64': 'm'}>
+CONFIG_USB_AUDIO                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_AUTOSUSPEND_DELAY                    policy<{'riscv64': '2', 'x86_64': '2'}>
-CONFIG_USB_BDC_UDC                              policy<{'x86_64': 'm'}>
+CONFIG_USB_BDC_UDC                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_BELKIN                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_USB_C67X00_HCD                           policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_USB_CATC                                 policy<{'riscv64': 'm', 'x86_64': 'm'}>
-CONFIG_USB_CDC_COMPOSITE                        policy<{'x86_64': 'm'}>
+CONFIG_USB_CDC_COMPOSITE                        policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_CDC_PHONET                           policy<{'x86_64': 'm'}>
-CONFIG_USB_CDNS2_UDC                            policy<{'x86_64': 'm'}>
+CONFIG_USB_CDNS2_UDC                            policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_CDNS3                                policy<{'x86_64': 'm'}>
 CONFIG_USB_CDNS3_GADGET                         policy<{'x86_64': 'n'}>
 CONFIG_USB_CDNS3_HOST                           policy<{'x86_64': 'n'}>
@@ -10565,36 +10565,38 @@ CONFIG_USB_CDNSP_PCI                            policy<{'x86_64': 'm'}>
 CONFIG_USB_CDNS_HOST                            policy<{'x86_64': 'y'}>
 CONFIG_USB_CDNS_SUPPORT                         policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_USB_CHAOSKEY                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
-CONFIG_USB_CHIPIDEA                             policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_USB_CHIPIDEA_GENERIC                     policy<{'x86_64': 'm'}>
-CONFIG_USB_CHIPIDEA_HOST                        policy<{'x86_64': 'y'}>
-CONFIG_USB_CHIPIDEA_MSM                         policy<{'x86_64': 'm'}>
-CONFIG_USB_CHIPIDEA_NPCM                        policy<{'x86_64': 'm'}>
+CONFIG_USB_CHIPIDEA                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_CHIPIDEA_GENERIC                     policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_CHIPIDEA_HOST                        policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_CHIPIDEA_IMX                         policy<{'riscv64': 'm'}>
+CONFIG_USB_CHIPIDEA_MSM                         policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_CHIPIDEA_NPCM                        policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_CHIPIDEA_PCI                         policy<{'x86_64': 'm'}>
-CONFIG_USB_CHIPIDEA_UDC                         policy<{'x86_64': 'y'}>
+CONFIG_USB_CHIPIDEA_TEGRA                       policy<{'riscv64': 'm'}>
+CONFIG_USB_CHIPIDEA_UDC                         policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_USB_COMMON                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_USB_CONFIGFS                             policy<{'x86_64': 'm'}>
-CONFIG_USB_CONFIGFS_ACM                         policy<{'x86_64': 'y'}>
-CONFIG_USB_CONFIGFS_ECM                         policy<{'x86_64': 'y'}>
-CONFIG_USB_CONFIGFS_ECM_SUBSET                  policy<{'x86_64': 'y'}>
-CONFIG_USB_CONFIGFS_EEM                         policy<{'x86_64': 'y'}>
-CONFIG_USB_CONFIGFS_F_FS                        policy<{'x86_64': 'y'}>
-CONFIG_USB_CONFIGFS_F_HID                       policy<{'x86_64': 'y'}>
-CONFIG_USB_CONFIGFS_F_LB_SS                     policy<{'x86_64': 'y'}>
-CONFIG_USB_CONFIGFS_F_MIDI                      policy<{'x86_64': 'y'}>
-CONFIG_USB_CONFIGFS_F_MIDI2                     policy<{'x86_64': 'y'}>
-CONFIG_USB_CONFIGFS_F_PRINTER                   policy<{'x86_64': 'y'}>
-CONFIG_USB_CONFIGFS_F_TCM                       policy<{'x86_64': 'n'}>
-CONFIG_USB_CONFIGFS_F_UAC1                      policy<{'x86_64': 'y'}>
-CONFIG_USB_CONFIGFS_F_UAC1_LEGACY               policy<{'x86_64': 'n'}>
-CONFIG_USB_CONFIGFS_F_UAC2                      policy<{'x86_64': 'y'}>
-CONFIG_USB_CONFIGFS_F_UVC                       policy<{'x86_64': 'y'}>
-CONFIG_USB_CONFIGFS_MASS_STORAGE                policy<{'x86_64': 'y'}>
-CONFIG_USB_CONFIGFS_NCM                         policy<{'x86_64': 'y'}>
-CONFIG_USB_CONFIGFS_OBEX                        policy<{'x86_64': 'y'}>
+CONFIG_USB_CONFIGFS                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_CONFIGFS_ACM                         policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_CONFIGFS_ECM                         policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_CONFIGFS_ECM_SUBSET                  policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_CONFIGFS_EEM                         policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_CONFIGFS_F_FS                        policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_CONFIGFS_F_HID                       policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_CONFIGFS_F_LB_SS                     policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_CONFIGFS_F_MIDI                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_CONFIGFS_F_MIDI2                     policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_CONFIGFS_F_PRINTER                   policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_CONFIGFS_F_TCM                       policy<{'riscv64': 'n', 'x86_64': 'n'}>
+CONFIG_USB_CONFIGFS_F_UAC1                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_CONFIGFS_F_UAC1_LEGACY               policy<{'riscv64': 'n', 'x86_64': 'n'}>
+CONFIG_USB_CONFIGFS_F_UAC2                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_CONFIGFS_F_UVC                       policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_CONFIGFS_MASS_STORAGE                policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_CONFIGFS_NCM                         policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_CONFIGFS_OBEX                        policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_USB_CONFIGFS_PHONET                      policy<{'x86_64': 'y'}>
-CONFIG_USB_CONFIGFS_RNDIS                       policy<{'x86_64': 'y'}>
-CONFIG_USB_CONFIGFS_SERIAL                      policy<{'x86_64': 'y'}>
+CONFIG_USB_CONFIGFS_RNDIS                       policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_CONFIGFS_SERIAL                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_USB_CONN_GPIO                            policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_USB_CXACRU                               policy<{'x86_64': 'm'}>
 CONFIG_USB_CYPRESS_CY7C63                       policy<{'riscv64': 'n', 'x86_64': 'm'}>
@@ -10602,15 +10604,15 @@ CONFIG_USB_CYTHERM                              policy<{'riscv64': 'n', 'x86_64'
 CONFIG_USB_DEFAULT_AUTHORIZATION_MODE           policy<{'riscv64': '1', 'x86_64': '1'}>
 CONFIG_USB_DEFAULT_PERSIST                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_USB_DSBR                                 policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_USB_DUMMY_HCD                            policy<{'x86_64': 'n'}>
+CONFIG_USB_DUMMY_HCD                            policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_USB_DWC2                                 policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_USB_DWC2_DEBUG                           policy<{'x86_64': 'n'}>
 CONFIG_USB_DWC2_HOST                            policy<{'x86_64': 'y'}>
 CONFIG_USB_DWC2_PCI                             policy<{'x86_64': 'm'}>
 CONFIG_USB_DWC2_TRACK_MISSED_SOFS               policy<{'x86_64': 'n'}>
 CONFIG_USB_DWC3                                 policy<{'riscv64': 'm', 'x86_64': 'm'}>
-CONFIG_USB_DWC3_DUAL_ROLE                       policy<{'x86_64': 'y'}>
-CONFIG_USB_DWC3_GADGET                          policy<{'x86_64': 'n'}>
+CONFIG_USB_DWC3_DUAL_ROLE                       policy<{'riscv64': 'n', 'x86_64': 'y'}>
+CONFIG_USB_DWC3_GADGET                          policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_USB_DWC3_GENERIC_PLAT                    policy<{'riscv64': 'm'}>
 CONFIG_USB_DWC3_HAPS                            policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_DWC3_HOST                            policy<{'riscv64': 'y', 'x86_64': 'n'}>
@@ -10618,7 +10620,7 @@ CONFIG_USB_DWC3_OF_SIMPLE                       policy<{'riscv64': 'm'}>
 CONFIG_USB_DWC3_PCI                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_DWC3_ULPI                            policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_USB_DYNAMIC_MINORS                       policy<{'riscv64': 'n', 'x86_64': 'y'}>
-CONFIG_USB_EG20T                                policy<{'x86_64': 'm'}>
+CONFIG_USB_EG20T                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_EHCI_FSL                             policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_USB_EHCI_HCD                             policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_USB_EHCI_HCD_PLATFORM                    policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -10629,48 +10631,49 @@ CONFIG_USB_EHSET_TEST_FIXTURE                   policy<{'riscv64': 'n', 'x86_64'
 CONFIG_USB_EMI26                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_EMI62                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_EPSON2888                            policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_USB_ETH                                  policy<{'x86_64': 'm'}>
-CONFIG_USB_ETH_EEM                              policy<{'x86_64': 'y'}>
-CONFIG_USB_ETH_RNDIS                            policy<{'x86_64': 'y'}>
+CONFIG_USB_ETH                                  policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_ETH_EEM                              policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_ETH_RNDIS                            policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_USB_EXTRON_DA_HD_4K_PLUS_CEC             policy<{'x86_64': 'm'}>
 CONFIG_USB_EZUSB_FX2                            policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_FEW_INIT_RETRIES                     policy<{'riscv64': 'n', 'x86_64': 'n'}>
-CONFIG_USB_FUNCTIONFS                           policy<{'x86_64': 'm'}>
-CONFIG_USB_FUNCTIONFS_ETH                       policy<{'x86_64': 'y'}>
-CONFIG_USB_FUNCTIONFS_GENERIC                   policy<{'x86_64': 'y'}>
-CONFIG_USB_FUNCTIONFS_RNDIS                     policy<{'x86_64': 'y'}>
-CONFIG_USB_F_ACM                                policy<{'x86_64': 'm'}>
-CONFIG_USB_F_ECM                                policy<{'x86_64': 'm'}>
-CONFIG_USB_F_EEM                                policy<{'x86_64': 'm'}>
-CONFIG_USB_F_FS                                 policy<{'x86_64': 'm'}>
-CONFIG_USB_F_HID                                policy<{'x86_64': 'm'}>
-CONFIG_USB_F_MASS_STORAGE                       policy<{'x86_64': 'm'}>
-CONFIG_USB_F_MIDI                               policy<{'x86_64': 'm'}>
-CONFIG_USB_F_MIDI2                              policy<{'x86_64': 'm'}>
-CONFIG_USB_F_NCM                                policy<{'x86_64': 'm'}>
-CONFIG_USB_F_OBEX                               policy<{'x86_64': 'm'}>
+CONFIG_USB_FUNCTIONFS                           policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_FUNCTIONFS_ETH                       policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_FUNCTIONFS_GENERIC                   policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_FUNCTIONFS_RNDIS                     policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_F_ACM                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_F_ECM                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_F_EEM                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_F_FS                                 policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_F_HID                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_F_MASS_STORAGE                       policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_F_MIDI                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_F_MIDI2                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_F_NCM                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_F_OBEX                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_F_PHONET                             policy<{'x86_64': 'm'}>
-CONFIG_USB_F_PRINTER                            policy<{'x86_64': 'm'}>
-CONFIG_USB_F_RNDIS                              policy<{'x86_64': 'm'}>
-CONFIG_USB_F_SERIAL                             policy<{'x86_64': 'm'}>
-CONFIG_USB_F_SS_LB                              policy<{'x86_64': 'm'}>
-CONFIG_USB_F_SUBSET                             policy<{'x86_64': 'm'}>
-CONFIG_USB_F_TCM                                policy<{'x86_64': 'm'}>
-CONFIG_USB_F_UAC1                               policy<{'x86_64': 'm'}>
-CONFIG_USB_F_UAC2                               policy<{'x86_64': 'm'}>
-CONFIG_USB_F_UVC                                policy<{'x86_64': 'm'}>
-CONFIG_USB_GADGET                               policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_USB_GADGETFS                             policy<{'x86_64': 'm'}>
-CONFIG_USB_GADGET_DEBUG                         policy<{'x86_64': 'n'}>
-CONFIG_USB_GADGET_DEBUG_FILES                   policy<{'x86_64': 'n'}>
-CONFIG_USB_GADGET_DEBUG_FS                      policy<{'x86_64': 'n'}>
-CONFIG_USB_GADGET_STORAGE_NUM_BUFFERS           policy<{'x86_64': '2'}>
-CONFIG_USB_GADGET_TARGET                        policy<{'x86_64': 'm'}>
-CONFIG_USB_GADGET_VBUS_DRAW                     policy<{'x86_64': '2'}>
+CONFIG_USB_F_PRINTER                            policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_F_RNDIS                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_F_SERIAL                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_F_SS_LB                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_F_SUBSET                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_F_TCM                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_F_UAC1                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_F_UAC2                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_F_UVC                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_GADGET                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_GADGETFS                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_GADGET_DEBUG                         policy<{'riscv64': 'n', 'x86_64': 'n'}>
+CONFIG_USB_GADGET_DEBUG_FILES                   policy<{'riscv64': 'n', 'x86_64': 'n'}>
+CONFIG_USB_GADGET_DEBUG_FS                      policy<{'riscv64': 'n', 'x86_64': 'n'}>
+CONFIG_USB_GADGET_STORAGE_NUM_BUFFERS           policy<{'riscv64': '2', 'x86_64': '2'}>
+CONFIG_USB_GADGET_TARGET                        policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_GADGET_VBUS_DRAW                     policy<{'riscv64': '2', 'x86_64': '2'}>
+CONFIG_USB_GADGET_XILINX                        policy<{'riscv64': 'n'}>
 CONFIG_USB_GL860                                policy<{'x86_64': 'm'}>
-CONFIG_USB_GOKU                                 policy<{'x86_64': 'm'}>
+CONFIG_USB_GOKU                                 policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_GPIO_VBUS                            policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_USB_GR_UDC                               policy<{'x86_64': 'm'}>
+CONFIG_USB_GR_UDC                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_GSPCA                                policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_USB_GSPCA_BENQ                           policy<{'x86_64': 'm'}>
 CONFIG_USB_GSPCA_CONEX                          policy<{'x86_64': 'm'}>
@@ -10718,17 +10721,19 @@ CONFIG_USB_GSPCA_VC032X                         policy<{'x86_64': 'm'}>
 CONFIG_USB_GSPCA_VICAM                          policy<{'x86_64': 'm'}>
 CONFIG_USB_GSPCA_XIRLINK_CIT                    policy<{'x86_64': 'm'}>
 CONFIG_USB_GSPCA_ZC3XX                          policy<{'x86_64': 'm'}>
-CONFIG_USB_G_ACM_MS                             policy<{'x86_64': 'm'}>
-CONFIG_USB_G_DBGP                               policy<{'x86_64': 'm'}>
-CONFIG_USB_G_DBGP_PRINTK                        policy<{'x86_64': 'n'}>
-CONFIG_USB_G_DBGP_SERIAL                        policy<{'x86_64': 'y'}>
-CONFIG_USB_G_HID                                policy<{'x86_64': 'm'}>
-CONFIG_USB_G_MULTI                              policy<{'x86_64': 'n'}>
-CONFIG_USB_G_NCM                                policy<{'x86_64': 'm'}>
+CONFIG_USB_G_ACM_MS                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_G_DBGP                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_G_DBGP_PRINTK                        policy<{'riscv64': 'n', 'x86_64': 'n'}>
+CONFIG_USB_G_DBGP_SERIAL                        policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_USB_G_HID                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_G_MULTI                              policy<{'riscv64': 'm', 'x86_64': 'n'}>
+CONFIG_USB_G_MULTI_CDC                          policy<{'riscv64': 'n'}>
+CONFIG_USB_G_MULTI_RNDIS                        policy<{'riscv64': 'y'}>
+CONFIG_USB_G_NCM                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_G_NOKIA                              policy<{'x86_64': 'm'}>
-CONFIG_USB_G_PRINTER                            policy<{'x86_64': 'm'}>
-CONFIG_USB_G_SERIAL                             policy<{'x86_64': 'm'}>
-CONFIG_USB_G_WEBCAM                             policy<{'x86_64': 'm'}>
+CONFIG_USB_G_PRINTER                            policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_G_SERIAL                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_G_WEBCAM                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_HACKRF                               policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_USB_HCD_BCMA                             policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_USB_HCD_SSB                              policy<{'x86_64': 'm'}>
@@ -10762,18 +10767,18 @@ CONFIG_USB_LEDS_TRIGGER_USBPORT                 policy<{'riscv64': 'm', 'x86_64'
 CONFIG_USB_LED_TRIG                             policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_USB_LEGOTOWER                            policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_LGM_PHY                              policy<{'x86_64': 'm'}>
-CONFIG_USB_LIBCOMPOSITE                         policy<{'x86_64': 'm'}>
+CONFIG_USB_LIBCOMPOSITE                         policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_LINK_LAYER_TEST                      policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_USB_LJCA                                 policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_USB_M5602                                policy<{'x86_64': 'm'}>
-CONFIG_USB_M66592                               policy<{'x86_64': 'n'}>
-CONFIG_USB_MA901                                policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_USB_MASS_STORAGE                         policy<{'x86_64': 'm'}>
-CONFIG_USB_MAX3420_UDC                          policy<{'x86_64': 'm'}>
+CONFIG_USB_M66592                               policy<{'riscv64': 'n', 'x86_64': 'n'}>
+CONFIG_USB_MA901                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_MASS_STORAGE                         policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_MAX3420_UDC                          policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_MAX3421_HCD                          policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_USB_MDC800                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_MICROTEK                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
-CONFIG_USB_MIDI_GADGET                          policy<{'x86_64': 'm'}>
+CONFIG_USB_MIDI_GADGET                          policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_MON                                  policy<{'riscv64': 'y', 'x86_64': 'm'}>
 CONFIG_USB_MOUSE                                policy<{'x86_64': 'm'}>
 CONFIG_USB_MR800                                policy<{'riscv64': 'n', 'x86_64': 'm'}>
@@ -10782,7 +10787,7 @@ CONFIG_USB_MUSB_DUAL_ROLE                       policy<{'x86_64': 'y'}>
 CONFIG_USB_MUSB_GADGET                          policy<{'x86_64': 'n'}>
 CONFIG_USB_MUSB_HDRC                            policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_USB_MUSB_HOST                            policy<{'x86_64': 'n'}>
-CONFIG_USB_NET2280                              policy<{'x86_64': 'm'}>
+CONFIG_USB_NET2280                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_NET_AQC111                           policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_USB_NET_AX88179_178A                     policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_NET_AX8817X                          policy<{'riscv64': 'm', 'x86_64': 'm'}>
@@ -10829,12 +10834,15 @@ CONFIG_USB_PULSE8_CEC                           policy<{'x86_64': 'm'}>
 CONFIG_USB_PWC                                  policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_USB_PWC_DEBUG                            policy<{'x86_64': 'n'}>
 CONFIG_USB_PWC_INPUT_EVDEV                      policy<{'x86_64': 'y'}>
-CONFIG_USB_PXA27X                               policy<{'x86_64': 'm'}>
-CONFIG_USB_R8A66597                             policy<{'x86_64': 'm'}>
+CONFIG_USB_PXA27X                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_R8A66597                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_R8A66597_HCD                         policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_USB_RAINSHADOW_CEC                       policy<{'x86_64': 'm'}>
 CONFIG_USB_RAREMONO                             policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_USB_RAW_GADGET                           policy<{'x86_64': 'm'}>
+CONFIG_USB_RAW_GADGET                           policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_RENESAS_USB3                         policy<{'riscv64': 'n'}>
+CONFIG_USB_RENESAS_USBF                         policy<{'riscv64': 'n'}>
+CONFIG_USB_RENESAS_USBHS                        policy<{'riscv64': 'n'}>
 CONFIG_USB_ROLES_INTEL_XHCI                     policy<{'x86_64': 'm'}>
 CONFIG_USB_ROLE_SWITCH                          policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_USB_RTL8150                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
@@ -10905,7 +10913,8 @@ CONFIG_USB_SISUSBVGA                            policy<{'riscv64': 'm', 'x86_64'
 CONFIG_USB_SL811_CS                             policy<{'x86_64': 'm'}>
 CONFIG_USB_SL811_HCD                            policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_USB_SL811_HCD_ISO                        policy<{'x86_64': 'y'}>
-CONFIG_USB_SNP_CORE                             policy<{'x86_64': 'm'}>
+CONFIG_USB_SNP_CORE                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_SNP_UDC_PLAT                         policy<{'riscv64': 'n'}>
 CONFIG_USB_SPEEDTOUCH                           policy<{'x86_64': 'm'}>
 CONFIG_USB_STORAGE                              policy<{'riscv64': 'y', 'x86_64': 'm'}>
 CONFIG_USB_STORAGE_ALAUDA                       policy<{'riscv64': 'm', 'x86_64': 'm'}>
@@ -10934,9 +10943,9 @@ CONFIG_USB_ULPI_BUS                             policy<{'riscv64': 'm', 'x86_64'
 CONFIG_USB_USBIO                                policy<{'x86_64': 'n'}>
 CONFIG_USB_USBNET                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_USS720                               policy<{'x86_64': 'm'}>
-CONFIG_USB_U_AUDIO                              policy<{'x86_64': 'm'}>
-CONFIG_USB_U_ETHER                              policy<{'x86_64': 'm'}>
-CONFIG_USB_U_SERIAL                             policy<{'x86_64': 'm'}>
+CONFIG_USB_U_AUDIO                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_U_ETHER                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_USB_U_SERIAL                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_VIDEO_CLASS                          policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USB_VIDEO_CLASS_INPUT_EVDEV              policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_USB_VL600                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
@@ -10951,7 +10960,7 @@ CONFIG_USB_XHCI_RCAR                            policy<{'riscv64': 'y'}>
 CONFIG_USB_XHCI_SIDEBAND                        policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_USB_XUSBATM                              policy<{'x86_64': 'm'}>
 CONFIG_USB_YUREX                                policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_USB_ZERO                                 policy<{'x86_64': 'm'}>
+CONFIG_USB_ZERO                                 policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_USERFAULTFD                              policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_USERIO                                   policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_USER_DECRYPTED_DATA                      policy<{'riscv64': 'n', 'x86_64': 'n'}>
@@ -10963,7 +10972,7 @@ CONFIG_USE_PERCPU_NUMA_NODE_ID                  policy<{'riscv64': 'y', 'x86_64'
 CONFIG_USE_X86_SEG_SUPPORT                      policy<{'x86_64': 'y'}>
 CONFIG_UTS_NS                                   policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_UVC_COMMON                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
-CONFIG_U_SERIAL_CONSOLE                         policy<{'x86_64': 'n'}>
+CONFIG_U_SERIAL_CONSOLE                         policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_V4L2_ASYNC                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_V4L2_CCI                                 policy<{'x86_64': 'm'}>
 CONFIG_V4L2_CCI_I2C                             policy<{'x86_64': 'm'}>
@@ -11031,7 +11040,7 @@ CONFIG_VIA_WDT                                  policy<{'x86_64': 'm'}>
 CONFIG_VIDEO                                    policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_VIDEOBUF2_CORE                           policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_VIDEOBUF2_DMA_CONTIG                     policy<{'x86_64': 'm'}>
-CONFIG_VIDEOBUF2_DMA_SG                         policy<{'x86_64': 'm'}>
+CONFIG_VIDEOBUF2_DMA_SG                         policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_VIDEOBUF2_DVB                            policy<{'x86_64': 'm'}>
 CONFIG_VIDEOBUF2_MEMOPS                         policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_VIDEOBUF2_V4L2                           policy<{'riscv64': 'm', 'x86_64': 'm'}>
