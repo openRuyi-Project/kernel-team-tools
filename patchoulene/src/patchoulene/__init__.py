@@ -235,9 +235,7 @@ def do_diff_commits(
             print(f"    {primary}")
 
 
-def do_record(repo: GitRepo, db: dict, rev1: str, rev2: str):
-    is_mainline = parse_base(rev2)[2] == 0
-
+def db_by_subject(db: dict) -> dict[str, list[str]]:
     by_subject = {}
 
     for pid, data in db.items():
@@ -246,6 +244,14 @@ def do_record(repo: GitRepo, db: dict, rev1: str, rev2: str):
         if data["subject"] not in by_subject:
             by_subject[data["subject"]] = []
         by_subject[data["subject"]].append(pid)
+
+    return by_subject
+
+
+def do_record(repo: GitRepo, db: dict, rev1: str, rev2: str):
+    is_mainline = parse_base(rev2)[2] == 0
+
+    by_subject = db_by_subject(db)
 
     for c in repo.commit_list([f"^{rev1}", rev2]):
         upstream = []
@@ -320,6 +326,26 @@ def dim(msg: str) -> str:
     return color_sel(f"\x1b[90m{msg}\x1b[m", msg)
 
 
+def walk_replacements(db: dict, pid: str) -> set[str]:
+    replacements = set()
+    todo = {pid}
+
+    while todo:
+        pid = todo.pop()
+
+        if pid not in db or not db[pid].get("replacement", None):
+            replacements.add(pid)
+            continue
+
+        repl = db[pid]["replacement"]
+        if not isinstance(repl, list):
+            repl = [repl]
+
+        todo.update(repl)
+
+    return replacements
+
+
 def do_status(db: dict, commits: list[GitCommit], rev):
     for c in commits:
         clean = clean_subject(c.message)
@@ -336,23 +362,7 @@ def do_status(db: dict, commits: list[GitCommit], rev):
             )
             continue
 
-        # Walk the replacment graph to find the set of patches that replaces c
-
-        replacements = set()
-        todo = {primary}
-
-        while todo:
-            pid = todo.pop()
-
-            if pid not in db or not db[pid].get("replacement", None):
-                replacements.add(pid)
-                continue
-
-            repl = db[pid]["replacement"]
-            if not isinstance(repl, list):
-                repl = [repl]
-
-            todo.update(repl)
+        replacements = walk_replacements(db, primary)
 
         if replacements != {primary}:
             print(f'Commit {c.commit[:12]} ("{clean}"):')
@@ -671,35 +681,47 @@ def main():
             base = guess_base(repo, ref)
             print(f"Base for {ref} is {base}", file=sys.stderr)
             db = read_patch_db()
+            by_subject = db_by_subject(db)
+
             for c in repo.commit_list([f"^refs/tags/{base}", ref]):
                 guess = guess_id(c.message)
                 if not guess:
                     continue
                 primary = guess[0]
+                replacements = walk_replacements(db, primary)
+
                 clean = clean_subject(c.message)
                 if primary not in db:
                     db[primary] = {
                         "subject": clean,
                     }
 
-                for secondary in guess[1:]:
-                    if secondary in db:
-                        if db[secondary].get("replacement", None):
-                            continue
-                        old_subject = db[secondary].get("subject", "(Unknown)")
-                        is_identical = (
-                            " (identical subject)" if old_subject == clean else ""
-                        )
-                        print(f"Is new patch {primary}", file=sys.stderr)
-                        print(f'  "{clean}"', file=sys.stderr)
-                        print(
-                            f"... the replacement of patch {secondary}?",
-                            file=sys.stderr,
-                        )
-                        print(f"  (Identifier matches)", file=sys.stderr)
-                        print(f'  "{old_subject}"{is_identical}', file=sys.stderr)
-                        if prompt_yn():
-                            db[secondary]["replacement"] = primary
+                id_matches = set(pid for pid in guess[1:] if pid in db)
+                possible_matches = id_matches | set(by_subject.get(clean, []))
+                possible_matches -= {primary}
+
+                possible_matches = {
+                    pid
+                    for pid in possible_matches
+                    if pid in db
+                    and pid not in replacements
+                    and not db[pid].get("replacement", None)
+                }
+
+                for possible in possible_matches:
+                    old_subject = db[possible].get("subject", "(Unknown)")
+                    is_identical = (
+                        " (identical subject)" if old_subject == clean else ""
+                    )
+                    print(f"Is new patch {primary}", file=sys.stderr)
+                    print(f'  "{clean}"', file=sys.stderr)
+                    print(f"... the replacement of patch {possible}?", file=sys.stderr)
+                    if possible not in id_matches:
+                        print(f"* (weak match)", file=sys.stderr)
+                    print(f'  "{old_subject}"{is_identical}', file=sys.stderr)
+                    if prompt_yn():
+                        db[possible]["replacement"] = primary
+
             write_patch_db(db)
 
         case ["record", rev1, rev2]:
