@@ -1960,6 +1960,7 @@ CONFIG_CXL_PCI                                  policy<{'riscv64': 'y', 'x86_64'
 CONFIG_CXL_PMEM                                 policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_CXL_PMU                                  policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_CXL_PORT                                 policy<{'riscv64': 'y', 'x86_64': 'm'}>
+CONFIG_CXL_RAS                                  policy<{'x86_64': 'y'}>
 CONFIG_CXL_REGION                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_CXL_REGION_INVALIDATION_TEST             policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_CXL_SUSPEND                              policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -3520,7 +3521,7 @@ CONFIG_GPIO_WM8994                              policy<{'x86_64': 'm'}>
 CONFIG_GPIO_WS16C48                             policy<{'x86_64': 'm'}>
 CONFIG_GPIO_XILINX                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_GPIO_XRA1403                             policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_GPU_BUDDY                                policy<{'riscv64': 'y'}>
+CONFIG_GPU_BUDDY                                policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_GP_PCI1XXXX                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_GRACE_PERIOD                             policy<{'riscv64': 'y', 'x86_64': 'm'}>
 CONFIG_GREENASIA_FF                             policy<{'riscv64': 'n', 'x86_64': 'y'}>
