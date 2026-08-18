@@ -110,6 +110,19 @@ def prompt_yn(default: bool = False):
             return False
 
 
+def db_by_subject(db: dict) -> dict[str, list[str]]:
+    by_subject = {}
+
+    for pid, data in db.items():
+        if "subject" not in data:
+            continue
+        if data["subject"] not in by_subject:
+            by_subject[data["subject"]] = []
+        by_subject[data["subject"]].append(pid)
+
+    return by_subject
+
+
 def do_record(repo: GitRepo, db: dict, rev1: str, rev2: str):
     def msg_possible_match_header(commit: GitCommit, primary: str) -> str:
         clean = clean_subject(commit.message)
@@ -146,14 +159,7 @@ def do_record(repo: GitRepo, db: dict, rev1: str, rev2: str):
 
     is_mainline = parse_base(rev2)[2] == 0
 
-    by_subject = {}
-
-    for pid, data in db.items():
-        if "subject" not in data:
-            continue
-        if data["subject"] not in by_subject:
-            by_subject[data["subject"]] = []
-        by_subject[data["subject"]].append(pid)
+    by_subject = db_by_subject(db)
 
     for c in repo.commit_list([f"^{rev1}", rev2]):
         upstream = []
