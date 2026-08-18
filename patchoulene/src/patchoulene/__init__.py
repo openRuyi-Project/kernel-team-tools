@@ -228,7 +228,7 @@ def do_diff_commits(
         if primary in replaces:
             print(f'  [{patch_num[primary]}] Replacement "{clean_subject(c.message)}"')
             print(f"    + {primary}")
-            for r in replaces[primary]:
+            for r in sorted(replaces[primary], key=lambda r: patch_num[r]):
                 print(f"    - [{patch_num[r]}] {r}")
         else:
             print(f'+ New "{clean_subject(c.message)}"')
