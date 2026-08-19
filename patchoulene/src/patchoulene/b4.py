@@ -61,8 +61,16 @@ def call_process(args: list[str]) -> str:
         raise
 
 
+B4_USER_AGENT = "github.com/openRuyi-Project/kernel-team-tools"
+
+
 def check_msgid(msgid: str) -> tuple[list[PatchHeader], list[PatchHeader]] | None:
-    CMD = shlex.split("b4 am --no-add-trailers -o -")
+    CMD = [
+        *shlex.split("b4 -c"),
+        f"lore.useragentplus={B4_USER_AGENT}",
+        *shlex.split("am --no-add-trailers -o -"),
+    ]
+
     try:
         this_thread = call_process([*CMD, "--", msgid])
         latest_thread = call_process([*CMD, "--check-newer-revisions", "--", msgid])
