@@ -1,0 +1,750 @@
+#!/usr/bin/env bash
+# rpm-build - Build the openRuyi linux RPM packages from a kernel source tree.
+#
+# Given a kernel source directory (e.g. a worktree of openRuyi-Project/linux
+# checked out at ruyi/<version>.y, which already contains the Ruyi patches),
+# this script:
+#
+#   1. Generates the kernel config from the annotations in this repository.
+#   2. Packages the kernel sources as Source0 (linux-<version>.tar.xz).
+#   3. Creates a Source1 "patchset" tarball with an empty series file plus the
+#      generated config (the patches are already part of the source tree, so
+#      no patch needs to be applied).
+#   4. Derives a build spec from the openRuyi linux.spec with cross-compile
+#      support (ARCH/CROSS_COMPILE/LD) and a plain Release/changelog.
+#   5. Runs rpmbuild, optionally for a foreign target arch (cross build).
+#
+# The kernel version carries git information, following the kernel's own
+# scripts/setlocalversion convention: a git tree past its version tag gets a
+# "-<count>-g<sha>" suffix (e.g. 7.2.0-2.0-00199-g5be2f691f06d, with "-dirty"
+# for uncommitted changes), a tree exactly at the tag gets none, and a
+# non-git directory gets "+" (e.g. 7.2.0-1.0+1). The RPM Release mirrors the
+# same information with rpm-legal characters (2.0.00199.g5be2f691f06d).
+#
+# Each build also carries an auto-incrementing iteration number (the trailing
+# "-1" above): identical inputs rebuild with the same number, any source or
+# config change bumps it, --iteration N overrides it, and removing the
+# workdir resets the counter.
+#
+# The Source0 tarball is named like the upstream ones (linux-7.2.tar.xz,
+# linux-7.3-rc1.tar.xz - no "v", no patchset number, mainline without ".0");
+# when the git id is known it is appended
+# (linux-7.2-00199-g5be2f691f06d.tar.xz), a non-git directory keeps the
+# plain upstream name.
+#
+# Usage:
+#   ./rpm-build [options] <kernel-dir>
+#
+# The cross-compile environment is recognised automatically: the ARCH,
+# CROSS_COMPILE, RUST_TARGET and RUST_LIB_SRC environment variables may be
+# set; ARCH (a kernel ARCH name, e.g. riscv) and CROSS_COMPILE become the
+# defaults for --arch / --cross-prefix, RUST_LIB_SRC is passed through to the
+# kernel build, RUST_TARGET is recorded only. Command line options win.
+#
+# The config comes from the annotations by default (--flavour selects a
+# flavour defined for the architecture); --config FILE uses an arbitrary
+# config file instead, with no flavour involved at all. The config origin is
+# tracked in the workdir so --reuse can not mix the two up.
+#
+# Examples:
+#   ./rpm-build ~/code/kernel/linux/ruyi-linux
+#   ./rpm-build --flavour rva20 ~/code/kernel/linux/ruyi-linux
+#   ./rpm-build --arch x86_64 ~/code/kernel/linux/ruyi-linux
+#   ./rpm-build --config my.config ~/code/kernel/linux/ruyi-linux
+#   ./rpm-build --toolchain clang ~/code/kernel/linux/ruyi-linux
+#
+# --toolchain clang builds with LLVM (the kernel's LLVM= mechanism; see
+# Documentation/kbuild/llvm.rst). The LLVM value is probed (unsuffixed tools
+# first, then the newest version-suffixed set, e.g. LLVM=-21) or set
+# explicitly with --llvm. clang-built packages carry a ".clang" release tag.
+#
+# SPDX-License-Identifier: MulanPSL-2.0
+
+set -euo pipefail
+
+# Recognise a cross-compile environment before the defaults below reset ARCH.
+# Four variables may be set: ARCH, CROSS_COMPILE, RUST_TARGET and
+# RUST_LIB_SRC. ARCH uses the kernel's own ARCH names (riscv, arm64, x86_64 -
+# exactly the values the kernel Makefile accepts; x86_64 is mapped to x86
+# there); it becomes the default for --arch (command line options still win),
+# as CROSS_COMPILE does for --cross-prefix. RUST_LIB_SRC flows straight
+# through to the kernel build inside rpmbuild (rpm scriptlets inherit the
+# environment and rust/Makefile honours RUST_LIB_SRC); RUST_TARGET is only
+# recorded - the kernel derives its own rust targets (arch/riscv/Makefile and
+# scripts/Makefile.rust).
+ENV_ARCH=${ARCH-}
+ENV_CROSS_COMPILE=${CROSS_COMPILE-}
+ENV_RUST_TARGET=${RUST_TARGET-}
+ENV_RUST_LIB_SRC=${RUST_LIB_SRC-}
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+
+# Defaults
+ARCH=""
+FLAVOUR="generic"
+FLAVOUR_EXPLICIT=0
+CONFIG_FILE=""
+PACKAGE="linux"
+KERNEL_DIR=""
+WORKDIR=""
+# Optional extra segment in the release string (e.g. "local" to mark local
+# builds); empty by default - the git suffix and iteration already keep
+# locally built packages apart from official ones.
+RELEASE_SUFFIX=""
+TOOLCHAIN="gcc"
+LLVM_VALUE=""
+CROSS_PREFIX=""
+JOBS=""
+WITH_TOOLS=""
+WITH_DEVEL=""
+ITERATION=""
+REUSE=0
+DRY_RUN=0
+SKIP_PREFLIGHT=0
+
+log()  { printf '\033[1;32m==>\033[0m %s\n' "$*"; }
+warn() { printf '\033[1;33mWARNING:\033[0m %s\n' "$*" >&2; }
+die()  { printf '\033[1;31mERROR:\033[0m %s\n' "$*" >&2; exit 1; }
+
+usage() {
+    sed -n '2,61p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'
+    exit "${1:-0}"
+}
+
+while [ $# -gt 0 ]; do
+    case "$1" in
+        -a|--arch)            ARCH="$2"; shift 2 ;;
+        -f|--flavour)         FLAVOUR="$2"; FLAVOUR_EXPLICIT=1; shift 2 ;;
+        -c|--config)          CONFIG_FILE="$2"; shift 2 ;;
+        -p|--package)         PACKAGE="$2"; shift 2 ;;
+        -w|--workdir)         WORKDIR="$2"; shift 2 ;;
+        -r|--release-suffix)  RELEASE_SUFFIX="$2"; shift 2 ;;
+        -i|--iteration)       ITERATION="$2"; shift 2 ;;
+        --cross-prefix)       CROSS_PREFIX="$2"; shift 2 ;;
+        --toolchain)          TOOLCHAIN="$2"; shift 2 ;;
+        --llvm)               LLVM_VALUE="$2"; shift 2 ;;
+        -j|--jobs)            JOBS="$2"; shift 2 ;;
+        --with-tools)         WITH_TOOLS=1; shift ;;
+        --without-tools)      WITH_TOOLS=0; shift ;;
+        --with-devel)         WITH_DEVEL=1; shift ;;
+        --without-devel)      WITH_DEVEL=0; shift ;;
+        --reuse)              REUSE=1; shift ;;
+        --dry-run)            DRY_RUN=1; shift ;;
+        --skip-preflight)     SKIP_PREFLIGHT=1; shift ;;
+        -h|--help)            usage 0 ;;
+        -*)                   die "unknown option: $1" ;;
+        *)
+            [ -n "$KERNEL_DIR" ] && die "kernel directory specified twice"
+            KERNEL_DIR="$1"; shift ;;
+    esac
+done
+
+[ -n "$KERNEL_DIR" ] || usage 1
+KERNEL_DIR=$(cd -- "$KERNEL_DIR" 2>/dev/null && pwd) || die "kernel directory not found: $KERNEL_DIR"
+[ -f "$KERNEL_DIR/Makefile" ] || die "not a kernel source tree (no Makefile): $KERNEL_DIR"
+
+# Target arch: --arch > ARCH environment variable (kernel ARCH name) >
+# riscv64 (openRuyi's primary target).
+if [ -z "$ARCH" ]; then
+    case "$ENV_ARCH" in
+        riscv)  ARCH=riscv64 ;;
+        arm64)  ARCH=aarch64 ;;
+        x86_64) ARCH=x86_64 ;;
+        "")     ARCH=riscv64 ;;
+        *)
+            warn "ignoring unsupported ARCH=$ENV_ARCH from the environment"
+            ARCH=riscv64 ;;
+    esac
+fi
+
+# Map RPM target arch -> kernel ARCH value
+arch_to_karch() {
+    case "$1" in
+        riscv64) echo riscv ;;
+        aarch64) echo arm64 ;;
+        *)       echo "$1" ;;
+    esac
+}
+
+HOST_ARCH=$(uname -m)
+KARCH=$(arch_to_karch "$ARCH")
+
+# Cross prefix: --cross-prefix > CROSS_COMPILE environment variable > first
+# available toolchain (probed: <arch>-openruyi-linux-gnu-,
+# <arch>-unknown-linux-gnu-, <arch>-linux-gnu-). An explicit --cross-prefix or
+# CROSS_COMPILE is used verbatim. Only used for the gcc toolchain - with
+# clang (LLVM=) the kernel derives the target itself (scripts/Makefile.clang).
+if [ -z "$CROSS_PREFIX" ]; then
+    if [ -n "$ENV_CROSS_COMPILE" ]; then
+        CROSS_PREFIX=$ENV_CROSS_COMPILE
+    else
+        for _p in "${ARCH}-openruyi-linux-gnu-" \
+                  "${ARCH}-unknown-linux-gnu-" \
+                  "${ARCH}-linux-gnu-"; do
+            if command -v "${_p}gcc" >/dev/null 2>&1; then
+                CROSS_PREFIX=$_p
+                break
+            fi
+        done
+        CROSS_PREFIX="${CROSS_PREFIX:-${ARCH}-linux-gnu-}"
+    fi
+fi
+if [ "$TOOLCHAIN" = gcc ] && [ "${CROSS_PREFIX%%-*}" != "$ARCH" ]; then
+    warn "cross prefix '$CROSS_PREFIX' does not match target arch '$ARCH'"
+fi
+
+# ----------------------------------------------------------------------------
+# Toolchain: gcc (default) or clang. A clang build passes LLVM=<value> to the
+# kernel (LLVM=1 uses unsuffixed clang/ld.lld/llvm-* tools, LLVM=-14 the
+# version-suffixed ones; see Documentation/kbuild/llvm.rst). The value is
+# --llvm > probed: the newest complete LLVM tool set wins. clang builds also
+# carry a ".clang" release marker so they never collide with gcc-built
+# packages of the same source state.
+# ----------------------------------------------------------------------------
+case "$TOOLCHAIN" in
+    gcc|clang) ;;
+    *) die "unknown toolchain '$TOOLCHAIN' (use gcc or clang)" ;;
+esac
+
+llvm_tools_ok() {
+    local t
+    for t in clang clang++ ld.lld llvm-ar llvm-nm \
+             llvm-objcopy llvm-objdump llvm-readelf llvm-strip; do
+        command -v "$t$1" >/dev/null 2>&1 || return 1
+    done
+    return 0
+}
+
+if [ "$TOOLCHAIN" = clang ] && [ -z "$LLVM_VALUE" ]; then
+    if llvm_tools_ok ""; then
+        LLVM_VALUE=1
+    else
+        for _v in $(compgen -c 2>/dev/null | grep -oE '^clang-[0-9]+$' \
+                        | sed 's/^clang-//' | sort -rV | uniq); do
+            if llvm_tools_ok "-$_v"; then
+                LLVM_VALUE="-$_v"
+                break
+            fi
+        done
+    fi
+    [ -n "$LLVM_VALUE" ] \
+        || die "no complete LLVM toolchain found (clang, clang++, ld.lld, llvm-*); install one or pass --llvm"
+fi
+if [ "$TOOLCHAIN" = clang ]; then
+    log "toolchain: clang (LLVM=$LLVM_VALUE)"
+else
+    log "toolchain: gcc"
+fi
+if [ "$TOOLCHAIN" = clang ]; then
+    TOOLCHAIN_TAG=".clang"
+else
+    TOOLCHAIN_TAG=""
+fi
+
+if [ -n "$ENV_ARCH$ENV_CROSS_COMPILE$ENV_RUST_TARGET$ENV_RUST_LIB_SRC" ]; then
+    log "cross-compile environment: ARCH=$ENV_ARCH CROSS_COMPILE=$ENV_CROSS_COMPILE${ENV_RUST_TARGET:+ RUST_TARGET=$ENV_RUST_TARGET}${ENV_RUST_LIB_SRC:+ RUST_LIB_SRC=$ENV_RUST_LIB_SRC}"
+fi
+
+if [ "$ARCH" = "$HOST_ARCH" ]; then
+    CROSS_BUILD=0
+else
+    CROSS_BUILD=1
+fi
+
+# tools subpackage (perf, cpupower, ...) needs a full target-arch userspace
+# toolchain; default to building it only for native builds.
+if [ -z "$WITH_TOOLS" ]; then
+    if [ "$CROSS_BUILD" = 1 ]; then WITH_TOOLS=0; else WITH_TOOLS=1; fi
+fi
+
+# devel subpackage: install-extmod-build relinks host tools (gendwarfksyms
+# needs libdw/libelf/z) against the target architecture, which requires a
+# target-arch userspace only native builds have. Same reason the kernel's
+# own rpm packaging disables devel for cross builds.
+if [ -z "$WITH_DEVEL" ]; then
+    if [ "$CROSS_BUILD" = 1 ]; then WITH_DEVEL=0; else WITH_DEVEL=1; fi
+fi
+
+# ----------------------------------------------------------------------------
+# Kernel version
+#
+# Two different version strings are involved:
+#   - the upstream tarball version ("7.2", "7.3-rc1", "7.1.4"), which is how
+#     https://cdn.kernel.org/.../linux-<version>.tar.xz is named;
+#   - the kernel's own base release string ("7.2.0", "7.3.0-rc1", "7.1.4"),
+#     which is what the kernel reports in `uname -r` (KERNELVERSION always
+#     includes SUBLEVEL, even when it is 0) and therefore what
+#     /lib/modules/<release> and the kernel-full-version must use.
+# For stable releases both strings coincide; for mainline (SUBLEVEL=0) and
+# -rcN trees they do not. RPM versions cannot contain '-', so '-rcN' becomes
+# '~rcN' in the spec Version (and in local file names derived from it).
+# ----------------------------------------------------------------------------
+KERNEL_VERSION=$(make -s -C "$KERNEL_DIR" --no-print-directory kernelversion 2>/dev/null) \
+    || KERNEL_VERSION=""
+if [ -z "$KERNEL_VERSION" ]; then
+    _v=$(sed -n 's/^VERSION = //p'      "$KERNEL_DIR/Makefile" | head -1)
+    _p=$(sed -n 's/^PATCHLEVEL = //p'   "$KERNEL_DIR/Makefile" | head -1)
+    _s=$(sed -n 's/^SUBLEVEL = //p'     "$KERNEL_DIR/Makefile" | head -1)
+    _e=$(sed -n 's/^EXTRAVERSION = //p' "$KERNEL_DIR/Makefile" | head -1)
+    KERNEL_VERSION="${_v}.${_p}.${_s}${_e}"
+fi
+[ -n "$KERNEL_VERSION" ] || die "could not determine kernel version from $KERNEL_DIR"
+
+# Upstream tarball version: drop a ".0" SUBLEVEL ("7.2.0" -> "7.2",
+# "7.3.0-rc1" -> "7.3-rc1", "7.1.4" unchanged).
+TARBALL_VERSION=$(printf '%s' "$KERNEL_VERSION" | sed -E 's/^([0-9]+\.[0-9]+)\.0(-.*)?$/\1\2/')
+# RPM Version: '-' is not allowed, encode it as '~' (pre-release ordering).
+SPEC_VERSION=${TARBALL_VERSION//-/~}
+
+# patchset_release: best effort - if the kernel tree HEAD matches an entry in
+# this repository's manifest (ruyi/v<version>-<n>), use <n>. Otherwise 1.
+PATCHSET_RELEASE=1
+if HEAD=$(git -C "$KERNEL_DIR" rev-parse HEAD 2>/dev/null); then
+    while read -r tag commit; do
+        base=${tag#ruyi/v}
+        base=${base%-*}
+        rel=${tag##*-}
+        if [ "$base" = "$TARBALL_VERSION" ] && [ "$commit" = "$HEAD" ]; then
+            PATCHSET_RELEASE=$rel
+        fi
+    done < "$SCRIPT_DIR/manifest"
+fi
+CONFIG_VERSION=0
+
+# ----------------------------------------------------------------------------
+# Git version suffix, mirroring scripts/setlocalversion of the kernel:
+#   - exactly at the v<version> annotated tag: "" (version is well-defined)
+#   - N commits past the tag:                 "-<N, 5 digits>-g<12 hex>"
+#   - no usable tag:                          "-g<12 hex>"
+#   - uncommitted changes:                    appends "-dirty"
+#   - not a git repository:                   "+" (the kernel habit for
+#     sources whose state cannot be proven to match the version tag)
+# It is appended after the release part (same position scm_version takes in
+# the kernel release string), e.g. 7.2.0-2.0-00199-g5be2f691f06d.
+# ----------------------------------------------------------------------------
+GIT_LOCALVERSION=
+if HEAD=$(git -C "$KERNEL_DIR" rev-parse --verify HEAD 2>/dev/null); then
+    version_tag="v$TARBALL_VERSION"
+    GIT_COUNT=
+    if [ "$(git -C "$KERNEL_DIR" cat-file -t "$version_tag" 2>/dev/null)" = tag ]; then
+        # <left> is 0 if and only if the tag is an ancestor of HEAD;
+        # <right> is the number of commits in $tag..HEAD.
+        lr=$(git -C "$KERNEL_DIR" rev-list --count --left-right "$version_tag"...HEAD 2>/dev/null || true)
+        left=${lr%%[[:space:]]*}
+        if [ "$left" = 0 ]; then
+            GIT_COUNT=${lr##*[[:space:]]}
+        fi
+    fi
+    if [ -z "$GIT_COUNT" ] || [ "$GIT_COUNT" -gt 0 ]; then
+        if [ -n "$GIT_COUNT" ]; then
+            GIT_LOCALVERSION=$(printf -- '-%05d' "$GIT_COUNT")
+        fi
+        GIT_LOCALVERSION="${GIT_LOCALVERSION}$(printf '%s%.12s' -g "$HEAD")"
+    fi
+    if git -C "$KERNEL_DIR" --no-optional-locks status -uno --porcelain 2>/dev/null | read -r _; then
+        GIT_LOCALVERSION="${GIT_LOCALVERSION}-dirty"
+    fi
+else
+    GIT_LOCALVERSION=+
+fi
+
+# Same information encoded for the RPM Release field ('-' is not allowed
+# there): "-00199-g5be2f691f06d" -> ".00199.g5be2f691f06d", "+" -> "+".
+if [ -z "$GIT_LOCALVERSION" ]; then
+    GIT_RELEASE_PART=
+elif [ "$GIT_LOCALVERSION" = "+" ]; then
+    GIT_RELEASE_PART=+
+else
+    GIT_RELEASE_PART=$(printf '%s' "$GIT_LOCALVERSION" | sed -e 's/^-//' -e 's/-/./g' | sed 's/^/./')
+fi
+
+# Source0 file name: the plain upstream tarball version (no "v", no
+# patchset-release suffix, mainline has no ".0"), with the git id appended
+# when the source state can be pinned to one; a non-git directory keeps the
+# plain upstream name.
+if [ -n "$GIT_LOCALVERSION" ] && [ "$GIT_LOCALVERSION" != "+" ]; then
+    SOURCE0_VERSION="$TARBALL_VERSION$GIT_LOCALVERSION"
+else
+    SOURCE0_VERSION="$TARBALL_VERSION"
+fi
+
+# ----------------------------------------------------------------------------
+# Preflight checks
+# ----------------------------------------------------------------------------
+preflight() {
+    local missing=0
+
+    command -v rpmbuild >/dev/null 2>&1 || { die "rpmbuild not found"; }
+
+    if [ "$TOOLCHAIN" = clang ]; then
+        case "$LLVM_VALUE" in
+            1) _suffix="" ;;
+            -*) _suffix=$LLVM_VALUE ;;
+            *)
+                log "clang: $LLVM_VALUE (assumed a toolchain path; tools not probed)"
+                _suffix=SKIP ;;
+        esac
+        if [ "$_suffix" != SKIP ]; then
+            for tool in clang clang++ ld.lld llvm-ar llvm-nm \
+                        llvm-objcopy llvm-objdump llvm-readelf llvm-strip; do
+                if ! command -v "$tool$_suffix" >/dev/null 2>&1; then
+                    warn "LLVM tool $tool$_suffix not found"
+                    missing=1
+                fi
+            done
+            [ "$missing" = 0 ] \
+                || die "LLVM toolchain incomplete; install one or set --llvm"
+            log "clang: $(clang$_suffix --version | head -1)"
+        fi
+    elif [ "$CROSS_BUILD" = 1 ]; then
+        for tool in gcc ld.bfd objcopy; do
+            if ! command -v "${CROSS_PREFIX}${tool}" >/dev/null 2>&1; then
+                warn "cross tool ${CROSS_PREFIX}${tool} not found"
+                missing=1
+            fi
+        done
+        [ "$missing" = 0 ] \
+            || die "cross toolchain incomplete; install it (e.g. gcc-${ARCH}-linux-gnu) or set --cross-prefix"
+        log "cross compiler: $(${CROSS_PREFIX}gcc --version | head -1)"
+    fi
+
+    for tool in gcc bison flex make perl python3 tar xz zstd cpio; do
+        command -v "$tool" >/dev/null 2>&1 || { warn "host tool missing: $tool"; missing=1; }
+    done
+    for tool in pahole rsync bc; do
+        command -v "$tool" >/dev/null 2>&1 || warn "host tool missing: $tool (some kernel config options may be silently disabled)"
+    done
+
+    if command -v rustc >/dev/null 2>&1; then
+        log "rust: $(rustc --version)"
+        if ! command -v bindgen >/dev/null 2>&1; then
+            warn "bindgen not found; CONFIG_RUST will be disabled automatically"
+        fi
+        if [ ! -f /usr/lib/rustlib/src/rust/library/core/src/lib.rs ] && [ -z "${RUST_LIB_SRC:-}" ]; then
+            warn "rust library sources not found (install rust-src); CONFIG_RUST will be disabled automatically"
+        fi
+    else
+        warn "rustc not found; CONFIG_RUST will be disabled automatically"
+    fi
+
+    [ "$missing" = 0 ] || die "host toolchain incomplete"
+}
+[ "$SKIP_PREFLIGHT" = 1 ] || preflight
+
+# ----------------------------------------------------------------------------
+# Config: generated from the annotations, or taken from a user-provided file
+# (--config). --config has no flavour concept at all (the config is simply
+# config.<arch>); --flavour (or the "generic" default) must name a flavour
+# defined for this architecture in the annotations. The origin is recorded
+# next to the config so --reuse can never mistake one for the other. The
+# local version is always stripped here and re-injected below once the
+# version strings are known, so a provided config can not desync the kernel
+# release from the RPM package version.
+# ----------------------------------------------------------------------------
+ANNOTATIONS="$SCRIPT_DIR/configs/$PACKAGE/annotations"
+
+if [ -n "$CONFIG_FILE" ] && [ "$FLAVOUR_EXPLICIT" = 1 ]; then
+    die "--config and --flavour are mutually exclusive: a provided config has no flavour"
+fi
+if [ -n "$CONFIG_FILE" ]; then
+    FLAVOUR=""
+    CONFIG_NAME="config.${ARCH}"
+else
+    CONFIG_NAME="config.${ARCH}-${FLAVOUR}"
+fi
+
+WORKDIR="${WORKDIR:-$PWD/rpm-work}"
+WORKDIR=$(mkdir -p -- "$WORKDIR" && cd -- "$WORKDIR" && pwd)
+for d in BUILD RPMS SOURCES SPECS SRPMS; do mkdir -p "$WORKDIR/$d"; done
+CONFIG="$WORKDIR/SOURCES/$CONFIG_NAME"
+CONFIG_ORIGIN="$CONFIG.origin"
+
+# The kernel's own config editor - stable against all option states.
+KCONFIG_TOOL="$KERNEL_DIR/scripts/config"
+[ -f "$KCONFIG_TOOL" ] || die "scripts/config not found in $KERNEL_DIR"
+
+reset_localversion() {
+    # Neutralize the local version so it is fully controlled by this script
+    # (and the input fingerprint below stays version-independent).
+    "$KCONFIG_TOOL" --file "$1" --set-str CONFIG_LOCALVERSION ""
+    "$KCONFIG_TOOL" --file "$1" --disable CONFIG_LOCALVERSION_AUTO
+}
+
+if [ -n "$CONFIG_FILE" ]; then
+    CONFIG_FILE=$(cd -- "$(dirname -- "$CONFIG_FILE")" && pwd)/$(basename -- "$CONFIG_FILE")
+    [ -f "$CONFIG_FILE" ] || die "config file not found: $CONFIG_FILE"
+    log "using provided config: $CONFIG_FILE"
+    cp "$CONFIG_FILE" "$CONFIG"
+    printf 'custom %s\n' "$CONFIG_FILE" > "$CONFIG_ORIGIN"
+    reset_localversion "$CONFIG"
+else
+    [ -f "$ANNOTATIONS" ] || die "annotations not found: $ANNOTATIONS"
+    if ! grep -q "^# FLAVOUR: .*\b${ARCH}-${FLAVOUR}\b" "$ANNOTATIONS"; then
+        die "config flavour '${ARCH}-${FLAVOUR}' not defined in configs/$PACKAGE/annotations"
+    fi
+    if [ "$REUSE" = 1 ] && [ -f "$CONFIG" ]; then
+        if [ ! -f "$CONFIG_ORIGIN" ]; then
+            die "unknown provenance of $(basename -- "$CONFIG"); rebuild without --reuse"
+        fi
+        case $(head -1 "$CONFIG_ORIGIN") in
+            custom*)
+                die "SOURCES/$(basename -- "$CONFIG") came from --config; pass --config again or rebuild without --reuse" ;;
+        esac
+    fi
+    if [ "$REUSE" = 0 ] || [ ! -f "$CONFIG" ]; then
+        log "generating $CONFIG_NAME from configs/$PACKAGE/annotations"
+        python3 "$SCRIPT_DIR/annotations/annotations" \
+            -f "$ANNOTATIONS" --arch "$ARCH" --flavour "$FLAVOUR" -e \
+            > "$CONFIG"
+    fi
+    printf 'annotations\n' > "$CONFIG_ORIGIN"
+    reset_localversion "$CONFIG"
+fi
+
+# ----------------------------------------------------------------------------
+# Sources
+# ----------------------------------------------------------------------------
+SOURCE0="$WORKDIR/SOURCES/linux-$SOURCE0_VERSION.tar.xz"
+SOURCE1="$WORKDIR/SOURCES/linux-v$SPEC_VERSION-$PATCHSET_RELEASE.tar.gz"
+
+if [ "$REUSE" = 0 ]; then
+    # Drop sources and build trees from previous runs (e.g. after a version
+    # bump) so stale tarballs never leak into the new build.
+    rm -f "$WORKDIR"/SOURCES/linux-*.tar.xz "$WORKDIR"/SOURCES/linux-*.tar.gz
+    rm -rf "${WORKDIR:?}/BUILD"/*
+fi
+
+if [ "$REUSE" = 0 ] || [ ! -f "$SOURCE0" ]; then
+    # Both layouts use the same tarball: ruyi-style name (upstream version
+    # plus git id when known) with the plain version as the top directory.
+    TARBALL_PREFIX="linux-$SPEC_VERSION/"
+    TARBALL_PIPE=(xz -T0)
+    log "creating Source0 (kernel sources): $(basename -- "$SOURCE0")"
+    if git -C "$KERNEL_DIR" rev-parse --git-dir >/dev/null 2>&1; then
+        # Tracked files + untracked non-ignored files; build outputs are
+        # gitignored, so they are excluded automatically.
+        filelist=$(mktemp)
+        git -C "$KERNEL_DIR" ls-files -z --cached --others --exclude-standard > "$filelist"
+        # The 'S' transform flag keeps symbolic link targets untouched (the
+        # kernel tree tracks symlinks, e.g. scripts/dtc/include-prefixes/*).
+        tar --null -C "$KERNEL_DIR" --files-from "$filelist" \
+            --transform "s,^,$TARBALL_PREFIX,S" -cf - \
+            | "${TARBALL_PIPE[@]}" > "$SOURCE0"
+        rm -f "$filelist"
+    else
+        warn "$KERNEL_DIR is not a git repository; using plain tar with best-effort excludes"
+        tar -C "$KERNEL_DIR" \
+            --exclude='./.git' --exclude='./.config' --exclude='./.version' \
+            --exclude='./vmlinux*' --exclude='./System.map*' \
+            --exclude='./Module.symvers' --exclude='./modules.builtin*' \
+            --exclude='./modules.order' --exclude='./.tmp*' \
+            --exclude='*.o' --exclude='*.ko' --exclude='*.ko.*' \
+            --exclude='*.cmd' --exclude='*.mod' --exclude='*.mod.c' \
+            --exclude='./include/generated' --exclude='./include/config' \
+            --exclude='./arch/*/include/generated' --exclude='*.so' \
+            --exclude='*.rmeta' --exclude='*.rlib' --exclude='*.a' \
+            --transform "s,^\./,$TARBALL_PREFIX,S" -cf - . \
+            | "${TARBALL_PIPE[@]}" > "$SOURCE0"
+    fi
+fi
+
+# ----------------------------------------------------------------------------
+# Build iteration
+#
+# Repeated local builds need increasing version numbers even when no release
+# tag exists yet: build once, modify the sources or config, build again ->
+# iteration 2, and so on. The iteration is derived from a content fingerprint
+# of the build inputs (source tarball + config): rebuilding identical inputs
+# reuses the same number, any change bumps it by one. Override with
+# --iteration N; the state lives in the workdir, so removing the workdir
+# resets the counter.
+# ----------------------------------------------------------------------------
+if [ -n "$ITERATION" ]; then
+    log "using manually specified build iteration $ITERATION"
+else
+    INPUT_HASH=$(cat "$SOURCE0" "$CONFIG" | sha256sum | cut -d' ' -f1)
+    BASE_ID=$(printf '%s|%s|%s|%s|%s|%s' \
+        "$KERNEL_VERSION" "$GIT_LOCALVERSION" "$ARCH" "$FLAVOUR" "$PACKAGE" "$TOOLCHAIN" | sha256sum | cut -c1-16)
+    STATE_FILE="$WORKDIR/.iterations/$BASE_ID"
+    mkdir -p "$WORKDIR/.iterations"
+    prev_hash= prev_iter=0
+    if [ -f "$STATE_FILE" ]; then
+        read -r prev_hash prev_iter < "$STATE_FILE" || prev_hash= prev_iter=0
+    fi
+    if [ "$prev_hash" = "$INPUT_HASH" ] && [ -n "$prev_iter" ]; then
+        ITERATION=$prev_iter
+    else
+        ITERATION=$(( prev_iter + 1 ))
+    fi
+    printf '%s %s\n' "$INPUT_HASH" "$ITERATION" > "$STATE_FILE"
+    if [ "$ITERATION" = "$prev_iter" ] && [ -n "$prev_hash" ]; then
+        log "build iteration $ITERATION (inputs unchanged)"
+    else
+        log "build iteration $ITERATION"
+    fi
+fi
+
+# kernel_local_version feeds `uname -r` (via the localversion file) and the
+# /lib/modules path; it uses the kernel's dash format, unlike Release.
+# The iteration goes last (e.g. 7.2.0-2.0-00199-g5be2f691f06d-1); after
+# a "+" it is attached without a separator (7.2.0-1.0+1). A ".clang" tag
+# keeps clang-built packages apart from gcc-built ones of the same state.
+RELEASE_BASE="$PATCHSET_RELEASE.$CONFIG_VERSION"
+if [ -n "$RELEASE_SUFFIX" ]; then
+    RELEASE_BASE="$RELEASE_BASE.$RELEASE_SUFFIX"
+fi
+if [ "$GIT_LOCALVERSION" = "+" ]; then
+    KERNEL_LOCAL_VERSION="$RELEASE_BASE+$ITERATION$TOOLCHAIN_TAG"
+    RELEASE="$RELEASE_BASE+$ITERATION$TOOLCHAIN_TAG"
+else
+    KERNEL_LOCAL_VERSION="$RELEASE_BASE$GIT_LOCALVERSION-$ITERATION$TOOLCHAIN_TAG"
+    RELEASE="$RELEASE_BASE$GIT_RELEASE_PART.$ITERATION$TOOLCHAIN_TAG"
+fi
+
+# ----------------------------------------------------------------------------
+# Pass the version into the config: CONFIG_LOCALVERSION is part of the
+# kernel release string (uname -r), so the packaged config (config.zst)
+# records the exact version it was built with. The spec's localversion-file
+# mechanism is dropped during spec derivation, so the version lives in
+# exactly one place. Done with the kernel's scripts/config tool so every
+# option state (set / commented out / absent) is handled correctly.
+# ----------------------------------------------------------------------------
+"$KCONFIG_TOOL" --file "$CONFIG" --set-str CONFIG_LOCALVERSION "-$KERNEL_LOCAL_VERSION"
+
+# Source1 is (re)created here - it embeds the versioned config.
+log "creating Source1 (empty patchset + config): $(basename -- "$SOURCE1")"
+patchset_tmp=$(mktemp -d)
+cp "$CONFIG" "$patchset_tmp/$CONFIG_NAME"
+: > "$patchset_tmp/series"
+tar -czf "$SOURCE1" -C "$patchset_tmp" .
+rm -rf "$patchset_tmp"
+
+# ----------------------------------------------------------------------------
+# Derive the build spec from the openRuyi linux.spec
+#   - Version / patchset_release / Release match the local kernel tree
+#   - kernel_full_version is keyed to the kernel's own release string
+#     (e.g. "7.2.0" for mainline 7.2), while Version keeps the upstream
+#     tarball naming (e.g. "7.2"); for stable releases both coincide
+#   - kernel_make_flags gains optional ARCH=/CROSS_COMPILE=/LD= overrides
+#     (passed as rpmbuild --define's), so native builds stay unchanged
+#   - the localversion-file step is dropped: the version is injected into
+#     CONFIG_LOCALVERSION instead (see above), so it is not applied twice
+#   - arch_suffix is redirected so %prep picks the right config: the flavour
+#     name for annotations builds, nothing at all for --config builds
+#     (the provided config is simply config.<arch>)
+#   - a devel bcond is added; the -devel package needs install-extmod-build
+#     to relink host tools against the target architecture (libdw/libelf/z),
+#     which is only available on native builds (same reason why the kernel's
+#     own rpm packaging passes --without=devel for cross builds)
+#   - plain Release and changelog instead of %autorelease/%autochangelog
+# ----------------------------------------------------------------------------
+CHANGELOG_DATE=$(LC_ALL=C date '+%a %b %d %Y')
+if [ -n "$CONFIG_FILE" ]; then
+    ARCH_SUFFIX_VALUE=""
+else
+    ARCH_SUFFIX_VALUE="-$FLAVOUR"
+fi
+# The ruyi spec template falls back to the openruyi_riscv_arch macro (from
+# rpm-config-openruyi, absent on a local build host) to pick the default
+# arch_suffix; for the rva20 flavour the macro is passed explicitly so the
+# fallback path behaves like an official rva20 build. --config builds pass
+# kb_config_name instead, which names the config file inside Source1
+# directly and bypasses the arch_suffix mechanism altogether.
+RISCV_ARCH_DEFINE=()
+CONFIG_NAME_DEFINE=()
+if [ "$SPEC_DISTRO" = ruyi ]; then
+    if [ -n "$CONFIG_FILE" ]; then
+        CONFIG_NAME_DEFINE=(--define "kb_config_name $CONFIG_NAME")
+    elif [ "$ARCH" = riscv64 ] && [ "$FLAVOUR" = rva20 ]; then
+        RISCV_ARCH_DEFINE=(--define "openruyi_riscv_arch -march=rva20u64")
+    fi
+fi
+# Both layouts use a repository spec template (spec/<linux|kernel>.spec);
+# values are injected as rpmbuild parameters, the templates stay untouched.
+if [ "$SPEC_DISTRO" = oe ]; then
+    cp "$SCRIPT_DIR/spec/kernel.spec" "$WORKDIR/SPECS/kernel.spec"
+    cp "$CONFIG" "$WORKDIR/SOURCES/rpm-build.config"
+    DERIVED_SPEC="$WORKDIR/SPECS/kernel.spec"
+else
+    cp "$SCRIPT_DIR/spec/linux.spec" "$WORKDIR/SPECS/linux.spec"
+    DERIVED_SPEC="$WORKDIR/SPECS/linux.spec"
+fi
+
+# ----------------------------------------------------------------------------
+# rpmbuild
+# ----------------------------------------------------------------------------
+RPMBUILD_ARGS=(
+    -ba
+    --nodeps
+    --define "_topdir $WORKDIR"
+    --define 'debug_package %{nil}'
+    --define "_smp_mflags -j${JOBS:-$(nproc)}"
+    # The spec uses bash-isms (pushd/popd); openRuyi's build config ships
+    # bash as the scriptlet shell, Debian's default /bin/sh (dash) does not.
+    --define '_buildshell /bin/bash'
+    "$DERIVED_SPEC"
+)
+if [ "$CROSS_BUILD" = 1 ]; then
+    RPMBUILD_ARGS+=(--target "$ARCH")
+fi
+RPMBUILD_ARGS+=("${RISCV_ARCH_DEFINE[@]}" "${CONFIG_NAME_DEFINE[@]}")
+RPMBUILD_ARGS+=(
+    --define "kb_changelog_date $CHANGELOG_DATE"
+    --define "kb_kversion $KERNEL_VERSION"
+        --define "kb_klocal $KERNEL_LOCAL_VERSION"
+        --define "kb_version $SPEC_VERSION"
+        --define "kb_release $RELEASE"
+        --define "kb_patchset $PATCHSET_RELEASE"
+        --define "kb_tarball $(basename -- "$SOURCE0")"
+        --define "kb_patchset_tarball $(basename -- "$SOURCE1")"
+        --define "kb_suffix $ARCH_SUFFIX_VALUE"
+    )
+    if [ "$TOOLCHAIN" = clang ]; then
+        RPMBUILD_ARGS+=(--define "kb_karch $KARCH" --define "kb_llvm $LLVM_VALUE")
+    elif [ "$CROSS_BUILD" = 1 ]; then
+        # CROSS_COMPILE is a GNU-toolchain prefix; with LLVM= the kernel
+        # derives the target itself (scripts/Makefile.clang).
+        RPMBUILD_ARGS+=(--define "kb_karch $KARCH" --define "kb_cross $CROSS_PREFIX")
+    else
+        RPMBUILD_ARGS+=(--define "kb_karch $KARCH")
+    fi
+if [ "$TOOLCHAIN" = clang ]; then
+    RPMBUILD_ARGS+=(--define "llvm $LLVM_VALUE")
+fi
+if [ "$WITH_TOOLS" = 1 ]; then
+    RPMBUILD_ARGS+=(--with tools)
+else
+    RPMBUILD_ARGS+=(--without tools)
+fi
+if [ "$WITH_DEVEL" = 1 ]; then
+    RPMBUILD_ARGS+=(--with devel)
+else
+    RPMBUILD_ARGS+=(--without devel)
+fi
+
+cat <<EOF
+
+  kernel dir    : $KERNEL_DIR
+  kernel version: $KERNEL_VERSION (upstream tarball: $TARBALL_VERSION)
+  arch          : $ARCH$([ -z "$CONFIG_FILE" ] && printf ' / flavour %s' "$FLAVOUR")
+  config        : $([ -n "$CONFIG_FILE" ] && echo "$CONFIG_FILE" || echo "annotations configs/$PACKAGE" )
+  kernel release: $KERNEL_VERSION-$KERNEL_LOCAL_VERSION
+  release       : $RELEASE (patchset $PATCHSET_RELEASE, config $CONFIG_VERSION, iteration $ITERATION)
+  git version   : ${GIT_LOCALVERSION:-none (exactly at the version tag)}
+  toolchain     : $([ "$TOOLCHAIN" = clang ] && echo "clang (LLVM=$LLVM_VALUE)" || echo "gcc")
+  cross build   : $([ "$CROSS_BUILD" = 1 ] && ([ "$TOOLCHAIN" = clang ] && echo "yes (ARCH=$KARCH LLVM=$LLVM_VALUE)" || echo "yes (ARCH=$KARCH CROSS_COMPILE=$CROSS_PREFIX)") || echo "no")
+  tools         : $([ "$WITH_TOOLS" = 1 ] && echo enabled || echo disabled)
+  devel         : $([ "$WITH_DEVEL" = 1 ] && echo enabled || echo disabled)
+  workdir       : $WORKDIR
+
+  rpmbuild ${RPMBUILD_ARGS[*]}
+
+EOF
+
+[ "$DRY_RUN" = 1 ] && { log "dry run; not invoking rpmbuild"; exit 0; }
+
+log "building RPM packages (this takes a while...)"
+rpmbuild "${RPMBUILD_ARGS[@]}"
+
+log "build finished. Generated packages:"
+find "$WORKDIR/RPMS" "$WORKDIR/SRPMS" -name '*.rpm' -printf '  %p\n' | sort
