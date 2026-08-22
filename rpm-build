@@ -808,8 +808,29 @@ EOF
 
 [ "$DRY_RUN" = 1 ] && { log "dry run; not invoking rpmbuild"; exit 0; }
 
+# Ask the spec which packages this run will produce (NEVRA of every
+# subpackage), so the final listing shows exactly those files - nothing
+# from older runs and nothing from a concurrent build sharing the
+# workdir. rpmspec takes the same --define/--with/--without/--target
+# arguments as rpmbuild, only the mode differs.
+QUERY_ARGS=()
+for a in "${RPMBUILD_ARGS[@]}"; do
+    case "$a" in
+        -ba|-bb|-bs|-bp|-bc|-bi|-bl|--nodeps) ;;   # build-only options
+        "$DERIVED_SPEC") ;;                          # the spec itself, passed separately
+        *) QUERY_ARGS+=("$a") ;;
+    esac
+done
+EXPECTED_NEVRAS=$(
+    rpmspec -q --qf '%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n' "${QUERY_ARGS[@]}" "$DERIVED_SPEC" 2>/dev/null
+    rpmspec -q --srpm --qf '%{NAME}-%{VERSION}-%{RELEASE}.src\n' "${QUERY_ARGS[@]}" "$DERIVED_SPEC" 2>/dev/null
+)
+
 log "building RPM packages (this takes a while...)"
 rpmbuild "${RPMBUILD_ARGS[@]}"
 
 log "build finished. Generated packages:"
-find "$WORKDIR/RPMS" "$WORKDIR/SRPMS" -name '*.rpm' -printf '  %p\n' | sort
+while read -r nevra; do
+    [ -n "$nevra" ] || continue
+    find "$WORKDIR/RPMS" "$WORKDIR/SRPMS" -name "$nevra.rpm" -printf '  %p\n' 2>/dev/null
+done <<< "$EXPECTED_NEVRAS"
