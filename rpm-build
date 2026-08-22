@@ -85,6 +85,7 @@ FLAVOUR="generic"
 FLAVOUR_EXPLICIT=0
 CONFIG_FILE=""
 PACKAGE="linux"
+SPEC_DISTRO="ruyi"
 KERNEL_DIR=""
 WORKDIR=""
 # Optional extra segment in the release string (e.g. "local" to mark local
@@ -117,6 +118,7 @@ while [ $# -gt 0 ]; do
         -f|--flavour)         FLAVOUR="$2"; FLAVOUR_EXPLICIT=1; shift 2 ;;
         -c|--config)          CONFIG_FILE="$2"; shift 2 ;;
         -p|--package)         PACKAGE="$2"; shift 2 ;;
+        --distro)             SPEC_DISTRO="$2"; shift 2 ;;
         -w|--workdir)         WORKDIR="$2"; shift 2 ;;
         -r|--release-suffix)  RELEASE_SUFFIX="$2"; shift 2 ;;
         -i|--iteration)       ITERATION="$2"; shift 2 ;;
@@ -264,6 +266,18 @@ fi
 if [ -z "$WITH_DEVEL" ]; then
     if [ "$CROSS_BUILD" = 1 ]; then WITH_DEVEL=0; else WITH_DEVEL=1; fi
 fi
+
+# Package layout - declared explicitly via --distro, never guessed:
+#   ruyi (default) - openRuyi's split-package organization (spec/linux.spec
+#                    template: patchset Source1, configs picked via
+#                    arch_suffix, CONFIG_LOCALVERSION carries the version)
+#   oe             - openEuler's split-package organization
+#                    (spec/kernel.spec template: /boot layout, KernelVer
+#                    mechanics, version suffix rides Release/EXTRAVERSION)
+case "$SPEC_DISTRO" in
+    ruyi|oe) ;;
+    *) die "unknown --distro '$SPEC_DISTRO' (use ruyi or oe)" ;;
+esac
 
 # ----------------------------------------------------------------------------
 # Kernel version
@@ -504,8 +518,13 @@ fi
 # ----------------------------------------------------------------------------
 # Sources
 # ----------------------------------------------------------------------------
-SOURCE0="$WORKDIR/SOURCES/linux-$SOURCE0_VERSION.tar.xz"
-SOURCE1="$WORKDIR/SOURCES/linux-v$SPEC_VERSION-$PATCHSET_RELEASE.tar.gz"
+if [ "$SPEC_DISTRO" = oe ]; then
+    SOURCE0="$WORKDIR/SOURCES/linux-$SOURCE0_VERSION.tar.xz"
+    SOURCE1=""
+else
+    SOURCE0="$WORKDIR/SOURCES/linux-$SOURCE0_VERSION.tar.xz"
+    SOURCE1="$WORKDIR/SOURCES/linux-v$SPEC_VERSION-$PATCHSET_RELEASE.tar.gz"
+fi
 
 if [ "$REUSE" = 0 ]; then
     # Drop sources and build trees from previous runs (e.g. after a version
@@ -609,15 +628,32 @@ fi
 # exactly one place. Done with the kernel's scripts/config tool so every
 # option state (set / commented out / absent) is handled correctly.
 # ----------------------------------------------------------------------------
-"$KCONFIG_TOOL" --file "$CONFIG" --set-str CONFIG_LOCALVERSION "-$KERNEL_LOCAL_VERSION"
-
-# Source1 is (re)created here - it embeds the versioned config.
-log "creating Source1 (empty patchset + config): $(basename -- "$SOURCE1")"
-patchset_tmp=$(mktemp -d)
-cp "$CONFIG" "$patchset_tmp/$CONFIG_NAME"
-: > "$patchset_tmp/series"
-tar -czf "$SOURCE1" -C "$patchset_tmp" .
-rm -rf "$patchset_tmp"
+if [ "$SPEC_DISTRO" = ruyi ]; then
+    "$KCONFIG_TOOL" --file "$CONFIG" --set-str CONFIG_LOCALVERSION "-$KERNEL_LOCAL_VERSION"
+    # Source1 is (re)created here - it embeds the versioned config.
+    log "creating Source1 (empty patchset + config): $(basename -- "$SOURCE1")"
+    patchset_tmp=$(mktemp -d)
+    cp "$CONFIG" "$patchset_tmp/$CONFIG_NAME"
+    : > "$patchset_tmp/series"
+    tar -czf "$SOURCE1" -C "$patchset_tmp" .
+    rm -rf "$patchset_tmp"
+else
+    # oe: the version rides the spec's Release/EXTRAVERSION machinery, the
+    # config's local version must stay empty (reset above).
+    OE_RELEASE_APPEND=""
+    [ -n "$GIT_RELEASE_PART" ] && OE_RELEASE_APPEND="$GIT_RELEASE_PART"
+    OE_RELEASE_APPEND="$OE_RELEASE_APPEND.$ITERATION$TOOLCHAIN_TAG"
+    # openEuler-style version mapping: the tree's sublevel leaves the RPM
+    # Version (always X.Y.0) and becomes the leading Release component
+    # (7.2.1 -> 7.2.0-1); %build rewrites the Makefile SUBLEVEL to 0 so
+    # uname -r matches.
+    _kb=${KERNEL_VERSION%%-*}
+    OE_SUBLEVEL=${_kb##*.}
+    OE_RELEASE_PREFIX="$OE_SUBLEVEL."
+    log "openEuler release append: $OE_RELEASE_APPEND"
+    OE_RELEASE_FULL="${OE_RELEASE_PREFIX}${PATCHSET_RELEASE}${OE_RELEASE_APPEND}"
+    OE_VERSION="${KERNEL_VERSION%%-*}"   # X.Y.0 (SUBLEVEL moved to Release)
+fi
 
 # ----------------------------------------------------------------------------
 # Derive the build spec from the openRuyi linux.spec
@@ -684,13 +720,36 @@ RPMBUILD_ARGS=(
     --define '_buildshell /bin/bash'
     "$DERIVED_SPEC"
 )
-if [ "$CROSS_BUILD" = 1 ]; then
-    RPMBUILD_ARGS+=(--target "$ARCH")
+if [ "$SPEC_DISTRO" = oe ]; then
+    RPMBUILD_ARGS+=(
+        --define "kb_changelog_date $CHANGELOG_DATE"
+        --define "kb_arch $KARCH"
+        --define "kb_rpmarch $ARCH"
+        --define "kb_srcver $SPEC_VERSION"
+        --define "kb_version $OE_VERSION"
+        --define "kb_release $OE_RELEASE_FULL"
+        --define "kb_tarball $(basename -- "$SOURCE0")"
+    )
+    if [ "$CROSS_BUILD" = 1 ]; then
+        RPMBUILD_ARGS+=(--without perf)
+    else
+        RPMBUILD_ARGS+=(--define 'with_ktools 1')
+    fi
+    if [ "$TOOLCHAIN" = clang ]; then
+        RPMBUILD_ARGS+=(--with toolchain_clang)
+    fi
+    # The spec passes ARCH itself; the toolchain prefix rides the inherited
+    # environment into every scriptlet.
+    export CROSS_COMPILE="$CROSS_PREFIX"
 fi
-RPMBUILD_ARGS+=("${RISCV_ARCH_DEFINE[@]}" "${CONFIG_NAME_DEFINE[@]}")
-RPMBUILD_ARGS+=(
-    --define "kb_changelog_date $CHANGELOG_DATE"
-    --define "kb_kversion $KERNEL_VERSION"
+if [ "$SPEC_DISTRO" = ruyi ]; then
+    if [ "$CROSS_BUILD" = 1 ]; then
+        RPMBUILD_ARGS+=(--target "$ARCH")
+    fi
+    RPMBUILD_ARGS+=("${RISCV_ARCH_DEFINE[@]}" "${CONFIG_NAME_DEFINE[@]}")
+    RPMBUILD_ARGS+=(
+        --define "kb_changelog_date $CHANGELOG_DATE"
+        --define "kb_kversion $KERNEL_VERSION"
         --define "kb_klocal $KERNEL_LOCAL_VERSION"
         --define "kb_version $SPEC_VERSION"
         --define "kb_release $RELEASE"
@@ -708,13 +767,18 @@ RPMBUILD_ARGS+=(
     else
         RPMBUILD_ARGS+=(--define "kb_karch $KARCH")
     fi
+elif [ "$CROSS_BUILD" = 1 ]; then
+    RPMBUILD_ARGS+=(--target "$ARCH")
+fi
 if [ "$TOOLCHAIN" = clang ]; then
     RPMBUILD_ARGS+=(--define "llvm $LLVM_VALUE")
 fi
-if [ "$WITH_TOOLS" = 1 ]; then
-    RPMBUILD_ARGS+=(--with tools)
-else
-    RPMBUILD_ARGS+=(--without tools)
+if [ "$SPEC_DISTRO" = ruyi ]; then
+    if [ "$WITH_TOOLS" = 1 ]; then
+        RPMBUILD_ARGS+=(--with tools)
+    else
+        RPMBUILD_ARGS+=(--without tools)
+    fi
 fi
 if [ "$WITH_DEVEL" = 1 ]; then
     RPMBUILD_ARGS+=(--with devel)
@@ -724,6 +788,7 @@ fi
 
 cat <<EOF
 
+  distro         : $SPEC_DISTRO
   kernel dir    : $KERNEL_DIR
   kernel version: $KERNEL_VERSION (upstream tarball: $TARBALL_VERSION)
   arch          : $ARCH$([ -z "$CONFIG_FILE" ] && printf ' / flavour %s' "$FLAVOUR")
