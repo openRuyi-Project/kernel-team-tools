@@ -507,7 +507,7 @@ else
     fi
     if [ "$REUSE" = 0 ] || [ ! -f "$CONFIG" ]; then
         log "generating $CONFIG_NAME from configs/$PACKAGE/annotations"
-        python3 "$SCRIPT_DIR/annotations/annotations" \
+        PYTHONDONTWRITEBYTECODE=1 python3 "$SCRIPT_DIR/annotations/annotations" \
             -f "$ANNOTATIONS" --arch "$ARCH" --flavour "$FLAVOUR" -e \
             > "$CONFIG"
     fi
