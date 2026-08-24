@@ -1048,7 +1048,7 @@ CONFIG_BPF_JIT                                  policy<{'riscv64': 'y', 'x86_64'
 CONFIG_BPF_JIT_ALWAYS_ON                        policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_BPF_JIT_DEFAULT_ON                       policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_BPF_KPROBE_OVERRIDE                      policy<{'riscv64': 'n', 'x86_64': 'n'}>
-CONFIG_BPF_LSM                                  policy<{'riscv64': 'n', 'x86_64': 'n'}>
+CONFIG_BPF_LSM                                  policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_BPF_PRELOAD                              policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_BPF_STREAM_PARSER                        policy<{'riscv64': 'y', 'x86_64': 'n'}>
 CONFIG_BPF_SYSCALL                              policy<{'riscv64': 'y', 'x86_64': 'y'}>
