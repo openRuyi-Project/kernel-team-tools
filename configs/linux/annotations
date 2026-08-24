@@ -6,6 +6,12 @@
 CONFIG_ERRATA_MIPS_P8700_PAUSE_OPCODE           policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
 CONFIG_ERRATA_MIPS_P8700_PAUSE_OPCODE           note<'Errata for non-RVA23 machines'>
 
+CONFIG_ERRATA_PICOHEART_AMOCASQ                 policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
+CONFIG_ERRATA_PICOHEART_AMOCASQ                 note<'Errata for non-RVA23 machines'>
+
+CONFIG_ERRATA_PICOHEART_CBO_CLEAN               policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
+CONFIG_ERRATA_PICOHEART_CBO_CLEAN               note<'Errata for non-RVA23 machines'>
+
 CONFIG_ERRATA_SIFIVE_CIP_1200                   policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
 CONFIG_ERRATA_SIFIVE_CIP_1200                   note<'Errata for non-RVA23 machines'>
 
@@ -1258,6 +1264,7 @@ CONFIG_CC_HAS_AUTO_VAR_INIT_PATTERN             policy<{'riscv64': 'y', 'x86_64'
 CONFIG_CC_HAS_AUTO_VAR_INIT_ZERO                policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_CC_HAS_AUTO_VAR_INIT_ZERO_BARE           policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_CC_HAS_COUNTED_BY                        policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_CC_HAS_COUNTED_BY_PTR                    policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_CC_HAS_ENTRY_PADDING                     policy<{'x86_64': 'y'}>
 CONFIG_CC_HAS_IBT                               policy<{'x86_64': 'y'}>
 CONFIG_CC_HAS_INT128                            policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -1836,7 +1843,7 @@ CONFIG_CRYPTO_KRB5_SELFTESTS                    policy<{'riscv64': 'n', 'x86_64'
 CONFIG_CRYPTO_LIB_AES                           policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_CRYPTO_LIB_AESCFB                        policy<{'x86_64': 'y'}>
 CONFIG_CRYPTO_LIB_AES_ARCH                      policy<{'x86_64': 'y'}>
-CONFIG_CRYPTO_LIB_AES_CBC_MACS                  policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_CRYPTO_LIB_AES_CBC_MACS                  policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_CRYPTO_LIB_ARC4                          policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_CRYPTO_LIB_BLAKE2B                       policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_CRYPTO_LIB_BLAKE2S_ARCH                  policy<{'x86_64': 'y'}>
@@ -2260,6 +2267,7 @@ CONFIG_DRM_DEBUG_DP_MST_TOPOLOGY_REFS           policy<{'riscv64': 'n', 'x86_64'
 CONFIG_DRM_DEBUG_MM                             policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_DRM_DEBUG_MODESET_LOCK                   policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_DRM_DISPLAY_CONNECTOR                    policy<{'riscv64': 'm'}>
+CONFIG_DRM_DISPLAY_DP_AUX_BUS                   policy<{'riscv64': 'm'}>
 CONFIG_DRM_DISPLAY_DP_AUX_CEC                   policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_DRM_DISPLAY_DP_AUX_CHARDEV               policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_DRM_DISPLAY_DP_HELPER                    policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -2502,6 +2510,7 @@ CONFIG_DRM_SIL_SII8620                          policy<{'riscv64': 'n'}>
 CONFIG_DRM_SIMPLEDRM                            policy<{'riscv64': 'y', 'x86_64': 'n'}>
 CONFIG_DRM_SIMPLE_BRIDGE                        policy<{'riscv64': 'n'}>
 CONFIG_DRM_SOLOMON_SSD2825                      policy<{'riscv64': 'n'}>
+CONFIG_DRM_SPACEMIT                             policy<{'riscv64': 'm'}>
 CONFIG_DRM_SSD130X                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_DRM_SSD130X_I2C                          policy<{'x86_64': 'm'}>
 CONFIG_DRM_SSD130X_SPI                          policy<{'x86_64': 'm'}>
@@ -2922,9 +2931,11 @@ CONFIG_EROFS_FS_ZIP                             policy<{'riscv64': 'y', 'x86_64'
 CONFIG_EROFS_FS_ZIP_ACCEL                       policy<{'riscv64': 'n'}>
 CONFIG_EROFS_FS_ZIP_DEFLATE                     policy<{'riscv64': 'n'}>
 CONFIG_EROFS_FS_ZIP_LZMA                        policy<{'riscv64': 'y'}>
+CONFIG_EROFS_FS_ZIP_LZMA_DEFAULT_MAX_STREAMS    policy<{'riscv64': '16'}>
 CONFIG_EROFS_FS_ZIP_ZSTD                        policy<{'riscv64': 'n'}>
 CONFIG_ERRATA_ANDES                             policy<{'riscv64': 'y'}>
 CONFIG_ERRATA_MIPS                              policy<{'riscv64': 'y'}>
+CONFIG_ERRATA_PICOHEART                         policy<{'riscv64': 'y'}>
 CONFIG_ERRATA_SIFIVE                            policy<{'riscv64': 'y'}>
 CONFIG_ERRATA_THEAD                             policy<{'riscv64': 'y'}>
 CONFIG_ET131X                                   policy<{'x86_64': 'm'}>
@@ -7208,6 +7219,7 @@ CONFIG_PHY_SPACEMIT_K1_PCIE                     policy<{'riscv64': 'y'}>
 CONFIG_PHY_SPACEMIT_K1_USB2                     policy<{'riscv64': 'm'}>
 CONFIG_PHY_SPACEMIT_K3_COMBO_PHY                policy<{'riscv64': 'm'}>
 CONFIG_PHY_SPACEMIT_K3_COMMON_OPS               policy<{'riscv64': 'm'}>
+CONFIG_PHY_SPACEMIT_K3_INNO_DP                  policy<{'riscv64': 'm'}>
 CONFIG_PHY_STARFIVE_JH7110_DPHY_RX              policy<{'riscv64': 'm'}>
 CONFIG_PHY_STARFIVE_JH7110_DPHY_TX              policy<{'riscv64': 'm'}>
 CONFIG_PHY_STARFIVE_JH7110_PCIE                 policy<{'riscv64': 'm'}>
@@ -9226,7 +9238,7 @@ CONFIG_SND_SOC_AC97_BUS                         policy<{'x86_64': 'y'}>
 CONFIG_SND_SOC_AC97_CODEC                       policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_SND_SOC_ACPI                             policy<{'x86_64': 'm'}>
 CONFIG_SND_SOC_ACPI_AMD_MATCH                   policy<{'x86_64': 'm'}>
-CONFIG_SND_SOC_ACPI_AMD_SDCA_QUIRKS             policy<{'x86_64': 'm'}>
+CONFIG_SND_SOC_ACPI_AMD_SDCA_QUIRKS             policy<{'x86_64': 'y'}>
 CONFIG_SND_SOC_ACPI_INTEL_MATCH                 policy<{'x86_64': 'm'}>
 CONFIG_SND_SOC_ACPI_INTEL_SDCA_QUIRKS           policy<{'x86_64': 'm'}>
 CONFIG_SND_SOC_ADAU1372                         policy<{'x86_64': 'm'}>
@@ -9835,6 +9847,7 @@ CONFIG_SOUND_OSS_CORE                           policy<{'x86_64': 'y'}>
 CONFIG_SOUND_OSS_CORE_PRECLAIM                  policy<{'x86_64': 'n'}>
 CONFIG_SP5100_TCO                               policy<{'x86_64': 'm'}>
 CONFIG_SPACEMIT_CCU                             policy<{'riscv64': 'y'}>
+CONFIG_SPACEMIT_INNO_DP                         policy<{'riscv64': 'm'}>
 CONFIG_SPACEMIT_K1_CCU                          policy<{'riscv64': 'y'}>
 CONFIG_SPACEMIT_K1_EMAC                         policy<{'riscv64': 'm'}>
 CONFIG_SPACEMIT_K1_TSENSOR                      policy<{'riscv64': 'm'}>
