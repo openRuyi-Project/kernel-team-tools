@@ -352,38 +352,64 @@ def walk_replacements(db: dict, pid: str) -> set[str]:
     return replacements
 
 
-def do_status(db: dict, commits: list[GitCommit], rev):
+def do_status(db: dict, commits: list[GitCommit], rev: str):
+    def msg_unrecorded(commit: GitCommit) -> str:
+        clean = clean_subject(commit.message)
+
+        msgs = [
+            f'Warning: Commit {commit.commit[:12]} ("{clean}"):',
+            f"- This patch has not been recorded, please run './patl walk {rev}'",
+            "",
+        ]
+
+        return "\n".join(msgs)
+
+    def msg_replacement_header(commit: GitCommit) -> str:
+        clean = clean_subject(commit.message)
+        guessed = guess_id(commit.message)
+        primary = guessed[0]
+
+        msgs = [
+            f'Commit {commit.commit[:12]} ("{clean}"):',
+            f"  {dim(primary)}",
+            f"  has replacement:",
+        ]
+
+        return "\n".join(msgs)
+
+    def msg_replacement(
+        commit: GitCommit, pid: str, subject: str | None, merged: list[str]
+    ) -> str:
+        clean = clean_subject(commit.message)
+        subject_suffix = ""
+        if subject == clean:
+            subject_suffix = " (identical subject)"
+        suffix = ""
+        if merged := info.get("merged", []):
+            suffix = f" (merged {', '.join(merged)})"
+        msgs = [f'  - "{subject}"{subject_suffix}', f"    {dim(pid)}{suffix}"]
+        return "\n".join(msgs)
+
     for c in commits:
-        clean = clean_subject(c.message)
         guessed = guess_id(c.message)
         if not guessed:
             continue
         primary = guessed[0]
 
         if primary not in db:
-            print(f'Patch "{clean}":', file=sys.stderr)
-            print(
-                f"- This patch has not been recorded, please run './patl walk {rev}'",
-                file=sys.stderr,
-            )
+            print(msg_unrecorded(c), file=sys.stderr)
             continue
 
         replacements = walk_replacements(db, primary)
 
         if replacements != {primary}:
-            print(f'Commit {c.commit[:12]} ("{clean}"):')
-            print(f"  {dim(primary)}")
-            print(f"  has replacement:")
+            print(msg_replacement_header(c))
             for pid in replacements:
-                subject = db.get(pid, {}).get("subject", "???")
-                subject_suffix = ""
-                if "subject" in db.get(pid, {}) and subject == clean:
-                    subject_suffix = " (identical subject)"
-                suffix = ""
-                if pid in db and (merged := db[pid].get("merged", [])):
-                    suffix = f" (merged {', '.join(merged)})"
-                print(f'  - "{subject}"{subject_suffix}')
-                print(f"    {dim(pid)}{suffix}")
+                info = db.get(pid, {})
+                subject: str = info.get("subject", None)
+                merged: list[str] = info.get("merged", [])
+
+                print(msg_replacement(c, pid, subject, merged))
             print()
 
 
