@@ -6,6 +6,12 @@
 CONFIG_ERRATA_MIPS_P8700_PAUSE_OPCODE           policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
 CONFIG_ERRATA_MIPS_P8700_PAUSE_OPCODE           note<'Errata for non-RVA23 machines'>
 
+CONFIG_ERRATA_PICOHEART_AMOCASQ                 policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
+CONFIG_ERRATA_PICOHEART_AMOCASQ                 note<'Errata for non-RVA23 machines'>
+
+CONFIG_ERRATA_PICOHEART_CBO_CLEAN               policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
+CONFIG_ERRATA_PICOHEART_CBO_CLEAN               note<'Errata for non-RVA23 machines'>
+
 CONFIG_ERRATA_SIFIVE_CIP_1200                   policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
 CONFIG_ERRATA_SIFIVE_CIP_1200                   note<'Errata for non-RVA23 machines'>
 
@@ -2920,6 +2926,7 @@ CONFIG_EROFS_FS_ZIP_LZMA                        policy<{'riscv64': 'n'}>
 CONFIG_EROFS_FS_ZIP_ZSTD                        policy<{'riscv64': 'n'}>
 CONFIG_ERRATA_ANDES                             policy<{'riscv64': 'y'}>
 CONFIG_ERRATA_MIPS                              policy<{'riscv64': 'y'}>
+CONFIG_ERRATA_PICOHEART                         policy<{'riscv64': 'y'}>
 CONFIG_ERRATA_SIFIVE                            policy<{'riscv64': 'y'}>
 CONFIG_ERRATA_THEAD                             policy<{'riscv64': 'y'}>
 CONFIG_ET131X                                   policy<{'x86_64': 'm'}>
