@@ -112,3 +112,63 @@ rewrite the note.
 After editing, run `--export` followed by `--check` to confirm the round trip
 is consistent, then review with `git diff`.
 
+## Local RPM builds (rpm-build)
+
+`rpm-build` builds the openRuyi linux RPM packages directly from a kernel
+source directory (e.g. an openRuyi-Project/linux worktree checked out at
+`ruyi/<version>.y`, patches already part of the tree): it generates the config
+from the annotations, packs Source0/Source1, injects values into the
+repository spec template and runs rpmbuild. Prerequisites: rpmbuild, gcc,
+bison, flex, make, perl, python3, tar, xz, zstd, cpio (cross builds also need
+a target-arch toolchain).
+
+### Common usage
+
+```sh
+# riscv64 generic cross build (the default arch)
+./rpm-build ~/code/kernel/linux/ruyi-linux
+
+# rva20 flavour (non-RVA23 CPU errata are enabled only here)
+./rpm-build --flavour rva20 ~/code/kernel/linux/ruyi-linux
+
+# x86_64
+./rpm-build --arch x86_64 ~/code/kernel/linux/ruyi-linux
+
+# Use your own .config, bypassing annotations (mutually exclusive
+# with --flavour)
+./rpm-build --config my.config ~/code/kernel/linux/ruyi-linux
+
+# LLVM/clang build (version suffix probed automatically, e.g. LLVM=-21;
+# or set it explicitly with --llvm)
+./rpm-build --toolchain clang ~/code/kernel/linux/ruyi-linux
+
+# Print the rpmbuild invocation without building
+./rpm-build --dry-run ~/code/kernel/linux/ruyi-linux
+```
+
+See `./rpm-build --help` for the full option list (cross prefix probing,
+jobs, release suffix, iteration override, tools/devel subpackage toggles,
+...).
+
+### Versioning and the work directory
+
+- The kernel release carries git information (following the kernel's own
+  scripts/setlocalversion convention): N commits past the version tag yield a
+  `-00199-g<sha>` suffix, uncommitted changes add `-dirty`, a non-git
+  directory gets `+`. The RPM Release mirrors the same information in
+  rpm-legal characters (e.g. `2.0.00199.g<sha>.3`) plus an auto-incrementing
+  iteration number: identical inputs keep the same number, any change bumps
+  it, `--iteration N` overrides it, and removing the work directory resets
+  the counter.
+- The work directory defaults to `./rpm-work`; packages land in `RPMS/` and
+  `SRPMS/`. `--reuse` reuses the previous Source0 tarball and config (it
+  refuses on provenance mismatch) — handy when only the sources changed.
+- Cross builds (`--arch` different from the host) disable the tools/devel
+  subpackages by default (they need a full target-arch userspace toolchain);
+  native builds enable them. Override with `--with-tools`/`--with-devel`.
+- `--distro oe` switches to the openEuler layout spec template
+  (`spec/kernel.spec`: /boot layout, SUBLEVEL moved into Release); the
+  default is the ruyi layout (`spec/linux.spec`).
+- The cross-compile environment variables `ARCH`, `CROSS_COMPILE`,
+  `RUST_TARGET` and `RUST_LIB_SRC` are recognised as defaults; command line
+  options win.
