@@ -295,6 +295,10 @@ def do_record(repo: GitRepo, db: dict, rev1: str, rev2: str):
         primary = upstream[0]
         clean = clean_subject(c.message)
 
+        # Don't bother if upstream commit has replacement, to avoid cycles.
+        if db.get(primary, {}).get("replacement", None) is not None:
+            continue
+
         possible_matches = set(pid for pid in upstream[1:] if pid in db)
         possible_matches |= set(by_subject.get(clean, []))
         possible_matches -= {primary}
