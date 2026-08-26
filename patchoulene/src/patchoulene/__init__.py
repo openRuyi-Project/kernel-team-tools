@@ -205,7 +205,8 @@ def do_diff_commits(
             print(f'  {prefix} "{clean_subject(c.message)}"')
             print(f"    - {primary}")
             for g in gs:
-                print(f"    + [{patch_num[g]}] {g}")
+                kind = "~" if g in cs1 else "+"
+                print(f"    {kind} [{patch_num[g]}] {g}")
             for m, base in ms:
                 print(f"      in {base} ({m})")
         else:
@@ -226,7 +227,8 @@ def do_diff_commits(
             continue
         if primary in replaces:
             print(f'  [{patch_num[primary]}] Replacement "{clean_subject(c.message)}"')
-            print(f"    + {primary}")
+            kind = "~" if primary in cs1 else "+"
+            print(f"    {kind} {primary}")
             for r in sorted(replaces[primary], key=lambda r: patch_num[r]):
                 print(f"    - [{patch_num[r]}] {r}")
         else:
