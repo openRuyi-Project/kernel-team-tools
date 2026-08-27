@@ -16,7 +16,7 @@ class GitCommit:
         assert RE_HASH_LIKE.fullmatch(self.commit)
 
     def __repr__(self) -> str:
-        return f"GitCommit(commit={repr(self.commit)}, message={repr(self.message)})"
+        return f"GitCommit(commit={self.commit!r}, message={self.message!r})"
 
 
 class GitRepo:
