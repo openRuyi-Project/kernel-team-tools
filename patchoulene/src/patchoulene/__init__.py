@@ -265,7 +265,7 @@ def do_record(repo: GitRepo, db: dict, rev1: str, rev2: str):
 
         msgs = [f"... the replacement of patch {possible}?"]
         if not is_id_match:
-            msgs.append(f"* (weak match)")
+            msgs.append("* (weak match)")
         msgs.append(f'  "{old_subject}"{is_identical}')
 
         return "\n".join(msgs)
@@ -399,7 +399,7 @@ def do_status(db: dict, commits: list[GitCommit], rev: str):
         msgs = [
             f'Commit {commit.commit[:12]} ("{clean}"):',
             f"  {dim(primary)}",
-            f"  has replacement:",
+            "  has replacement:",
         ]
 
         return "\n".join(msgs)
@@ -444,12 +444,12 @@ def do_mail_check(db: dict[str, dict]) -> list[dict[str, list[dict[str, str]]]]:
     def msg_thread_replacement(
         this_thread: list[b4.PatchHeader], latest_thread: list[b4.PatchHeader]
     ) -> str:
-        msgs = [f"Patches:"]
+        msgs = ["Patches:"]
         for m in this_thread:
             msgs.append(f"  {m.clean_subject()}")
             msgs.append(f"    https://patch.msgid.link/{m.message_id()}")
 
-        msgs.append(f"... may have replacement:")
+        msgs.append("... may have replacement:")
         for m in latest_thread:
             msgs.append(f"  {m.clean_subject()}")
             msgs.append(f"    https://patch.msgid.link/{m.message_id()}")
@@ -564,7 +564,7 @@ def do_mail_match(data: list[dict]):
                         subj_b = replacement[idxb].subject()
                         print(f"         -> (B{idxb + 1}) {subj_b}", file=sys.stderr)
                 else:
-                    print(f"         (no replacement)", file=sys.stderr)
+                    print("         (no replacement)", file=sys.stderr)
 
             print(file=sys.stderr)
             print("Replacement version:", file=sys.stderr)
@@ -665,7 +665,7 @@ def do_mail_match(data: list[dict]):
 
             match key:
                 case "y":
-                    print(f"(Accepted)", file=sys.stderr)
+                    print("(Accepted)", file=sys.stderr)
                     for i in range(len(current)):
                         row = matrix[i]
 
@@ -688,7 +688,7 @@ def do_mail_match(data: list[dict]):
                             db[cur_pid]["replacement"] = rids
                     break
                 case "n":
-                    print(f"(Ignored)", file=sys.stderr)
+                    print("(Ignored)", file=sys.stderr)
                     break
                 case "c":
                     for i in range(len(current)):
@@ -781,7 +781,7 @@ def main():
                     print(f'  "{clean}"', file=sys.stderr)
                     print(f"... the replacement of patch {possible}?", file=sys.stderr)
                     if possible not in id_matches:
-                        print(f"* (weak match)", file=sys.stderr)
+                        print("* (weak match)", file=sys.stderr)
                     print(f'  "{old_subject}"{is_identical}', file=sys.stderr)
                     if prompt_yn():
                         db[possible]["replacement"] = primary
@@ -799,5 +799,5 @@ def main():
             write_patch_db(db)
 
         case _:
-            print(f"Bad usage", file=sys.stderr)
+            print("Bad usage", file=sys.stderr)
             sys.exit(1)
