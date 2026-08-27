@@ -298,7 +298,7 @@ def do_record(repo: GitRepo, db: dict, rev1: str, rev2: str):
         if db.get(primary, {}).get("replacement", None) is not None:
             continue
 
-        possible_matches = set(pid for pid in upstream[1:] if pid in db)
+        possible_matches = {pid for pid in upstream[1:] if pid in db}
         possible_matches |= set(by_subject.get(clean, []))
         possible_matches -= {primary}
 
@@ -760,7 +760,7 @@ def main():
                         "subject": clean,
                     }
 
-                id_matches = set(pid for pid in guess[1:] if pid in db)
+                id_matches = {pid for pid in guess[1:] if pid in db}
                 possible_matches = id_matches | set(by_subject.get(clean, []))
                 possible_matches -= {primary}
 
