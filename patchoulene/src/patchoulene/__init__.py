@@ -109,6 +109,39 @@ def prompt_yn(default: bool = False):
 
 
 def do_record(repo: GitRepo, db: dict, rev1: str, rev2: str):
+    def msg_possible_match_header(commit: GitCommit, primary: str) -> str:
+        clean = clean_subject(commit.message)
+
+        msgs = [
+            f"Is new patch {primary}",
+            f"  (found as commit {commit.commit})",
+            f'  "{clean}"',
+        ]
+
+        return "\n".join(msgs)
+
+    def msg_possible_match(
+        *, possible: str, old_subject: str, is_id_match: bool, subject_identical: bool
+    ) -> str:
+        is_identical = " (identical subject)" if subject_identical else ""
+
+        msgs = [f"... the replacement of patch {possible}?"]
+        if not is_id_match:
+            msgs.append(f"* (weak match)")
+        msgs.append(f'  "{old_subject}"{is_identical}')
+
+        return "\n".join(msgs)
+
+    def msg_merged(commit: GitCommit, primary: str) -> str:
+        clean = clean_subject(commit.message)
+
+        msgs = [f'{rev2} has "{clean}"']
+        if not is_mainline:
+            msgs.append(f"  stable commit {commit.commit}")
+        msgs.append(f"  identifier {primary}")
+
+        return "\n".join(msgs)
+
     is_mainline = parse_base(rev2)[2] == 0
 
     by_subject = {}
@@ -143,21 +176,22 @@ def do_record(repo: GitRepo, db: dict, rev1: str, rev2: str):
         is_useful = False
 
         if possible_matches:
-            print(f"Is new patch {primary}", file=sys.stderr)
-            print(f"  (found as commit {c.commit})", file=sys.stderr)
-            print(f'  "{clean}"', file=sys.stderr)
+            print(msg_possible_match_header(c, primary), file=sys.stderr)
 
         for possible in possible_matches:
-            old_subject = db[possible].get("subject", "(Unknown)")
-            is_identical = " (identical subject)" if old_subject == clean else ""
+            old_subject = db[possible].get("subject", None)
+            is_id_match = possible in upstream[1:]
+
             print(
-                f"... the replacement of patch {possible}?",
+                msg_possible_match(
+                    possible=possible,
+                    old_subject=old_subject,
+                    is_id_match=is_id_match,
+                    subject_identical=old_subject == clean,
+                ),
                 file=sys.stderr,
             )
-            is_id_match = possible in upstream[1:]
-            if not is_id_match:
-                print(f"* (weak match)", file=sys.stderr)
-            print(f'  "{old_subject}"{is_identical}', file=sys.stderr)
+
             if prompt_yn(is_id_match):
                 is_useful = True
                 db[possible]["replacement"] = primary
@@ -173,10 +207,7 @@ def do_record(repo: GitRepo, db: dict, rev1: str, rev2: str):
             )
             if known_merged:
                 continue
-            print(f'{rev2} has "{clean}"', file=sys.stderr)
-            if not is_mainline:
-                print(f"  stable commit {c.commit}", file=sys.stderr)
-            print(f"  identifier {primary}", file=sys.stderr)
+            print(msg_merged(c, primary), file=sys.stderr)
             if "merged" not in db[primary]:
                 db[primary]["merged"] = []
             db[primary]["merged"].append(rev2)
