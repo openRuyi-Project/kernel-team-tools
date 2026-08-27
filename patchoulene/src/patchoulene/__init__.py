@@ -1,15 +1,11 @@
-import difflib
 import json
 import os
-import pathlib
 import re
-import shlex
-import subprocess
 import sys
 
 from . import b4
-from .message import *
 from .git import GitCommit, GitRepo
+from .message import *
 
 
 def series_entry(c: GitCommit):

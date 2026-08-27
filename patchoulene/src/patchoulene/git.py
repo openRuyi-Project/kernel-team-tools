@@ -2,8 +2,6 @@ import re
 import shlex
 import subprocess
 
-from .message import message_subject, clean_subject
-
 RE_HASH_LIKE = re.compile(r"[0-9a-f]+")
 
 
