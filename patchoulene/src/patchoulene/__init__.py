@@ -414,6 +414,21 @@ def do_status(db: dict, commits: list[GitCommit], rev: str):
 
 
 def do_mail_check(db: dict[str, dict]) -> list[dict[str, list[dict[str, str]]]]:
+    def msg_thread_replacement(
+        this_thread: list[b4.PatchHeader], latest_thread: list[b4.PatchHeader]
+    ) -> str:
+        msgs = [f"Patches:"]
+        for m in this_thread:
+            msgs.append(f"  {m.clean_subject()}")
+            msgs.append(f"    https://patch.msgid.link/{m.message_id()}")
+
+        msgs.append(f"... may have replacement:")
+        for m in latest_thread:
+            msgs.append(f"  {m.clean_subject()}")
+            msgs.append(f"    https://patch.msgid.link/{m.message_id()}")
+
+        return "\n".join(msgs)
+
     result = []
     checked = set()
 
@@ -426,14 +441,11 @@ def do_mail_check(db: dict[str, dict]) -> list[dict[str, list[dict[str, str]]]]:
 
         msgid = m[1]
 
+        status = "Already checked" if msgid in checked else "Checking"
+        print(f'{status} "{data.get("subject", "???")}" {msgid}', file=sys.stderr)
+
         if msgid in checked:
-            print(
-                f'Already checked "{data.get("subject", "???")}" {msgid}',
-                file=sys.stderr,
-            )
             continue
-        else:
-            print(f'Checking "{data.get("subject", "???")}" {msgid}', file=sys.stderr)
 
         if (res := b4.check_msgid(msgid)) is None:
             continue
@@ -446,14 +458,7 @@ def do_mail_check(db: dict[str, dict]) -> list[dict[str, list[dict[str, str]]]]:
         if set(this_ids) == set(latest_ids):
             continue
 
-        print(f"Patches:", file=sys.stderr)
-        for m in this_thread:
-            print(f"  {m.clean_subject()}", file=sys.stderr)
-            print(f"    https://patch.msgid.link/{m.message_id()}", file=sys.stderr)
-        print(f"... may have replacement:", file=sys.stderr)
-        for m in latest_thread:
-            print(f"  {m.clean_subject()}", file=sys.stderr)
-            print(f"    https://patch.msgid.link/{m.message_id()}", file=sys.stderr)
+        print(msg_thread_replacement(this_thread, latest_thread), file=sys.stderr)
 
         result.append(
             {
