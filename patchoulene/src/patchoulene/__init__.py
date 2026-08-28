@@ -143,15 +143,16 @@ def do_diff_commits(
             if p not in db:
                 break
 
-            merged_bases = [
-                m for m in db[p].get("merged", []) if base_is_contained_in(m, base2)
-            ]
-            if merged_bases:
-                merged.add((p, merged_bases[0]))
-                continue
-
             if db[p].get("replacement", None) is None:
-                break
+                # Only consider merged if no replacements
+                merged_bases = [
+                    m for m in db[p].get("merged", []) if base_is_contained_in(m, base2)
+                ]
+                if merged_bases:
+                    merged.add((p, merged_bases[0]))
+                    continue
+                else:
+                    break
             elif isinstance(db[p]["replacement"], list):
                 remaining.update(db[p]["replacement"])
             else:
