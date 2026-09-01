@@ -3537,7 +3537,8 @@
         "subject": "riscv: defconfig: spacemit: k3: enable display driver"
     },
     "mail:20260810-k3-pll5-pll8-1800mhz-v2-1-aabff510a797@linux.spacemit.com": {
-        "subject": "clk: spacemit: k3: add 1.8 GHz PLL5 and PLL8 rates"
+        "subject": "clk: spacemit: k3: add 1.8 GHz PLL5 and PLL8 rates",
+        "replacement": "mail:20260831-k3-pll5-pll8-1800mhz-v3-1-530ed0978615@linux.spacemit.com"
     },
     "mail:20260812062250.181-1-shaoqing.qin@redrisc.com": {
         "subject": "riscv: mm: mark KASAN vmalloc shadow mappings as valid"
@@ -4039,5 +4040,8 @@
     },
     "mail:20260817142728.61783-4-fangyu.yu@linux.alibaba.com": {
         "subject": "iommu/riscv: Avoid waiting on failed command enqueue"
+    },
+    "mail:20260831-k3-pll5-pll8-1800mhz-v3-1-530ed0978615@linux.spacemit.com": {
+        "subject": "clk: spacemit: k3: add 1.8 GHz PLL5 and PLL8 rates"
     }
 }
