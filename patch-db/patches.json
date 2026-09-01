@@ -2962,13 +2962,16 @@
         "subject": "riscv: mm: Fix concurrency in mark_new_valid_map()"
     },
     "mail:20260630-06-clk-ufs-support-v1-1-cf7521d1d0fe@kernel.org": {
-        "subject": "clk: spacemit: k3: fix parent clock of UFS aclk"
+        "subject": "clk: spacemit: k3: fix parent clock of UFS aclk",
+        "replacement": "commit:7a588b62679c51abd08171d31df6e44589f0097d"
     },
     "mail:20260630-06-clk-ufs-support-v1-2-cf7521d1d0fe@kernel.org": {
-        "subject": "dt-bindings: soc: spacemit: k3: Add clock ID for UFS refclk"
+        "subject": "dt-bindings: soc: spacemit: k3: Add clock ID for UFS refclk",
+        "replacement": "commit:4fc567e1bacdb5da85628de8dd1d1e3328060798"
     },
     "mail:20260630-06-clk-ufs-support-v1-3-cf7521d1d0fe@kernel.org": {
-        "subject": "clk: spacemit: k3: Add UFS refclk clock"
+        "subject": "clk: spacemit: k3: Add UFS refclk clock",
+        "replacement": "commit:8abba78dc0ee4ffa7c4e0e05b93c58bd94ff11c0"
     },
     "mail:20260630-riscv-no-stack-when-wrong-scratch-v1-1-0f9b9cb5cf67@iscas.ac.cn": {
         "subject": "riscv: Avoid stack access when CSR_SCRATCH is incorrect"
@@ -2993,17 +2996,20 @@
         "replacement": "mail:20260806-08-k3-ufs-support-v3-3-037fb322acdb@kernel.org"
     },
     "mail:20260703021024.495433-2-inochiama@gmail.com": {
-        "subject": "dt-bindings: phy: Add Spacemit K3 USB3/PCIe comb phy support"
+        "subject": "dt-bindings: phy: Add Spacemit K3 USB3/PCIe comb phy support",
+        "replacement": "commit:013004374b4da621e292408112413b103dd28b03"
     },
     "mail:20260703021024.495433-3-inochiama@gmail.com": {
-        "subject": "phy: spacemit: Add USB3/PCIe comb PHY driver for Spacemit K3"
+        "subject": "phy: spacemit: Add USB3/PCIe comb PHY driver for Spacemit K3",
+        "replacement": "commit:7a099760ea63ced7b194852b7dbbdcd951585f15"
     },
     "mail:20260704122230.75964-1-pengpeng@iscas.ac.cn": {
         "subject": "gpio: sifive: add missing MODULE_DEVICE_TABLE()",
         "replacement": "commit:8fe6fa0f223f44b8b869319d1b9c383749aa147b"
     },
     "mail:20260704122538.92830-1-pengpeng@iscas.ac.cn": {
-        "subject": "PCI: dwc: spacemit: add missing MODULE_DEVICE_TABLE()"
+        "subject": "PCI: dwc: spacemit: add missing MODULE_DEVICE_TABLE()",
+        "replacement": "commit:e145af8c14474d1390918552e839a12a42229b8b"
     },
     "mail:20260708095046716mVQlEvhyoXko9eueCxict@zte.com.cn": {
         "subject": "riscv: stacktrace: Fix NULL task pointer in ftrace_graph_ret_addr()"
@@ -3051,13 +3057,16 @@
         "replacement": "commit:627c32d418108bd298e255709d51b9d6db6ef8b9"
     },
     "mail:20260717-k3-clk-fix-i2s-v1-1-e95001a692ee@linux.spacemit.com": {
-        "subject": "dt-bindings: soc: spacemit: k3: add i2s_sysclk, i2s_bclk_factor and i2s1_sysclk_src IDs"
+        "subject": "dt-bindings: soc: spacemit: k3: add i2s_sysclk, i2s_bclk_factor and i2s1_sysclk_src IDs",
+        "replacement": "commit:cf59a8742581aa4a026b20c7a413be06f4fc9831"
     },
     "mail:20260717-k3-clk-fix-i2s-v1-2-e95001a692ee@linux.spacemit.com": {
-        "subject": "clk: spacemit: k3: fix i2s clock topology"
+        "subject": "clk: spacemit: k3: fix i2s clock topology",
+        "replacement": "commit:e6b17a690c2f920963d6a9328642bb090f3be587"
     },
     "mail:20260717-k3-clk-fix-i2s-v1-3-e95001a692ee@linux.spacemit.com": {
-        "subject": "clk: spacemit: k3: fix missing /2 factor in i2s sysclk dividers"
+        "subject": "clk: spacemit: k3: fix missing /2 factor in i2s sysclk dividers",
+        "replacement": "commit:8a7d4b1924d2a424b1a6fe69de4f9464ee1fb485"
     },
     "mail:20260716213314.3027969-2-aurelien@aurel32.net": {
         "subject": "riscv: defconfig: enable RFKILL and RFKILL_GPIO",
@@ -3435,10 +3444,12 @@
         "replacement": "commit:34c9cfcde29b938c416924ee6ec3519270bc2238"
     },
     "mail:20260729-spacemit-pinconf-validation-fixes-v1-1-edeaff398fb3@linux.spacemit.com": {
-        "subject": "pinctrl: spacemit: validate pins in pinconf callbacks"
+        "subject": "pinctrl: spacemit: validate pins in pinconf callbacks",
+        "replacement": "commit:41c59b22370d2e1785e0e80f8ad7bd9946a1ca82"
     },
     "mail:20260724135803.81223-1-kr494167@gmail.com": {
-        "subject": "rtc: spacemit: handle regmap_test_bits() error return"
+        "subject": "rtc: spacemit: handle regmap_test_bits() error return",
+        "replacement": "commit:092755367e1a5fcf0f5405e9425e86907199dfce"
     },
     "mail:20260725233351.55004-2-inochiama@gmail.com": {
         "subject": "riscv: dts: spacemit: Fix phy id check for the phy on pico-itx board",
@@ -3470,7 +3481,8 @@
         "subject": "RISC-V: KVM: Fix the conversion between vsip and hvip"
     },
     "mail:20260721-kx-i2s-dts-v1-1-d22cb6cfaab5@linux.spacemit.com": {
-        "subject": "ASoC: spacemit: rename clock inputs to match binding"
+        "subject": "ASoC: spacemit: rename clock inputs to match binding",
+        "replacement": "commit:4c69d04958ec87163ba826e2506babab37192e4b"
     },
     "mail:20260721-kx-i2s-dts-v1-2-d22cb6cfaab5@linux.spacemit.com": {
         "subject": "dt-bindings: sound: spacemit,k1-i2s: allow 6 clocks for K3 i2s1",
@@ -3722,141 +3734,270 @@
         "subject": "drm/verisilicon: Switch to drm_fb_dma_get_addr() for framebuffer addresses"
     },
     "commit:736d655c842f4d782d43e6e0461e9a2cd59fc39a": {
-        "subject": "cpufreq: dt-platdev: Add SpacemiT K1 SoC to the allowlist"
+        "subject": "cpufreq: dt-platdev: Add SpacemiT K1 SoC to the allowlist",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:3b9c34556fc1bb6639a9227e96ce7b368432d08c": {
-        "subject": "riscv: dts: spacemit: Add cpu scaling for K1 SoC"
+        "subject": "riscv: dts: spacemit: Add cpu scaling for K1 SoC",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:055044260e7a603ff587537651e12c8fbfbed851": {
-        "subject": "riscv: dts: spacemit: k3: Enable SD card support"
+        "subject": "riscv: dts: spacemit: k3: Enable SD card support",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:5ed8cdb56cd90859e0c7f269b4a7c2b1571419b2": {
-        "subject": "riscv: dts: thead: th1520: remove pclk for I2C1"
+        "subject": "riscv: dts: thead: th1520: remove pclk for I2C1",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:b6e4c8fe4cbeb71365e579904fbd4cb6437ff278": {
-        "subject": "riscv: dts: thead: Add TH1520 I2C nodes"
+        "subject": "riscv: dts: thead: Add TH1520 I2C nodes",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:c8f71218e9ac1a01fd355eabe62957df17d13b83": {
-        "subject": "riscv: dts: thead: lpi4a: sort nodes"
+        "subject": "riscv: dts: thead: lpi4a: sort nodes",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:01ba55917c27161f8480adf17c1bb8c6f6b62a09": {
-        "subject": "riscv: dts: thead: Add IO labels for the IO expansion on I2C1"
+        "subject": "riscv: dts: thead: Add IO labels for the IO expansion on I2C1",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:15d32aaf6300b832814a9930fdbd20efdbc9adcf": {
-        "subject": "riscv: dts: thead: Add remaining Lichee Pi 4A IO expansions"
+        "subject": "riscv: dts: thead: Add remaining Lichee Pi 4A IO expansions",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:0ed3fa23704d16ff476c55b6ec8fe5b99df75ec9": {
-        "subject": "i2c: spacemit: configure ILCR/IWCR for accurate SCL frequency"
+        "subject": "i2c: spacemit: configure ILCR/IWCR for accurate SCL frequency",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:73a2f91bc2f6bd329d9c55d351809a139393307a": {
-        "subject": "i2c: spacemit: drop warning when clock-frequency property is absent"
+        "subject": "i2c: spacemit: drop warning when clock-frequency property is absent",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:08d50f151747c12c41589e850c86232370fb427c": {
-        "subject": "i2c: k1: Use generic definitions for bus frequencies"
+        "subject": "i2c: k1: Use generic definitions for bus frequencies",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:788ed93b3b85baa3b5817655ce621ff1f6c300e9": {
-        "subject": "riscv: dts: spacemit: set console baud rate on K3 Pico-ITX board"
+        "subject": "riscv: dts: spacemit: set console baud rate on K3 Pico-ITX board",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:48dd3d020528e05795dfa46308ba5b59a1835bba": {
-        "subject": "riscv: dts: spacemit: enable the i2c2 adapter on K3 Pico-ITX board"
+        "subject": "riscv: dts: spacemit: enable the i2c2 adapter on K3 Pico-ITX board",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:930491838c55c41317da9f263e3e9b013cb9aaa8": {
-        "subject": "riscv: dts: spacemit: add 24c02 eeprom on K3 Pico-ITX board"
+        "subject": "riscv: dts: spacemit: add 24c02 eeprom on K3 Pico-ITX board",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:ae4e84366b5d621171da2e9fae2b1f8bea3312b8": {
-        "subject": "riscv: dts: spacemit: add i2c aliases on K3 Pico-ITX board"
+        "subject": "riscv: dts: spacemit: add i2c aliases on K3 Pico-ITX board",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:e0c1145f4c8ea0515b32e0b9620412528a4312b1": {
-        "subject": "riscv: dts: spacemit: improve RTL8211F PHY configuration on K3 Pico-ITX board"
+        "subject": "riscv: dts: spacemit: improve RTL8211F PHY configuration on K3 Pico-ITX board",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:c7d6ed1ebb133a68fd4aadbe959f5b0e5a2d7e40": {
-        "subject": "riscv: dts: spacemit: k3: Add QSPI support for Pico-ITX board"
+        "subject": "riscv: dts: spacemit: k3: Add QSPI support for Pico-ITX board",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:c5b108626dc5f21c34cf5119c6f5e0cd7561daa8": {
-        "subject": "dt-bindings: riscv: spacemit: Add Banana Pi BPI-CM6 compatible"
+        "subject": "dt-bindings: riscv: spacemit: Add Banana Pi BPI-CM6 compatible",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:8270311d70fdf36bc8aab1e52b554e654a8839ff": {
-        "subject": "riscv: dts: spacemit: k1: Split gmac_clk_ref into independent pinctrl groups"
+        "subject": "riscv: dts: spacemit: k1: Split gmac_clk_ref into independent pinctrl groups",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:46a8c01700ac21e1b83385df00aa0baa5d287b44": {
-        "subject": "riscv: dts: spacemit: k1: Add Banana Pi BPI-CM6 IO board"
+        "subject": "riscv: dts: spacemit: k1: Add Banana Pi BPI-CM6 IO board",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:d21808328225ab8cee46885bf9a0dffcefbe630e": {
-        "subject": "clocksource/drivers/timer-sun4i: Advertise a real minimum delta"
+        "subject": "clocksource/drivers/timer-sun4i: Advertise a real minimum delta",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:d3cfc81d95384d555f5ffdd8730af186f302a0e8": {
-        "subject": "riscv: dts: spacemit: Use symbolic PDMA request numbers on K1"
+        "subject": "riscv: dts: spacemit: Use symbolic PDMA request numbers on K1",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:a225e19a4cc4e040ca0389cf0bbe209c23f5c92d": {
-        "subject": "riscv: dts: spacemit: Add enough deassert time for the PHY on PICO ITX"
+        "subject": "riscv: dts: spacemit: Add enough deassert time for the PHY on PICO ITX",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:12b0d602e8642297ec369eeb99366d37c8a3a120": {
-        "subject": "riscv: dts: spacemit: Add enough deassert time for the PHY on com260 board"
+        "subject": "riscv: dts: spacemit: Add enough deassert time for the PHY on com260 board",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:e57a4beb33df5b5b91e8af7c8abac5f49838d524": {
-        "subject": "riscv: dts: spacemit: add K3 PDMA request numbers"
+        "subject": "riscv: dts: spacemit: add K3 PDMA request numbers",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:324c9c10839bec6da848b8947ca33e0b23d6b735": {
-        "subject": "riscv: dts: spacemit: add SPI controllers for K3"
+        "subject": "riscv: dts: spacemit: add SPI controllers for K3",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:259f5639b4b1a04cef9a7f79a95ef9ab928264cd": {
-        "subject": "riscv: dts: spacemit: k3-com260: add eeprom on i2c2"
+        "subject": "riscv: dts: spacemit: k3-com260: add eeprom on i2c2",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:b1d7f3e7da4230815ad732f764f7978049737bb6": {
-        "subject": "riscv: dts: spacemit: k3-com260-ifx: add eeprom on i2c1"
+        "subject": "riscv: dts: spacemit: k3-com260-ifx: add eeprom on i2c1",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:31efde747b5e5d2c185e06d872a9ef9b87f505ac": {
-        "subject": "riscv: dts: spacemit: enable PCIe on OrangePi R2S"
+        "subject": "riscv: dts: spacemit: enable PCIe on OrangePi R2S",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:46380e4b1534c1626cecd7f4d0abb5e0cce09af6": {
-        "subject": "riscv: dts: spacemit: k3: add USB controller and USB phy support"
+        "subject": "riscv: dts: spacemit: k3: add USB controller and USB phy support",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:ec926b3bcb49000bafb402a6864d19ae40a3d288": {
-        "subject": "ASoC: dt-bindings: sound: spacemit,k1-i2s: allow 6 clocks for K3 i2s1"
+        "subject": "ASoC: dt-bindings: sound: spacemit,k1-i2s: allow 6 clocks for K3 i2s1",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:cd01c677869affe1b01403ca2fad8fc0fe85e8bd": {
         "subject": "riscv: dts: spacemit: k3: add i2s0-i2s5 nodes",
         "replacement": "mail:20260721-kx-i2s-dts-v1-3-d22cb6cfaab5@linux.spacemit.com"
     },
     "commit:6d6536c880febe2340d8d388f42660eccff5aa81": {
-        "subject": "riscv: dts: spacemit: Fix phy id check for the phy on pico-itx board"
+        "subject": "riscv: dts: spacemit: Fix phy id check for the phy on pico-itx board",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:9db839d52ccd9af67d460cb9ac893276a74b88e5": {
-        "subject": "riscv: dts: spacemit: Fix phy id check for the phy on com260 board"
+        "subject": "riscv: dts: spacemit: Fix phy id check for the phy on com260 board",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:9b371a8b13fd0e8e6f3b12f4ef7e58927d6f62ee": {
-        "subject": "riscv: dts: spacemit: Make dtschema recognize the etherent PHY correctly on K3 pico-itx board"
+        "subject": "riscv: dts: spacemit: Make dtschema recognize the etherent PHY correctly on K3 pico-itx board",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:bff5af3c934740481a316c5ae1cd4a09a43134d0": {
-        "subject": "riscv: dts: spacemit: Make dtschema recognize the etherent PHY correctly on K3 com260 board"
+        "subject": "riscv: dts: spacemit: Make dtschema recognize the etherent PHY correctly on K3 com260 board",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:b496282ee4ad07311a13489e15b74fb7078d9a01": {
-        "subject": "riscv: dts: spacemit: k1-bananapi-f3: fix maximum CPU core voltage"
+        "subject": "riscv: dts: spacemit: k1-bananapi-f3: fix maximum CPU core voltage",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:56a77ddae794ca0516fc146f6e59bb8cdf4fd9d2": {
-        "subject": "riscv: dts: spacemit: k1-milkv-jupiter: fix maximum CPU core voltage"
+        "subject": "riscv: dts: spacemit: k1-milkv-jupiter: fix maximum CPU core voltage",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:ae0c38f0a24f95c8759b6b0eaaa5a0d36a7c6af2": {
-        "subject": "riscv: dts: spacemit: k1-orangepi-rv2: fix maximum CPU core voltage"
+        "subject": "riscv: dts: spacemit: k1-orangepi-rv2: fix maximum CPU core voltage",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:f045253a03589b2616332560b4120e584342a987": {
-        "subject": "riscv: dts: spacemit: k1-musepi-pro: fix maximum CPU core voltage"
+        "subject": "riscv: dts: spacemit: k1-musepi-pro: fix maximum CPU core voltage",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:d66267c35032c46c18b675601d03c80239bcd913": {
-        "subject": "riscv: dts: spacemit: k1-orangepi-r2s: fix maximum CPU core voltage"
+        "subject": "riscv: dts: spacemit: k1-orangepi-r2s: fix maximum CPU core voltage",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:a65e9b73b0f0f33078b63f039b3ff64af051a11f": {
-        "subject": "riscv: dts: spacemit: k1-bananapi-cm6: fix maximum CPU core voltage"
+        "subject": "riscv: dts: spacemit: k1-bananapi-cm6: fix maximum CPU core voltage",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:e273d298b74ea63d5d586bd50240f919a9c33fb3": {
-        "subject": "riscv: dts: spacemit: Add cpu scaling for Milk-V Jupiter"
+        "subject": "riscv: dts: spacemit: Add cpu scaling for Milk-V Jupiter",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:1f5d8228ca2c06ee1baa81b40cdba824ed768d95": {
         "subject": "Revert \"riscv: dts: spacemit: k3: add i2s0-i2s5 nodes\"",
         "replacement": "mail:20260721-kx-i2s-dts-v1-3-d22cb6cfaab5@linux.spacemit.com"
     },
     "commit:8fe6fa0f223f44b8b869319d1b9c383749aa147b": {
-        "subject": "gpio: sifive: add missing MODULE_DEVICE_TABLE()"
+        "subject": "gpio: sifive: add missing MODULE_DEVICE_TABLE()",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:6389eaf11d6cd3a66d10d0a5ea9cd91f242ccba2": {
         "subject": "spi: dt-bindings: spacemit: add K3 SPI compatible",
@@ -3865,10 +4006,16 @@
         ]
     },
     "commit:cf65b4d765b5f09db46baaa2dadf10fd53708a64": {
-        "subject": "perf/dwc_pcie: Add support for Picoheart vendor devices"
+        "subject": "perf/dwc_pcie: Add support for Picoheart vendor devices",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:18ec1f543ae1466fdd437803c64ab7c5e43cc36c": {
-        "subject": "perf/dwc_pcie: Support narrowed time-based counter for long time monitoring"
+        "subject": "perf/dwc_pcie: Support narrowed time-based counter for long time monitoring",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:c9651fbc6051d305765f9c7528b90ad6c88ba4f4": {
         "subject": "riscv: Add ISA extension parsing for Zalasr",
@@ -3916,40 +4063,76 @@
         "subject": "riscv: errata: picoheart: Add workaround for AMOCASQ errata"
     },
     "commit:34c9cfcde29b938c416924ee6ec3519270bc2238": {
-        "subject": "riscv: unaligned: stop using kthread for check_vector_unaligned_access()"
+        "subject": "riscv: unaligned: stop using kthread for check_vector_unaligned_access()",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:7e14e42edfaa872cd56deda6951c8cd56a2678d4": {
-        "subject": "Revert \"riscv: hwprobe: Fix stale vDSO data for late-initialized keys at boot\""
+        "subject": "Revert \"riscv: hwprobe: Fix stale vDSO data for late-initialized keys at boot\"",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:d3436d33341b774ebe842d87ae39a9c7944757dc": {
-        "subject": "ACPI: tables: Add missing #include <asm/fixmap.h>"
+        "subject": "ACPI: tables: Add missing #include <asm/fixmap.h>",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:6a48dea3449c220b1c607ecdad4d1cd18eac9b78": {
-        "subject": "riscv: acpi: Enable ARCH_HAS_ACPI_TABLE_UPGRADE"
+        "subject": "riscv: acpi: Enable ARCH_HAS_ACPI_TABLE_UPGRADE",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:9cfff2edcc5ef84bdbf91892b7e127a41b9db35f": {
-        "subject": "riscv: vdso: Simplify cflags remove logic"
+        "subject": "riscv: vdso: Simplify cflags remove logic",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:627c32d418108bd298e255709d51b9d6db6ef8b9": {
-        "subject": "riscv: mm: Move dma_contiguous_reserve() after NUMA initialization"
+        "subject": "riscv: mm: Move dma_contiguous_reserve() after NUMA initialization",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:888b1934642b796fd3fc00be5681cb36ce7eae4e": {
-        "subject": "PCI: Move Spacemit vendor and device IDs to linux/pci_ids.h"
+        "subject": "PCI: Move Spacemit vendor and device IDs to linux/pci_ids.h",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:27a5046cc56e851d2c498214b134170681ccb28a": {
-        "subject": "wifi: rtw89: pci: enable 36-bit DMA on spacemit K3"
+        "subject": "wifi: rtw89: pci: enable 36-bit DMA on spacemit K3",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:76555252981eefa209ba2a16544c4f1704ca330b": {
-        "subject": "riscv: cmpxchg: Use .option arch for Zacas and Zabha"
+        "subject": "riscv: cmpxchg: Use .option arch for Zacas and Zabha",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:7e4cb63d61a7e0bef20f0d00e831c7fac06e4a1c": {
-        "subject": "riscv: acpi: Handle LPI architectural context loss flags"
+        "subject": "riscv: acpi: Handle LPI architectural context loss flags",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:c888e324b24941c1a377a7c4ee030ac789cda035": {
-        "subject": "riscv: Restart via EFI runtime services when available"
+        "subject": "riscv: Restart via EFI runtime services when available",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:9e29ec46f736c485eddd2e8a4d774f131964ba47": {
-        "subject": "riscv: Mark default_power_off() as __noreturn"
+        "subject": "riscv: Mark default_power_off() as __noreturn",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:e861aaea2f478d23e9ee05edd4fd403f40ac75fa": {
         "subject": "iommupt: Fixup build warning by using BIT_ULL() for RISCVPT_NC/IO",
@@ -3973,13 +4156,22 @@
         "subject": "riscv64: defconfig: Enable BT and WLAN support for SpacemiT K3 Pico-ITX board"
     },
     "commit:7f2a7bbcd992735a8ef0b042d8ce36cb5f7698ce": {
-        "subject": "riscv: vdso: Add symbols for the alternative section boundaries"
+        "subject": "riscv: vdso: Add symbols for the alternative section boundaries",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:63aecaba41a4b2593697f208e91bf542248ec4f8": {
-        "subject": "riscv: alternative: Use the statically extracted vDSO section offsets"
+        "subject": "riscv: alternative: Use the statically extracted vDSO section offsets",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:42cd1e1fc8995ec7ed5cc61957fc503eb065e0eb": {
-        "subject": "riscv: alternative: Also patch the compat vDSO"
+        "subject": "riscv: alternative: Also patch the compat vDSO",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:74c9d82c7e3fe9e5845103fe83d711d89b169ab1": {
         "subject": "iommu: Split the kdoc comment for struct iommu_iotlb_gather",
@@ -4043,5 +4235,77 @@
     },
     "mail:20260831-k3-pll5-pll8-1800mhz-v3-1-530ed0978615@linux.spacemit.com": {
         "subject": "clk: spacemit: k3: add 1.8 GHz PLL5 and PLL8 rates"
+    },
+    "commit:7a588b62679c51abd08171d31df6e44589f0097d": {
+        "subject": "clk: spacemit: k3: fix parent clock of UFS aclk",
+        "merged": [
+            "v7.3-rc1"
+        ]
+    },
+    "commit:4fc567e1bacdb5da85628de8dd1d1e3328060798": {
+        "subject": "dt-bindings: soc: spacemit: k3: Add clock ID for UFS refclk",
+        "merged": [
+            "v7.3-rc1"
+        ]
+    },
+    "commit:8abba78dc0ee4ffa7c4e0e05b93c58bd94ff11c0": {
+        "subject": "clk: spacemit: k3: Add UFS refclk clock",
+        "merged": [
+            "v7.3-rc1"
+        ]
+    },
+    "commit:e145af8c14474d1390918552e839a12a42229b8b": {
+        "subject": "PCI: spacemit: Add missing MODULE_DEVICE_TABLE()",
+        "merged": [
+            "v7.3-rc1"
+        ]
+    },
+    "commit:013004374b4da621e292408112413b103dd28b03": {
+        "subject": "dt-bindings: phy: Add Spacemit K3 USB3/PCIe comb phy support",
+        "merged": [
+            "v7.3-rc1"
+        ]
+    },
+    "commit:7a099760ea63ced7b194852b7dbbdcd951585f15": {
+        "subject": "phy: spacemit: Add USB3/PCIe comb PHY driver for Spacemit K3",
+        "merged": [
+            "v7.3-rc1"
+        ]
+    },
+    "commit:4c69d04958ec87163ba826e2506babab37192e4b": {
+        "subject": "ASoC: spacemit: rename clock inputs to match binding",
+        "merged": [
+            "v7.3-rc1"
+        ]
+    },
+    "commit:cf59a8742581aa4a026b20c7a413be06f4fc9831": {
+        "subject": "dt-bindings: soc: spacemit: k3: add i2s_sysclk, i2s_bclk_factor and i2s1_sysclk_src IDs",
+        "merged": [
+            "v7.3-rc1"
+        ]
+    },
+    "commit:e6b17a690c2f920963d6a9328642bb090f3be587": {
+        "subject": "clk: spacemit: k3: fix i2s clock topology",
+        "merged": [
+            "v7.3-rc1"
+        ]
+    },
+    "commit:8a7d4b1924d2a424b1a6fe69de4f9464ee1fb485": {
+        "subject": "clk: spacemit: k3: fix missing /2 factor in i2s sysclk dividers",
+        "merged": [
+            "v7.3-rc1"
+        ]
+    },
+    "commit:41c59b22370d2e1785e0e80f8ad7bd9946a1ca82": {
+        "subject": "pinctrl: spacemit: validate pins in pinconf callbacks",
+        "merged": [
+            "v7.3-rc1"
+        ]
+    },
+    "commit:092755367e1a5fcf0f5405e9425e86907199dfce": {
+        "subject": "rtc: spacemit: handle regmap_test_bits() error return",
+        "merged": [
+            "v7.3-rc1"
+        ]
     }
 }
