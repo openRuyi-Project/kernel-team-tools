@@ -4307,5 +4307,11 @@
         "merged": [
             "v7.3-rc1"
         ]
+    },
+    "mail:20260821112100.572037-1-andrew.jones@oss.qualcomm.com": {
+        "subject": "iommu/riscv: Report cache coherency capability"
+    },
+    "mail:20260831145943.313726-15-andrew.jones@oss.qualcomm.com": {
+        "subject": "vfio: enable IOMMU_TYPE1 for RISC-V"
     }
 }
