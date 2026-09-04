@@ -11175,7 +11175,7 @@ CONFIG_VFIO                                     policy<{'riscv64': 'm', 'x86_64'
 CONFIG_VFIO_CONTAINER                           policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_VFIO_DEBUGFS                             policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_VFIO_GROUP                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_VFIO_IOMMU_TYPE1                         policy<{'x86_64': 'm'}>
+CONFIG_VFIO_IOMMU_TYPE1                         policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_VFIO_MDEV                                policy<{'x86_64': 'm'}>
 CONFIG_VFIO_NOIOMMU                             policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_VFIO_PCI                                 policy<{'riscv64': 'm', 'x86_64': 'm'}>
