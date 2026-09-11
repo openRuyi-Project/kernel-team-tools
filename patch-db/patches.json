@@ -2839,22 +2839,28 @@
         "replacement": "commit:73a2f91bc2f6bd329d9c55d351809a139393307a"
     },
     "mail:20260709040027.958400-2-inochiama@gmail.com": {
-        "subject": "PCI: spacemit-k1: Add device data support"
+        "subject": "PCI: spacemit-k1: Add device data support",
+        "replacement": "mail:20260907112606.465778-2-inochiama@gmail.com"
     },
     "mail:20260709040027.958400-3-inochiama@gmail.com": {
-        "subject": "PCI: spacemit-k1: Add multiple PHY handles support"
+        "subject": "PCI: spacemit-k1: Add multiple PHY handles support",
+        "replacement": "mail:20260907112606.465778-3-inochiama@gmail.com"
     },
     "mail:20260709040027.958400-4-inochiama@gmail.com": {
-        "subject": "PCI: spacemit-k1: Add device id update helper"
+        "subject": "PCI: spacemit-k1: Add device id update helper",
+        "replacement": "mail:20260907112606.465778-4-inochiama@gmail.com"
     },
     "mail:20260709040027.958400-5-inochiama@gmail.com": {
-        "subject": "dt-bindings: PCI: snps,dw-pcie: Add msi-parent for MSI handle check"
+        "subject": "dt-bindings: PCI: snps,dw-pcie: Add msi-parent for MSI handle check",
+        "replacement": "mail:20260907112606.465778-5-inochiama@gmail.com"
     },
     "mail:20260709040027.958400-6-inochiama@gmail.com": {
-        "subject": "dt-bindings: PCI: spacemit: Introduce Spacemit K3 PCIe host controller"
+        "subject": "dt-bindings: PCI: spacemit: Introduce Spacemit K3 PCIe host controller",
+        "replacement": "mail:20260907112606.465778-6-inochiama@gmail.com"
     },
     "mail:20260709040027.958400-7-inochiama@gmail.com": {
-        "subject": "PCI: spacemit-k1: Add Spacemit K3 PCIe host controller support"
+        "subject": "PCI: spacemit-k1: Add Spacemit K3 PCIe host controller support",
+        "replacement": "mail:20260907112606.465778-7-inochiama@gmail.com"
     },
     "mail:20260518-06-clk-reset-usb-fix-v1-1-14fc235e692b@kernel.org": {
         "subject": "clk: spacemit: k3: fix USB2 bus clock",
@@ -3225,7 +3231,8 @@
         ]
     },
     "mail:20260330-v7-0-rc1-rv-dis-int-before-restart-v3-1-5a0577fcd136@linux.spacemit.com": {
-        "subject": "riscv: disable local interrupts and stop other CPUs before reboot/shutdown"
+        "subject": "riscv: disable local interrupts and stop other CPUs before reboot/shutdown",
+        "replacement": "mail:20260907-v7-0-rc1-rv-dis-int-before-restart-v4-1-42bb460c4afe@linux.dev"
     },
     "mail:20260727-fix-riscv-swiotlb-v3-1-59479b23736c@linux.dev": {
         "subject": "riscv: mm: fix SWIOTLB initialization for systems with DRAM above 4GB",
@@ -3244,13 +3251,16 @@
         "subject": "RISC-V: Add common csr_read_num() and csr_write_num() functions"
     },
     "mail:20260806-08-k3-ufs-support-v3-1-037fb322acdb@kernel.org": {
-        "subject": "scsi: ufs: spacemit: dt-bindings: Add UFS controller for K3 SoC"
+        "subject": "scsi: ufs: spacemit: dt-bindings: Add UFS controller for K3 SoC",
+        "replacement": "mail:20260908-08-k3-ufs-support-v4-1-22aa2bd97d3b@kernel.org"
     },
     "mail:20260806-08-k3-ufs-support-v3-2-037fb322acdb@kernel.org": {
-        "subject": "scsi: ufs: spacemit: k3: Add UFS Host Controller driver"
+        "subject": "scsi: ufs: spacemit: k3: Add UFS Host Controller driver",
+        "replacement": "mail:20260908-08-k3-ufs-support-v4-2-22aa2bd97d3b@kernel.org"
     },
     "mail:20260806-08-k3-ufs-support-v3-3-037fb322acdb@kernel.org": {
-        "subject": "riscv: dts: spacemit: k3: Add UFS support"
+        "subject": "riscv: dts: spacemit: k3: Add UFS support",
+        "replacement": "mail:20260908-08-k3-ufs-support-v4-3-22aa2bd97d3b@kernel.org"
     },
     "mail:20260727094726.890179-2-inochiama@gmail.com": {
         "subject": "riscv: dts: spacemit: k3: add USB controller and USB phy support",
@@ -3489,7 +3499,8 @@
         "replacement": "commit:ec926b3bcb49000bafb402a6864d19ae40a3d288"
     },
     "mail:20260721-kx-i2s-dts-v1-3-d22cb6cfaab5@linux.spacemit.com": {
-        "subject": "riscv: dts: spacemit: k3: add i2s0-i2s5 nodes"
+        "subject": "riscv: dts: spacemit: k3: add i2s0-i2s5 nodes",
+        "replacement": "mail:20260910-kx-i2s-dts-v2-1-91f5376c899d@linux.spacemit.com"
     },
     "mail:20260806072256.1813-2-douyufan@picoheart.com": {
         "subject": "riscv: kexec_file: constrain extra segments to the Sv39 direct map"
@@ -3556,22 +3567,31 @@
         "subject": "riscv: mm: mark KASAN vmalloc shadow mappings as valid"
     },
     "mail:20260812-b4-spacemit-k1-usb2-v1-1-f28cf29e522b@linux.spacemit.com": {
-        "subject": "dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible"
+        "subject": "dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible",
+        "replacement": [
+            "mail:20260908-b4-spacemit-k1-usb2-v2-1-f07342ffa051@linux.spacemit.com",
+            "mail:20260908-b4-spacemit-k1-usb2-v2-2-f07342ffa051@linux.spacemit.com"
+        ]
     },
     "mail:20260812-b4-spacemit-k1-usb2-v1-2-f28cf29e522b@linux.spacemit.com": {
-        "subject": "usb: chipidea: usb2: add optional reset support"
+        "subject": "usb: chipidea: usb2: add optional reset support",
+        "replacement": "mail:20260908-b4-spacemit-k1-usb2-v2-4-f07342ffa051@linux.spacemit.com"
     },
     "mail:20260812-b4-spacemit-k1-usb2-v1-3-f28cf29e522b@linux.spacemit.com": {
-        "subject": "usb: chipidea: usb2: add SpacemiT K1 support"
+        "subject": "usb: chipidea: usb2: add SpacemiT K1 support",
+        "replacement": "mail:20260908-b4-spacemit-k1-usb2-v2-5-f07342ffa051@linux.spacemit.com"
     },
     "mail:20260812-b4-spacemit-k1-usb2-v1-4-f28cf29e522b@linux.spacemit.com": {
-        "subject": "riscv: dts: spacemit: add USB2.0 controller nodes for K1"
+        "subject": "riscv: dts: spacemit: add USB2.0 controller nodes for K1",
+        "replacement": "mail:20260908-b4-spacemit-k1-usb2-v2-6-f07342ffa051@linux.spacemit.com"
     },
     "mail:20260812-b4-spacemit-k1-usb2-v1-5-f28cf29e522b@linux.spacemit.com": {
-        "subject": "riscv: dts: spacemit: enable USB2.0 controllers on BananaPi F3"
+        "subject": "riscv: dts: spacemit: enable USB2.0 controllers on BananaPi F3",
+        "replacement": "mail:20260908-b4-spacemit-k1-usb2-v2-7-f07342ffa051@linux.spacemit.com"
     },
     "mail:20260812-b4-spacemit-k1-usb2-v1-6-f28cf29e522b@linux.spacemit.com": {
-        "subject": "riscv: defconfig: enable ChipIdea USB controller support"
+        "subject": "riscv: defconfig: enable ChipIdea USB controller support",
+        "replacement": "mail:20260908-b4-spacemit-k1-usb2-v2-9-f07342ffa051@linux.spacemit.com"
     },
     "mail:20260807114654.1373305-1-wenst@chromium.org": {
         "subject": "drm/verisilicon: Switch to drm_fb_dma_get_addr() for framebuffer addresses",
@@ -4045,22 +4065,28 @@
         "subject": "drivers/perf: Fix the condition where the root port is runtime suspended"
     },
     "mail:20260728094627.94975-2-yang.yicong@picoheart.com": {
-        "subject": "riscv: Make get_insn public for instruction fault handling"
+        "subject": "riscv: Make get_insn public for instruction fault handling",
+        "replacement": "mail:20260907072149.72031-2-yang.yicong@picoheart.com"
     },
     "mail:20260728094627.94975-3-yang.yicong@picoheart.com": {
-        "subject": "riscv: insn: Set sstatus.MXR when reading userspace instruction"
+        "subject": "riscv: insn: Set sstatus.MXR when reading userspace instruction",
+        "replacement": "mail:20260907072149.72031-2-yang.yicong@picoheart.com"
     },
     "mail:20260728094627.94975-4-yang.yicong@picoheart.com": {
-        "subject": "riscv: insn: Support decoding of CBO instructions"
+        "subject": "riscv: insn: Support decoding of CBO instructions",
+        "replacement": "mail:20260907072149.72031-3-yang.yicong@picoheart.com"
     },
     "mail:20260728094627.94975-5-yang.yicong@picoheart.com": {
-        "subject": "riscv: errata: Add init framework for picoheart errata"
+        "subject": "riscv: errata: Add init framework for picoheart errata",
+        "replacement": "mail:20260907072149.72031-4-yang.yicong@picoheart.com"
     },
     "mail:20260728094627.94975-6-yang.yicong@picoheart.com": {
-        "subject": "riscv: errata: picoheart: Add workaround for cbo.clean errata"
+        "subject": "riscv: errata: picoheart: Add workaround for cbo.clean errata",
+        "replacement": "mail:20260907072149.72031-5-yang.yicong@picoheart.com"
     },
     "mail:20260728094627.94975-7-yang.yicong@picoheart.com": {
-        "subject": "riscv: errata: picoheart: Add workaround for AMOCASQ errata"
+        "subject": "riscv: errata: picoheart: Add workaround for AMOCASQ errata",
+        "replacement": "mail:20260907072149.72031-6-yang.yicong@picoheart.com"
     },
     "commit:34c9cfcde29b938c416924ee6ec3519270bc2238": {
         "subject": "riscv: unaligned: stop using kthread for check_vector_unaligned_access()",
@@ -4225,16 +4251,20 @@
         "subject": "iommu/generic_pt: Fix the RISC-V supported feature mask"
     },
     "mail:20260817142728.61783-2-fangyu.yu@linux.alibaba.com": {
-        "subject": "iommu/riscv: Add command queue lock"
+        "subject": "iommu/riscv: Add command queue lock",
+        "replacement": "mail:20260901133920.14550-2-fangyu.yu@linux.alibaba.com"
     },
     "mail:20260817142728.61783-3-fangyu.yu@linux.alibaba.com": {
-        "subject": "iommu/riscv: Serialize command queue publishing"
+        "subject": "iommu/riscv: Serialize command queue publishing",
+        "replacement": "mail:20260901133920.14550-3-fangyu.yu@linux.alibaba.com"
     },
     "mail:20260817142728.61783-4-fangyu.yu@linux.alibaba.com": {
-        "subject": "iommu/riscv: Avoid waiting on failed command enqueue"
+        "subject": "iommu/riscv: Avoid waiting on failed command enqueue",
+        "replacement": "mail:20260901133920.14550-4-fangyu.yu@linux.alibaba.com"
     },
     "mail:20260831-k3-pll5-pll8-1800mhz-v3-1-530ed0978615@linux.spacemit.com": {
-        "subject": "clk: spacemit: k3: add 1.8 GHz PLL5 and PLL8 rates"
+        "subject": "clk: spacemit: k3: add 1.8 GHz PLL5 and PLL8 rates",
+        "replacement": "mail:20260907-k3-pll5-pll8-1800mhz-v5-1-5cc96d716b0a@linux.spacemit.com"
     },
     "commit:7a588b62679c51abd08171d31df6e44589f0097d": {
         "subject": "clk: spacemit: k3: fix parent clock of UFS aclk",
@@ -4307,5 +4337,86 @@
         "merged": [
             "v7.3-rc1"
         ]
+    },
+    "mail:20260907112606.465778-2-inochiama@gmail.com": {
+        "subject": "PCI: spacemit-k1: Add device data support"
+    },
+    "mail:20260907112606.465778-3-inochiama@gmail.com": {
+        "subject": "PCI: spacemit-k1: Add multiple PHY handles support"
+    },
+    "mail:20260907112606.465778-4-inochiama@gmail.com": {
+        "subject": "PCI: spacemit-k1: Add device id update helper"
+    },
+    "mail:20260907112606.465778-5-inochiama@gmail.com": {
+        "subject": "dt-bindings: PCI: snps,dw-pcie: Add msi-parent for MSI handle check"
+    },
+    "mail:20260907112606.465778-6-inochiama@gmail.com": {
+        "subject": "dt-bindings: PCI: spacemit: Introduce Spacemit K3 PCIe host controller"
+    },
+    "mail:20260907112606.465778-7-inochiama@gmail.com": {
+        "subject": "PCI: spacemit-k1: Add Spacemit K3 PCIe host controller support"
+    },
+    "mail:20260907-v7-0-rc1-rv-dis-int-before-restart-v4-1-42bb460c4afe@linux.dev": {
+        "subject": "riscv: disable local interrupts and stop other CPUs before reboot/shutdown"
+    },
+    "mail:20260908-08-k3-ufs-support-v4-1-22aa2bd97d3b@kernel.org": {
+        "subject": "scsi: ufs: spacemit: dt-bindings: Add UFS controller for K3 SoC"
+    },
+    "mail:20260908-08-k3-ufs-support-v4-2-22aa2bd97d3b@kernel.org": {
+        "subject": "scsi: ufs: spacemit: k3: Add UFS Host Controller driver"
+    },
+    "mail:20260908-08-k3-ufs-support-v4-3-22aa2bd97d3b@kernel.org": {
+        "subject": "riscv: dts: spacemit: k3: Add UFS support"
+    },
+    "mail:20260910-kx-i2s-dts-v2-1-91f5376c899d@linux.spacemit.com": {
+        "subject": "riscv: dts: spacemit: k3: add i2s0-i2s5 nodes"
+    },
+    "mail:20260908-b4-spacemit-k1-usb2-v2-1-f07342ffa051@linux.spacemit.com": {
+        "subject": "dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible"
+    },
+    "mail:20260908-b4-spacemit-k1-usb2-v2-2-f07342ffa051@linux.spacemit.com": {
+        "subject": "dt-bindings: usb: ci-hdrc-usb2: require clocks and resets for spacemit,k1-usb2"
+    },
+    "mail:20260908-b4-spacemit-k1-usb2-v2-4-f07342ffa051@linux.spacemit.com": {
+        "subject": "usb: chipidea: usb2: add optional reset support"
+    },
+    "mail:20260908-b4-spacemit-k1-usb2-v2-5-f07342ffa051@linux.spacemit.com": {
+        "subject": "usb: chipidea: usb2: add SpacemiT K1 support"
+    },
+    "mail:20260908-b4-spacemit-k1-usb2-v2-6-f07342ffa051@linux.spacemit.com": {
+        "subject": "riscv: dts: spacemit: add USB2.0 controller nodes for K1"
+    },
+    "mail:20260908-b4-spacemit-k1-usb2-v2-7-f07342ffa051@linux.spacemit.com": {
+        "subject": "riscv: dts: spacemit: enable USB2.0 controllers on BananaPi F3"
+    },
+    "mail:20260908-b4-spacemit-k1-usb2-v2-9-f07342ffa051@linux.spacemit.com": {
+        "subject": "riscv: defconfig: enable ChipIdea USB controller support"
+    },
+    "mail:20260907072149.72031-2-yang.yicong@picoheart.com": {
+        "subject": "riscv: Make get_insn public for instruction fault handling"
+    },
+    "mail:20260907072149.72031-3-yang.yicong@picoheart.com": {
+        "subject": "riscv: insn: Support decoding of CBO instructions"
+    },
+    "mail:20260907072149.72031-4-yang.yicong@picoheart.com": {
+        "subject": "riscv: errata: Add init framework for picoheart errata"
+    },
+    "mail:20260907072149.72031-5-yang.yicong@picoheart.com": {
+        "subject": "riscv: errata: picoheart: Add workaround for cbo.clean errata"
+    },
+    "mail:20260907072149.72031-6-yang.yicong@picoheart.com": {
+        "subject": "riscv: errata: picoheart: Add workaround for AMOCASQ errata"
+    },
+    "mail:20260901133920.14550-2-fangyu.yu@linux.alibaba.com": {
+        "subject": "iommu/riscv: Add command queue lock"
+    },
+    "mail:20260901133920.14550-3-fangyu.yu@linux.alibaba.com": {
+        "subject": "iommu/riscv: Serialize command queue publishing"
+    },
+    "mail:20260901133920.14550-4-fangyu.yu@linux.alibaba.com": {
+        "subject": "iommu/riscv: Avoid waiting on failed command enqueue"
+    },
+    "mail:20260907-k3-pll5-pll8-1800mhz-v5-1-5cc96d716b0a@linux.spacemit.com": {
+        "subject": "clk: spacemit: k3: add CPU PLL rate tables"
     }
 }
