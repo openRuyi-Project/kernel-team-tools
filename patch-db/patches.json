@@ -3876,7 +3876,9 @@
     "commit:d21808328225ab8cee46885bf9a0dffcefbe630e": {
         "subject": "clocksource/drivers/timer-sun4i: Advertise a real minimum delta",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v6.18.50",
+            "v7.2.4"
         ]
     },
     "commit:d3cfc81d95384d555f5ffdd8730af186f302a0e8": {
@@ -3970,31 +3972,36 @@
     "commit:b496282ee4ad07311a13489e15b74fb7078d9a01": {
         "subject": "riscv: dts: spacemit: k1-bananapi-f3: fix maximum CPU core voltage",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v7.2.4"
         ]
     },
     "commit:56a77ddae794ca0516fc146f6e59bb8cdf4fd9d2": {
         "subject": "riscv: dts: spacemit: k1-milkv-jupiter: fix maximum CPU core voltage",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v7.2.4"
         ]
     },
     "commit:ae0c38f0a24f95c8759b6b0eaaa5a0d36a7c6af2": {
         "subject": "riscv: dts: spacemit: k1-orangepi-rv2: fix maximum CPU core voltage",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v7.2.4"
         ]
     },
     "commit:f045253a03589b2616332560b4120e584342a987": {
         "subject": "riscv: dts: spacemit: k1-musepi-pro: fix maximum CPU core voltage",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v7.2.4"
         ]
     },
     "commit:d66267c35032c46c18b675601d03c80239bcd913": {
         "subject": "riscv: dts: spacemit: k1-orangepi-r2s: fix maximum CPU core voltage",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v7.2.4"
         ]
     },
     "commit:a65e9b73b0f0f33078b63f039b3ff64af051a11f": {
@@ -4091,7 +4098,9 @@
     "commit:34c9cfcde29b938c416924ee6ec3519270bc2238": {
         "subject": "riscv: unaligned: stop using kthread for check_vector_unaligned_access()",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v6.18.50",
+            "v7.2.4"
         ]
     },
     "commit:7e14e42edfaa872cd56deda6951c8cd56a2678d4": {
@@ -4145,7 +4154,9 @@
     "commit:7e4cb63d61a7e0bef20f0d00e831c7fac06e4a1c": {
         "subject": "riscv: acpi: Handle LPI architectural context loss flags",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v6.18.50",
+            "v7.2.4"
         ]
     },
     "commit:c888e324b24941c1a377a7c4ee030ac789cda035": {
