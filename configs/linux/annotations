@@ -1467,6 +1467,8 @@ CONFIG_CLK_STARFIVE_JH71X0                      policy<{'riscv64': 'y'}>
 CONFIG_CLK_THEAD_TH1520_AP                      policy<{'riscv64': 'y'}>
 CONFIG_CLK_TWL                                  policy<{'x86_64': 'm'}>
 CONFIG_CLK_TWL6040                              policy<{'x86_64': 'm'}>
+CONFIG_CLK_ULTRARISC                            policy<{'riscv64': 'y'}>
+CONFIG_CLK_ULTRARISC_DP1000                     policy<{'riscv64': 'y'}>
 CONFIG_CLOCKSOURCE_WATCHDOG                     policy<{'x86_64': 'y'}>
 CONFIG_CLONE_BACKWARDS                          policy<{'riscv64': 'y'}>
 CONFIG_CLOSURES                                 policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -2818,6 +2820,7 @@ CONFIG_DWMAC_SUN55I                             policy<{'riscv64': 'm'}>
 CONFIG_DWMAC_SUN8I                              policy<{'riscv64': 'm'}>
 CONFIG_DWMAC_SUNXI                              policy<{'riscv64': 'm'}>
 CONFIG_DWMAC_THEAD                              policy<{'riscv64': 'm'}>
+CONFIG_DWMAC_ULTRARISC                          policy<{'riscv64': 'm'}>
 CONFIG_DW_AXI_DMAC                              policy<{'riscv64': 'n'}>
 CONFIG_DW_DMAC                                  policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_DW_DMAC_CORE                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
@@ -6123,14 +6126,15 @@ CONFIG_MTRR                                     policy<{'x86_64': 'y'}>
 CONFIG_MTRR_SANITIZER                           policy<{'x86_64': 'y'}>
 CONFIG_MTRR_SANITIZER_ENABLE_DEFAULT            policy<{'x86_64': '1'}>
 CONFIG_MTRR_SANITIZER_SPARE_REG_NR_DEFAULT      policy<{'x86_64': '1'}>
-CONFIG_MULTIPLEXER                              policy<{'x86_64': 'y'}>
+CONFIG_MULTIPLEXER                              policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_MULTIUSER                                policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_MUSB_PIO_ONLY                            policy<{'x86_64': 'y'}>
 CONFIG_MUTEX_SPIN_ON_OWNER                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_MUX_ADG792A                              policy<{'x86_64': 'm'}>
-CONFIG_MUX_ADGS1408                             policy<{'x86_64': 'm'}>
+CONFIG_MUX_ADG792A                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_MUX_ADGS1408                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_MUX_CORE                                 policy<{'riscv64': 'n', 'x86_64': 'n'}>
-CONFIG_MUX_GPIO                                 policy<{'x86_64': 'm'}>
+CONFIG_MUX_GPIO                                 policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_MUX_MMIO                                 policy<{'riscv64': 'm'}>
 CONFIG_MVMDIO                                   policy<{'x86_64': 'm'}>
 CONFIG_MWIFIEX                                  policy<{'x86_64': 'm'}>
 CONFIG_MWIFIEX_PCIE                             policy<{'x86_64': 'm'}>
@@ -7288,6 +7292,7 @@ CONFIG_PINCTRL_EIC7700                          policy<{'riscv64': 'n'}>
 CONFIG_PINCTRL_ELKHARTLAKE                      policy<{'x86_64': 'm'}>
 CONFIG_PINCTRL_EMMITSBURG                       policy<{'x86_64': 'm'}>
 CONFIG_PINCTRL_GEMINILAKE                       policy<{'x86_64': 'm'}>
+CONFIG_PINCTRL_GENERIC_MUX                      policy<{'riscv64': 'm'}>
 CONFIG_PINCTRL_ICELAKE                          policy<{'x86_64': 'm'}>
 CONFIG_PINCTRL_INTEL                            policy<{'x86_64': 'y'}>
 CONFIG_PINCTRL_INTEL_PLATFORM                   policy<{'x86_64': 'm'}>
@@ -7976,6 +7981,7 @@ CONFIG_RISCV_PMU_LEGACY                         policy<{'riscv64': 'y'}>
 CONFIG_RISCV_PMU_SBI                            policy<{'riscv64': 'y'}>
 CONFIG_RISCV_PROBE_UNALIGNED_ACCESS             policy<{'riscv64': 'y'}>
 CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS      policy<{'riscv64': 'y'}>
+CONFIG_RISCV_RPMI_DEVICE_POWER                  policy<{'riscv64': 'y'}>
 CONFIG_RISCV_RPMI_SYSMSI                        policy<{'riscv64': 'y'}>
 CONFIG_RISCV_SBI                                policy<{'riscv64': 'y'}>
 CONFIG_RISCV_SBI_CPUIDLE                        policy<{'riscv64': 'y'}>
@@ -8281,7 +8287,7 @@ CONFIG_RTW89_DEBUGFS                            policy<{'x86_64': 'n'}>
 CONFIG_RTW89_DEBUGMSG                           policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_RTW89_PCI                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_RTW89_USB                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
-CONFIG_RT_GROUP_SCHED                           policy<{'riscv64': 'y', 'x86_64': 'n'}>
+CONFIG_RT_GROUP_SCHED                           policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_RT_GROUP_SCHED_DEFAULT_DISABLED          policy<{'riscv64': 'n'}>
 CONFIG_RT_MUTEXES                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_RUNTIME_KERNEL_TESTING_MENU              policy<{'riscv64': 'n'}>
@@ -11175,7 +11181,7 @@ CONFIG_VFIO                                     policy<{'riscv64': 'm', 'x86_64'
 CONFIG_VFIO_CONTAINER                           policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_VFIO_DEBUGFS                             policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_VFIO_GROUP                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_VFIO_IOMMU_TYPE1                         policy<{'x86_64': 'm'}>
+CONFIG_VFIO_IOMMU_TYPE1                         policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_VFIO_MDEV                                policy<{'x86_64': 'm'}>
 CONFIG_VFIO_NOIOMMU                             policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_VFIO_PCI                                 policy<{'riscv64': 'm', 'x86_64': 'm'}>
