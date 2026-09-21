@@ -130,7 +130,7 @@ CONFIG_ACPI_NUMA                                policy<{'riscv64': 'y', 'x86_64'
 CONFIG_ACPI_PCC                                 policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_ACPI_PCI_SLOT                            policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_ACPI_PFRUT                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
-CONFIG_ACPI_PLATFORM_PROFILE                    policy<{'x86_64': 'm'}>
+CONFIG_ACPI_PLATFORM_PROFILE                    policy<{'x86_64': 'y'}>
 CONFIG_ACPI_PPTT                                policy<{'riscv64': 'y'}>
 CONFIG_ACPI_PRMT                                policy<{'x86_64': 'y'}>
 CONFIG_ACPI_PROCESSOR                           policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -416,6 +416,7 @@ CONFIG_AQTION                                   policy<{'riscv64': 'n', 'x86_64'
 CONFIG_AQUANTIA_PHY                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_AR5523                                   policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_ARCH_ANDES                               policy<{'riscv64': 'y'}>
+CONFIG_ARCH_ANLOGIC                             policy<{'riscv64': 'y'}>
 CONFIG_ARCH_CANAAN                              policy<{'riscv64': 'y'}>
 CONFIG_ARCH_CC_CAN_LINK                         policy<{'riscv64': 'y'}>
 CONFIG_ARCH_CLOCKSOURCE_INIT                    policy<{'x86_64': 'y'}>
@@ -1468,6 +1469,8 @@ CONFIG_CLK_STARFIVE_JH71X0                      policy<{'riscv64': 'y'}>
 CONFIG_CLK_THEAD_TH1520_AP                      policy<{'riscv64': 'y'}>
 CONFIG_CLK_TWL                                  policy<{'x86_64': 'm'}>
 CONFIG_CLK_TWL6040                              policy<{'x86_64': 'm'}>
+CONFIG_CLK_ULTRARISC                            policy<{'riscv64': 'y'}>
+CONFIG_CLK_ULTRARISC_DP1000                     policy<{'riscv64': 'y'}>
 CONFIG_CLOCKSOURCE_WATCHDOG                     policy<{'x86_64': 'y'}>
 CONFIG_CLOCKSOURCE_WATCHDOG_MAX_SKEW_US         policy<{'x86_64': '100'}>
 CONFIG_CLONE_BACKWARDS                          policy<{'riscv64': 'y'}>
@@ -2783,6 +2786,7 @@ CONFIG_DWC_PCIE_PMU                             policy<{'riscv64': 'n', 'x86_64'
 CONFIG_DWC_XLGMAC                               policy<{'x86_64': 'm'}>
 CONFIG_DWC_XLGMAC_PCI                           policy<{'x86_64': 'm'}>
 CONFIG_DWMAC_DWC_QOS_ETH                        policy<{'riscv64': 'n'}>
+CONFIG_DWMAC_EIC7700                            policy<{'riscv64': 'm'}>
 CONFIG_DWMAC_GENERIC                            policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_DWMAC_INTEL                              policy<{'x86_64': 'm'}>
 CONFIG_DWMAC_INTEL_PLAT                         policy<{'riscv64': 'm'}>
@@ -2794,6 +2798,7 @@ CONFIG_DWMAC_SUN55I                             policy<{'riscv64': 'm'}>
 CONFIG_DWMAC_SUN8I                              policy<{'riscv64': 'm'}>
 CONFIG_DWMAC_SUNXI                              policy<{'riscv64': 'm'}>
 CONFIG_DWMAC_THEAD                              policy<{'riscv64': 'm'}>
+CONFIG_DWMAC_ULTRARISC                          policy<{'riscv64': 'm'}>
 CONFIG_DW_AXI_DMAC                              policy<{'riscv64': 'n'}>
 CONFIG_DW_DMAC                                  policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_DW_DMAC_CORE                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
@@ -3368,6 +3373,7 @@ CONFIG_GENERIC_PENDING_IRQ                      policy<{'riscv64': 'y', 'x86_64'
 CONFIG_GENERIC_PHY                              policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_GENERIC_PHY_MIPI_DPHY                    policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_GENERIC_PINCONF                          policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_GENERIC_PINCTRL                          policy<{'riscv64': 'y'}>
 CONFIG_GENERIC_PINCTRL_GROUPS                   policy<{'riscv64': 'y'}>
 CONFIG_GENERIC_PINMUX_FUNCTIONS                 policy<{'riscv64': 'y'}>
 CONFIG_GENERIC_SCHED_CLOCK                      policy<{'riscv64': 'y'}>
@@ -3559,6 +3565,7 @@ CONFIG_HAVE_ACPI_APEI_NMI                       policy<{'x86_64': 'y'}>
 CONFIG_HAVE_ALIGNED_STRUCT_PAGE                 policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_HAVE_ARCH_AUDITSYSCALL                   policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_HAVE_ARCH_COMPAT_MMAP_BASES              policy<{'x86_64': 'y'}>
+CONFIG_HAVE_ARCH_GET_SECUREBOOT                 policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_HAVE_ARCH_HUGE_VMALLOC                   policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_HAVE_ARCH_HUGE_VMAP                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_HAVE_ARCH_JUMP_LABEL                     policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -7289,6 +7296,8 @@ CONFIG_PINCTRL_SUNXI                            policy<{'riscv64': 'y'}>
 CONFIG_PINCTRL_SX150X                           policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_PINCTRL_TH1520                           policy<{'riscv64': 'y'}>
 CONFIG_PINCTRL_TIGERLAKE                        policy<{'x86_64': 'm'}>
+CONFIG_PINCTRL_ULTRARISC                        policy<{'riscv64': 'y'}>
+CONFIG_PINCTRL_ULTRARISC_DP1000                 policy<{'riscv64': 'y'}>
 CONFIG_PINCTRL_UPBOARD                          policy<{'x86_64': 'n'}>
 CONFIG_PING                                     policy<{'x86_64': 'm'}>
 CONFIG_PINMUX                                   policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -7893,6 +7902,7 @@ CONFIG_RISCV_PMU_LEGACY                         policy<{'riscv64': 'y'}>
 CONFIG_RISCV_PMU_SBI                            policy<{'riscv64': 'y'}>
 CONFIG_RISCV_PROBE_UNALIGNED_ACCESS             policy<{'riscv64': 'y'}>
 CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS      policy<{'riscv64': 'y'}>
+CONFIG_RISCV_RPMI_DEVICE_POWER                  policy<{'riscv64': 'y'}>
 CONFIG_RISCV_RPMI_SYSMSI                        policy<{'riscv64': 'y'}>
 CONFIG_RISCV_SBI                                policy<{'riscv64': 'y'}>
 CONFIG_RISCV_SBI_CPUIDLE                        policy<{'riscv64': 'y'}>
@@ -8191,7 +8201,7 @@ CONFIG_RTW89_DEBUGFS                            policy<{'x86_64': 'n'}>
 CONFIG_RTW89_DEBUGMSG                           policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_RTW89_PCI                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_RTW89_USB                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
-CONFIG_RT_GROUP_SCHED                           policy<{'riscv64': 'y', 'x86_64': 'n'}>
+CONFIG_RT_GROUP_SCHED                           policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_RT_GROUP_SCHED_DEFAULT_DISABLED          policy<{'riscv64': 'n'}>
 CONFIG_RT_MUTEXES                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_RUNTIME_KERNEL_TESTING_MENU              policy<{'riscv64': 'n'}>
@@ -11016,7 +11026,7 @@ CONFIG_VFIO                                     policy<{'riscv64': 'm', 'x86_64'
 CONFIG_VFIO_CONTAINER                           policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_VFIO_DEBUGFS                             policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_VFIO_GROUP                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_VFIO_IOMMU_TYPE1                         policy<{'x86_64': 'm'}>
+CONFIG_VFIO_IOMMU_TYPE1                         policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_VFIO_MDEV                                policy<{'x86_64': 'm'}>
 CONFIG_VFIO_NOIOMMU                             policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_VFIO_PCI                                 policy<{'riscv64': 'm', 'x86_64': 'm'}>
@@ -11511,6 +11521,7 @@ CONFIG_X86_AMD_FREQ_SENSITIVITY                 policy<{'x86_64': 'm'}>
 CONFIG_X86_AMD_PLATFORM_DEVICE                  policy<{'x86_64': 'y'}>
 CONFIG_X86_AMD_PSTATE                           policy<{'x86_64': 'y'}>
 CONFIG_X86_AMD_PSTATE_DEFAULT_MODE              policy<{'x86_64': '3'}>
+CONFIG_X86_AMD_PSTATE_DYNAMIC_EPP               policy<{'x86_64': 'y'}>
 CONFIG_X86_AMD_PSTATE_UT                        policy<{'x86_64': 'n'}>
 CONFIG_X86_BOOTPARAM_MEMORY_CORRUPTION_CHECK    policy<{'x86_64': 'y'}>
 CONFIG_X86_BUS_LOCK_DETECT                      policy<{'x86_64': 'y'}>
