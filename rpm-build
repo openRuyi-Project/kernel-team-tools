@@ -308,7 +308,8 @@ fi
 # "7.3.0-rc1" -> "7.3-rc1", "7.1.4" unchanged).
 TARBALL_VERSION=$(printf '%s' "$KERNEL_VERSION" | sed -E 's/^([0-9]+\.[0-9]+)\.0(-.*)?$/\1\2/')
 # RPM Version: '-' is not allowed, encode it as '~' (pre-release ordering).
-SPEC_VERSION=${TARBALL_VERSION//-/~}
+# Escape '~' so Bash does not expand the replacement to the home directory.
+SPEC_VERSION=${TARBALL_VERSION//-/\~}
 
 # patchset_release: best effort - if the kernel tree HEAD matches an entry in
 # this repository's manifest (ruyi/v<version>-<n>), use <n>. Otherwise 1.
