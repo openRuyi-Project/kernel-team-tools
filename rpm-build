@@ -677,7 +677,7 @@ fi
 # ----------------------------------------------------------------------------
 CHANGELOG_DATE=$(LC_ALL=C date '+%a %b %d %Y')
 if [ -n "$CONFIG_FILE" ]; then
-    ARCH_SUFFIX_VALUE=""
+    ARCH_SUFFIX_VALUE="empty"
 else
     ARCH_SUFFIX_VALUE="-$FLAVOUR"
 fi
