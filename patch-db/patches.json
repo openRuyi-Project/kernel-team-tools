@@ -2878,7 +2878,8 @@
         "replacement": "commit:c7d6ed1ebb133a68fd4aadbe959f5b0e5a2d7e40"
     },
     "mail:20260520111150.3300707-1-jberring@redhat.com": {
-        "subject": "riscv: dts: spacemit: set console baud rate on OrangePi RV2"
+        "subject": "riscv: dts: spacemit: set console baud rate on OrangePi RV2",
+        "replacement": "mail:20260929120227.1791356-1-jberring@redhat.com"
     },
     "mail:20260602100000.2402784-1-amadeus@jmu.edu.cn": {
         "subject": "riscv: dts: spacemit: enable PCIe on OrangePi R2S",
@@ -3427,10 +3428,12 @@
         ]
     },
     "mail:20260723084316.3573714-2-zhengxingda@iscas.ac.cn": {
-        "subject": "dt-bindings: phy: add binding for T-Head TH1520 USB PHY"
+        "subject": "dt-bindings: phy: add binding for T-Head TH1520 USB PHY",
+        "replacement": "mail:20261009090444.3319517-2-zhengxingda@iscas.ac.cn"
     },
     "mail:20260723084316.3573714-3-zhengxingda@iscas.ac.cn": {
-        "subject": "phy: add a driver for T-Head TH1520 USB PHY"
+        "subject": "phy: add a driver for T-Head TH1520 USB PHY",
+        "replacement": "mail:20261009090444.3319517-3-zhengxingda@iscas.ac.cn"
     },
     "mail:20260714074515.1959352-2-zhengxingda@iscas.ac.cn": {
         "subject": "riscv: dts: thead: th1520: remove pclk for I2C1",
@@ -4385,22 +4388,28 @@
         ]
     },
     "mail:20260907112606.465778-2-inochiama@gmail.com": {
-        "subject": "PCI: spacemit-k1: Add device data support"
+        "subject": "PCI: spacemit-k1: Add device data support",
+        "replacement": "mail:20260929083755.458238-2-inochiama@gmail.com"
     },
     "mail:20260907112606.465778-3-inochiama@gmail.com": {
-        "subject": "PCI: spacemit-k1: Add multiple PHY handles support"
+        "subject": "PCI: spacemit-k1: Add multiple PHY handles support",
+        "replacement": "mail:20260929083755.458238-3-inochiama@gmail.com"
     },
     "mail:20260907112606.465778-4-inochiama@gmail.com": {
-        "subject": "PCI: spacemit-k1: Add device id update helper"
+        "subject": "PCI: spacemit-k1: Add device id update helper",
+        "replacement": "mail:20260929083755.458238-4-inochiama@gmail.com"
     },
     "mail:20260907112606.465778-5-inochiama@gmail.com": {
-        "subject": "dt-bindings: PCI: snps,dw-pcie: Add msi-parent for MSI handle check"
+        "subject": "dt-bindings: PCI: snps,dw-pcie: Add msi-parent for MSI handle check",
+        "replacement": "mail:20260929083755.458238-5-inochiama@gmail.com"
     },
     "mail:20260907112606.465778-6-inochiama@gmail.com": {
-        "subject": "dt-bindings: PCI: spacemit: Introduce Spacemit K3 PCIe host controller"
+        "subject": "dt-bindings: PCI: spacemit: Introduce Spacemit K3 PCIe host controller",
+        "replacement": "mail:20260929083755.458238-6-inochiama@gmail.com"
     },
     "mail:20260907112606.465778-7-inochiama@gmail.com": {
-        "subject": "PCI: spacemit-k1: Add Spacemit K3 PCIe host controller support"
+        "subject": "PCI: spacemit-k1: Add Spacemit K3 PCIe host controller support",
+        "replacement": "mail:20260929083755.458238-7-inochiama@gmail.com"
     },
     "mail:20260907-v7-0-rc1-rv-dis-int-before-restart-v4-1-42bb460c4afe@linux.dev": {
         "subject": "riscv: disable local interrupts and stop other CPUs before reboot/shutdown"
@@ -4422,25 +4431,32 @@
         "replacement": "mail:20260915-kx-i2s-dts-v3-1-cf0b90882a97@linux.spacemit.com"
     },
     "mail:20260908-b4-spacemit-k1-usb2-v2-1-f07342ffa051@linux.spacemit.com": {
-        "subject": "dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible"
+        "subject": "dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible",
+        "replacement": "mail:20261009-b4-spacemit-k1-usb2-v4-1-2d98e5324d9a@linux.spacemit.com"
     },
     "mail:20260908-b4-spacemit-k1-usb2-v2-2-f07342ffa051@linux.spacemit.com": {
-        "subject": "dt-bindings: usb: ci-hdrc-usb2: require clocks and resets for spacemit,k1-usb2"
+        "subject": "dt-bindings: usb: ci-hdrc-usb2: require clocks and resets for spacemit,k1-usb2",
+        "replacement": "mail:20261009-b4-spacemit-k1-usb2-v4-1-2d98e5324d9a@linux.spacemit.com"
     },
     "mail:20260908-b4-spacemit-k1-usb2-v2-4-f07342ffa051@linux.spacemit.com": {
-        "subject": "usb: chipidea: usb2: add optional reset support"
+        "subject": "usb: chipidea: usb2: add optional reset support",
+        "replacement": "mail:20261009-b4-spacemit-k1-usb2-v4-3-2d98e5324d9a@linux.spacemit.com"
     },
     "mail:20260908-b4-spacemit-k1-usb2-v2-5-f07342ffa051@linux.spacemit.com": {
-        "subject": "usb: chipidea: usb2: add SpacemiT K1 support"
+        "subject": "usb: chipidea: usb2: add SpacemiT K1 support",
+        "replacement": "mail:20261009-b4-spacemit-k1-usb2-v4-4-2d98e5324d9a@linux.spacemit.com"
     },
     "mail:20260908-b4-spacemit-k1-usb2-v2-6-f07342ffa051@linux.spacemit.com": {
-        "subject": "riscv: dts: spacemit: add USB2.0 controller nodes for K1"
+        "subject": "riscv: dts: spacemit: add USB2.0 controller nodes for K1",
+        "replacement": "mail:20261009-b4-spacemit-k1-usb2-v4-5-2d98e5324d9a@linux.spacemit.com"
     },
     "mail:20260908-b4-spacemit-k1-usb2-v2-7-f07342ffa051@linux.spacemit.com": {
-        "subject": "riscv: dts: spacemit: enable USB2.0 controllers on BananaPi F3"
+        "subject": "riscv: dts: spacemit: enable USB2.0 controllers on BananaPi F3",
+        "replacement": "mail:20261009-b4-spacemit-k1-usb2-v4-6-2d98e5324d9a@linux.spacemit.com"
     },
     "mail:20260908-b4-spacemit-k1-usb2-v2-9-f07342ffa051@linux.spacemit.com": {
-        "subject": "riscv: defconfig: enable ChipIdea USB controller support"
+        "subject": "riscv: defconfig: enable ChipIdea USB controller support",
+        "replacement": "mail:20261009-b4-spacemit-k1-usb2-v4-8-2d98e5324d9a@linux.spacemit.com"
     },
     "mail:20260907072149.72031-2-yang.yicong@picoheart.com": {
         "subject": "riscv: Make get_insn public for instruction fault handling",
@@ -4659,40 +4675,51 @@
         "subject": "pinctrl: avoid duplicate function definitions"
     },
     "mail:20260904083709.425893-2-inochiama@gmail.com": {
-        "subject": "phy: core: Add common helper to add phy phandle device link"
+        "subject": "phy: core: Add common helper to add phy phandle device link",
+        "replacement": "mail:20260929085235.469515-2-inochiama@gmail.com"
     },
     "mail:20260904083709.425893-3-inochiama@gmail.com": {
-        "subject": "phy: core: Add common helper for get phy phandle by index"
+        "subject": "phy: core: Add common helper for get phy phandle by index",
+        "replacement": "mail:20260929085235.469515-3-inochiama@gmail.com"
     },
     "mail:20260904083709.425893-4-inochiama@gmail.com": {
-        "subject": "phy: core: Add phy bulk data helper functions"
+        "subject": "phy: core: Add phy bulk data helper functions",
+        "replacement": "mail:20260929085235.469515-4-inochiama@gmail.com"
     },
     "mail:20260904083709.425893-5-inochiama@gmail.com": {
-        "subject": "phy: core: Add managed phy bulk data helper functions"
+        "subject": "phy: core: Add managed phy bulk data helper functions",
+        "replacement": "mail:20260929085235.469515-5-inochiama@gmail.com"
     },
     "mail:20260916-08-k3-ufs-support-v5-1-1f5d71f1027d@kernel.org": {
-        "subject": "scsi: ufs: spacemit: dt-bindings: Add UFS controller for K3 SoC"
+        "subject": "scsi: ufs: spacemit: dt-bindings: Add UFS controller for K3 SoC",
+        "replacement": "mail:20261002-08-k3-ufs-support-v7-1-bb39007ff9ae@kernel.org"
     },
     "mail:20260916-08-k3-ufs-support-v5-2-1f5d71f1027d@kernel.org": {
-        "subject": "scsi: ufs: spacemit: k3: Add UFS Host Controller driver"
+        "subject": "scsi: ufs: spacemit: k3: Add UFS Host Controller driver",
+        "replacement": "mail:20261002-08-k3-ufs-support-v7-2-bb39007ff9ae@kernel.org"
     },
     "mail:20260916-08-k3-ufs-support-v5-3-1f5d71f1027d@kernel.org": {
         "subject": "riscv: dts: spacemit: k3: Add UFS support"
     },
     "mail:20260831044540.3304350-2-aurelien@aurel32.net": {
-        "subject": "riscv: dts: spacemit: k3: move USB3 phy to board level"
+        "subject": "riscv: dts: spacemit: k3: move USB3 phy to board level",
+        "replacement": "mail:20260928205012.3689405-2-aurelien@aurel32.net"
     },
     "mail:20260831044540.3304350-3-aurelien@aurel32.net": {
-        "subject": "riscv: dts: spacemit: k3: add USB3 B and C controllers for Pico-ITX board"
+        "subject": "riscv: dts: spacemit: k3: add USB3 B and C controllers for Pico-ITX board",
+        "replacement": "mail:20260928205012.3689405-3-aurelien@aurel32.net"
     },
     "mail:20260831044540.3304350-4-aurelien@aurel32.net": {
-        "subject": "riscv: dts: spacemit: k3: add rfkill node for Bluetooth on Pico-ITX board"
+        "subject": "riscv: dts: spacemit: k3: add rfkill node for Bluetooth on Pico-ITX board",
+        "replacement": "mail:20260928205012.3689405-4-aurelien@aurel32.net"
     },
     "mail:20260831044540.3304350-5-aurelien@aurel32.net": {
-        "subject": "riscv: dts: spacemit: k3: add rfkill node for WLAN on the K3 Pico-ITX board"
+        "subject": "riscv: dts: spacemit: k3: add rfkill node for WLAN on the K3 Pico-ITX board",
+        "replacement": "mail:20260928205012.3689405-5-aurelien@aurel32.net"
     },
     "mail:20260831044540.3304350-6-aurelien@aurel32.net": {
-        "subject": "riscv64: defconfig: Enable BT and WLAN support for SpacemiT K3 Pico-ITX board"
+        "subject": "riscv64: defconfig: Enable BT and WLAN support for SpacemiT K3 Pico-ITX board",
+        "replacement": "mail:20260928205012.3689405-6-aurelien@aurel32.net"
     },
     "mail:20260901080010.95040-1-amadeus@jmu.edu.cn": {
         "subject": "riscv: dts: spacemit: enable onboard eeprom for OrangePi"
@@ -4716,10 +4743,12 @@
         "subject": "iommu/riscv: Use 32-bit MMIO accesses for 64-bit registers"
     },
     "mail:20260821112100.572037-1-andrew.jones@oss.qualcomm.com": {
-        "subject": "iommu/riscv: Report cache coherency capability"
+        "subject": "iommu/riscv: Report cache coherency capability",
+        "replacement": "mail:20260831145943.313726-10-andrew.jones@oss.qualcomm.com"
     },
     "mail:20260831145943.313726-15-andrew.jones@oss.qualcomm.com": {
-        "subject": "vfio: enable IOMMU_TYPE1 for RISC-V"
+        "subject": "vfio: enable IOMMU_TYPE1 for RISC-V",
+        "replacement": "mail:20260925151659.419512-14-andrew.jones@oss.qualcomm.com"
     },
     "mail:20260914115607.350097-1-imbigking12@gmail.com": {
         "subject": "riscv: patch: fix handling of bpf-jit execmem addresses"
@@ -4851,16 +4880,20 @@
         "subject": "ACPI: RIMT: Enable PCI ACS for root complexes mapped to an IOMMU"
     },
     "mail:20260917-fix-sg204xspi-v1-1-5c95dac429a8@iscas.ac.cn": {
-        "subject": "spi: sg2044-nor: Return transfer errors"
+        "subject": "spi: sg2044-nor: Return transfer errors",
+        "replacement": "mail:20261001-fix-sg204xspi-v2-1-014dbaf22b5e@iscas.ac.cn"
     },
     "mail:20260917-fix-sg204xspi-v1-2-5c95dac429a8@iscas.ac.cn": {
-        "subject": "spi: sg2044-nor: Honor SPI clock limits"
+        "subject": "spi: sg2044-nor: Honor SPI clock limits",
+        "replacement": "mail:20261001-fix-sg204xspi-v2-2-014dbaf22b5e@iscas.ac.cn"
     },
     "mail:20260917-fix-sg204xspi-v1-3-5c95dac429a8@iscas.ac.cn": {
-        "subject": "riscv: dts: sophgo: Enable SPI NOR on SRD3-10"
+        "subject": "riscv: dts: sophgo: Enable SPI NOR on SRD3-10",
+        "replacement": "mail:20261001-fix-sg204xspi-v2-3-014dbaf22b5e@iscas.ac.cn"
     },
     "mail:20260917-fix-sg204xspi-v1-4-5c95dac429a8@iscas.ac.cn": {
-        "subject": "riscv: dts: sophgo: Limit SG2042 SPI NOR to 12.5 MHz"
+        "subject": "riscv: dts: sophgo: Limit SG2042 SPI NOR to 12.5 MHz",
+        "replacement": "mail:20261001-fix-sg204xspi-v2-4-014dbaf22b5e@iscas.ac.cn"
     },
     "commit:d5bcf9ccaa357396089bbfa47fc82b093f109b1e": {
         "subject": "iommu/riscv: Add command queue lock",
@@ -4898,5 +4931,101 @@
         "merged": [
             "v7.3-rc6"
         ]
+    },
+    "mail:20260929120227.1791356-1-jberring@redhat.com": {
+        "subject": "riscv: dts: spacemit: set console baud rate on OrangePi RV2"
+    },
+    "mail:20261009090444.3319517-2-zhengxingda@iscas.ac.cn": {
+        "subject": "dt-bindings: phy: add binding for T-Head TH1520 USB PHY"
+    },
+    "mail:20261009090444.3319517-3-zhengxingda@iscas.ac.cn": {
+        "subject": "phy: add a driver for T-Head TH1520 USB PHY"
+    },
+    "mail:20260929083755.458238-2-inochiama@gmail.com": {
+        "subject": "PCI: spacemit-k1: Add device data support"
+    },
+    "mail:20260929083755.458238-3-inochiama@gmail.com": {
+        "subject": "PCI: spacemit-k1: Add multiple PHY handles support"
+    },
+    "mail:20260929083755.458238-4-inochiama@gmail.com": {
+        "subject": "PCI: spacemit-k1: Add device id update helper"
+    },
+    "mail:20260929083755.458238-5-inochiama@gmail.com": {
+        "subject": "dt-bindings: PCI: snps,dw-pcie: Add msi-parent for MSI handle check"
+    },
+    "mail:20260929083755.458238-6-inochiama@gmail.com": {
+        "subject": "dt-bindings: PCI: spacemit: Introduce Spacemit K3 PCIe host controller"
+    },
+    "mail:20260929083755.458238-7-inochiama@gmail.com": {
+        "subject": "PCI: spacemit-k1: Add Spacemit K3 PCIe host controller support"
+    },
+    "mail:20261009-b4-spacemit-k1-usb2-v4-1-2d98e5324d9a@linux.spacemit.com": {
+        "subject": "dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible"
+    },
+    "mail:20261009-b4-spacemit-k1-usb2-v4-3-2d98e5324d9a@linux.spacemit.com": {
+        "subject": "usb: chipidea: usb2: add optional reset support"
+    },
+    "mail:20261009-b4-spacemit-k1-usb2-v4-4-2d98e5324d9a@linux.spacemit.com": {
+        "subject": "usb: chipidea: usb2: add SpacemiT K1 support"
+    },
+    "mail:20261009-b4-spacemit-k1-usb2-v4-5-2d98e5324d9a@linux.spacemit.com": {
+        "subject": "riscv: dts: spacemit: add USB2.0 controller nodes for K1"
+    },
+    "mail:20261009-b4-spacemit-k1-usb2-v4-6-2d98e5324d9a@linux.spacemit.com": {
+        "subject": "riscv: dts: spacemit: enable USB2.0 controllers on BananaPi F3"
+    },
+    "mail:20261009-b4-spacemit-k1-usb2-v4-8-2d98e5324d9a@linux.spacemit.com": {
+        "subject": "riscv: defconfig: enable ChipIdea USB controller support"
+    },
+    "mail:20260929085235.469515-2-inochiama@gmail.com": {
+        "subject": "phy: core: Add common helper to add phy phandle device link"
+    },
+    "mail:20260929085235.469515-3-inochiama@gmail.com": {
+        "subject": "phy: core: Add common helper for get phy phandle by index"
+    },
+    "mail:20260929085235.469515-4-inochiama@gmail.com": {
+        "subject": "phy: core: Add phy bulk data helper functions"
+    },
+    "mail:20260929085235.469515-5-inochiama@gmail.com": {
+        "subject": "phy: core: Add managed phy bulk data helper functions"
+    },
+    "mail:20261002-08-k3-ufs-support-v7-1-bb39007ff9ae@kernel.org": {
+        "subject": "scsi: ufs: spacemit: dt-bindings: Add UFS controller for K3 SoC"
+    },
+    "mail:20261002-08-k3-ufs-support-v7-2-bb39007ff9ae@kernel.org": {
+        "subject": "scsi: ufs: spacemit: k3: Add UFS Host Controller driver"
+    },
+    "mail:20260928205012.3689405-2-aurelien@aurel32.net": {
+        "subject": "riscv: dts: spacemit: k3: move USB3 phy to board level"
+    },
+    "mail:20260928205012.3689405-3-aurelien@aurel32.net": {
+        "subject": "riscv: dts: spacemit: k3: add USB3 B and C controllers for Pico-ITX board"
+    },
+    "mail:20260928205012.3689405-4-aurelien@aurel32.net": {
+        "subject": "riscv: dts: spacemit: k3: add rfkill node for Bluetooth on Pico-ITX board"
+    },
+    "mail:20260928205012.3689405-5-aurelien@aurel32.net": {
+        "subject": "riscv: dts: spacemit: k3: add rfkill node for WLAN on the K3 Pico-ITX board"
+    },
+    "mail:20260928205012.3689405-6-aurelien@aurel32.net": {
+        "subject": "riscv64: defconfig: Enable BT and WLAN support for SpacemiT K3 Pico-ITX board"
+    },
+    "mail:20260831145943.313726-10-andrew.jones@oss.qualcomm.com": {
+        "subject": "iommu/riscv: Report cache coherency capability"
+    },
+    "mail:20260925151659.419512-14-andrew.jones@oss.qualcomm.com": {
+        "subject": "vfio: enable IOMMU_TYPE1 for RISC-V"
+    },
+    "mail:20261001-fix-sg204xspi-v2-1-014dbaf22b5e@iscas.ac.cn": {
+        "subject": "spi: sg2044-nor: Return transfer errors"
+    },
+    "mail:20261001-fix-sg204xspi-v2-2-014dbaf22b5e@iscas.ac.cn": {
+        "subject": "spi: sg2044-nor: Honor SPI clock limits"
+    },
+    "mail:20261001-fix-sg204xspi-v2-3-014dbaf22b5e@iscas.ac.cn": {
+        "subject": "riscv: dts: sophgo: Enable SPI NOR on SRD3-10"
+    },
+    "mail:20261001-fix-sg204xspi-v2-4-014dbaf22b5e@iscas.ac.cn": {
+        "subject": "riscv: dts: sophgo: Limit SG2042 SPI NOR to 12.5 MHz"
     }
 }
