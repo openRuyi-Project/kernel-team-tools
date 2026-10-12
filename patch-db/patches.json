@@ -2939,22 +2939,28 @@
         "replacement": "commit:e4bf6eb4c7b61db1cf24487e14e6ae8755e61e3d"
     },
     "mail:20260515-ultrarisc-pinctrl-v1-1-bf559589ea8a@ultrarisc.com": {
-        "subject": "dt-bindings: vendor-prefixes: add Rongda"
+        "subject": "dt-bindings: vendor-prefixes: add Rongda",
+        "replacement": "mail:20260907-ultrarisc-dts-v2-1-5eb4c97477c5@ultrarisc.com"
     },
     "mail:20260515-ultrarisc-pinctrl-v1-2-bf559589ea8a@ultrarisc.com": {
-        "subject": "dt-bindings: riscv: cpus: Add UltraRISC CP100 compatible"
+        "subject": "dt-bindings: riscv: cpus: Add UltraRISC CP100 compatible",
+        "replacement": "mail:20260907-ultrarisc-dts-v2-2-5eb4c97477c5@ultrarisc.com"
     },
     "mail:20260515-ultrarisc-pinctrl-v1-3-bf559589ea8a@ultrarisc.com": {
-        "subject": "dt-bindings: riscv: Add UltraRISC DP1000 bindings"
+        "subject": "dt-bindings: riscv: Add UltraRISC DP1000 bindings",
+        "replacement": "mail:20260907-ultrarisc-dts-v2-3-5eb4c97477c5@ultrarisc.com"
     },
     "mail:20260515-ultrarisc-pinctrl-v1-5-bf559589ea8a@ultrarisc.com": {
-        "subject": "riscv: dts: ultrarisc: Add initial device tree for UltraRISC DP1000"
+        "subject": "riscv: dts: ultrarisc: Add initial device tree for UltraRISC DP1000",
+        "replacement": "mail:20260907-ultrarisc-dts-v2-8-5eb4c97477c5@ultrarisc.com"
     },
     "mail:20260515-ultrarisc-pinctrl-v1-7-bf559589ea8a@ultrarisc.com": {
-        "subject": "riscv: dts: ultrarisc: add Rongda M0 board device tree"
+        "subject": "riscv: dts: ultrarisc: add Rongda M0 board device tree",
+        "replacement": "mail:20260907-ultrarisc-dts-v2-9-5eb4c97477c5@ultrarisc.com"
     },
     "mail:20260515-ultrarisc-pinctrl-v1-8-bf559589ea8a@ultrarisc.com": {
-        "subject": "riscv: dts: ultrarisc: add Milk-V Titan board device tree"
+        "subject": "riscv: dts: ultrarisc: add Milk-V Titan board device tree",
+        "replacement": "mail:20260907-ultrarisc-dts-v2-10-5eb4c97477c5@ultrarisc.com"
     },
     "mail:20260624220434.4183732-1-felixonmars@archlinux.org": {
         "subject": "clocksource/drivers/timer-sun4i: Advertise a real minimum delta",
@@ -3488,7 +3494,8 @@
         "subject": "riscv: dts: spacemit: orangepi-r2s: Add cpu scaling for K1 SoC"
     },
     "mail:20260804134018.85497-1-yang.yicong@picoheart.com": {
-        "subject": "RISC-V: KVM: Fix the conversion between vsip and hvip"
+        "subject": "RISC-V: KVM: Fix the conversion between vsip and hvip",
+        "replacement": "commit:52c6b7d20d3e791a9e75aa2be2a467990154c7cd"
     },
     "mail:20260721-kx-i2s-dts-v1-1-d22cb6cfaab5@linux.spacemit.com": {
         "subject": "ASoC: spacemit: rename clock inputs to match binding",
@@ -4178,19 +4185,24 @@
         ]
     },
     "mail:20260819162115.2252812-2-aurelien@aurel32.net": {
-        "subject": "riscv: dts: spacemit: k3: move USB3 phy to board level"
+        "subject": "riscv: dts: spacemit: k3: move USB3 phy to board level",
+        "replacement": "mail:20260831044540.3304350-2-aurelien@aurel32.net"
     },
     "mail:20260819162115.2252812-3-aurelien@aurel32.net": {
-        "subject": "riscv: dts: spacemit: k3: add USB3 B and C controllers for Pico-ITX board"
+        "subject": "riscv: dts: spacemit: k3: add USB3 B and C controllers for Pico-ITX board",
+        "replacement": "mail:20260831044540.3304350-3-aurelien@aurel32.net"
     },
     "mail:20260819162115.2252812-4-aurelien@aurel32.net": {
-        "subject": "riscv: dts: spacemit: k3: add rfkill node for Bluetooth on Pico-ITX board"
+        "subject": "riscv: dts: spacemit: k3: add rfkill node for Bluetooth on Pico-ITX board",
+        "replacement": "mail:20260831044540.3304350-4-aurelien@aurel32.net"
     },
     "mail:20260819162115.2252812-5-aurelien@aurel32.net": {
-        "subject": "riscv: dts: spacemit: k3: add rfkill node for WLAN on the K3 Pico-ITX board"
+        "subject": "riscv: dts: spacemit: k3: add rfkill node for WLAN on the K3 Pico-ITX board",
+        "replacement": "mail:20260831044540.3304350-5-aurelien@aurel32.net"
     },
     "mail:20260819162115.2252812-6-aurelien@aurel32.net": {
-        "subject": "riscv64: defconfig: Enable BT and WLAN support for SpacemiT K3 Pico-ITX board"
+        "subject": "riscv64: defconfig: Enable BT and WLAN support for SpacemiT K3 Pico-ITX board",
+        "replacement": "mail:20260831044540.3304350-6-aurelien@aurel32.net"
     },
     "commit:7f2a7bbcd992735a8ef0b042d8ce36cb5f7698ce": {
         "subject": "riscv: vdso: Add symbols for the alternative section boundaries",
@@ -4371,16 +4383,20 @@
         "subject": "riscv: disable local interrupts and stop other CPUs before reboot/shutdown"
     },
     "mail:20260908-08-k3-ufs-support-v4-1-22aa2bd97d3b@kernel.org": {
-        "subject": "scsi: ufs: spacemit: dt-bindings: Add UFS controller for K3 SoC"
+        "subject": "scsi: ufs: spacemit: dt-bindings: Add UFS controller for K3 SoC",
+        "replacement": "mail:20260916-08-k3-ufs-support-v5-1-1f5d71f1027d@kernel.org"
     },
     "mail:20260908-08-k3-ufs-support-v4-2-22aa2bd97d3b@kernel.org": {
-        "subject": "scsi: ufs: spacemit: k3: Add UFS Host Controller driver"
+        "subject": "scsi: ufs: spacemit: k3: Add UFS Host Controller driver",
+        "replacement": "mail:20260916-08-k3-ufs-support-v5-2-1f5d71f1027d@kernel.org"
     },
     "mail:20260908-08-k3-ufs-support-v4-3-22aa2bd97d3b@kernel.org": {
-        "subject": "riscv: dts: spacemit: k3: Add UFS support"
+        "subject": "riscv: dts: spacemit: k3: Add UFS support",
+        "replacement": "mail:20260916-08-k3-ufs-support-v5-3-1f5d71f1027d@kernel.org"
     },
     "mail:20260910-kx-i2s-dts-v2-1-91f5376c899d@linux.spacemit.com": {
-        "subject": "riscv: dts: spacemit: k3: add i2s0-i2s5 nodes"
+        "subject": "riscv: dts: spacemit: k3: add i2s0-i2s5 nodes",
+        "replacement": "mail:20260915-kx-i2s-dts-v3-1-cf0b90882a97@linux.spacemit.com"
     },
     "mail:20260908-b4-spacemit-k1-usb2-v2-1-f07342ffa051@linux.spacemit.com": {
         "subject": "dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible"
@@ -4404,30 +4420,395 @@
         "subject": "riscv: defconfig: enable ChipIdea USB controller support"
     },
     "mail:20260907072149.72031-2-yang.yicong@picoheart.com": {
-        "subject": "riscv: Make get_insn public for instruction fault handling"
+        "subject": "riscv: Make get_insn public for instruction fault handling",
+        "replacement": "mail:20260915083305.81913-2-yang.yicong@picoheart.com"
     },
     "mail:20260907072149.72031-3-yang.yicong@picoheart.com": {
-        "subject": "riscv: insn: Support decoding of CBO instructions"
+        "subject": "riscv: insn: Support decoding of CBO instructions",
+        "replacement": "mail:20260915083305.81913-3-yang.yicong@picoheart.com"
     },
     "mail:20260907072149.72031-4-yang.yicong@picoheart.com": {
-        "subject": "riscv: errata: Add init framework for picoheart errata"
+        "subject": "riscv: errata: Add init framework for picoheart errata",
+        "replacement": "mail:20260915083305.81913-4-yang.yicong@picoheart.com"
     },
     "mail:20260907072149.72031-5-yang.yicong@picoheart.com": {
-        "subject": "riscv: errata: picoheart: Add workaround for cbo.clean errata"
+        "subject": "riscv: errata: picoheart: Add workaround for cbo.clean errata",
+        "replacement": "mail:20260915083305.81913-5-yang.yicong@picoheart.com"
     },
     "mail:20260907072149.72031-6-yang.yicong@picoheart.com": {
-        "subject": "riscv: errata: picoheart: Add workaround for AMOCASQ errata"
+        "subject": "riscv: errata: picoheart: Add workaround for AMOCASQ errata",
+        "replacement": "mail:20260915083305.81913-6-yang.yicong@picoheart.com"
     },
     "mail:20260901133920.14550-2-fangyu.yu@linux.alibaba.com": {
-        "subject": "iommu/riscv: Add command queue lock"
+        "subject": "iommu/riscv: Add command queue lock",
+        "replacement": "commit:d5bcf9ccaa357396089bbfa47fc82b093f109b1e"
     },
     "mail:20260901133920.14550-3-fangyu.yu@linux.alibaba.com": {
-        "subject": "iommu/riscv: Serialize command queue publishing"
+        "subject": "iommu/riscv: Serialize command queue publishing",
+        "replacement": "commit:ca58afa40946acd252a50fa4d4a86f15847a3d7d"
     },
     "mail:20260901133920.14550-4-fangyu.yu@linux.alibaba.com": {
-        "subject": "iommu/riscv: Avoid waiting on failed command enqueue"
+        "subject": "iommu/riscv: Avoid waiting on failed command enqueue",
+        "replacement": "commit:4c50bec3d54288230aafb7fe3d2930d42beb14fd"
     },
     "mail:20260907-k3-pll5-pll8-1800mhz-v5-1-5cc96d716b0a@linux.spacemit.com": {
         "subject": "clk: spacemit: k3: add CPU PLL rate tables"
+    },
+    "commit:b94cec5761d22624d109d859467d7d4ce0a1b88b": {
+        "subject": "riscv: skip software algning code for HAVE_EFFICIENT_UNALIGNED_ACCESS"
+    },
+    "commit:c86ee66e14acb15d7d20b329ea49f751c9df8bc9": {
+        "subject": "dt-bindings: vendor-prefixes: Add Anlogic, Milianke and Nuclei"
+    },
+    "commit:66c2a3173cdaf7b776552203609f008c8709dd22": {
+        "subject": "dt-bindings: riscv: Add Nuclei UX900 compatibles"
+    },
+    "commit:4689d4422ac47ffb0a4c06fdb0e165388f585d01": {
+        "subject": "dt-bindings: riscv: Add Anlogic DR1V90"
+    },
+    "commit:b90ac5fe3285aa8bed625375d1df959c4c9a2cdb": {
+        "subject": "dt-bindings: interrupt-controller: Add Anlogic DR1V90 PLIC"
+    },
+    "commit:579951da64253e9592d21e54b1535e0119df78ab": {
+        "subject": "dt-bindings: interrupt-controller: Add Anlogic DR1V90 ACLINT MSWI"
+    },
+    "commit:a1c3a7d7ee0291e6bbc89192cb942cbebadb31fe": {
+        "subject": "dt-bindings: interrupt-controller: Add Anlogic DR1V90 ACLINT SSWI"
+    },
+    "commit:ccc3fd3ebeef2686f005733858c0a1b2cb89aaeb": {
+        "subject": "dt-bindings: timer: Add Anlogic DR1V90 ACLINT MTIMER"
+    },
+    "commit:a94f9be29464f85e97683901162ca236dde40dc7": {
+        "subject": "dt-bindings: serial: snps-dw-apb-uart: Add Anlogic DR1V90 uart"
+    },
+    "commit:47a4ebbf91d31782113e7def707b53953bae3050": {
+        "subject": "irqchip/aclint-sswi: Add Nuclei UX900 support"
+    },
+    "commit:9c96219602b1a29c1959c5799aa3e6c5e14e395c": {
+        "subject": "riscv: Add Anlogic SoC famly Kconfig support"
+    },
+    "commit:77874ebd4032b1f407b01a7bbdfcad752da05592": {
+        "subject": "riscv: dts: Add initial Anlogic DR1V90 SoC device tree"
+    },
+    "commit:7e6fd69c12f464c21e489aba763f0cef5cdd1373": {
+        "subject": "riscv: dts: anlogic: Add Milianke MLKPAI FS01 board"
+    },
+    "commit:fa9311d9499fedf0f6d06c22e016b228f2f5d473": {
+        "subject": "riscv: defconfig: Enable Anlogic SoC"
+    },
+    "commit:8a7f030df89746842094334cdf55114d0fbb0234": {
+        "subject": "irqchip/aslint-sswi: Request IO memory resource"
+    },
+    "commit:888bd0eca93c8c4ef4510d6b21bc43679e256167": {
+        "subject": "dt-bindings: ethernet: eswin: Document for EIC7700 SoC"
+    },
+    "commit:ea77dbbdbc4e0f95ad12d4a9179e1ca785f2cd2c": {
+        "subject": "net: stmmac: add Eswin EIC7700 glue driver"
+    },
+    "commit:0567c84d683d1f38dc41928eec786ec5c02bf7b4": {
+        "subject": "dt-bindings: ethernet: eswin: fix yaml schema issues"
+    },
+    "commit:c36069c6f46c52458bb86fa8eb4803f1e0b70fb0": {
+        "subject": "dt-bindings: ethernet: eswin: add optional TXD and RXD delay register offsets"
+    },
+    "commit:23386defe949c0db4f746bed7098fc5e06746083": {
+        "subject": "net: stmmac: eswin: fix HSP CSR init ordering after clock enable"
+    },
+    "commit:6872fb088edc1a3c36792b301f8e4a1c35dd7c35": {
+        "subject": "net: stmmac: eswin: clear TXD and RXD delay registers during initialization"
+    },
+    "commit:6ffcef9bc1fc2ad8110777decd6d026e3cb468ce": {
+        "subject": "net: stmmac: eswin: correct RGMII delay granularity to 20 ps"
+    },
+    "commit:c2e152f7ce3208b9333d212d41a87637ec1dd170": {
+        "subject": "net: stmmac: eswin: validate RGMII delay values"
+    },
+    "commit:1232b3104b4b2c0267f31608fe0f8a8758428f28": {
+        "subject": "dt-bindings: ethernet: eswin: fix hsp-sp-csr backward compatibility"
+    },
+    "commit:f77de4c33f0edbb33411f92a35d7196965597e6d": {
+        "subject": "spi: dt-bindings: snps,dw-apb-ssi: Add compatible for UltraRISC DP1000 SoC"
+    },
+    "commit:817ecd588fa5820527ee3affa43b5116276d2520": {
+        "subject": "dt-bindings: riscv: cpus: Fix yamllint style issues"
+    },
+    "commit:7c27c1b7b32b9a7e8c2b07354f8d8f1ae7953ef6": {
+        "subject": "dt-bindings: ethernet: eswin: relax internal delay model to range-based constraints"
+    },
+    "commit:3c6dfb86db07534ee34fa834c51d3608df4af197": {
+        "subject": "dt-bindings: ethernet: eswin: add EIC7700 eth1 RX clock inversion variant"
+    },
+    "commit:186f38935e28ae700b0fe062dcc6ab345211dcee": {
+        "subject": "net: stmmac: eic7700: make RGMII delay properties optional"
+    },
+    "commit:0cb57bdebd101da07587e7f43d9473af826dd527": {
+        "subject": "net: stmmac: eic7700: add support for eth1 clock inversion variant"
+    },
+    "commit:dac30db978c71af999403f42e4fad68eda5ed09e": {
+        "subject": "dt-bindings: pinctrl: Add UltraRISC DP1000 pinctrl controller"
+    },
+    "commit:cb7037924836a352e767f69f1aa65b82f3e815f4": {
+        "subject": "pinctrl: ultrarisc: Add UltraRISC DP1000 pinctrl driver"
+    },
+    "commit:f600fbdb2093b18f2e21401ba7c6325e4d2b5b16": {
+        "subject": "clk: composite: Export devm composite pdata helper"
+    },
+    "commit:e1d57ac7fe53dc52bb8aab9db59008c7fec8d863": {
+        "subject": "dt-bindings: clock: ultrarisc: Add DP1000 Clock Controller"
+    },
+    "commit:3948a36be42b67f43f1d3f113dad4c8b347efb9b": {
+        "subject": "clk: ultrarisc: Add DP1000 clock driver"
+    },
+    "commit:964acc34569677e6725812172c3d1a28b3973277": {
+        "subject": "hwmon: (lm63) expose PWM frequency and LUT hysteresis as writable"
+    },
+    "commit:a60f58eb70e4e4c2ba4ace8b292dea64e5b7b290": {
+        "subject": "hwmon: (lm63) Mask PWM frequency multiplier to supported bits"
+    },
+    "commit:0a6946644f0d1151d31212820497e1a49fe1a0a6": {
+        "subject": "dt-bindings: dma: snps,dw-axi-dmac: Add compatible string for Agilex5"
+    },
+    "commit:be3e2a0419c639b6a192141639259a4d34556dd0": {
+        "subject": "dt-bindings: dma: snps,dw-axi-dmac: Add CV1800B compatible"
+    },
+    "commit:b49c70273801bf2f7c16ac49f403a5c253b46159": {
+        "subject": "dmaengine: dw-axi-dmac: Add support for CV1800B DMA"
+    },
+    "commit:7524fe142b5a772f8421aeee2132cf7e21a00103": {
+        "subject": "dt-bindings: dma: snps,dw-axi-dmac: Add fallback compatible for CV1800B"
+    },
+    "commit:dff205550e714f1cb65f27409586e2612905fa88": {
+        "subject": "hwmon: (lm63) Add locking to avoid TOCTOU"
+    },
+    "commit:43722575e5cdcc6c457bfe81fae9c3ad343ea031": {
+        "subject": "pinctrl: add generic functions + pins mapper"
+    },
+    "commit:aaaf31be04260316036f50a05b7d015c0d36b55a": {
+        "subject": "pinctrl: extract pinctrl_generic_to_map() from pinctrl_generic_pins_function_dt_node_to_map()"
+    },
+    "commit:88f643ec105ea0d2872b2c34b23503ad6076518c": {
+        "subject": "pinctrl: avoid duplicate function definitions"
+    },
+    "mail:20260904083709.425893-2-inochiama@gmail.com": {
+        "subject": "phy: core: Add common helper to add phy phandle device link"
+    },
+    "mail:20260904083709.425893-3-inochiama@gmail.com": {
+        "subject": "phy: core: Add common helper for get phy phandle by index"
+    },
+    "mail:20260904083709.425893-4-inochiama@gmail.com": {
+        "subject": "phy: core: Add phy bulk data helper functions"
+    },
+    "mail:20260904083709.425893-5-inochiama@gmail.com": {
+        "subject": "phy: core: Add managed phy bulk data helper functions"
+    },
+    "mail:20260916-08-k3-ufs-support-v5-1-1f5d71f1027d@kernel.org": {
+        "subject": "scsi: ufs: spacemit: dt-bindings: Add UFS controller for K3 SoC"
+    },
+    "mail:20260916-08-k3-ufs-support-v5-2-1f5d71f1027d@kernel.org": {
+        "subject": "scsi: ufs: spacemit: k3: Add UFS Host Controller driver"
+    },
+    "mail:20260916-08-k3-ufs-support-v5-3-1f5d71f1027d@kernel.org": {
+        "subject": "riscv: dts: spacemit: k3: Add UFS support"
+    },
+    "mail:20260831044540.3304350-2-aurelien@aurel32.net": {
+        "subject": "riscv: dts: spacemit: k3: move USB3 phy to board level"
+    },
+    "mail:20260831044540.3304350-3-aurelien@aurel32.net": {
+        "subject": "riscv: dts: spacemit: k3: add USB3 B and C controllers for Pico-ITX board"
+    },
+    "mail:20260831044540.3304350-4-aurelien@aurel32.net": {
+        "subject": "riscv: dts: spacemit: k3: add rfkill node for Bluetooth on Pico-ITX board"
+    },
+    "mail:20260831044540.3304350-5-aurelien@aurel32.net": {
+        "subject": "riscv: dts: spacemit: k3: add rfkill node for WLAN on the K3 Pico-ITX board"
+    },
+    "mail:20260831044540.3304350-6-aurelien@aurel32.net": {
+        "subject": "riscv64: defconfig: Enable BT and WLAN support for SpacemiT K3 Pico-ITX board"
+    },
+    "mail:20260901080010.95040-1-amadeus@jmu.edu.cn": {
+        "subject": "riscv: dts: spacemit: enable onboard eeprom for OrangePi"
+    },
+    "mail:20260915083305.81913-2-yang.yicong@picoheart.com": {
+        "subject": "riscv: Make get_insn public for instruction fault handling"
+    },
+    "mail:20260915083305.81913-3-yang.yicong@picoheart.com": {
+        "subject": "riscv: insn: Support decoding of CBO instructions"
+    },
+    "mail:20260915083305.81913-4-yang.yicong@picoheart.com": {
+        "subject": "riscv: errata: Add init framework for picoheart errata"
+    },
+    "mail:20260915083305.81913-5-yang.yicong@picoheart.com": {
+        "subject": "riscv: errata: picoheart: Add workaround for cbo.clean errata"
+    },
+    "mail:20260915083305.81913-6-yang.yicong@picoheart.com": {
+        "subject": "riscv: errata: picoheart: Add workaround for AMOCASQ errata"
+    },
+    "mail:20260713122903.9458-1-zhangzhanpeng.jasper@bytedance.com": {
+        "subject": "iommu/riscv: Use 32-bit MMIO accesses for 64-bit registers"
+    },
+    "mail:20260821112100.572037-1-andrew.jones@oss.qualcomm.com": {
+        "subject": "iommu/riscv: Report cache coherency capability"
+    },
+    "mail:20260831145943.313726-15-andrew.jones@oss.qualcomm.com": {
+        "subject": "vfio: enable IOMMU_TYPE1 for RISC-V"
+    },
+    "mail:20260914115607.350097-1-imbigking12@gmail.com": {
+        "subject": "riscv: patch: fix handling of bpf-jit execmem addresses"
+    },
+    "mail:20260907190750.26303-1-kmehltretter@gmail.com": {
+        "subject": "riscv: fix load_unaligned_zeropad() fixup for RV32"
+    },
+    "mail:20260902093210.3571958-1-nylon.chen@sifive.com": {
+        "subject": "perf bench futex: Define SYS_futex on 32-bit arches with 64-bit time_t"
+    },
+    "mail:20260902-07-k3-sdhci-fix-v1-1-b15c5d0f64fd@kernel.org": {
+        "subject": "mmc: sdhci-of-k1: no pinctrl state switching"
+    },
+    "mail:20260902-07-k3-sdhci-fix-v1-2-b15c5d0f64fd@kernel.org": {
+        "subject": "mmc: sdhci-of-k1: drop duplicated voltage settings"
+    },
+    "mail:20260902-07-k3-sdhci-fix-v1-3-b15c5d0f64fd@kernel.org": {
+        "subject": "mmc: sdhci-of-k1: configure PHY mode"
+    },
+    "mail:20260902-07-k3-sdhci-fix-v1-4-b15c5d0f64fd@kernel.org": {
+        "subject": "mmc: sdhci-of-k1: Improve power control"
+    },
+    "mail:20260902-07-k3-sdhci-fix-v1-5-b15c5d0f64fd@kernel.org": {
+        "subject": "mmc: sdhci-of-k1: Use finest delay granularity for RX tuning"
+    },
+    "mail:20260902-07-k3-sdhci-fix-v1-6-b15c5d0f64fd@kernel.org": {
+        "subject": "mmc: sdhci-of-k1: Improve RX tuning window"
+    },
+    "mail:20260902-07-k3-sdhci-fix-v1-7-b15c5d0f64fd@kernel.org": {
+        "subject": "mmc: sdhci-of-k1: Implement SD clock gating for voltage switch"
+    },
+    "mail:20260915-kx-i2s-dts-v3-1-cf0b90882a97@linux.spacemit.com": {
+        "subject": "riscv: dts: spacemit: k3: add i2s0-i2s5 nodes"
+    },
+    "mail:20260918-k3-aclint-v3-1-cf4fd4050e14@pigmoral.tech": {
+        "subject": "dt-bindings: timer: thead,c900-aclint-mtimer: Add SpacemiT K3"
+    },
+    "mail:20260918-k3-aclint-v3-2-cf4fd4050e14@pigmoral.tech": {
+        "subject": "dt-bindings: interrupt-controller: thead,c900-aclint-mswi: Add SpacemiT K3"
+    },
+    "mail:20260918-k3-aclint-v3-3-cf4fd4050e14@pigmoral.tech": {
+        "subject": "dt-bindings: interrupt-controller: thead,c900-aclint-sswi: Add SpacemiT K3"
+    },
+    "mail:20260918-k3-aclint-v3-4-cf4fd4050e14@pigmoral.tech": {
+        "subject": "dt-bindings: timer: sifive,clint: Remove spacemit,k3-clint"
+    },
+    "mail:20260918-k3-aclint-v3-5-cf4fd4050e14@pigmoral.tech": {
+        "subject": "irqchip/aclint-sswi: Add support for SpacemiT K3"
+    },
+    "mail:20260918-k3-aclint-v3-6-cf4fd4050e14@pigmoral.tech": {
+        "subject": "riscv: dts: spacemit: k3: Replace incorrect CLINT node with ACLINT nodes"
+    },
+    "mail:20260914-ctl2301-v5-1-b44b81cd2c3c@linux.dev": {
+        "subject": "dt-bindings: vendor-prefixes: Add Sensylink"
+    },
+    "mail:20260914-ctl2301-v5-2-b44b81cd2c3c@linux.dev": {
+        "subject": "dt-bindings: hwmon: Move LM63 family to a dedicated binding"
+    },
+    "mail:20260914-ctl2301-v5-3-522def70acb4@linux.dev": {
+        "subject": "dt-bindings: hwmon: Add Sensylink CTF2301"
+    },
+    "mail:20260914-ctl2301-v5-4-522def70acb4@linux.dev": {
+        "subject": "hwmon: (lm63) Add Sensylink CTF2301 support"
+    },
+    "mail:20260914-ctl2301-v5-5-522def70acb4@linux.dev": {
+        "subject": "riscv: dts: spacemit: Add K3 I2C6 pinctrl state"
+    },
+    "mail:20260914-ctl2301-v5-6-522def70acb4@linux.dev": {
+        "subject": "riscv: dts: spacemit: Add CTF2301 on K3 CoM260"
+    },
+    "mail:20260907-dwmac-ultrarisc-v2-1-9a39bf8db313@ultrarisc.com": {
+        "subject": "net: stmmac: Add common internal RGMII delay handling"
+    },
+    "mail:20260907-dwmac-ultrarisc-v2-2-9a39bf8db313@ultrarisc.com": {
+        "subject": "net: stmmac: sophgo: Use common RGMII delay handling"
+    },
+    "mail:20260907-dwmac-ultrarisc-v2-3-9a39bf8db313@ultrarisc.com": {
+        "subject": "net: stmmac: eic7700: Use common RGMII delay handling"
+    },
+    "mail:20260907-dwmac-ultrarisc-v2-4-9a39bf8db313@ultrarisc.com": {
+        "subject": "dt-bindings: net: Add UltraRISC DP1000 GMAC"
+    },
+    "mail:20260907-dwmac-ultrarisc-v2-5-9a39bf8db313@ultrarisc.com": {
+        "subject": "net: stmmac: Add UltraRISC DP1000 GMAC support"
+    },
+    "mail:20260907-ultrarisc-dts-v2-1-5eb4c97477c5@ultrarisc.com": {
+        "subject": "dt-bindings: vendor-prefixes: Add shenrongda"
+    },
+    "mail:20260907-ultrarisc-dts-v2-2-5eb4c97477c5@ultrarisc.com": {
+        "subject": "dt-bindings: riscv: cpus: Add UltraRISC CP100 compatible"
+    },
+    "mail:20260907-ultrarisc-dts-v2-3-5eb4c97477c5@ultrarisc.com": {
+        "subject": "dt-bindings: riscv: Add UltraRISC DP1000 board compatibles"
+    },
+    "mail:20260907-ultrarisc-dts-v2-4-5eb4c97477c5@ultrarisc.com": {
+        "subject": "dt-bindings: timer: Add UltraRISC DP1000 CLINT"
+    },
+    "mail:20260907-ultrarisc-dts-v2-6-5eb4c97477c5@ultrarisc.com": {
+        "subject": "dt-bindings: i2c: dw: Add compatible for UltraRISC DP1000 SoC"
+    },
+    "mail:20260907-ultrarisc-dts-v2-7-5eb4c97477c5@ultrarisc.com": {
+        "subject": "dt-bindings: dma: snps,dw-axi-dmac: Add UltraRISC DP1000 compatible"
+    },
+    "mail:20260907-ultrarisc-dts-v2-8-5eb4c97477c5@ultrarisc.com": {
+        "subject": "riscv: dts: ultrarisc: Add initial device tree for UltraRISC DP1000"
+    },
+    "mail:20260907-ultrarisc-dts-v2-9-5eb4c97477c5@ultrarisc.com": {
+        "subject": "riscv: dts: ultrarisc: Add Shenzhen Rongda M0 board device tree"
+    },
+    "mail:20260907-ultrarisc-dts-v2-10-5eb4c97477c5@ultrarisc.com": {
+        "subject": "riscv: dts: ultrarisc: Add Milk-V Titan board device tree"
+    },
+    "mail:20260916-fix-mm-v1-1-297034b4457f@iscas.ac.cn": {
+        "subject": "riscv: mm: Apply T-Head PMA memory-type errata to PUD and P4D entries"
+    },
+    "mail:20260916-fix-xuantieaon-v1-1-c6dc530a4884@iscas.ac.cn": {
+        "subject": "power: reset: th1520-aon: send RPCs from sleepable handlers"
+    },
+    "mail:20260903092347.620060-2-joshua.yeong@starfivetech.com": {
+        "subject": "dt-bindings: power: Add RPMI device power service"
+    },
+    "mail:20260903092347.620060-3-joshua.yeong@starfivetech.com": {
+        "subject": "pmdomain: riscv: Add RPMI device power service"
+    },
+    "mail:20260903092347.620060-4-joshua.yeong@starfivetech.com": {
+        "subject": "MAINTAINERS: Add RISC-V RPMI device power driver"
+    },
+    "mail:20260903140031.3684-1-fangyu.yu@linux.alibaba.com": {
+        "subject": "ACPI: RIMT: Enable PCI ACS for root complexes mapped to an IOMMU"
+    },
+    "mail:20260917-fix-sg204xspi-v1-1-5c95dac429a8@iscas.ac.cn": {
+        "subject": "spi: sg2044-nor: Return transfer errors"
+    },
+    "mail:20260917-fix-sg204xspi-v1-2-5c95dac429a8@iscas.ac.cn": {
+        "subject": "spi: sg2044-nor: Honor SPI clock limits"
+    },
+    "mail:20260917-fix-sg204xspi-v1-3-5c95dac429a8@iscas.ac.cn": {
+        "subject": "riscv: dts: sophgo: Enable SPI NOR on SRD3-10"
+    },
+    "mail:20260917-fix-sg204xspi-v1-4-5c95dac429a8@iscas.ac.cn": {
+        "subject": "riscv: dts: sophgo: Limit SG2042 SPI NOR to 12.5 MHz"
+    },
+    "commit:d5bcf9ccaa357396089bbfa47fc82b093f109b1e": {
+        "subject": "iommu/riscv: Add command queue lock"
+    },
+    "commit:ca58afa40946acd252a50fa4d4a86f15847a3d7d": {
+        "subject": "iommu/riscv: Serialize command queue publishing"
+    },
+    "commit:4c50bec3d54288230aafb7fe3d2930d42beb14fd": {
+        "subject": "iommu/riscv: Avoid waiting on failed command enqueue"
+    },
+    "commit:d64f761dbfda3f4eb7e5c14c1336677de20d5d6f": {
+        "subject": "net: stmmac: don't pass ioaddr to fix_soc_reset() method"
+    },
+    "commit:cd0aa651535092afd5d776bfe94e4fdf750f89c3": {
+        "subject": "net: stmmac: pass interface mode into fix_mac_speed() method"
+    },
+    "commit:52c6b7d20d3e791a9e75aa2be2a467990154c7cd": {
+        "subject": "RISC-V: KVM: Fix the conversion between vsip and hvip"
     }
 }
