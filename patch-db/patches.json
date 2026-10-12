@@ -320,7 +320,8 @@
     "commit:0ee59934662dfb89b43a8392e64ac4880c2fca88": {
         "subject": "riscv: dts: spacemit: add MusePi Pro board device tree",
         "merged": [
-            "v6.19-rc1"
+            "v6.19-rc1",
+            "v6.18.52"
         ]
     },
     "commit:41d34e0b5497f919229d32580fbe34386087458f": {
@@ -332,7 +333,8 @@
     "commit:63e572b11464a233f45ad469ba64b8b9e68a9cd1": {
         "subject": "riscv: dts: spacemit: Add OrangePi R2S board device tree",
         "merged": [
-            "v6.19-rc1"
+            "v6.19-rc1",
+            "v6.18.52"
         ]
     },
     "commit:3b70f972b6fb769bdee780b5b4639585845d6af4": {
@@ -956,7 +958,8 @@
     "commit:a97fbc3ee3e2a536fafaff04f21f45472db71769": {
         "subject": "syscore: Pass context data to callbacks",
         "merged": [
-            "v6.19-rc1"
+            "v6.19-rc1",
+            "v6.18.52"
         ]
     },
     "commit:95a8ddde36601d0a645475fb080ed118db59c8c3": {
@@ -3387,7 +3390,8 @@
     "commit:3a59c3b772e5dc0cedecce8e7fbf7c2d6245b643": {
         "subject": "ACPI: PCI: Clear _DEP dependencies after PCI root bridge attach",
         "merged": [
-            "v7.2-rc1"
+            "v7.2-rc1",
+            "v6.18.53"
         ]
     },
     "commit:eae3903e33797a28d0d37e693d4314d58338918e": {
@@ -3616,7 +3620,8 @@
     "commit:e93e4a6363b8f812cb89f2b2d97cbaf017a3d7f8": {
         "subject": "iommu/riscv: Disable SADE",
         "merged": [
-            "v7.1-rc1"
+            "v7.1-rc1",
+            "v6.18.53"
         ]
     },
     "commit:e5ef32191a87da48a0f6cab2ca5f7d8b4a0fa054": {
@@ -3781,7 +3786,8 @@
     "commit:5ed8cdb56cd90859e0c7f269b4a7c2b1571419b2": {
         "subject": "riscv: dts: thead: th1520: remove pclk for I2C1",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v7.2.6"
         ]
     },
     "commit:b6e4c8fe4cbeb71365e579904fbd4cb6437ff278": {
@@ -3829,7 +3835,8 @@
     "commit:788ed93b3b85baa3b5817655ce621ff1f6c300e9": {
         "subject": "riscv: dts: spacemit: set console baud rate on K3 Pico-ITX board",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v7.2.6"
         ]
     },
     "commit:48dd3d020528e05795dfa46308ba5b59a1835bba": {
@@ -3853,7 +3860,8 @@
     "commit:e0c1145f4c8ea0515b32e0b9620412528a4312b1": {
         "subject": "riscv: dts: spacemit: improve RTL8211F PHY configuration on K3 Pico-ITX board",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v7.2.6"
         ]
     },
     "commit:c7d6ed1ebb133a68fd4aadbe959f5b0e5a2d7e40": {
@@ -3871,7 +3879,9 @@
     "commit:8270311d70fdf36bc8aab1e52b554e654a8839ff": {
         "subject": "riscv: dts: spacemit: k1: Split gmac_clk_ref into independent pinctrl groups",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v6.18.52",
+            "v7.2.6"
         ]
     },
     "commit:46a8c01700ac21e1b83385df00aa0baa5d287b44": {
@@ -3897,13 +3907,15 @@
     "commit:a225e19a4cc4e040ca0389cf0bbe209c23f5c92d": {
         "subject": "riscv: dts: spacemit: Add enough deassert time for the PHY on PICO ITX",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v7.2.6"
         ]
     },
     "commit:12b0d602e8642297ec369eeb99366d37c8a3a120": {
         "subject": "riscv: dts: spacemit: Add enough deassert time for the PHY on com260 board",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v7.2.6"
         ]
     },
     "commit:e57a4beb33df5b5b91e8af7c8abac5f49838d524": {
@@ -3955,25 +3967,29 @@
     "commit:6d6536c880febe2340d8d388f42660eccff5aa81": {
         "subject": "riscv: dts: spacemit: Fix phy id check for the phy on pico-itx board",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v7.2.6"
         ]
     },
     "commit:9db839d52ccd9af67d460cb9ac893276a74b88e5": {
         "subject": "riscv: dts: spacemit: Fix phy id check for the phy on com260 board",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v7.2.6"
         ]
     },
     "commit:9b371a8b13fd0e8e6f3b12f4ef7e58927d6f62ee": {
         "subject": "riscv: dts: spacemit: Make dtschema recognize the etherent PHY correctly on K3 pico-itx board",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v7.2.6"
         ]
     },
     "commit:bff5af3c934740481a316c5ae1cd4a09a43134d0": {
         "subject": "riscv: dts: spacemit: Make dtschema recognize the etherent PHY correctly on K3 com260 board",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v7.2.6"
         ]
     },
     "commit:b496282ee4ad07311a13489e15b74fb7078d9a01": {
@@ -4292,7 +4308,8 @@
     "commit:7a588b62679c51abd08171d31df6e44589f0097d": {
         "subject": "clk: spacemit: k3: fix parent clock of UFS aclk",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v7.2.6"
         ]
     },
     "commit:4fc567e1bacdb5da85628de8dd1d1e3328060798": {
@@ -4328,7 +4345,8 @@
     "commit:4c69d04958ec87163ba826e2506babab37192e4b": {
         "subject": "ASoC: spacemit: rename clock inputs to match binding",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v7.2.6"
         ]
     },
     "commit:cf59a8742581aa4a026b20c7a413be06f4fc9831": {
@@ -4346,19 +4364,24 @@
     "commit:8a7d4b1924d2a424b1a6fe69de4f9464ee1fb485": {
         "subject": "clk: spacemit: k3: fix missing /2 factor in i2s sysclk dividers",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v7.2.6"
         ]
     },
     "commit:41c59b22370d2e1785e0e80f8ad7bd9946a1ca82": {
         "subject": "pinctrl: spacemit: validate pins in pinconf callbacks",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v6.18.52",
+            "v7.2.6"
         ]
     },
     "commit:092755367e1a5fcf0f5405e9425e86907199dfce": {
         "subject": "rtc: spacemit: handle regmap_test_bits() error return",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v6.18.52",
+            "v7.2.6"
         ]
     },
     "mail:20260907112606.465778-2-inochiama@gmail.com": {
@@ -4452,10 +4475,14 @@
         "replacement": "commit:4c50bec3d54288230aafb7fe3d2930d42beb14fd"
     },
     "mail:20260907-k3-pll5-pll8-1800mhz-v5-1-5cc96d716b0a@linux.spacemit.com": {
-        "subject": "clk: spacemit: k3: add CPU PLL rate tables"
+        "subject": "clk: spacemit: k3: add CPU PLL rate tables",
+        "replacement": "commit:d558af8ee0bb1b2e88e696be84adb93cf2b7be6f"
     },
     "commit:b94cec5761d22624d109d859467d7d4ce0a1b88b": {
-        "subject": "riscv: skip software algning code for HAVE_EFFICIENT_UNALIGNED_ACCESS"
+        "subject": "riscv: skip software algning code for HAVE_EFFICIENT_UNALIGNED_ACCESS",
+        "merged": [
+            "v7.3-rc3"
+        ]
     },
     "commit:c86ee66e14acb15d7d20b329ea49f751c9df8bc9": {
         "subject": "dt-bindings: vendor-prefixes: Add Anlogic, Milianke and Nuclei"
@@ -4512,37 +4539,67 @@
         "subject": "dt-bindings: ethernet: eswin: add optional TXD and RXD delay register offsets"
     },
     "commit:23386defe949c0db4f746bed7098fc5e06746083": {
-        "subject": "net: stmmac: eswin: fix HSP CSR init ordering after clock enable"
+        "subject": "net: stmmac: eswin: fix HSP CSR init ordering after clock enable",
+        "merged": [
+            "v7.0.11"
+        ]
     },
     "commit:6872fb088edc1a3c36792b301f8e4a1c35dd7c35": {
-        "subject": "net: stmmac: eswin: clear TXD and RXD delay registers during initialization"
+        "subject": "net: stmmac: eswin: clear TXD and RXD delay registers during initialization",
+        "merged": [
+            "v7.0.11"
+        ]
     },
     "commit:6ffcef9bc1fc2ad8110777decd6d026e3cb468ce": {
-        "subject": "net: stmmac: eswin: correct RGMII delay granularity to 20 ps"
+        "subject": "net: stmmac: eswin: correct RGMII delay granularity to 20 ps",
+        "merged": [
+            "v7.0.11"
+        ]
     },
     "commit:c2e152f7ce3208b9333d212d41a87637ec1dd170": {
-        "subject": "net: stmmac: eswin: validate RGMII delay values"
+        "subject": "net: stmmac: eswin: validate RGMII delay values",
+        "merged": [
+            "v7.0.11"
+        ]
     },
     "commit:1232b3104b4b2c0267f31608fe0f8a8758428f28": {
         "subject": "dt-bindings: ethernet: eswin: fix hsp-sp-csr backward compatibility"
     },
     "commit:f77de4c33f0edbb33411f92a35d7196965597e6d": {
-        "subject": "spi: dt-bindings: snps,dw-apb-ssi: Add compatible for UltraRISC DP1000 SoC"
+        "subject": "spi: dt-bindings: snps,dw-apb-ssi: Add compatible for UltraRISC DP1000 SoC",
+        "merged": [
+            "v7.3-rc3"
+        ]
     },
     "commit:817ecd588fa5820527ee3affa43b5116276d2520": {
-        "subject": "dt-bindings: riscv: cpus: Fix yamllint style issues"
+        "subject": "dt-bindings: riscv: cpus: Fix yamllint style issues",
+        "merged": [
+            "v7.3-rc3"
+        ]
     },
     "commit:7c27c1b7b32b9a7e8c2b07354f8d8f1ae7953ef6": {
-        "subject": "dt-bindings: ethernet: eswin: relax internal delay model to range-based constraints"
+        "subject": "dt-bindings: ethernet: eswin: relax internal delay model to range-based constraints",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:3c6dfb86db07534ee34fa834c51d3608df4af197": {
-        "subject": "dt-bindings: ethernet: eswin: add EIC7700 eth1 RX clock inversion variant"
+        "subject": "dt-bindings: ethernet: eswin: add EIC7700 eth1 RX clock inversion variant",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:186f38935e28ae700b0fe062dcc6ab345211dcee": {
-        "subject": "net: stmmac: eic7700: make RGMII delay properties optional"
+        "subject": "net: stmmac: eic7700: make RGMII delay properties optional",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:0cb57bdebd101da07587e7f43d9473af826dd527": {
-        "subject": "net: stmmac: eic7700: add support for eth1 clock inversion variant"
+        "subject": "net: stmmac: eic7700: add support for eth1 clock inversion variant",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:dac30db978c71af999403f42e4fad68eda5ed09e": {
         "subject": "dt-bindings: pinctrl: Add UltraRISC DP1000 pinctrl controller"
@@ -4551,13 +4608,22 @@
         "subject": "pinctrl: ultrarisc: Add UltraRISC DP1000 pinctrl driver"
     },
     "commit:f600fbdb2093b18f2e21401ba7c6325e4d2b5b16": {
-        "subject": "clk: composite: Export devm composite pdata helper"
+        "subject": "clk: composite: Export devm composite pdata helper",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:e1d57ac7fe53dc52bb8aab9db59008c7fec8d863": {
-        "subject": "dt-bindings: clock: ultrarisc: Add DP1000 Clock Controller"
+        "subject": "dt-bindings: clock: ultrarisc: Add DP1000 Clock Controller",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:3948a36be42b67f43f1d3f113dad4c8b347efb9b": {
-        "subject": "clk: ultrarisc: Add DP1000 clock driver"
+        "subject": "clk: ultrarisc: Add DP1000 clock driver",
+        "merged": [
+            "v7.3-rc1"
+        ]
     },
     "commit:964acc34569677e6725812172c3d1a28b3973277": {
         "subject": "hwmon: (lm63) expose PWM frequency and LUT hysteresis as writable"
@@ -4575,7 +4641,10 @@
         "subject": "dmaengine: dw-axi-dmac: Add support for CV1800B DMA"
     },
     "commit:7524fe142b5a772f8421aeee2132cf7e21a00103": {
-        "subject": "dt-bindings: dma: snps,dw-axi-dmac: Add fallback compatible for CV1800B"
+        "subject": "dt-bindings: dma: snps,dw-axi-dmac: Add fallback compatible for CV1800B",
+        "merged": [
+            "v7.1.5"
+        ]
     },
     "commit:dff205550e714f1cb65f27409586e2612905fa88": {
         "subject": "hwmon: (lm63) Add locking to avoid TOCTOU"
@@ -4794,13 +4863,23 @@
         "subject": "riscv: dts: sophgo: Limit SG2042 SPI NOR to 12.5 MHz"
     },
     "commit:d5bcf9ccaa357396089bbfa47fc82b093f109b1e": {
-        "subject": "iommu/riscv: Add command queue lock"
+        "subject": "iommu/riscv: Add command queue lock",
+        "merged": [
+            "v6.18.53",
+            "v7.3-rc3"
+        ]
     },
     "commit:ca58afa40946acd252a50fa4d4a86f15847a3d7d": {
-        "subject": "iommu/riscv: Serialize command queue publishing"
+        "subject": "iommu/riscv: Serialize command queue publishing",
+        "merged": [
+            "v7.3-rc3"
+        ]
     },
     "commit:4c50bec3d54288230aafb7fe3d2930d42beb14fd": {
-        "subject": "iommu/riscv: Avoid waiting on failed command enqueue"
+        "subject": "iommu/riscv: Avoid waiting on failed command enqueue",
+        "merged": [
+            "v7.3-rc3"
+        ]
     },
     "commit:d64f761dbfda3f4eb7e5c14c1336677de20d5d6f": {
         "subject": "net: stmmac: don't pass ioaddr to fix_soc_reset() method"
@@ -4809,6 +4888,15 @@
         "subject": "net: stmmac: pass interface mode into fix_mac_speed() method"
     },
     "commit:52c6b7d20d3e791a9e75aa2be2a467990154c7cd": {
-        "subject": "RISC-V: KVM: Fix the conversion between vsip and hvip"
+        "subject": "RISC-V: KVM: Fix the conversion between vsip and hvip",
+        "merged": [
+            "v7.3-rc5"
+        ]
+    },
+    "commit:d558af8ee0bb1b2e88e696be84adb93cf2b7be6f": {
+        "subject": "clk: spacemit: k3: add CPU PLL rate tables",
+        "merged": [
+            "v7.3-rc6"
+        ]
     }
 }
