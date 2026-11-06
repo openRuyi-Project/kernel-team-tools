@@ -3263,7 +3263,8 @@
         "subject": "riscv: dts: spacemit: k1-bananapi-f3: Correct USB hub power hierarchy"
     },
     "mail:20260727083901.1951188-2-anup.patel@oss.qualcomm.com": {
-        "subject": "RISC-V: Add common csr_read_num() and csr_write_num() functions"
+        "subject": "RISC-V: Add common csr_read_num() and csr_write_num() functions",
+        "replacement": "mail:20261104161512.883885-2-anup.patel@oss.qualcomm.com"
     },
     "mail:20260806-08-k3-ufs-support-v3-1-037fb322acdb@kernel.org": {
         "subject": "scsi: ufs: spacemit: dt-bindings: Add UFS controller for K3 SoC",
@@ -4421,7 +4422,8 @@
         "replacement": "mail:20260929083755.458238-7-inochiama@gmail.com"
     },
     "mail:20260907-v7-0-rc1-rv-dis-int-before-restart-v4-1-42bb460c4afe@linux.dev": {
-        "subject": "riscv: disable local interrupts and stop other CPUs before reboot/shutdown"
+        "subject": "riscv: disable local interrupts and stop other CPUs before reboot/shutdown",
+        "replacement": "mail:20261104-v7-0-rc1-rv-dis-int-before-restart-v5-1-956ec09c900d@linux.dev"
     },
     "mail:20260908-08-k3-ufs-support-v4-1-22aa2bd97d3b@kernel.org": {
         "subject": "scsi: ufs: spacemit: dt-bindings: Add UFS controller for K3 SoC",
@@ -4871,16 +4873,20 @@
         "replacement": "commit:c6ff098cb63a5d2ac491be0a307d6058876292f5"
     },
     "mail:20260907-ultrarisc-dts-v2-1-5eb4c97477c5@ultrarisc.com": {
-        "subject": "dt-bindings: vendor-prefixes: Add shenrongda"
+        "subject": "dt-bindings: vendor-prefixes: Add shenrongda",
+        "replacement": "mail:20261025-ultrarisc-dts-v7-1-621eca2b8790@ultrarisc.com"
     },
     "mail:20260907-ultrarisc-dts-v2-2-5eb4c97477c5@ultrarisc.com": {
-        "subject": "dt-bindings: riscv: cpus: Add UltraRISC CP100 compatible"
+        "subject": "dt-bindings: riscv: cpus: Add UltraRISC CP100 compatible",
+        "replacement": "mail:20261025-ultrarisc-dts-v7-2-621eca2b8790@ultrarisc.com"
     },
     "mail:20260907-ultrarisc-dts-v2-3-5eb4c97477c5@ultrarisc.com": {
-        "subject": "dt-bindings: riscv: Add UltraRISC DP1000 board compatibles"
+        "subject": "dt-bindings: riscv: Add UltraRISC DP1000 board compatibles",
+        "replacement": "mail:20261025-ultrarisc-dts-v7-3-621eca2b8790@ultrarisc.com"
     },
     "mail:20260907-ultrarisc-dts-v2-4-5eb4c97477c5@ultrarisc.com": {
-        "subject": "dt-bindings: timer: Add UltraRISC DP1000 CLINT"
+        "subject": "dt-bindings: timer: Add UltraRISC DP1000 CLINT",
+        "replacement": "mail:20261025-ultrarisc-dts-v7-4-621eca2b8790@ultrarisc.com"
     },
     "mail:20260907-ultrarisc-dts-v2-6-5eb4c97477c5@ultrarisc.com": {
         "subject": "dt-bindings: i2c: dw: Add compatible for UltraRISC DP1000 SoC",
@@ -4891,13 +4897,16 @@
         "replacement": "commit:58a66a560aa1937ac7bd415d86acba42bf1eb4a0"
     },
     "mail:20260907-ultrarisc-dts-v2-8-5eb4c97477c5@ultrarisc.com": {
-        "subject": "riscv: dts: ultrarisc: Add initial device tree for UltraRISC DP1000"
+        "subject": "riscv: dts: ultrarisc: Add initial device tree for UltraRISC DP1000",
+        "replacement": "mail:20261025-ultrarisc-dts-v7-5-621eca2b8790@ultrarisc.com"
     },
     "mail:20260907-ultrarisc-dts-v2-9-5eb4c97477c5@ultrarisc.com": {
-        "subject": "riscv: dts: ultrarisc: Add Shenzhen Rongda M0 board device tree"
+        "subject": "riscv: dts: ultrarisc: Add Shenzhen Rongda M0 board device tree",
+        "replacement": "mail:20261025-ultrarisc-dts-v7-6-621eca2b8790@ultrarisc.com"
     },
     "mail:20260907-ultrarisc-dts-v2-10-5eb4c97477c5@ultrarisc.com": {
-        "subject": "riscv: dts: ultrarisc: Add Milk-V Titan board device tree"
+        "subject": "riscv: dts: ultrarisc: Add Milk-V Titan board device tree",
+        "replacement": "mail:20261025-ultrarisc-dts-v7-7-621eca2b8790@ultrarisc.com"
     },
     "mail:20260916-fix-mm-v1-1-297034b4457f@iscas.ac.cn": {
         "subject": "riscv: mm: Apply T-Head PMA memory-type errata to PUD and P4D entries"
@@ -4984,10 +4993,12 @@
         "replacement": "commit:789eed2d8bfa83d79e24d185f736b038a121b3ce"
     },
     "mail:20261009090444.3319517-2-zhengxingda@iscas.ac.cn": {
-        "subject": "dt-bindings: phy: add binding for T-Head TH1520 USB PHY"
+        "subject": "dt-bindings: phy: add binding for T-Head TH1520 USB PHY",
+        "replacement": "mail:20261103081444.1983071-2-zhengxingda@iscas.ac.cn"
     },
     "mail:20261009090444.3319517-3-zhengxingda@iscas.ac.cn": {
-        "subject": "phy: add a driver for T-Head TH1520 USB PHY"
+        "subject": "phy: add a driver for T-Head TH1520 USB PHY",
+        "replacement": "mail:20261103081444.1983071-3-zhengxingda@iscas.ac.cn"
     },
     "mail:20260929083755.458238-2-inochiama@gmail.com": {
         "subject": "PCI: spacemit-k1: Add device data support"
@@ -5324,7 +5335,8 @@
         "subject": "pmdomain: spacemit: Add power domain driver"
     },
     "mail:20261017140805.3278709-1-alan.tseng.cs@gmail.com": {
-        "subject": "reset: spacemit: Fix the RCPU2 PWM reset registers"
+        "subject": "reset: spacemit: Fix the RCPU2 PWM reset registers",
+        "replacement": "mail:20261021132130.3026998-1-alan.tseng.cs@gmail.com"
     },
     "mail:20260928231807.1757995-4-jberring@redhat.com": {
         "subject": "riscv: dts: spacemit: k3-com260-ifx: Add PCIe nodes"
@@ -5457,5 +5469,41 @@
         "merged": [
             "v7.3-rc4"
         ]
+    },
+    "mail:20261104161512.883885-2-anup.patel@oss.qualcomm.com": {
+        "subject": "RISC-V: Add common csr_read_num() and csr_write_num() functions"
+    },
+    "mail:20261104-v7-0-rc1-rv-dis-int-before-restart-v5-1-956ec09c900d@linux.dev": {
+        "subject": "riscv: disable local interrupts and stop other CPUs before reboot/shutdown"
+    },
+    "mail:20261025-ultrarisc-dts-v7-1-621eca2b8790@ultrarisc.com": {
+        "subject": "dt-bindings: vendor-prefixes: Add shenrongda"
+    },
+    "mail:20261025-ultrarisc-dts-v7-2-621eca2b8790@ultrarisc.com": {
+        "subject": "dt-bindings: riscv: cpus: Add UltraRISC CP100 compatible"
+    },
+    "mail:20261025-ultrarisc-dts-v7-3-621eca2b8790@ultrarisc.com": {
+        "subject": "dt-bindings: riscv: Add UltraRISC DP1000 board compatibles"
+    },
+    "mail:20261025-ultrarisc-dts-v7-4-621eca2b8790@ultrarisc.com": {
+        "subject": "dt-bindings: timer: Add UltraRISC DP1000 CLINT"
+    },
+    "mail:20261025-ultrarisc-dts-v7-5-621eca2b8790@ultrarisc.com": {
+        "subject": "riscv: dts: ultrarisc: Add initial device tree for UltraRISC DP1000"
+    },
+    "mail:20261025-ultrarisc-dts-v7-6-621eca2b8790@ultrarisc.com": {
+        "subject": "riscv: dts: ultrarisc: Add Shenzhen Rongda M0 board device tree"
+    },
+    "mail:20261025-ultrarisc-dts-v7-7-621eca2b8790@ultrarisc.com": {
+        "subject": "riscv: dts: ultrarisc: Add Milk-V Titan board device tree"
+    },
+    "mail:20261103081444.1983071-2-zhengxingda@iscas.ac.cn": {
+        "subject": "dt-bindings: phy: add binding for T-Head TH1520 USB PHY"
+    },
+    "mail:20261103081444.1983071-3-zhengxingda@iscas.ac.cn": {
+        "subject": "phy: add a driver for T-Head TH1520 USB PHY"
+    },
+    "mail:20261021132130.3026998-1-alan.tseng.cs@gmail.com": {
+        "subject": "reset: spacemit: Fix the RCPU2 PWM reset registers"
     }
 }
