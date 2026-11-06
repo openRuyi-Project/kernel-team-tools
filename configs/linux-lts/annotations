@@ -1304,6 +1304,7 @@ CONFIG_CC_NO_ARRAY_BOUNDS                       policy<{'riscv64': 'y', 'x86_64'
 CONFIG_CC_NO_STRINGOP_OVERFLOW                  policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE              policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_CC_OPTIMIZE_FOR_SIZE                     policy<{'riscv64': 'n', 'x86_64': 'n'}>
+CONFIG_CC_OPT_INLINE_MEMSET                     policy<{'riscv64': '"-finline-stringops=memset"', 'x86_64': '"-finline-stringops=memset"'}>
 CONFIG_CC_VERSION_TEXT                          policy<{'riscv64': '"riscv64-linux-gnu-gcc (Debian 15.3.0-1) 15.3.0"', 'x86_64': '"gcc (Debian 15.3.0-1) 15.3.0"'}>
 CONFIG_CDNS_I3C_MASTER                          policy<{'x86_64': 'm'}>
 CONFIG_CDROM                                    policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -1854,9 +1855,9 @@ CONFIG_CRYPTO_KDF800108_CTR                     policy<{'x86_64': 'y'}>
 CONFIG_CRYPTO_KHAZAD                            policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_CRYPTO_KPP                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_CRYPTO_KPP2                              policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_CRYPTO_KRB5                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_CRYPTO_KRB5ENC                           policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_CRYPTO_KRB5_SELFTESTS                    policy<{'x86_64': 'n'}>
+CONFIG_CRYPTO_KRB5                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_CRYPTO_KRB5ENC                           policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_CRYPTO_KRB5_SELFTESTS                    policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_CRYPTO_LIB_AES                           policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_CRYPTO_LIB_AESCFB                        policy<{'x86_64': 'y'}>
 CONFIG_CRYPTO_LIB_ARC4                          policy<{'riscv64': 'm', 'x86_64': 'm'}>
@@ -5158,7 +5159,7 @@ CONFIG_LIBERTAS_THINFIRM_DEBUG                  policy<{'x86_64': 'n'}>
 CONFIG_LIBERTAS_THINFIRM_USB                    policy<{'x86_64': 'm'}>
 CONFIG_LIBERTAS_USB                             policy<{'x86_64': 'm'}>
 CONFIG_LIBETH                                   policy<{'riscv64': 'm', 'x86_64': 'm'}>
-CONFIG_LIBETH_XDP                               policy<{'x86_64': 'm'}>
+CONFIG_LIBETH_XDP                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_LIBFC                                    policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_LIBFCOE                                  policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_LIBFDT                                   policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -7203,6 +7204,7 @@ CONFIG_PHY_SPACEMIT_K1_USB2                     policy<{'riscv64': 'm'}>
 CONFIG_PHY_SPACEMIT_K3_COMBO_PHY                policy<{'riscv64': 'm'}>
 CONFIG_PHY_SPACEMIT_K3_COMMON_OPS               policy<{'riscv64': 'm'}>
 CONFIG_PHY_SPACEMIT_K3_INNO_DP                  policy<{'riscv64': 'm'}>
+CONFIG_PHY_SPACEMIT_K3_USB3                     policy<{'riscv64': 'm'}>
 CONFIG_PHY_STARFIVE_JH7110_DPHY_RX              policy<{'riscv64': 'm'}>
 CONFIG_PHY_STARFIVE_JH7110_DPHY_TX              policy<{'riscv64': 'm'}>
 CONFIG_PHY_STARFIVE_JH7110_PCIE                 policy<{'riscv64': 'm'}>
@@ -7410,13 +7412,13 @@ CONFIG_PREEMPTIRQ_DELAY_TEST                    policy<{'riscv64': 'n', 'x86_64'
 CONFIG_PREEMPT_BUILD                            policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_PREEMPT_COUNT                            policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_PREEMPT_DYNAMIC                          policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_PREEMPT_LAZY                             policy<{'riscv64': 'n', 'x86_64': 'n'}>
-CONFIG_PREEMPT_NONE                             policy<{'riscv64': 'y', 'x86_64': 'n'}>
+CONFIG_PREEMPT_LAZY                             policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_PREEMPT_NONE                             policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_PREEMPT_NOTIFIERS                        policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_PREEMPT_RCU                              policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_PREEMPT_RT                               policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_PREEMPT_TRACER                           policy<{'riscv64': 'n', 'x86_64': 'n'}>
-CONFIG_PREEMPT_VOLUNTARY                        policy<{'riscv64': 'n', 'x86_64': 'y'}>
+CONFIG_PREEMPT_VOLUNTARY                        policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_PREFIX_SYMBOLS                           policy<{'x86_64': 'y'}>
 CONFIG_PRESTERA                                 policy<{'x86_64': 'm'}>
 CONFIG_PRESTERA_PCI                             policy<{'x86_64': 'm'}>
@@ -7765,6 +7767,7 @@ CONFIG_REGULATOR_RAA215300                      policy<{'riscv64': 'n', 'x86_64'
 CONFIG_REGULATOR_RASPBERRYPI_TOUCHSCREEN_ATTINY policy<{'riscv64': 'n'}>
 CONFIG_REGULATOR_RASPBERRYPI_TOUCHSCREEN_V2     policy<{'riscv64': 'n'}>
 CONFIG_REGULATOR_RC5T583                        policy<{'x86_64': 'm'}>
+CONFIG_REGULATOR_RISCV_RPMI                     policy<{'riscv64': 'y'}>
 CONFIG_REGULATOR_RT4801                         policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_REGULATOR_RT4803                         policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_REGULATOR_RT4831                         policy<{'x86_64': 'm'}>
@@ -8207,14 +8210,15 @@ CONFIG_RT_MUTEXES                               policy<{'riscv64': 'y', 'x86_64'
 CONFIG_RUNTIME_KERNEL_TESTING_MENU              policy<{'riscv64': 'n'}>
 CONFIG_RUNTIME_TESTING_MENU                     policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_RUST                                     policy<{'riscv64': 'y'}>
+CONFIG_RUSTC_HAS_APXF                           policy<{'x86_64': 'y'}>
 CONFIG_RUSTC_HAS_COERCE_POINTEE                 policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_RUSTC_HAS_FILE_AS_C_STR                  policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_RUSTC_HAS_FILE_WITH_NUL                  policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_RUSTC_HAS_SPAN_FILE                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_RUSTC_HAS_UNNECESSARY_TRANSMUTES         policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_RUSTC_LLVM_VERSION                       policy<{'riscv64': '210108', 'x86_64': '210108'}>
+CONFIG_RUSTC_LLVM_VERSION                       policy<{'riscv64': '220108', 'x86_64': '220108'}>
 CONFIG_RUSTC_SUPPORTS_RISCV                     policy<{'riscv64': 'y'}>
-CONFIG_RUSTC_VERSION                            policy<{'riscv64': '109500', 'x86_64': '109500'}>
+CONFIG_RUSTC_VERSION                            policy<{'riscv64': '109701', 'x86_64': '109701'}>
 CONFIG_RUSTC_VERSION_TEXT                       policy<{'riscv64': '"rustc 1.95.0 (59807616e 2026-04-14) (built from a source tarball)"'}>
 CONFIG_RUST_BINDGEN_HAS_ZICSR_ZIFENCEI          policy<{'riscv64': 'y'}>
 CONFIG_RUST_BITMAP_HARDENED                     policy<{'riscv64': 'n'}>
@@ -9789,6 +9793,7 @@ CONFIG_SPACEMIT_K1_CCU                          policy<{'riscv64': 'y'}>
 CONFIG_SPACEMIT_K1_EMAC                         policy<{'riscv64': 'm'}>
 CONFIG_SPACEMIT_K1_TSENSOR                      policy<{'riscv64': 'm'}>
 CONFIG_SPACEMIT_K3_CCU                          policy<{'riscv64': 'y'}>
+CONFIG_SPACEMIT_PM_DOMAINS                      policy<{'riscv64': 'y'}>
 CONFIG_SPARSEMEM                                policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_SPARSEMEM_EXTREME                        policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_SPARSEMEM_MANUAL                         policy<{'riscv64': 'y'}>
@@ -10281,7 +10286,7 @@ CONFIG_TOOLCHAIN_HAS_ZBC                        policy<{'riscv64': 'y'}>
 CONFIG_TOOLCHAIN_HAS_ZBKB                       policy<{'riscv64': 'y'}>
 CONFIG_TOOLCHAIN_MATCHES_ZICSR_ZIFENCEI         policy<{'riscv64': 'y'}>
 CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI  policy<{'riscv64': 'y'}>
-CONFIG_TOOLS_SUPPORT_RELR                       policy<{'x86_64': 'y'}>
+CONFIG_TOOLS_SUPPORT_RELR                       policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_TOPSTAR_LAPTOP                           policy<{'x86_64': 'm'}>
 CONFIG_TORTURE_TEST                             policy<{'x86_64': 'm'}>
 CONFIG_TOSHIBA_BT_RFKILL                        policy<{'x86_64': 'm'}>
@@ -10460,6 +10465,7 @@ CONFIG_TXGBEVF                                  policy<{'riscv64': 'n', 'x86_64'
 CONFIG_TYPEC                                    policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_TYPEC_ANX7411                            policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_TYPEC_DP_ALTMODE                         policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_TYPEC_FUSB301                            policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_TYPEC_FUSB302                            policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_TYPEC_HD3SS3220                          policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_TYPEC_MT6360                             policy<{'x86_64': 'm'}>
