@@ -1031,7 +1031,8 @@
     "commit:6b60a128c2f43180664a614830f3c529497e0394": {
         "subject": "riscv: patch: Avoid early phys_to_page()",
         "merged": [
-            "v7.0-rc7"
+            "v7.0-rc7",
+            "v6.18.58"
         ]
     },
     "commit:86cbb7a81068434fdc1d5afb96d91ab971fb279e": {
@@ -2562,7 +2563,8 @@
     "commit:0d9a7085ec24983b5b8a4971c0eb6c756c75f1bf": {
         "subject": "scsi: ufs: core: Convert string descriptor format macros to enum",
         "merged": [
-            "v6.19-rc1"
+            "v6.19-rc1",
+            "v6.18.57"
         ]
     },
     "commit:b06b8c421485e0e96d7fd6aa614fb0b6f2778a03": {
@@ -4938,19 +4940,23 @@
         "subject": "iommu/riscv: Add command queue lock",
         "merged": [
             "v6.18.53",
-            "v7.3-rc3"
+            "v7.3-rc3",
+            "v7.2.7"
         ]
     },
     "commit:ca58afa40946acd252a50fa4d4a86f15847a3d7d": {
         "subject": "iommu/riscv: Serialize command queue publishing",
         "merged": [
-            "v7.3-rc3"
+            "v7.3-rc3",
+            "v6.18.57",
+            "v7.2.7"
         ]
     },
     "commit:4c50bec3d54288230aafb7fe3d2930d42beb14fd": {
         "subject": "iommu/riscv: Avoid waiting on failed command enqueue",
         "merged": [
-            "v7.3-rc3"
+            "v7.3-rc3",
+            "v7.2.7"
         ]
     },
     "commit:d64f761dbfda3f4eb7e5c14c1336677de20d5d6f": {
@@ -4962,13 +4968,15 @@
     "commit:52c6b7d20d3e791a9e75aa2be2a467990154c7cd": {
         "subject": "RISC-V: KVM: Fix the conversion between vsip and hvip",
         "merged": [
-            "v7.3-rc5"
+            "v7.3-rc5",
+            "v7.2.9"
         ]
     },
     "commit:d558af8ee0bb1b2e88e696be84adb93cf2b7be6f": {
         "subject": "clk: spacemit: k3: add CPU PLL rate tables",
         "merged": [
-            "v7.3-rc6"
+            "v7.3-rc6",
+            "v7.2.10"
         ]
     },
     "mail:20260929120227.1791356-1-jberring@redhat.com": {
@@ -5276,7 +5284,8 @@
         "subject": "drm/verisilicon: set blend mode for the primary plane"
     },
     "mail:20260901171703.1161592-2-zhengxingda@iscas.ac.cn": {
-        "subject": "drm/verisilicon: set blend mode for the cursor plane"
+        "subject": "drm/verisilicon: set blend mode for the cursor plane",
+        "replacement": "commit:5a83606d9f31a38273ee803f3aae2e39247032c5"
     },
     "mail:20261017083100.40157-2-yang.yicong@picoheart.com": {
         "subject": "riscv: Make get_insn public for instruction fault handling"
@@ -5387,24 +5396,66 @@
         "subject": "RISC-V: KVM: Widen G-stage fault address to gpa_t"
     },
     "commit:add916cfcec5b71cb242db85b91b2437be7390cf": {
-        "subject": "drm/bridge: th1520-dw-hdmi: Fix error check on dw_hdmi_probe() return value"
+        "subject": "drm/bridge: th1520-dw-hdmi: Fix error check on dw_hdmi_probe() return value",
+        "merged": [
+            "v7.3-rc7",
+            "v7.2.11"
+        ]
     },
     "commit:01c83795d50ccdb441f60e89ff50767cb2f6045a": {
-        "subject": "drm/bridge: th1520-dw-hdmi: Fix remove() callback"
+        "subject": "drm/bridge: th1520-dw-hdmi: Fix remove() callback",
+        "merged": [
+            "v7.3-rc7",
+            "v7.2.11"
+        ]
     },
     "commit:a510e1ae8c9030750c2edf7b0bc9b186cd8c7a06": {
-        "subject": "riscv: patch: fix handling of bpf-jit execmem addresses"
+        "subject": "riscv: patch: fix handling of bpf-jit execmem addresses",
+        "merged": [
+            "v7.3-rc7",
+            "v6.18.58",
+            "v7.2.11"
+        ]
     },
     "commit:d4f25b097e46d82718bb737d4540c99b7ab0a408": {
-        "subject": "riscv: fix load_unaligned_zeropad() fixup for RV32"
+        "subject": "riscv: fix load_unaligned_zeropad() fixup for RV32",
+        "merged": [
+            "v7.3-rc7",
+            "v6.18.57",
+            "v7.2.11"
+        ]
     },
     "commit:e130c54fbb603f9aeacf5029789b4a2c8c48f416": {
-        "subject": "spi: sg2044-nor: Return transfer errors"
+        "subject": "spi: sg2044-nor: Return transfer errors",
+        "merged": [
+            "v7.3-rc7",
+            "v6.18.57",
+            "v7.2.11"
+        ]
     },
     "commit:61d44a2c07b2ad3f7db167f17ff2461ffe78441c": {
-        "subject": "spi: sg2044-nor: Honor SPI clock limits"
+        "subject": "spi: sg2044-nor: Honor SPI clock limits",
+        "merged": [
+            "v7.3-rc7",
+            "v6.18.57",
+            "v7.2.11"
+        ]
     },
     "commit:405290be962b32eec842776fbe3bdf81f15b1676": {
-        "subject": "riscv: futex: untag the user pointer before the atomic access"
+        "subject": "riscv: futex: untag the user pointer before the atomic access",
+        "merged": [
+            "v7.3-rc7",
+            "v6.18.57",
+            "v7.2.11"
+        ]
+    },
+    "commit:240156b25a397d3b26ef95b3f13bddb2db6038ab": {
+        "subject": "perf vendor events riscv: Add CVA6 JSON file"
+    },
+    "commit:5a83606d9f31a38273ee803f3aae2e39247032c5": {
+        "subject": "drm/verisilicon: set blend mode for the cursor plane",
+        "merged": [
+            "v7.3-rc4"
+        ]
     }
 }
