@@ -2935,6 +2935,7 @@ CONFIG_ERRATA_ANDES                             policy<{'riscv64': 'y'}>
 CONFIG_ERRATA_MIPS                              policy<{'riscv64': 'y'}>
 CONFIG_ERRATA_PICOHEART                         policy<{'riscv64': 'y'}>
 CONFIG_ERRATA_SIFIVE                            policy<{'riscv64': 'y'}>
+CONFIG_ERRATA_SIFIVE_MAL_9092                   policy<{'riscv64': 'y'}>
 CONFIG_ERRATA_THEAD                             policy<{'riscv64': 'y'}>
 CONFIG_ET131X                                   policy<{'x86_64': 'm'}>
 CONFIG_ETHERNET                                 policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -7231,7 +7232,7 @@ CONFIG_PINCTRL_CS42L43                          policy<{'x86_64': 'n'}>
 CONFIG_PINCTRL_CY8C95X0                         policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_PINCTRL_DA9062                           policy<{'x86_64': 'n'}>
 CONFIG_PINCTRL_DENVERTON                        policy<{'x86_64': 'm'}>
-CONFIG_PINCTRL_EIC7700                          policy<{'riscv64': 'n'}>
+CONFIG_PINCTRL_EIC7700                          policy<{'riscv64': 'y'}>
 CONFIG_PINCTRL_ELKHARTLAKE                      policy<{'x86_64': 'm'}>
 CONFIG_PINCTRL_EMMITSBURG                       policy<{'x86_64': 'm'}>
 CONFIG_PINCTRL_GEMINILAKE                       policy<{'x86_64': 'm'}>
