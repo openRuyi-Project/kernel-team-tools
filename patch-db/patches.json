@@ -5505,5 +5505,26 @@
     },
     "mail:20261021132130.3026998-1-alan.tseng.cs@gmail.com": {
         "subject": "reset: spacemit: Fix the RCPU2 PWM reset registers"
+    },
+    "commit:a6b889f58add38f72fbaec36e5d7ba91535d964a": {
+        "subject": "phy: core: Define TBT phy_mode"
+    },
+    "commit:89c5ae2b19619e41f9098011667fc1f59c9f322c": {
+        "subject": "phy: core: Add phy_get_by_of_node()"
+    },
+    "commit:2ee4e00dc1a38bf7bbe128825a63c6b523480c33": {
+        "subject": "phy: core: Add devm_phy_get_by_of_node()"
+    },
+    "commit:fcce260fa4ba624dced020789d0a9a0cc1670062": {
+        "subject": "phy: core: Add missing kerneldoc colon in two locations"
+    },
+    "commit:090055ee629523092688da42428558ba56d4272f": {
+        "subject": "phy: core: Fix race-condition between _of_phy_get() and try_module_get()"
+    },
+    "mail:20261107-sysfb-dt-pci-efifb-v1-1-86d6c598671a@iscas.ac.cn": {
+        "subject": "firmware/sysfb: Avoid simple-framebuffer behind DT PCI host bridges"
+    },
+    "mail:20261103054716.1767730-1-zhengxingda@iscas.ac.cn": {
+        "subject": "dt-bindings: mfd: syscon: add T-Head TH1520 compatibles"
     }
 }
