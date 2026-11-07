@@ -4059,7 +4059,8 @@
     "commit:8fe6fa0f223f44b8b869319d1b9c383749aa147b": {
         "subject": "gpio: sifive: add missing MODULE_DEVICE_TABLE()",
         "merged": [
-            "v7.3-rc1"
+            "v7.3-rc1",
+            "v6.18.61"
         ]
     },
     "commit:6389eaf11d6cd3a66d10d0a5ea9cd91f242ccba2": {
@@ -5519,7 +5520,11 @@
         "subject": "phy: core: Add missing kerneldoc colon in two locations"
     },
     "commit:090055ee629523092688da42428558ba56d4272f": {
-        "subject": "phy: core: Fix race-condition between _of_phy_get() and try_module_get()"
+        "subject": "phy: core: Fix race-condition between _of_phy_get() and try_module_get()",
+        "merged": [
+            "v7.3.2",
+            "v6.18.61"
+        ]
     },
     "mail:20261107-sysfb-dt-pci-efifb-v1-1-86d6c598671a@iscas.ac.cn": {
         "subject": "firmware/sysfb: Avoid simple-framebuffer behind DT PCI host bridges"
