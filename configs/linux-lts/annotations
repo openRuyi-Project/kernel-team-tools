@@ -1452,7 +1452,7 @@ CONFIG_CLK_RCAR_USB2_CLOCK_SEL                  policy<{'riscv64': 'n'}>
 CONFIG_CLK_RENESAS                              policy<{'riscv64': 'y'}>
 CONFIG_CLK_SIFIVE                               policy<{'riscv64': 'y'}>
 CONFIG_CLK_SIFIVE_PRCI                          policy<{'riscv64': 'y'}>
-CONFIG_CLK_SOPHGO_CV1800                        policy<{'riscv64': 'n'}>
+CONFIG_CLK_SOPHGO_CV1800                        policy<{'riscv64': 'y'}>
 CONFIG_CLK_SOPHGO_SG2042_CLKGEN                 policy<{'riscv64': 'y'}>
 CONFIG_CLK_SOPHGO_SG2042_PLL                    policy<{'riscv64': 'y'}>
 CONFIG_CLK_SOPHGO_SG2042_RPGATE                 policy<{'riscv64': 'y'}>
@@ -7058,8 +7058,8 @@ CONFIG_PCIE_BUS_PEER2PEER                       policy<{'riscv64': 'n', 'x86_64'
 CONFIG_PCIE_BUS_PERFORMANCE                     policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_PCIE_BUS_SAFE                            policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_PCIE_BUS_TUNE_OFF                        policy<{'riscv64': 'n', 'x86_64': 'n'}>
-CONFIG_PCIE_CADENCE                             policy<{'riscv64': 'm'}>
-CONFIG_PCIE_CADENCE_HOST                        policy<{'riscv64': 'm'}>
+CONFIG_PCIE_CADENCE                             policy<{'riscv64': 'y'}>
+CONFIG_PCIE_CADENCE_HOST                        policy<{'riscv64': 'y'}>
 CONFIG_PCIE_CADENCE_PLAT_EP                     policy<{'riscv64': 'n'}>
 CONFIG_PCIE_CADENCE_PLAT_HOST                   policy<{'riscv64': 'n'}>
 CONFIG_PCIE_DPC                                 policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -7081,7 +7081,7 @@ CONFIG_PCIE_RCAR_EP                             policy<{'riscv64': 'n'}>
 CONFIG_PCIE_RCAR_GEN4_EP                        policy<{'riscv64': 'n'}>
 CONFIG_PCIE_RCAR_GEN4_HOST                      policy<{'riscv64': 'n'}>
 CONFIG_PCIE_RCAR_HOST                           policy<{'riscv64': 'n'}>
-CONFIG_PCIE_SG2042_HOST                         policy<{'riscv64': 'm'}>
+CONFIG_PCIE_SG2042_HOST                         policy<{'riscv64': 'y'}>
 CONFIG_PCIE_SOPHGO_DW                           policy<{'riscv64': 'y'}>
 CONFIG_PCIE_SPACEMIT_K1                         policy<{'riscv64': 'y'}>
 CONFIG_PCIE_STARFIVE_HOST                       policy<{'riscv64': 'y'}>
