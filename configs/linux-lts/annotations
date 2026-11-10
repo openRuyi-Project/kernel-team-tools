@@ -6,6 +6,9 @@
 CONFIG_ERRATA_MIPS_P8700_PAUSE_OPCODE           policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
 CONFIG_ERRATA_MIPS_P8700_PAUSE_OPCODE           note<'Errata for non-RVA23 machines'>
 
+CONFIG_ERRATA_PICOHEART                         policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
+CONFIG_ERRATA_PICOHEART                         note<'Errata for non-RVA23 machines'>
+
 CONFIG_ERRATA_PICOHEART_AMOCASQ                 policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
 CONFIG_ERRATA_PICOHEART_AMOCASQ                 note<'Errata for non-RVA23 machines'>
 
@@ -2938,7 +2941,6 @@ CONFIG_EROFS_FS_ZIP_LZMA                        policy<{'riscv64': 'n'}>
 CONFIG_EROFS_FS_ZIP_ZSTD                        policy<{'riscv64': 'n'}>
 CONFIG_ERRATA_ANDES                             policy<{'riscv64': 'y'}>
 CONFIG_ERRATA_MIPS                              policy<{'riscv64': 'y'}>
-CONFIG_ERRATA_PICOHEART                         policy<{'riscv64': 'y'}>
 CONFIG_ERRATA_SIFIVE                            policy<{'riscv64': 'y'}>
 CONFIG_ERRATA_SIFIVE_MAL_9092                   policy<{'riscv64': 'y'}>
 CONFIG_ERRATA_SPACEMIT                          policy<{'riscv64': 'y'}>
