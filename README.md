@@ -162,8 +162,11 @@ jobs, release suffix, iteration override, tools/devel subpackage toggles,
   iteration number: identical inputs keep the same number, any change bumps
   it, `--iteration N` overrides it, and removing the work directory resets
   the counter.
-- The work directory defaults to `./rpm-work`; packages land in `RPMS/` and
-  `SRPMS/`. `--reuse` reuses the previous Source0 tarball and config (it
+- The work directory defaults to `build/<package>-<arch>-<flavour>` in this
+  repository (`config` instead of the flavour with `--config`, plus `-oe` /
+  `-clang` for `--distro oe` / `--toolchain clang`), e.g.
+  `build/linux-lts-riscv64-rva20`; `-w DIR` overrides it. Packages land in
+  its `RPMS/` and `SRPMS/`. `--reuse` reuses the previous Source0 tarball and config (it
   refuses on provenance mismatch) — handy when only the sources changed.
 - Cross builds (`--arch` different from the host) disable the tools/devel
   subpackages by default (they need a full target-arch userspace toolchain);

@@ -470,7 +470,17 @@ else
     CONFIG_NAME="config.${ARCH}-${FLAVOUR}"
 fi
 
-WORKDIR="${WORKDIR:-$PWD/rpm-work}"
+# Default workdir: one per build target under build/ in this repository, so
+# different packages/arches/flavours never clobber each other's BUILD tree,
+# while rebuilding the same target (any version) keeps --reuse and the
+# iteration counter working. The kernel version is deliberately not part of
+# the name; the RPM file names carry it.
+if [ -z "$WORKDIR" ]; then
+    WORKDIR_NAME="$PACKAGE-$ARCH-${FLAVOUR:-config}"
+    [ "$SPEC_DISTRO" = oe ] && WORKDIR_NAME="$WORKDIR_NAME-oe"
+    [ "$TOOLCHAIN" = clang ] && WORKDIR_NAME="$WORKDIR_NAME-clang"
+    WORKDIR="$TOP_DIR/build/$WORKDIR_NAME"
+fi
 WORKDIR=$(mkdir -p -- "$WORKDIR" && cd -- "$WORKDIR" && pwd)
 for d in BUILD RPMS SOURCES SPECS SRPMS; do mkdir -p "$WORKDIR/$d"; done
 CONFIG="$WORKDIR/SOURCES/$CONFIG_NAME"
