@@ -14,6 +14,7 @@ local RPM builds (rpm-build), and patchset release tracking (metadata/manifest).
 | `metadata/maintained-branches` | `ruyi/X.Y.y` branches of openRuyi-Project/linux that are currently maintained |
 | `spec/` | Spec templates used by rpm-build: `linux.spec` (ruyi layout), `kernel.spec` (openEuler layout) |
 | `rpm-build` | Script that builds RPM packages locally from a kernel source tree |
+| `scripts/manifest-update` | Proposes/appends the next round of `metadata/manifest` entries from the maintained branches |
 
 Both packages define three flavours (see the annotations file header):
 
@@ -173,3 +174,22 @@ jobs, release suffix, iteration override, tools/devel subpackage toggles,
 - The cross-compile environment variables `ARCH`, `CROSS_COMPILE`,
   `RUST_TARGET` and `RUST_LIB_SRC` are recognised as defaults; command line
   options win.
+
+## Release tags (metadata/manifest)
+
+Tags in openRuyi-Project/linux are created automatically by the
+`manifest.yml` workflow from `metadata/manifest` when it changes on master.
+`scripts/manifest-update` prepares the new entries: for every branch in
+`metadata/maintained-branches` it fetches the branch in a local kernel tree
+(default `~/code/kernel/linux/ruyi-linux`, remote `ruyi`), reads the kernel
+version from the tip's Makefile and proposes `ruyi/v<version>-<n>` with the
+next free `<n>`. Branches whose tip is already in the manifest are skipped.
+
+```sh
+scripts/manifest-update        # preview the new manifest lines
+scripts/manifest-update -a     # append them to metadata/manifest and commit
+scripts/manifest-update -A     # append only, no commit
+```
+
+Use `-C DIR` / `-r REMOTE` (or `$KERNEL_DIR` / `$KERNEL_REMOTE`) for another
+tree, and `-n` to skip fetching.

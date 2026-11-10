@@ -1,0 +1,141 @@
+#!/usr/bin/env bash
+# manifest-update - Collect the tip commits of the maintained kernel branches
+# and produce the next round of "ruyi/v<version>-<n>  <commit>" manifest lines.
+#
+# Works on a local kernel tree (default ~/code/kernel/linux/ruyi-linux) that
+# has openRuyi-Project/linux as a remote (default remote name "ruyi").
+# For every branch listed in metadata/maintained-branches:
+#   1. Fetch it and take the tip of <remote>/<branch> (i.e. what is pushed);
+#      warn if the local branch of the same name points elsewhere.
+#   2. Read VERSION/PATCHLEVEL/SUBLEVEL/EXTRAVERSION from the Makefile there.
+#   3. Pick <n> = (highest existing ruyi/v<version>-<n> in manifest) + 1.
+#   4. Skip the branch if its tip commit is already in the manifest.
+#
+# Usage: scripts/manifest-update [-a|-A] [-n] [-C KERNEL_DIR] [-r REMOTE] [-b FILE]
+#   -a   append the new lines to the manifest and commit it
+#        ("manifest: add <v1>/<v2>/... tag", signed-off)
+#   -A   append the new lines to the manifest without committing
+#   (default: only print the new lines)
+#   -n   do not fetch; use the remote-tracking refs as they are
+#   -C   kernel tree (default: $KERNEL_DIR or ~/code/kernel/linux/ruyi-linux)
+#   -r   remote name in the kernel tree (default: $KERNEL_REMOTE or ruyi)
+#   -b   branch list file (default: metadata/maintained-branches)
+#
+# Tags are created by the "Auto Tag" CI workflow once the updated
+# metadata/manifest is pushed to master; this script never tags or pushes.
+set -euo pipefail
+
+TOP=$(cd "$(dirname "$0")/.." && pwd)
+MANIFEST=$TOP/metadata/manifest
+BRANCHES=$TOP/metadata/maintained-branches
+KDIR=${KERNEL_DIR:-$HOME/code/kernel/linux/ruyi-linux}
+REMOTE=${KERNEL_REMOTE:-ruyi}
+APPEND=0
+COMMIT=0
+FETCH=1
+
+usage() { sed -n '2,/^set -euo/{/^set -euo/d;s/^# \{0,1\}//;p}' "$0"; exit "${1:-0}"; }
+die() { echo "manifest-update: $*" >&2; exit 1; }
+warn() { echo "manifest-update: warning: $*" >&2; }
+
+while getopts "aAnC:r:b:h" opt; do
+    case $opt in
+        a) APPEND=1; COMMIT=1 ;;
+        A) APPEND=1; COMMIT=0 ;;
+        n) FETCH=0 ;;
+        C) KDIR=$OPTARG ;;
+        r) REMOTE=$OPTARG ;;
+        b) BRANCHES=$OPTARG ;;
+        h) usage 0 ;;
+        *) usage 1 >&2 ;;
+    esac
+done
+
+[ -f "$BRANCHES" ] || die "branch list not found: $BRANCHES"
+[ -f "$MANIFEST" ] || die "manifest not found: $MANIFEST"
+git -C "$KDIR" rev-parse --git-dir >/dev/null 2>&1 || die "not a git tree: $KDIR"
+git -C "$KDIR" remote get-url "$REMOTE" >/dev/null 2>&1 || die "no remote '$REMOTE' in $KDIR"
+
+# Refuse to commit on top of unrelated local edits to the manifest.
+git -C "$TOP" update-index -q --refresh >/dev/null 2>&1 || true
+if [ "$COMMIT" = 1 ] && ! git -C "$TOP" diff --quiet HEAD -- "$MANIFEST"; then
+    die "$MANIFEST has uncommitted changes; commit or revert them first (or use -A)"
+fi
+
+mapfile -t branches < <(sed -e 's/#.*//' -e 's/[[:space:]]//g' -e '/^$/d' "$BRANCHES")
+[ ${#branches[@]} -gt 0 ] || die "no branches in $BRANCHES"
+
+kgit() { git -C "$KDIR" "$@"; }
+
+if [ "$FETCH" = 1 ]; then
+    specs=()
+    for b in "${branches[@]}"; do specs+=("+refs/heads/$b:refs/remotes/$REMOTE/$b"); done
+    echo "fetching ${#branches[@]} branch(es) from $REMOTE ..." >&2
+    kgit fetch -q "$REMOTE" "${specs[@]}" || die "fetch from $REMOTE failed"
+fi
+
+# Kernel version string ("7.2.15", "7.2", "7.4-rc3") from a Makefile on stdin.
+# Reads all input (no early exit) so the producer never gets SIGPIPE.
+kernel_version() {
+    awk -F' *= *' '
+        !done && $1 == "VERSION"      { v = $2 }
+        !done && $1 == "PATCHLEVEL"   { p = $2 }
+        !done && $1 == "SUBLEVEL"     { s = $2 }
+        !done && $1 == "EXTRAVERSION" { e = $2; done = 1 }
+        END {
+            if (v == "" || p == "") exit 1
+            out = v "." p
+            if (s != "" && s != "0") out = out "." s
+            print out e
+        }'
+}
+
+new_lines=()
+for b in "${branches[@]}"; do
+    sha=$(kgit rev-parse -q --verify "refs/remotes/$REMOTE/$b^{commit}") \
+        || die "no ref $REMOTE/$b in $KDIR"
+
+    if local_sha=$(kgit rev-parse -q --verify "refs/heads/$b^{commit}") && [ "$local_sha" != "$sha" ]; then
+        warn "local $b ($(printf %.12s "$local_sha")) differs from $REMOTE/$b ($(printf %.12s "$sha")); using $REMOTE/$b"
+    fi
+
+    existing=$(awk -v c="$sha" '$2 == c { print $1; exit }' "$MANIFEST")
+    if [ -n "$existing" ]; then
+        printf '%-14s %.12s  unchanged (already %s)\n' "$b" "$sha" "$existing" >&2
+        continue
+    fi
+
+    ver=$(kgit show "$sha:Makefile" | kernel_version) || die "cannot read version of $b at $sha"
+
+    n=$(awk -v p="ruyi/v$ver-" '
+        index($1, p) == 1 { r = substr($1, length(p) + 1); if (r ~ /^[0-9]+$/ && r + 0 > m) m = r + 0 }
+        END { print m + 1 }' "$MANIFEST")
+    tag="ruyi/v$ver-$n"
+
+    if kgit rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
+        warn "tag $tag already exists in $KDIR but not in manifest"
+    fi
+
+    printf '%-14s %.12s  -> %s\n' "$b" "$sha" "$tag" >&2
+    new_lines+=("$tag"$'\t'"$sha")
+done
+
+if [ ${#new_lines[@]} -eq 0 ]; then
+    echo "nothing new" >&2
+    exit 0
+fi
+
+echo >&2
+printf '%s\n' "${new_lines[@]}"
+
+if [ "$APPEND" = 1 ]; then
+    printf '%s\n' "${new_lines[@]}" >> "$MANIFEST"
+    echo >&2
+    echo "appended ${#new_lines[@]} line(s) to $MANIFEST" >&2
+fi
+
+if [ "$COMMIT" = 1 ]; then
+    versions=$(for l in "${new_lines[@]}"; do t=${l%%$'\t'*}; printf '%s\n' "${t#ruyi/v}"; done | paste -sd/)
+    git -C "$TOP" commit -q -s -m "manifest: add $versions tag" -- "$MANIFEST"
+    git -C "$TOP" log -1 --format='committed %h %s' >&2
+fi
