@@ -1,4 +1,4 @@
-# openRuyi-layout linux spec template for kernel-team-tools/rpm-build.
+# openRuyi-layout linux spec template for kernel-team-tools/scripts/mkrpm.
 # Values are injected via rpmbuild --define kb_* parameters.
 %{!?_unitdir:%global _unitdir /usr/lib/systemd/system}
 # SPDX-FileCopyrightText: (C) 2025, 2026 openRuyi Project Contributors

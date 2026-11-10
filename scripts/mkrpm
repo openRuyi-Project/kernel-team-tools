@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# rpm-build - Build the openRuyi linux RPM packages from a kernel source tree.
+# mkrpm - Build the openRuyi linux RPM packages from a kernel source tree.
 #
 # Given a kernel source directory (e.g. a worktree of openRuyi-Project/linux
 # checked out at ruyi/<version>.y, which already contains the Ruyi patches),
@@ -33,7 +33,7 @@
 # plain upstream name.
 #
 # Usage:
-#   ./rpm-build [options] <kernel-dir>
+#   scripts/mkrpm [options] <kernel-dir>
 #
 # The cross-compile environment is recognised automatically: the ARCH,
 # CROSS_COMPILE, RUST_TARGET and RUST_LIB_SRC environment variables may be
@@ -47,11 +47,11 @@
 # tracked in the workdir so --reuse can not mix the two up.
 #
 # Examples:
-#   ./rpm-build ~/code/kernel/linux/ruyi-linux
-#   ./rpm-build --flavour rva20 ~/code/kernel/linux/ruyi-linux
-#   ./rpm-build --arch x86_64 ~/code/kernel/linux/ruyi-linux
-#   ./rpm-build --config my.config ~/code/kernel/linux/ruyi-linux
-#   ./rpm-build --toolchain clang ~/code/kernel/linux/ruyi-linux
+#   scripts/mkrpm ~/code/kernel/linux/ruyi-linux
+#   scripts/mkrpm --flavour rva20 ~/code/kernel/linux/ruyi-linux
+#   scripts/mkrpm --arch x86_64 ~/code/kernel/linux/ruyi-linux
+#   scripts/mkrpm --config my.config ~/code/kernel/linux/ruyi-linux
+#   scripts/mkrpm --toolchain clang ~/code/kernel/linux/ruyi-linux
 #
 # --toolchain clang builds with LLVM (the kernel's LLVM= mechanism; see
 # Documentation/kbuild/llvm.rst). The LLVM value is probed (unsuffixed tools
@@ -78,6 +78,8 @@ ENV_RUST_TARGET=${RUST_TARGET-}
 ENV_RUST_LIB_SRC=${RUST_LIB_SRC-}
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+# Repository root (this script lives in scripts/).
+TOP_DIR=$(cd -- "$SCRIPT_DIR/.." && pwd)
 
 # Defaults
 ARCH=""
@@ -322,7 +324,7 @@ if HEAD=$(git -C "$KERNEL_DIR" rev-parse HEAD 2>/dev/null); then
         if [ "$base" = "$TARBALL_VERSION" ] && [ "$commit" = "$HEAD" ]; then
             PATCHSET_RELEASE=$rel
         fi
-    done < "$SCRIPT_DIR/metadata/manifest"
+    done < "$TOP_DIR/metadata/manifest"
 fi
 CONFIG_VERSION=0
 
@@ -456,7 +458,7 @@ preflight() {
 # version strings are known, so a provided config can not desync the kernel
 # release from the RPM package version.
 # ----------------------------------------------------------------------------
-ANNOTATIONS="$SCRIPT_DIR/configs/$PACKAGE/annotations"
+ANNOTATIONS="$TOP_DIR/configs/$PACKAGE/annotations"
 
 if [ -n "$CONFIG_FILE" ] && [ "$FLAVOUR_EXPLICIT" = 1 ]; then
     die "--config and --flavour are mutually exclusive: a provided config has no flavour"
@@ -508,7 +510,7 @@ else
     fi
     if [ "$REUSE" = 0 ] || [ ! -f "$CONFIG" ]; then
         log "generating $CONFIG_NAME from configs/$PACKAGE/annotations"
-        PYTHONDONTWRITEBYTECODE=1 python3 "$SCRIPT_DIR/scripts/annotations" \
+        PYTHONDONTWRITEBYTECODE=1 python3 "$SCRIPT_DIR/annotations" \
             -f "$ANNOTATIONS" --arch "$ARCH" --flavour "$FLAVOUR" -e \
             > "$CONFIG"
     fi
@@ -699,11 +701,11 @@ fi
 # Both layouts use a repository spec template (spec/<linux|kernel>.spec);
 # values are injected as rpmbuild parameters, the templates stay untouched.
 if [ "$SPEC_DISTRO" = oe ]; then
-    cp "$SCRIPT_DIR/spec/kernel.spec" "$WORKDIR/SPECS/kernel.spec"
-    cp "$CONFIG" "$WORKDIR/SOURCES/rpm-build.config"
+    cp "$TOP_DIR/spec/kernel.spec" "$WORKDIR/SPECS/kernel.spec"
+    cp "$CONFIG" "$WORKDIR/SOURCES/mkrpm.config"
     DERIVED_SPEC="$WORKDIR/SPECS/kernel.spec"
 else
-    cp "$SCRIPT_DIR/spec/linux.spec" "$WORKDIR/SPECS/linux.spec"
+    cp "$TOP_DIR/spec/linux.spec" "$WORKDIR/SPECS/linux.spec"
     DERIVED_SPEC="$WORKDIR/SPECS/linux.spec"
 fi
 

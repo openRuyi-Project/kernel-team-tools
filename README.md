@@ -1,7 +1,7 @@
 # kernel-team-tools
 
 Tools for the openRuyi kernel team: kernel config management (annotations),
-local RPM builds (rpm-build), and patchset release tracking (metadata/manifest).
+local RPM builds (scripts/mkrpm), and patchset release tracking (metadata/manifest).
 
 ## Repository layout
 
@@ -12,8 +12,8 @@ local RPM builds (rpm-build), and patchset release tracking (metadata/manifest).
 | `configs/linux-lts/` | Annotations and `config.env` for the `linux-lts` package (LTS tracking) |
 | `metadata/manifest` | `ruyi/v<version>-<n> <commit>` pairs mapping each patchset release to a kernel commit |
 | `metadata/maintained-branches` | `ruyi/X.Y.y` branches of openRuyi-Project/linux that are currently maintained |
-| `spec/` | Spec templates used by rpm-build: `linux.spec` (ruyi layout), `kernel.spec` (openEuler layout) |
-| `rpm-build` | Script that builds RPM packages locally from a kernel source tree |
+| `spec/` | Spec templates used by scripts/mkrpm: `linux.spec` (ruyi layout), `kernel.spec` (openEuler layout) |
+| `scripts/mkrpm` | Script that builds RPM packages locally from a kernel source tree |
 | `scripts/manifest-update` | Proposes/appends the next round of `metadata/manifest` entries from the maintained branches |
 
 Both packages define three flavours (see the annotations file header):
@@ -114,9 +114,9 @@ scripts/annotations -f configs/linux/annotations \
 After editing, run `--export` followed by `--check` to confirm the round trip
 is consistent, then review with `git diff`.
 
-## Local RPM builds (rpm-build)
+## Local RPM builds (mkrpm)
 
-`rpm-build` builds the openRuyi linux RPM packages directly from a kernel
+`scripts/mkrpm` builds the openRuyi linux RPM packages directly from a kernel
 source directory (e.g. an openRuyi-Project/linux worktree checked out at
 `ruyi/<version>.y`, patches already part of the tree): it generates the config
 from the annotations, packs Source0/Source1, injects values into the
@@ -128,27 +128,27 @@ a target-arch toolchain).
 
 ```sh
 # riscv64 generic cross build (the default arch)
-./rpm-build ~/code/kernel/linux/ruyi-linux
+scripts/mkrpm ~/code/kernel/linux/ruyi-linux
 
 # rva20 flavour (non-RVA23 CPU errata are enabled only here)
-./rpm-build --flavour rva20 ~/code/kernel/linux/ruyi-linux
+scripts/mkrpm --flavour rva20 ~/code/kernel/linux/ruyi-linux
 
 # x86_64
-./rpm-build --arch x86_64 ~/code/kernel/linux/ruyi-linux
+scripts/mkrpm --arch x86_64 ~/code/kernel/linux/ruyi-linux
 
 # Use your own .config, bypassing annotations (mutually exclusive
 # with --flavour)
-./rpm-build --config my.config ~/code/kernel/linux/ruyi-linux
+scripts/mkrpm --config my.config ~/code/kernel/linux/ruyi-linux
 
 # LLVM/clang build (version suffix probed automatically, e.g. LLVM=-21;
 # or set it explicitly with --llvm)
-./rpm-build --toolchain clang ~/code/kernel/linux/ruyi-linux
+scripts/mkrpm --toolchain clang ~/code/kernel/linux/ruyi-linux
 
 # Print the rpmbuild invocation without building
-./rpm-build --dry-run ~/code/kernel/linux/ruyi-linux
+scripts/mkrpm --dry-run ~/code/kernel/linux/ruyi-linux
 ```
 
-See `./rpm-build --help` for the full option list (cross prefix probing,
+See `scripts/mkrpm --help` for the full option list (cross prefix probing,
 jobs, release suffix, iteration override, tools/devel subpackage toggles,
 ...).
 

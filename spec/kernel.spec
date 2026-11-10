@@ -1,4 +1,4 @@
-# openEuler-layout kernel spec template for kernel-team-tools/rpm-build.
+# openEuler-layout kernel spec template for kernel-team-tools/scripts/mkrpm.
 # Values are injected via rpmbuild --define kb_* parameters.
 %global Arch %{?kb_arch}%{?!kb_arch:riscv}
 %global KernelVer %{version}-%{release}.%{_target_cpu}
@@ -13,12 +13,12 @@ Summary:        The Linux Kernel (openEuler layout)
 License:        GPL-2.0-only
 URL:            https://www.kernel.org/
 Source0:        %{?kb_tarball}
-Source1:        rpm-build.config
+Source1:        mkrpm.config
 ExclusiveArch:  %{?kb_rpmarch}
 
 %description
 The Linux kernel, packaged in the openEuler layout, built from
-%{SOURCE0} by kernel-team-tools/rpm-build.
+%{SOURCE0} by kernel-team-tools/scripts/mkrpm.
 
 %package devel
 Summary:        Development files for building external kernel modules
