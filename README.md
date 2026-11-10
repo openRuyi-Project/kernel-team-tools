@@ -7,7 +7,7 @@ local RPM builds (rpm-build), and patchset release tracking (metadata/manifest).
 
 | Path | Contents |
 |---|---|
-| `annotations/` | The annotations config management tool (Python CLI) |
+| `scripts/annotations` | The annotations config management tool (Python CLI; its module lives in `scripts/kconfig/`) |
 | `configs/linux/` | Annotations and `config.env` for the `linux` package (mainline tracking) |
 | `configs/linux-lts/` | Annotations and `config.env` for the `linux-lts` package (LTS tracking) |
 | `metadata/manifest` | `ruyi/v<version>-<n> <commit>` pairs mapping each patchset release to a kernel commit |
@@ -25,7 +25,7 @@ Both packages define three flavours (see the annotations file header):
 
 ## Kernel config management (annotations)
 
-`annotations/annotations` manages per-arch/per-flavour kernel config policy.
+`scripts/annotations` manages per-arch/per-flavour kernel config policy.
 Each option has one policy line (keyed by arch/flavour), optionally with a note:
 
 ```
@@ -53,9 +53,9 @@ All commands below need `-f` pointing at an annotations file (the repo has no
 ### Export: generate a .config from annotations
 
 ```sh
-./annotations/annotations -f configs/linux/annotations \
+scripts/annotations -f configs/linux/annotations \
     --arch riscv64 --flavour generic --export > config.riscv64
-./annotations/annotations -f configs/linux/annotations \
+scripts/annotations -f configs/linux/annotations \
     --arch riscv64 --flavour rva20 --export > config.riscv64-rva20
 ```
 
@@ -69,7 +69,7 @@ rewrite the policy for one arch/flavour wholesale. Both `--arch` and
 `--flavour` are required:
 
 ```sh
-./annotations/annotations -f configs/linux/annotations \
+scripts/annotations -f configs/linux/annotations \
     --arch riscv64 --flavour generic --import /path/to/new.config
 ```
 
@@ -82,16 +82,16 @@ automatically:
 
 ```sh
 # Resync every option that appears in partial.config
-./annotations/annotations -f configs/linux/annotations \
+scripts/annotations -f configs/linux/annotations \
     --arch riscv64 --flavour rva20 --update /path/to/partial.config
 
 # Resync a single option
-./annotations/annotations -f configs/linux/annotations \
+scripts/annotations -f configs/linux/annotations \
     --arch riscv64 --update /path/to/partial.config --config CONFIG_FOO
 
 # Set a value directly, no .config involved ('null' removes the policy
 # for that arch/flavour)
-./annotations/annotations -f configs/linux/annotations \
+scripts/annotations -f configs/linux/annotations \
     --arch riscv64 --write y --config CONFIG_FOO
 ```
 
@@ -103,11 +103,11 @@ rewrite the note.
 
 ```sh
 # Validate a .config against the annotations (exit code 1 on mismatch)
-./annotations/annotations -f configs/linux/annotations \
+scripts/annotations -f configs/linux/annotations \
     --arch riscv64 --flavour rva20 --check config.riscv64-rva20
 
 # Query the value of a single option
-./annotations/annotations -f configs/linux/annotations \
+scripts/annotations -f configs/linux/annotations \
     --arch riscv64 --flavour rva20 --query --config CONFIG_ERRATA_THEAD_CMO
 ```
 

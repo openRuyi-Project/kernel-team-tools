@@ -113,7 +113,7 @@ jobs:
             for arch_flavour in ${FLAVOURS} ; do
               arch=${arch_flavour%%-*}
               flavour=${arch_flavour#*-}
-              python3 ${{ github.workspace }}/${{ env.KERNEL_TREM_TOOLS_DIR }}/annotations/annotations \
+              python3 ${{ github.workspace }}/${{ env.KERNEL_TREM_TOOLS_DIR }}/scripts/annotations \
                 -f "${annotations_file}" \
                 --arch "${arch}" --flavour "${flavour}" \
                 -e > ${{ github.workspace }}/${{ env.ARTIFACTS_DIR }}/${kernel_package_name}/config.${arch_flavour}
