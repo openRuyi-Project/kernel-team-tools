@@ -1,217 +1,80 @@
 # kernel-team-tools
 
-Tools for the openRuyi kernel team: kernel config management (annotations),
-local RPM builds (scripts/mkrpm), and patchset release tracking (metadata/manifest).
+This repository contains the tools and metadata of the openRuyi kernel team.
+It keeps the config policy of the `linux` (mainline) and `linux-lts`
+packages, the release metadata, and helper scripts.
+
+## Documentation
+
+| Task | Page |
+|---|---|
+| Learn the terms used in all pages | [Terms](#terms) below |
+| Enable, disable or change config options | [workflows.md](docs/workflows.md#enable-or-change-options) |
+| Update the configs after a kernel version bump | [workflows.md](docs/workflows.md#kernel-version-bump) |
+| Release new patchset tags and a GitHub release | [workflows.md](docs/workflows.md#release) |
+| Build an RPM locally | [workflows.md](docs/workflows.md#build-an-rpm-locally), [mkrpm.md](docs/mkrpm.md) |
+| Remove stale entries from the annotations | [workflows.md](docs/workflows.md#clean-up-stale-annotations) |
+| Understand the annotations format and tool | [annotations.md](docs/annotations.md) |
+| Look up `scripts/config` details | [config.md](docs/config.md) |
+| Look up release and CI details | [release.md](docs/release.md) |
+
+## Terms
+
+| Term | Meaning |
+|---|---|
+| option | One Kconfig symbol, for example `CONFIG_DRM_POWERVR`. |
+| package | `linux` or `linux-lts`. Each package has its own directory under `configs/`. |
+| arch | `riscv64` or `x86_64`. |
+| flavour | A variant of an arch: `generic` or `rva20`. |
+| config | The full `.config` that the scripts generate for one arch and one flavour. Each package has three configs. |
+| config name | `<arch>-<flavour>` (`riscv64-rva20`) in the annotations header and in file names. `<arch>/<flavour>` (`riscv64/rva20`) in the output of `scripts/config`. |
+| generic, rva20 | `riscv64-generic` is for RVA23 machines. `riscv64-rva20` is for older machines and also enables the errata for non-RVA23 CPUs. `x86_64` has only `generic`. |
+| config check | The comparison of a final config with the annotations (`scripts/annotations --check`). `scripts/config` runs it at the end. |
+| annotations | The file `configs/<package>/annotations`. It gives the value of each option for each arch and flavour. See [annotations.md](docs/annotations.md). |
+| key | The name in a policy that a value belongs to. The arch key (`'riscv64'`) holds the baseline. A flavour key (`'riscv64-rva20'`) holds a value for one flavour. |
+| baseline | The value of an option in the arch key. The generic flavour uses the baseline. Other flavours use the baseline unless they have a flavour key. |
+| arch-independent option | An option that is not specific to one arch. It normally has the same value on riscv64 and x86_64. |
+| patchset tag | A tag `ruyi/v<version>-<n>` in openRuyi-Project/linux, for example `ruyi/v6.18.63-1`. CI creates it from `metadata/manifest`. |
+| `TAG_NAME` | The value in `configs/<package>/config.env` that selects the patchset tag of the package, without the `ruyi/` prefix (`v6.18.63-1`). |
+| maintained branch | A `ruyi/X.Y.y` branch of openRuyi-Project/linux that gets new patchset tags. `metadata/maintained-branches` lists them. |
+| kernel tree | A checkout of openRuyi-Project/linux. Use one git worktree for each package. |
+| date tag | A tag `YYYY.MM.DD.HH.MM` in this repository. A push of a date tag publishes the GitHub releases. |
 
 ## Repository layout
 
 | Path | Contents |
 |---|---|
-| `scripts/annotations` | The annotations config management tool (Python CLI; its module lives in `scripts/kconfig/`) |
-| `scripts/config` | Ubuntu-style updateconfigs/editconfigs: sync or menuconfig the configs and write back to annotations |
-| `configs/linux/` | Annotations and `config.env` for the `linux` package (mainline tracking) |
-| `configs/linux-lts/` | Annotations and `config.env` for the `linux-lts` package (LTS tracking) |
-| `metadata/manifest` | `ruyi/v<version>-<n> <commit>` pairs mapping each patchset release to a kernel commit |
-| `metadata/maintained-branches` | `ruyi/X.Y.y` branches of openRuyi-Project/linux that are currently maintained |
-| `spec/` | Spec templates used by scripts/mkrpm: `linux.spec` (ruyi layout), `kernel.spec` (openEuler layout) |
-| `scripts/mkrpm` | Script that builds RPM packages locally from a kernel source tree |
-| `scripts/manifest-update` | Proposes/appends the next round of `metadata/manifest` entries from the maintained branches |
+| `configs/<package>/annotations` | Option values per arch and flavour |
+| `configs/<package>/config.env` | `TAG_NAME` of the package |
+| `metadata/manifest` | Patchset tags and their commits |
+| `metadata/maintained-branches` | `ruyi/X.Y.y` branches that get new patchset tags |
+| `scripts/config` | Runs syncconfig or menuconfig on the configs and writes the result back to the annotations |
+| `scripts/annotations`, `scripts/kconfig/` | The annotations tool, copied from Ubuntu. Do not change these files. |
+| `scripts/manifest-update` | Adds the next patchset tags to `metadata/manifest` |
+| `scripts/mkrpm` | Builds the linux RPM packages from a kernel tree |
+| `spec/` | Spec templates for `scripts/mkrpm` |
+| `patch-db/`, `patchoulene/` | Patch database and its tool `patl`. See [patchoulene/README.md](patchoulene/README.md). |
+| `.github/workflows/` | `manifest.yml` creates the patchset tags. `release.yml` publishes the GitHub releases. |
+| `build/` | Build output. Git ignores it. |
 
-Both packages define three flavours (see the annotations file header):
+## Quick reference
 
-```
-# ARCH: x86_64 riscv64
-# FLAVOUR: x86_64-generic riscv64-generic riscv64-rva20
-```
-
-## Kernel config management (annotations)
-
-`scripts/annotations` manages per-arch/per-flavour kernel config policy.
-Each option has one policy line (keyed by arch/flavour), optionally with a note:
-
-```
-CONFIG_ERRATA_THEAD_CMO          policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
-CONFIG_ERRATA_THEAD_CMO          note<'Errata for non-RVA23 machines'>
-```
-
-Policy key conventions:
-
-- A bare arch key (e.g. `'riscv64'`) is the architecture baseline; it applies to
-  every flavour that has no more specific key. **The generic flavour's value
-  lives in the bare arch key** — do not write `riscv64-generic` (redundant keys
-  are compacted away on save).
-- An `<arch>-<flavour>` compound key (e.g. `'riscv64-rva20'`) overrides the
-  baseline for that flavour. Lookup order: `<arch>-<flavour>` → bare `<arch>`.
-
-Value semantics: `'y'`/`'m'` map to `CONFIG_X=y/m`, `'n'` to
-`# CONFIG_X is not set`, and `'-'` leaves the option out of the generated
-.config entirely.
-
-All commands below need `-f` pointing at an annotations file (the repo has no
-`debian/debian.env`, so autodetection does not work). Arch is `x86_64` or
-`riscv64`.
-
-### Export: generate a .config from annotations
+The commands use one kernel worktree for each package. See
+[Prepare kernel trees](docs/workflows.md#prepare-kernel-trees).
 
 ```sh
-scripts/annotations -f configs/linux/annotations \
-    --arch riscv64 --flavour generic --export > config.riscv64
-scripts/annotations -f configs/linux/annotations \
-    --arch riscv64 --flavour rva20 --export > config.riscv64-rva20
+# Change options with menuconfig and write them back
+scripts/config menu -p linux -C ~/code/kernel/linux/linux-7.3
+
+# Get new options after a kernel version bump
+scripts/config sync -p linux-lts -C ~/code/kernel/linux/linux-6.18
+
+# Show the next patchset tags. Check them before you commit them with -a.
+scripts/manifest-update
+
+# Build an RPM locally
+scripts/mkrpm -p linux-lts ~/code/kernel/linux/linux-6.18
 ```
 
-`--flavour` defaults to `generic`. Add `--config CONFIG_X` to export a single
-option.
-
-### Import: merge a full .config into annotations
-
-Use when you have a complete .config (e.g. from `make defconfig`) and want to
-rewrite the policy for one arch/flavour wholesale. Both `--arch` and
-`--flavour` are required:
-
-```sh
-scripts/annotations -f configs/linux/annotations \
-    --arch riscv64 --flavour generic --import /path/to/new.config
-```
-
-### Update: resync only the options present in a .config
-
-Use after changing a handful of options to push the delta back into
-annotations. Only the options present in FILE are touched; toolchain version
-options (CONFIG_GCC_VERSION, CONFIG_CC_VERSION_TEXT, ...) are skipped
-automatically:
-
-```sh
-# Resync every option that appears in partial.config
-scripts/annotations -f configs/linux/annotations \
-    --arch riscv64 --flavour rva20 --update /path/to/partial.config
-
-# Resync a single option
-scripts/annotations -f configs/linux/annotations \
-    --arch riscv64 --update /path/to/partial.config --config CONFIG_FOO
-
-# Set a value directly, no .config involved ('null' removes the policy
-# for that arch/flavour)
-scripts/annotations -f configs/linux/annotations \
-    --arch riscv64 --write y --config CONFIG_FOO
-```
-
-Note: if an updated option carries a note, the note is rewritten to
-`TODO: update note` with a warning — review the `git diff` afterwards and
-rewrite the note.
-
-### Sync and edit configs (scripts/config)
-
-`scripts/config` follows Ubuntu's `debian/rules updateconfigs/editconfigs`:
-for each arch-flavour of a package it exports the config, runs kconfig on it
-against a kernel tree and writes the changes back into the annotations.
-The kernel tree must match the package version and be clean (use a worktree
-if your main tree has an in-tree build).
-
-```sh
-scripts/config sync -p linux-lts -C ~/code/kernel/linux/linux-6.18   # after a kernel bump
-scripts/config menu -p linux -C ~/code/kernel/linux/linux-7.3        # menuconfig, asks per flavour
-scripts/config menu -p linux -f rva20 -C ...                         # only one flavour
-scripts/config genconfigs -p linux-lts -C ...                        # full configs to build/configs/
-```
-
-`sync`/`menu` are aliases of `updateconfigs`/`editconfigs`; `defaultconfigs`
-accepts the defaults for new symbols. See `scripts/config --help`.
-
-### Check and query
-
-```sh
-# Validate a .config against the annotations (exit code 1 on mismatch)
-scripts/annotations -f configs/linux/annotations \
-    --arch riscv64 --flavour rva20 --check config.riscv64-rva20
-
-# Query the value of a single option
-scripts/annotations -f configs/linux/annotations \
-    --arch riscv64 --flavour rva20 --query --config CONFIG_ERRATA_THEAD_CMO
-```
-
-After editing, run `--export` followed by `--check` to confirm the round trip
-is consistent, then review with `git diff`.
-
-## Local RPM builds (mkrpm)
-
-`scripts/mkrpm` builds the openRuyi linux RPM packages directly from a kernel
-source directory (e.g. an openRuyi-Project/linux worktree checked out at
-`ruyi/<version>.y`, patches already part of the tree): it generates the config
-from the annotations, packs Source0/Source1, injects values into the
-repository spec template and runs rpmbuild. Prerequisites: rpmbuild, gcc,
-bison, flex, make, perl, python3, tar, xz, zstd, cpio (cross builds also need
-a target-arch toolchain).
-
-### Common usage
-
-```sh
-# riscv64 generic cross build (the default arch)
-scripts/mkrpm ~/code/kernel/linux/ruyi-linux
-
-# rva20 flavour (non-RVA23 CPU errata are enabled only here)
-scripts/mkrpm --flavour rva20 ~/code/kernel/linux/ruyi-linux
-
-# x86_64
-scripts/mkrpm --arch x86_64 ~/code/kernel/linux/ruyi-linux
-
-# Use your own .config, bypassing annotations (mutually exclusive
-# with --flavour)
-scripts/mkrpm --config my.config ~/code/kernel/linux/ruyi-linux
-
-# LLVM/clang build (version suffix probed automatically, e.g. LLVM=-21;
-# or set it explicitly with --llvm)
-scripts/mkrpm --toolchain clang ~/code/kernel/linux/ruyi-linux
-
-# Print the rpmbuild invocation without building
-scripts/mkrpm --dry-run ~/code/kernel/linux/ruyi-linux
-```
-
-See `scripts/mkrpm --help` for the full option list (cross prefix probing,
-jobs, release suffix, iteration override, tools/devel subpackage toggles,
-...).
-
-### Versioning and the work directory
-
-- The kernel release carries git information (following the kernel's own
-  scripts/setlocalversion convention): N commits past the version tag yield a
-  `-00199-g<sha>` suffix, uncommitted changes add `-dirty`, a non-git
-  directory gets `+`. The RPM Release mirrors the same information in
-  rpm-legal characters (e.g. `2.0.00199.g<sha>.3`) plus an auto-incrementing
-  iteration number: identical inputs keep the same number, any change bumps
-  it, `--iteration N` overrides it, and removing the work directory resets
-  the counter.
-- The work directory defaults to `build/<package>-<arch>-<flavour>` in this
-  repository (`config` instead of the flavour with `--config`, plus `-oe` /
-  `-clang` for `--distro oe` / `--toolchain clang`), e.g.
-  `build/linux-lts-riscv64-rva20`; `-w DIR` overrides it. Packages land in
-  its `RPMS/` and `SRPMS/`. `--reuse` reuses the previous Source0 tarball and config (it
-  refuses on provenance mismatch) — handy when only the sources changed.
-- Cross builds (`--arch` different from the host) disable the tools/devel
-  subpackages by default (they need a full target-arch userspace toolchain);
-  native builds enable them. Override with `--with-tools`/`--with-devel`.
-- `--distro oe` switches to the openEuler layout spec template
-  (`spec/kernel.spec`: /boot layout, SUBLEVEL moved into Release); the
-  default is the ruyi layout (`spec/linux.spec`).
-- The cross-compile environment variables `ARCH`, `CROSS_COMPILE`,
-  `RUST_TARGET` and `RUST_LIB_SRC` are recognised as defaults; command line
-  options win.
-
-## Release tags (metadata/manifest)
-
-Tags in openRuyi-Project/linux are created automatically by the
-`manifest.yml` workflow from `metadata/manifest` when it changes on master.
-`scripts/manifest-update` prepares the new entries: for every branch in
-`metadata/maintained-branches` it fetches the branch in a local kernel tree
-(default `~/code/kernel/linux/ruyi-linux`, remote `ruyi`), reads the kernel
-version from the tip's Makefile and proposes `ruyi/v<version>-<n>` with the
-next free `<n>`. Branches whose tip is already in the manifest are skipped.
-
-```sh
-scripts/manifest-update        # preview the new manifest lines
-scripts/manifest-update -a     # append them to metadata/manifest and commit
-scripts/manifest-update -A     # append only, no commit
-```
-
-Use `-C DIR` / `-r REMOTE` (or `$KERNEL_DIR` / `$KERNEL_REMOTE`) for another
-tree, and `-n` to skip fetching.
+Do not push `metadata/manifest` before you read
+[Release](docs/workflows.md#release). Pushed lines become public tags.
