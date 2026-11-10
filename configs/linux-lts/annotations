@@ -1605,7 +1605,9 @@ CONFIG_COMMON_CLK_AXI_CLKGEN                    policy<{'riscv64': 'n'}>
 CONFIG_COMMON_CLK_CDCE706                       policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_COMMON_CLK_CDCE925                       policy<{'riscv64': 'n'}>
 CONFIG_COMMON_CLK_CS2000_CP                     policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_COMMON_CLK_EIC7700                       policy<{'riscv64': 'y'}>
 CONFIG_COMMON_CLK_EIC7700_HSP                   policy<{'riscv64': 'y'}>
+CONFIG_COMMON_CLK_ESWIN                         policy<{'riscv64': 'y'}>
 CONFIG_COMMON_CLK_FIXED_MMIO                    policy<{'riscv64': 'n'}>
 CONFIG_COMMON_CLK_MAX9485                       policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_COMMON_CLK_PALMAS                        policy<{'x86_64': 'm'}>
@@ -3596,7 +3598,7 @@ CONFIG_HAVE_ARCH_PREL32_RELOCATIONS             policy<{'x86_64': 'y'}>
 CONFIG_HAVE_ARCH_RANDOMIZE_KSTACK_OFFSET        policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_HAVE_ARCH_SECCOMP                        policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_HAVE_ARCH_SECCOMP_FILTER                 policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_HAVE_ARCH_SOFT_DIRTY                     policy<{'x86_64': 'y'}>
+CONFIG_HAVE_ARCH_SOFT_DIRTY                     policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_HAVE_ARCH_THREAD_STRUCT_WHITELIST        policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_HAVE_ARCH_TRACEHOOK                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE           policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -4720,6 +4722,7 @@ CONFIG_IRQSOFF_TRACER                           policy<{'riscv64': 'n', 'x86_64'
 CONFIG_IRQ_BYPASS_MANAGER                       policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_IRQ_DOMAIN                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_IRQ_DOMAIN_HIERARCHY                     policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_IRQ_FASTEOI_HIERARCHY_HANDLERS           policy<{'riscv64': 'y'}>
 CONFIG_IRQ_FORCED_THREADING                     policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_IRQ_MSI_LIB                              policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_IRQ_POLL                                 policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -5487,7 +5490,7 @@ CONFIG_MEMTEST                                  policy<{'riscv64': 'n', 'x86_64'
 CONFIG_MEM_ALLOC_PROFILING                      policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_MEM_ALLOC_PROFILING_DEBUG                policy<{'x86_64': 'y'}>
 CONFIG_MEM_ALLOC_PROFILING_ENABLED_BY_DEFAULT   policy<{'x86_64': 'y'}>
-CONFIG_MEM_SOFT_DIRTY                           policy<{'x86_64': 'y'}>
+CONFIG_MEM_SOFT_DIRTY                           policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_MENF21BMC_WATCHDOG                       policy<{'x86_64': 'm'}>
 CONFIG_MENZ069_WATCHDOG                         policy<{'x86_64': 'm'}>
 CONFIG_MEN_A21_WDT                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
@@ -7846,6 +7849,7 @@ CONFIG_RENESAS_USB_DMAC                         policy<{'riscv64': 'n'}>
 CONFIG_RENESAS_WDT                              policy<{'riscv64': 'n'}>
 CONFIG_RESET_ATTACK_MITIGATION                  policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_RESET_CONTROLLER                         policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_RESET_EIC7700                            policy<{'riscv64': 'y'}>
 CONFIG_RESET_EIC7700_HSP                        policy<{'riscv64': 'y'}>
 CONFIG_RESET_GPIO                               policy<{'riscv64': 'y', 'x86_64': 'n'}>
 CONFIG_RESET_K230                               policy<{'riscv64': 'y'}>
@@ -7897,6 +7901,7 @@ CONFIG_RISCV_ISA_FALLBACK                       policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_SUPM                           policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_SVNAPOT                        policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_SVPBMT                         policy<{'riscv64': 'y'}>
+CONFIG_RISCV_ISA_SVRSW60T59B                    policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_V                              policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_VENDOR_EXT                     policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_VENDOR_EXT_ANDES               policy<{'riscv64': 'y'}>
@@ -7906,6 +7911,7 @@ CONFIG_RISCV_ISA_VENDOR_EXT_THEAD               policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_V_DEFAULT_ENABLE               policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_V_PREEMPTIVE                   policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_V_UCOPY_THRESHOLD              policy<{'riscv64': '768'}>
+CONFIG_RISCV_ISA_XLINUXMEMALIAS                 policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_XTHEADVECTOR                   policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_ZABHA                          policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_ZACAS                          policy<{'riscv64': 'y'}>
