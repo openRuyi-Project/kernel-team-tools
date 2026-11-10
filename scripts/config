@@ -1,0 +1,216 @@
+#!/usr/bin/env bash
+# config - Ubuntu-style kernel config maintenance on top of the annotations
+# (modelled on debian/scripts/misc/kernelconfig behind "debian/rules
+# updateconfigs/editconfigs/defaultconfigs/genconfigs").
+#
+# For every arch-flavour listed in the "# FLAVOUR:" header of
+# configs/<package>/annotations (or the one picked with -a/-f), the config
+# is exported from the annotations into an out-of-tree build directory
+# (build/kconfig-<package>-<arch>-<flavour>), the kconfig target runs on it
+# against the kernel tree, and the result is written back to the
+# annotations. A config check (annotations --check) runs at the end.
+#
+# Unlike Ubuntu, the write-back uses "annotations --update" with only the
+# options that changed instead of "--import": --import with the generic
+# flavour writes <arch>-generic keys that the tool can not fold back into
+# the bare arch key. The generic flavour updates the bare arch key (the
+# baseline other flavours inherit), any other flavour its own key.
+#
+# Usage: scripts/config <command> [options]
+#
+# Commands:
+#   updateconfigs   make syncconfig for each config: asks about new
+#                   symbols, like Ubuntu (alias: sync)
+#   editconfigs     ask "edit <arch>/<flavour>? [Y/n]" for each config:
+#                   Y runs menuconfig, n runs syncconfig  (alias: menu)
+#   defaultconfigs  yes "" | make oldconfig for each config
+#   genconfigs      write the full configs to build/configs/<package>/,
+#                   the annotations are left untouched
+#
+# Options:
+#   -p PKG   package under configs/ (default: linux)
+#   -a ARCH  only this arch (riscv64, x86_64)
+#   -f FLAV  only this flavour (e.g. generic, rva20)
+#   -C DIR   kernel tree (default: $KERNEL_DIR or ~/code/kernel/linux/ruyi-linux);
+#            it must match the package version and be clean (no in-tree build)
+#   --force  skip the kernel version vs config.env TAG_NAME check
+#
+# Without a terminal on stdin, syncconfig is replaced by olddefconfig (new
+# symbols take their defaults) so that nothing blocks on a prompt.
+#
+# CROSS_COMPILE is picked automatically for foreign arches (<arch>-linux-gnu-)
+# and can be overridden from the environment.
+#
+# Examples:
+#   scripts/config sync -p linux-lts               # after a kernel bump
+#   scripts/config menu -p linux                   # asks for each config
+#   scripts/config menu -p linux -a riscv64 -f rva20
+#   scripts/config genconfigs -p linux-lts
+set -euo pipefail
+
+TOP=$(cd "$(dirname "$0")/.." && pwd)
+ANN_TOOL=$TOP/scripts/annotations
+PACKAGE=linux
+ONLY_ARCH=
+ONLY_FLAVOUR=
+KDIR=${KERNEL_DIR:-$HOME/code/kernel/linux/ruyi-linux}
+FORCE=0
+COMMAND=
+
+usage() { sed -n '2,/^set -euo/{/^set -euo/d;s/^# \{0,1\}//;p}' "$0"; exit "${1:-0}"; }
+die() { echo "config: $*" >&2; exit 1; }
+info() { printf '\033[1;32m==>\033[0m %s\n' "$*" >&2; }
+
+while [ $# -gt 0 ]; do
+    case $1 in
+        -p) PACKAGE=$2; shift 2 ;;
+        -a) ONLY_ARCH=$2; shift 2 ;;
+        -f) ONLY_FLAVOUR=$2; shift 2 ;;
+        -C) KDIR=$2; shift 2 ;;
+        --force) FORCE=1; shift ;;
+        -h|--help) usage 0 ;;
+        -*) usage 1 >&2 ;;
+        *) [ -z "$COMMAND" ] || usage 1 >&2; COMMAND=$1; shift ;;
+    esac
+done
+
+case $COMMAND in
+    updateconfigs|sync) MODE=update ;;
+    editconfigs|menu)   MODE=edit ;;
+    defaultconfigs)     MODE=default ;;
+    genconfigs)         MODE=gen ;;
+    "") usage 1 >&2 ;;
+    *) die "unknown command '$COMMAND' (updateconfigs, editconfigs, defaultconfigs, genconfigs)" ;;
+esac
+
+ANN=$TOP/configs/$PACKAGE/annotations
+ENV_FILE=$TOP/configs/$PACKAGE/config.env
+[ -f "$ANN" ] || die "no annotations for package '$PACKAGE' ($ANN)"
+[ -f "$KDIR/Makefile" ] || die "not a kernel tree: $KDIR"
+KDIR=$(cd "$KDIR" && pwd)
+
+# The kernel tree must match the package (e.g. linux-lts = 6.18) ...
+if [ "$FORCE" = 0 ] && [ -f "$ENV_FILE" ]; then
+    tag=$(sed -n 's/^TAG_NAME=v\{0,1\}//p' "$ENV_FILE")
+    want=$(echo "$tag" | cut -d. -f1-2 | sed 's/-.*//')
+    have=$(awk -F' *= *' '$1=="VERSION"{v=$2} $1=="PATCHLEVEL"{p=$2} END{print v"."p}' "$KDIR/Makefile")
+    [ "$want" = "$have" ] || die "$KDIR is a $have tree but $PACKAGE is at v$tag; use a matching tree (-C) or --force"
+fi
+# ... and be clean, as out-of-tree (O=) builds require.
+if [ -e "$KDIR/.config" ] || [ -d "$KDIR/include/config" ]; then
+    die "$KDIR has an in-tree build (run 'make mrproper' there), or use a clean worktree, e.g.:
+  git -C $KDIR worktree add ../linux-$PACKAGE <branch>; scripts/config $COMMAND -p $PACKAGE -C <that dir>"
+fi
+
+targets=()
+for af in $(sed -n 's/^# FLAVOUR: //p' "$ANN"); do
+    [ -z "$ONLY_ARCH" ] || [ "${af%%-*}" = "$ONLY_ARCH" ] || continue
+    [ -z "$ONLY_FLAVOUR" ] || [ "${af#*-}" = "$ONLY_FLAVOUR" ] || continue
+    targets+=("$af")
+done
+[ ${#targets[@]} -gt 0 ] || die "no matching arch-flavour in the '# FLAVOUR:' header of $ANN"
+
+# Options the annotations tool never syncs (toolchain versions, ...), taken
+# from the tool itself so the list stays in sync with upstream.
+SKIP_RE=$(cd "$TOP/scripts" && python3 -B -c 'from kconfig.run import SKIP_CONFIGS; print("|".join(SKIP_CONFIGS))')
+
+# Config lines only, sorted; "# CONFIG_X is not set" kept as is.
+norm() {
+    grep -E '^(CONFIG_[A-Za-z0-9_]+=|# CONFIG_[A-Za-z0-9_]+ is not set$)' "$1" \
+        | grep -v -E "^(# )?($SKIP_RE)[= ]" | sort
+}
+optname() { sed -E 's/^# (CONFIG_[A-Za-z0-9_]+) is not set$/\1/; s/=.*//'; }
+value() { grep -E "^($1=|# $1 is not set$)" "$2" | sed -E 's/^# .* is not set$/n/; s/^[^=]*=//' || echo '-'; }
+
+# syncconfig prompts for new symbols; only use it when someone can answer.
+if [ -t 0 ]; then SYNC_TARGET=syncconfig; else SYNC_TARGET=olddefconfig; fi
+
+checked=()
+for af in "${targets[@]}"; do
+    arch=${af%%-*}
+    flavour=${af#*-}
+    case $arch in
+        riscv64) karch=riscv ;;
+        x86_64)  karch=x86 ;;
+        *) die "unsupported arch '$arch'" ;;
+    esac
+    cross=
+    [ "$(uname -m)" = "$arch" ] || cross=${CROSS_COMPILE:-$arch-linux-gnu-}
+    kmake() { make -s -C "$KDIR" O="$out" ARCH="$karch" ${cross:+CROSS_COMPILE=$cross} "$@"; }
+
+    out=$TOP/build/kconfig-$PACKAGE-$arch-$flavour
+    rm -rf "$out"; mkdir -p "$out"
+    "$ANN_TOOL" -f "$ANN" --arch "$arch" --flavour "$flavour" --export > "$out/.config"
+    cp "$out/.config" "$out/.config.annotations"
+
+    case $MODE in
+        gen)
+            kmake olddefconfig
+            mkdir -p "$TOP/build/configs/$PACKAGE"
+            cp "$out/.config" "$TOP/build/configs/$PACKAGE/config.$arch-$flavour"
+            info "wrote build/configs/$PACKAGE/config.$arch-$flavour"
+            continue ;;
+        update)
+            info "Run $SYNC_TARGET on $arch/$flavour ..."
+            kmake "$SYNC_TARGET" ;;
+        default)
+            info "Run oldconfig (defaults) on $arch/$flavour ..."
+            (yes "" || :) | kmake oldconfig >/dev/null ;;
+        edit)
+            while true; do
+                printf 'Do you want to edit config: %s/%s? [Y/n] ' "$arch" "$flavour"
+                read -r choice
+                case $choice in
+                    y*|Y*|"") kmake menuconfig; break ;;
+                    n*|N*)    kmake "$SYNC_TARGET"; break ;;
+                    *) echo "Entry not valid" ;;
+                esac
+            done ;;
+    esac
+
+    # Write the changed options back to the annotations.
+    changes=$out/changes.config
+    comm -13 <(norm "$out/.config.annotations") <(norm "$out/.config") > "$changes"
+    if [ -s "$changes" ]; then
+        info "$arch/$flavour: $(wc -l < "$changes") option(s) changed"
+        while read -r o; do
+            printf '  %-44s %s -> %s\n' "$o" "$(value "$o" "$out/.config.annotations")" "$(value "$o" "$out/.config")"
+        done < <(optname < "$changes")
+        if [ "$flavour" = generic ]; then
+            "$ANN_TOOL" -f "$ANN" --arch "$arch" --update "$changes" >/dev/null
+        else
+            "$ANN_TOOL" -f "$ANN" --arch "$arch" --flavour "$flavour" --update "$changes" >/dev/null
+            # New symbols synced for a non-generic flavour alone only land in
+            # its own key; the generic baseline should normally get them first.
+            new=$(optname < "$changes" | while read -r o; do
+                [ "$(value "$o" "$out/.config.annotations")" != - ] || echo "$o"; done | wc -l)
+            if [ "$new" -gt 0 ] && [[ " ${targets[*]} " != *" $arch-generic "* ]]; then
+                echo "config: warning: $new new symbol(s) recorded for $arch-$flavour only;" \
+                     "run 'scripts/config sync -p $PACKAGE' to sync every flavour (generic first)" >&2
+            fi
+        fi
+    else
+        info "$arch/$flavour: no changes"
+    fi
+    checked+=("$af")
+done
+
+[ ${#checked[@]} -gt 0 ] || exit 0
+
+# Config check, like Ubuntu's config-check pass: report, do not fail.
+info "Running config-check for all configurations ..."
+for af in "${checked[@]}"; do
+    arch=${af%%-*}; flavour=${af#*-}
+    out=$TOP/build/kconfig-$PACKAGE-$arch-$flavour
+    if res=$("$ANN_TOOL" -f "$ANN" --arch "$arch" --flavour "$flavour" --check "$out/.config" 2>&1); then
+        echo "  $arch/$flavour: all good"
+    else
+        echo "  $arch/$flavour:"
+        echo "$res" | grep -v 'loading annotations' | sed 's/^check-config: /    /'
+    fi
+done
+
+git -C "$TOP" --no-pager diff --stat -- "$ANN"
+if grep -q "TODO: update note" "$ANN"; then
+    echo "config: some notes were reset to 'TODO: update note'; please review them" >&2
+fi

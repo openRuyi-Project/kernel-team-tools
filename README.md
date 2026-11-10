@@ -8,6 +8,7 @@ local RPM builds (scripts/mkrpm), and patchset release tracking (metadata/manife
 | Path | Contents |
 |---|---|
 | `scripts/annotations` | The annotations config management tool (Python CLI; its module lives in `scripts/kconfig/`) |
+| `scripts/config` | Ubuntu-style updateconfigs/editconfigs: sync or menuconfig the configs and write back to annotations |
 | `configs/linux/` | Annotations and `config.env` for the `linux` package (mainline tracking) |
 | `configs/linux-lts/` | Annotations and `config.env` for the `linux-lts` package (LTS tracking) |
 | `metadata/manifest` | `ruyi/v<version>-<n> <commit>` pairs mapping each patchset release to a kernel commit |
@@ -98,6 +99,24 @@ scripts/annotations -f configs/linux/annotations \
 Note: if an updated option carries a note, the note is rewritten to
 `TODO: update note` with a warning — review the `git diff` afterwards and
 rewrite the note.
+
+### Sync and edit configs (scripts/config)
+
+`scripts/config` follows Ubuntu's `debian/rules updateconfigs/editconfigs`:
+for each arch-flavour of a package it exports the config, runs kconfig on it
+against a kernel tree and writes the changes back into the annotations.
+The kernel tree must match the package version and be clean (use a worktree
+if your main tree has an in-tree build).
+
+```sh
+scripts/config sync -p linux-lts -C ~/code/kernel/linux/linux-6.18   # after a kernel bump
+scripts/config menu -p linux -C ~/code/kernel/linux/linux-7.3        # menuconfig, asks per flavour
+scripts/config menu -p linux -f rva20 -C ...                         # only one flavour
+scripts/config genconfigs -p linux-lts -C ...                        # full configs to build/configs/
+```
+
+`sync`/`menu` are aliases of `updateconfigs`/`editconfigs`; `defaultconfigs`
+accepts the defaults for new symbols. See `scripts/config --help`.
 
 ### Check and query
 
