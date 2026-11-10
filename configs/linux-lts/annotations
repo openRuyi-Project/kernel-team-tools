@@ -7179,7 +7179,6 @@ CONFIG_PERF_EVENTS_AMD_UNCORE                   policy<{'x86_64': 'm'}>
 CONFIG_PERF_EVENTS_INTEL_CSTATE                 policy<{'x86_64': 'y'}>
 CONFIG_PERF_EVENTS_INTEL_RAPL                   policy<{'x86_64': 'y'}>
 CONFIG_PERF_EVENTS_INTEL_UNCORE                 policy<{'x86_64': 'y'}>
-CONFIG_PERF_USE_VMALLOC                         policy<{'riscv64': 'y'}>
 CONFIG_PERSISTENT_HUGE_ZERO_FOLIO               policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_PERSISTENT_KEYRINGS                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_PER_VMA_LOCK                             policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -8230,7 +8229,6 @@ CONFIG_RTW89_DEBUGMSG                           policy<{'riscv64': 'n', 'x86_64'
 CONFIG_RTW89_PCI                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_RTW89_USB                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_RT_GROUP_SCHED                           policy<{'riscv64': 'n', 'x86_64': 'n'}>
-CONFIG_RT_GROUP_SCHED_DEFAULT_DISABLED          policy<{'riscv64': 'n'}>
 CONFIG_RT_MUTEXES                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_RUNTIME_KERNEL_TESTING_MENU              policy<{'riscv64': 'n'}>
 CONFIG_RUNTIME_TESTING_MENU                     policy<{'riscv64': 'n', 'x86_64': 'y'}>
@@ -10107,7 +10105,7 @@ CONFIG_TASKS_TRACE_RCU                          policy<{'riscv64': 'y', 'x86_64'
 CONFIG_TASK_DELAY_ACCT                          policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_TASK_IO_ACCOUNTING                       policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_TASK_XACCT                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_TCG_ATMEL                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_TCG_ATMEL                                policy<{'x86_64': 'm'}>
 CONFIG_TCG_CRB                                  policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_TCG_INFINEON                             policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_TCG_NSC                                  policy<{'x86_64': 'm'}>
