@@ -8106,7 +8106,7 @@ CONFIG_RTC_DRV_RX8111                           policy<{'riscv64': 'n', 'x86_64'
 CONFIG_RTC_DRV_RX8581                           policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_RTC_DRV_S35390A                          policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_RTC_DRV_SD2405AL                         policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_RTC_DRV_SD3078                           policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_RTC_DRV_SD3078                           policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_RTC_DRV_SH                               policy<{'riscv64': 'n'}>
 CONFIG_RTC_DRV_SPACEMIT_P1                      policy<{'riscv64': 'm'}>
 CONFIG_RTC_DRV_STK17TA8                         policy<{'riscv64': 'm', 'x86_64': 'm'}>
