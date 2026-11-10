@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - 'manifest'
+      - 'metadata/manifest'
       - '.github/workflows/manifest.yml'
   workflow_dispatch:
 
@@ -50,7 +50,7 @@ jobs:
 
           git tag ${tag} ${commit}
 
-        done < ../kernel-team-tools/manifest
+        done < ../kernel-team-tools/metadata/manifest
 
         git tag --list
         git push --tags origin

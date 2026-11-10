@@ -312,7 +312,7 @@ TARBALL_VERSION=$(printf '%s' "$KERNEL_VERSION" | sed -E 's/^([0-9]+\.[0-9]+)\.0
 SPEC_VERSION=${TARBALL_VERSION//-/\~}
 
 # patchset_release: best effort - if the kernel tree HEAD matches an entry in
-# this repository's manifest (ruyi/v<version>-<n>), use <n>. Otherwise 1.
+# this repository's metadata/manifest (ruyi/v<version>-<n>), use <n>. Otherwise 1.
 PATCHSET_RELEASE=1
 if HEAD=$(git -C "$KERNEL_DIR" rev-parse HEAD 2>/dev/null); then
     while read -r tag commit; do
@@ -322,7 +322,7 @@ if HEAD=$(git -C "$KERNEL_DIR" rev-parse HEAD 2>/dev/null); then
         if [ "$base" = "$TARBALL_VERSION" ] && [ "$commit" = "$HEAD" ]; then
             PATCHSET_RELEASE=$rel
         fi
-    done < "$SCRIPT_DIR/manifest"
+    done < "$SCRIPT_DIR/metadata/manifest"
 fi
 CONFIG_VERSION=0
 

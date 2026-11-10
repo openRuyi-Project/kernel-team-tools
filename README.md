@@ -1,7 +1,7 @@
 # kernel-team-tools
 
 Tools for the openRuyi kernel team: kernel config management (annotations),
-local RPM builds (rpm-build), and patchset release tracking (manifest).
+local RPM builds (rpm-build), and patchset release tracking (metadata/manifest).
 
 ## Repository layout
 
@@ -10,7 +10,7 @@ local RPM builds (rpm-build), and patchset release tracking (manifest).
 | `annotations/` | The annotations config management tool (Python CLI) |
 | `configs/linux/` | Annotations and `config.env` for the `linux` package (mainline tracking) |
 | `configs/linux-lts/` | Annotations and `config.env` for the `linux-lts` package (LTS tracking) |
-| `manifest` | `ruyi/v<version>-<n> <commit>` pairs mapping each patchset release to a kernel commit |
+| `metadata/manifest` | `ruyi/v<version>-<n> <commit>` pairs mapping each patchset release to a kernel commit |
 | `spec/` | Spec templates used by rpm-build: `linux.spec` (ruyi layout), `kernel.spec` (openEuler layout) |
 | `rpm-build` | Script that builds RPM packages locally from a kernel source tree |
 
