@@ -1101,7 +1101,7 @@ CONFIG_BROADCOM_PHY                             policy<{'riscv64': 'm', 'x86_64'
 CONFIG_BSD_DISKLABEL                            policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_BSD_PROCESS_ACCT                         policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_BSD_PROCESS_ACCT_V3                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_BT                                       policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_BT                                       policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_BTREE                                    policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_BTRFS_ASSERT                             policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_BTRFS_DEBUG                              policy<{'riscv64': 'n', 'x86_64': 'n'}>
@@ -1111,30 +1111,30 @@ CONFIG_BTRFS_FS_POSIX_ACL                       policy<{'riscv64': 'y', 'x86_64'
 CONFIG_BTRFS_FS_RUN_SANITY_TESTS                policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_BTT                                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_BT_6LOWPAN                               policy<{'x86_64': 'm'}>
-CONFIG_BT_AOSPEXT                               policy<{'x86_64': 'y'}>
-CONFIG_BT_ATH3K                                 policy<{'x86_64': 'm'}>
-CONFIG_BT_BCM                                   policy<{'x86_64': 'm'}>
-CONFIG_BT_BNEP                                  policy<{'x86_64': 'm'}>
-CONFIG_BT_BNEP_MC_FILTER                        policy<{'x86_64': 'y'}>
-CONFIG_BT_BNEP_PROTO_FILTER                     policy<{'x86_64': 'y'}>
-CONFIG_BT_BREDR                                 policy<{'x86_64': 'y'}>
-CONFIG_BT_DEBUGFS                               policy<{'x86_64': 'y'}>
-CONFIG_BT_HCIBCM203X                            policy<{'x86_64': 'm'}>
-CONFIG_BT_HCIBCM4377                            policy<{'x86_64': 'm'}>
-CONFIG_BT_HCIBFUSB                              policy<{'x86_64': 'm'}>
+CONFIG_BT_AOSPEXT                               policy<{'riscv64': 'n', 'x86_64': 'y'}>
+CONFIG_BT_ATH3K                                 policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_BT_BCM                                   policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_BT_BNEP                                  policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_BT_BNEP_MC_FILTER                        policy<{'riscv64': 'n', 'x86_64': 'y'}>
+CONFIG_BT_BNEP_PROTO_FILTER                     policy<{'riscv64': 'n', 'x86_64': 'y'}>
+CONFIG_BT_BREDR                                 policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_BT_DEBUGFS                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_BT_HCIBCM203X                            policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_BT_HCIBCM4377                            policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_BT_HCIBFUSB                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_BT_HCIBLUECARD                           policy<{'x86_64': 'm'}>
 CONFIG_BT_HCIBPA10X                             policy<{'x86_64': 'm'}>
 CONFIG_BT_HCIBT3C                               policy<{'x86_64': 'm'}>
-CONFIG_BT_HCIBTSDIO                             policy<{'x86_64': 'm'}>
-CONFIG_BT_HCIBTUSB                              policy<{'x86_64': 'm'}>
-CONFIG_BT_HCIBTUSB_AUTOSUSPEND                  policy<{'x86_64': 'n'}>
-CONFIG_BT_HCIBTUSB_BCM                          policy<{'x86_64': 'y'}>
-CONFIG_BT_HCIBTUSB_MTK                          policy<{'x86_64': 'y'}>
-CONFIG_BT_HCIBTUSB_POLL_SYNC                    policy<{'x86_64': 'y'}>
-CONFIG_BT_HCIBTUSB_RTL                          policy<{'x86_64': 'y'}>
+CONFIG_BT_HCIBTSDIO                             policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_BT_HCIBTUSB                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_BT_HCIBTUSB_AUTOSUSPEND                  policy<{'riscv64': 'n', 'x86_64': 'n'}>
+CONFIG_BT_HCIBTUSB_BCM                          policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_BT_HCIBTUSB_MTK                          policy<{'riscv64': 'n', 'x86_64': 'y'}>
+CONFIG_BT_HCIBTUSB_POLL_SYNC                    policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_BT_HCIBTUSB_RTL                          policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_BT_HCIDTL1                               policy<{'x86_64': 'm'}>
 CONFIG_BT_HCIRSI                                policy<{'x86_64': 'm'}>
-CONFIG_BT_HCIUART                               policy<{'x86_64': 'm'}>
+CONFIG_BT_HCIUART                               policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_BT_HCIUART_3WIRE                         policy<{'x86_64': 'y'}>
 CONFIG_BT_HCIUART_AG6XX                         policy<{'x86_64': 'y'}>
 CONFIG_BT_HCIUART_AML                           policy<{'x86_64': 'y'}>
@@ -1149,26 +1149,26 @@ CONFIG_BT_HCIUART_NOKIA                         policy<{'x86_64': 'm'}>
 CONFIG_BT_HCIUART_QCA                           policy<{'x86_64': 'y'}>
 CONFIG_BT_HCIUART_RTL                           policy<{'x86_64': 'y'}>
 CONFIG_BT_HCIUART_SERDEV                        policy<{'x86_64': 'y'}>
-CONFIG_BT_HCIVHCI                               policy<{'x86_64': 'm'}>
-CONFIG_BT_HIDP                                  policy<{'x86_64': 'm'}>
-CONFIG_BT_INTEL                                 policy<{'x86_64': 'm'}>
-CONFIG_BT_INTEL_PCIE                            policy<{'x86_64': 'm'}>
-CONFIG_BT_LE                                    policy<{'x86_64': 'y'}>
-CONFIG_BT_LEDS                                  policy<{'x86_64': 'n'}>
-CONFIG_BT_LE_L2CAP_ECRED                        policy<{'x86_64': 'y'}>
-CONFIG_BT_MRVL                                  policy<{'x86_64': 'm'}>
+CONFIG_BT_HCIVHCI                               policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_BT_HIDP                                  policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_BT_INTEL                                 policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_BT_INTEL_PCIE                            policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_BT_LE                                    policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_BT_LEDS                                  policy<{'riscv64': 'n', 'x86_64': 'n'}>
+CONFIG_BT_LE_L2CAP_ECRED                        policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_BT_MRVL                                  policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_BT_MRVL_SDIO                             policy<{'x86_64': 'm'}>
-CONFIG_BT_MSFTEXT                               policy<{'x86_64': 'y'}>
+CONFIG_BT_MSFTEXT                               policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_BT_MTK                                   policy<{'x86_64': 'm'}>
-CONFIG_BT_MTKSDIO                               policy<{'x86_64': 'm'}>
+CONFIG_BT_MTKSDIO                               policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_BT_MTKUART                               policy<{'x86_64': 'm'}>
 CONFIG_BT_NXPUART                               policy<{'x86_64': 'm'}>
 CONFIG_BT_QCA                                   policy<{'x86_64': 'm'}>
-CONFIG_BT_RFCOMM                                policy<{'x86_64': 'm'}>
-CONFIG_BT_RFCOMM_TTY                            policy<{'x86_64': 'y'}>
-CONFIG_BT_RTL                                   policy<{'x86_64': 'm'}>
-CONFIG_BT_SELFTEST                              policy<{'x86_64': 'n'}>
-CONFIG_BT_VIRTIO                                policy<{'x86_64': 'm'}>
+CONFIG_BT_RFCOMM                                policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_BT_RFCOMM_TTY                            policy<{'riscv64': 'n', 'x86_64': 'y'}>
+CONFIG_BT_RTL                                   policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_BT_SELFTEST                              policy<{'riscv64': 'n', 'x86_64': 'n'}>
+CONFIG_BT_VIRTIO                                policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_BUFFER_HEAD                              policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_BUG                                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_BUG_ON_DATA_CORRUPTION                   policy<{'riscv64': 'n', 'x86_64': 'n'}>
@@ -2865,7 +2865,7 @@ CONFIG_EEEPC_LAPTOP                             policy<{'x86_64': 'm'}>
 CONFIG_EEEPC_WMI                                policy<{'x86_64': 'm'}>
 CONFIG_EEPROM_93CX6                             policy<{'riscv64': 'y', 'x86_64': 'm'}>
 CONFIG_EEPROM_93XX46                            policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_EEPROM_AT24                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_EEPROM_AT24                              policy<{'riscv64': 'y', 'x86_64': 'm'}>
 CONFIG_EEPROM_AT25                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_EEPROM_EE1004                            policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_EEPROM_IDT_89HPESX                       policy<{'riscv64': 'n', 'x86_64': 'm'}>
@@ -3802,7 +3802,7 @@ CONFIG_HID_LCPOWER                              policy<{'riscv64': 'm', 'x86_64'
 CONFIG_HID_LED                                  policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_HID_LENOVO                               policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_HID_LETSKETCH                            policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_HID_LOGITECH                             policy<{'x86_64': 'm'}>
+CONFIG_HID_LOGITECH                             policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_HID_LOGITECH_DJ                          policy<{'x86_64': 'm'}>
 CONFIG_HID_LOGITECH_HIDPP                       policy<{'x86_64': 'm'}>
 CONFIG_HID_MACALLY                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
@@ -3831,7 +3831,7 @@ CONFIG_HID_PICOLCD_LCD                          policy<{'riscv64': 'y', 'x86_64'
 CONFIG_HID_PICOLCD_LEDS                         policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_HID_PID                                  policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_HID_PLANTRONICS                          policy<{'riscv64': 'm', 'x86_64': 'm'}>
-CONFIG_HID_PLAYSTATION                          policy<{'x86_64': 'm'}>
+CONFIG_HID_PLAYSTATION                          policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_HID_PRIMAX                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_HID_PRODIKEYS                            policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_HID_PXRC                                 policy<{'riscv64': 'n', 'x86_64': 'm'}>
@@ -5044,12 +5044,12 @@ CONFIG_LEDS_BCM6358                             policy<{'riscv64': 'n'}>
 CONFIG_LEDS_BD2606MVV                           policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_LEDS_BD2802                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_LEDS_BLINKM                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
-CONFIG_LEDS_BLINKM_MULTICOLOR                   policy<{'x86_64': 'y'}>
+CONFIG_LEDS_BLINKM_MULTICOLOR                   policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_LEDS_BRIGHTNESS_HW_CHANGED               policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_LEDS_CHT_WCOVE                           policy<{'x86_64': 'm'}>
 CONFIG_LEDS_CLASS                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_LEDS_CLASS_FLASH                         policy<{'riscv64': 'm', 'x86_64': 'm'}>
-CONFIG_LEDS_CLASS_MULTICOLOR                    policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_LEDS_CLASS_MULTICOLOR                    policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_LEDS_CR0014114                           policy<{'riscv64': 'n'}>
 CONFIG_LEDS_CROS_EC                             policy<{'x86_64': 'm'}>
 CONFIG_LEDS_DA903X                              policy<{'x86_64': 'm'}>
@@ -5057,10 +5057,11 @@ CONFIG_LEDS_DA9052                              policy<{'x86_64': 'm'}>
 CONFIG_LEDS_DAC124S085                          policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_LEDS_EL15203000                          policy<{'riscv64': 'n'}>
 CONFIG_LEDS_GPIO                                policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_LEDS_GROUP_MULTICOLOR                    policy<{'riscv64': 'n'}>
 CONFIG_LEDS_INTEL_SS4200                        policy<{'x86_64': 'm'}>
 CONFIG_LEDS_IS31FL319X                          policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_LEDS_IS31FL32XX                          policy<{'riscv64': 'n'}>
-CONFIG_LEDS_KTD202X                             policy<{'x86_64': 'm'}>
+CONFIG_LEDS_KTD202X                             policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_LEDS_KTD2692                             policy<{'riscv64': 'n'}>
 CONFIG_LEDS_LM3530                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_LEDS_LM3532                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
@@ -5073,7 +5074,8 @@ CONFIG_LEDS_LM3692X                             policy<{'riscv64': 'n'}>
 CONFIG_LEDS_LM3697                              policy<{'riscv64': 'n'}>
 CONFIG_LEDS_LP3944                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_LEDS_LP3952                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_LEDS_LP50XX                              policy<{'x86_64': 'm'}>
+CONFIG_LEDS_LP50XX                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_LEDS_LP55XX_COMMON                       policy<{'riscv64': 'n'}>
 CONFIG_LEDS_LP8788                              policy<{'x86_64': 'm'}>
 CONFIG_LEDS_LP8860                              policy<{'riscv64': 'n'}>
 CONFIG_LEDS_LP8864                              policy<{'riscv64': 'n'}>
@@ -5087,6 +5089,7 @@ CONFIG_LEDS_MLXREG                              policy<{'riscv64': 'n', 'x86_64'
 CONFIG_LEDS_MT6323                              policy<{'x86_64': 'm'}>
 CONFIG_LEDS_MT6370_FLASH                        policy<{'x86_64': 'm'}>
 CONFIG_LEDS_MT6370_RGB                          policy<{'x86_64': 'm'}>
+CONFIG_LEDS_NCP5623                             policy<{'riscv64': 'n'}>
 CONFIG_LEDS_NIC78BX                             policy<{'x86_64': 'm'}>
 CONFIG_LEDS_PCA9532                             policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_LEDS_PCA9532_GPIO                        policy<{'x86_64': 'y'}>
@@ -5095,7 +5098,7 @@ CONFIG_LEDS_PCA955X_GPIO                        policy<{'x86_64': 'n'}>
 CONFIG_LEDS_PCA963X                             policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_LEDS_PCA995X                             policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_LEDS_PWM                                 policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_LEDS_PWM_MULTICOLOR                      policy<{'x86_64': 'm'}>
+CONFIG_LEDS_PWM_MULTICOLOR                      policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_LEDS_QNAP_MCU                            policy<{'x86_64': 'm'}>
 CONFIG_LEDS_REGULATOR                           policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_LEDS_RT4505                              policy<{'riscv64': 'n'}>
@@ -5107,6 +5110,7 @@ CONFIG_LEDS_SIEMENS_SIMATIC_IPC_ELKHARTLAKE     policy<{'x86_64': 'm'}>
 CONFIG_LEDS_SIEMENS_SIMATIC_IPC_F7188X          policy<{'x86_64': 'm'}>
 CONFIG_LEDS_SPI_BYTE                            policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_LEDS_ST1202                              policy<{'riscv64': 'n'}>
+CONFIG_LEDS_SUN50I_A100                         policy<{'riscv64': 'n'}>
 CONFIG_LEDS_SY7802                              policy<{'riscv64': 'n'}>
 CONFIG_LEDS_SYSCON                              policy<{'riscv64': 'n'}>
 CONFIG_LEDS_TCA6507                             policy<{'riscv64': 'n', 'x86_64': 'm'}>
@@ -6039,7 +6043,7 @@ CONFIG_MTD_ONENAND_OTP                          policy<{'x86_64': 'n'}>
 CONFIG_MTD_ONENAND_VERIFY_WRITE                 policy<{'x86_64': 'y'}>
 CONFIG_MTD_OOPS                                 policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_MTD_OTP                                  policy<{'riscv64': 'n'}>
-CONFIG_MTD_PARTITIONED_MASTER                   policy<{'riscv64': 'n', 'x86_64': 'n'}>
+CONFIG_MTD_PARTITIONED_MASTER                   policy<{'riscv64': 'y', 'x86_64': 'n'}>
 CONFIG_MTD_PCI                                  policy<{'x86_64': 'm'}>
 CONFIG_MTD_PCMCIA                               policy<{'x86_64': 'm'}>
 CONFIG_MTD_PCMCIA_ANONYMOUS                     policy<{'x86_64': 'n'}>
@@ -6821,7 +6825,7 @@ CONFIG_NVIDIA_SHIELD_FF                         policy<{'x86_64': 'y'}>
 CONFIG_NVIDIA_WMI_EC_BACKLIGHT                  policy<{'x86_64': 'm'}>
 CONFIG_NVMEM                                    policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_NVMEM_LAYOUTS                            policy<{'riscv64': 'y', 'x86_64': 'n'}>
-CONFIG_NVMEM_LAYOUT_ONIE_TLV                    policy<{'riscv64': 'n'}>
+CONFIG_NVMEM_LAYOUT_ONIE_TLV                    policy<{'riscv64': 'y'}>
 CONFIG_NVMEM_LAYOUT_SL28_VPD                    policy<{'riscv64': 'n'}>
 CONFIG_NVMEM_LAYOUT_U_BOOT_ENV                  policy<{'riscv64': 'n'}>
 CONFIG_NVMEM_RAVE_SP_EEPROM                     policy<{'x86_64': 'm'}>
@@ -7668,7 +7672,7 @@ CONFIG_REED_SOLOMON_DEC8                        policy<{'riscv64': 'y', 'x86_64'
 CONFIG_REED_SOLOMON_ENC8                        policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_REED_SOLOMON_TEST                        policy<{'x86_64': 'n'}>
 CONFIG_REGMAP                                   policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_REGMAP_I2C                               policy<{'riscv64': 'm', 'x86_64': 'y'}>
+CONFIG_REGMAP_I2C                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_REGMAP_I3C                               policy<{'x86_64': 'm'}>
 CONFIG_REGMAP_IRQ                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_REGMAP_MMIO                              policy<{'riscv64': 'y', 'x86_64': 'y'}>
