@@ -2991,6 +2991,8 @@ CONFIG_ERRATA_MIPS                              policy<{'riscv64': 'y'}>
 CONFIG_ERRATA_PICOHEART                         policy<{'riscv64': 'y'}>
 CONFIG_ERRATA_SIFIVE                            policy<{'riscv64': 'y'}>
 CONFIG_ERRATA_SIFIVE_MAL_9092                   policy<{'riscv64': 'y'}>
+CONFIG_ERRATA_SPACEMIT                          policy<{'riscv64': 'y'}>
+CONFIG_ERRATA_SPACEMIT_WRS_NTO                  policy<{'riscv64': 'y'}>
 CONFIG_ERRATA_THEAD                             policy<{'riscv64': 'y'}>
 CONFIG_ET131X                                   policy<{'x86_64': 'm'}>
 CONFIG_ETHERNET                                 policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -4100,7 +4102,7 @@ CONFIG_I2C_I801                                 policy<{'riscv64': 'n', 'x86_64'
 CONFIG_I2C_I801_MUX                             policy<{'x86_64': 'y'}>
 CONFIG_I2C_ISCH                                 policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_I2C_ISMT                                 policy<{'x86_64': 'm'}>
-CONFIG_I2C_K1                                   policy<{'riscv64': 'm'}>
+CONFIG_I2C_K1                                   policy<{'riscv64': 'y'}>
 CONFIG_I2C_KEBA                                 policy<{'x86_64': 'm'}>
 CONFIG_I2C_KEMPLD                               policy<{'x86_64': 'm'}>
 CONFIG_I2C_LJCA                                 policy<{'x86_64': 'm'}>
