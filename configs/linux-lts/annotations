@@ -1599,6 +1599,7 @@ CONFIG_COMMON_CLK_AXI_CLKGEN                    policy<{'riscv64': 'n'}>
 CONFIG_COMMON_CLK_CDCE706                       policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_COMMON_CLK_CDCE925                       policy<{'riscv64': 'n'}>
 CONFIG_COMMON_CLK_CS2000_CP                     policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_COMMON_CLK_EIC7700_HSP                   policy<{'riscv64': 'y'}>
 CONFIG_COMMON_CLK_FIXED_MMIO                    policy<{'riscv64': 'n'}>
 CONFIG_COMMON_CLK_MAX9485                       policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_COMMON_CLK_PALMAS                        policy<{'x86_64': 'm'}>
@@ -7073,6 +7074,7 @@ CONFIG_PCIE_DW_PLAT_EP                          policy<{'riscv64': 'y'}>
 CONFIG_PCIE_DW_PLAT_HOST                        policy<{'riscv64': 'y', 'x86_64': 'n'}>
 CONFIG_PCIE_ECRC                                policy<{'riscv64': 'y', 'x86_64': 'n'}>
 CONFIG_PCIE_EDR                                 policy<{'riscv64': 'n', 'x86_64': 'n'}>
+CONFIG_PCIE_ESWIN                               policy<{'riscv64': 'm'}>
 CONFIG_PCIE_FU740                               policy<{'riscv64': 'y'}>
 CONFIG_PCIE_MICROCHIP_HOST                      policy<{'riscv64': 'y'}>
 CONFIG_PCIE_PLDA_HOST                           policy<{'riscv64': 'y'}>
@@ -7187,6 +7189,7 @@ CONFIG_PHY_CADENCE_SIERRA                       policy<{'riscv64': 'n'}>
 CONFIG_PHY_CADENCE_TORRENT                      policy<{'riscv64': 'n'}>
 CONFIG_PHY_CAN_TRANSCEIVER                      policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_PHY_CPCAP_USB                            policy<{'x86_64': 'm'}>
+CONFIG_PHY_EIC7700_SATA                         policy<{'riscv64': 'm'}>
 CONFIG_PHY_INTEL_LGM_EMMC                       policy<{'x86_64': 'm'}>
 CONFIG_PHY_MAPPHONE_MDM6600                     policy<{'riscv64': 'n'}>
 CONFIG_PHY_NXP_PTN3222                          policy<{'riscv64': 'n'}>
@@ -7355,7 +7358,7 @@ CONFIG_PNP                                      policy<{'riscv64': 'y', 'x86_64'
 CONFIG_PNPACPI                                  policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_PNP_DEBUG_MESSAGES                       policy<{'riscv64': 'y', 'x86_64': 'n'}>
 CONFIG_POLARFIRE_SOC_MAILBOX                    policy<{'riscv64': 'n'}>
-CONFIG_POLYNOMIAL                               policy<{'x86_64': 'm'}>
+CONFIG_POLYNOMIAL                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_PORTABLE                                 policy<{'riscv64': 'y'}>
 CONFIG_PORTWELL_EC                              policy<{'x86_64': 'm'}>
 CONFIG_POSIX_AUX_CLOCKS                         policy<{'riscv64': 'n', 'x86_64': 'n'}>
@@ -7498,7 +7501,8 @@ CONFIG_PWM_CRC                                  policy<{'x86_64': 'y'}>
 CONFIG_PWM_CROS_EC                              policy<{'x86_64': 'm'}>
 CONFIG_PWM_DEBUG                                policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_PWM_DWC                                  policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_PWM_DWC_CORE                             policy<{'x86_64': 'm'}>
+CONFIG_PWM_DWC_CORE                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_PWM_DWC_OF                               policy<{'riscv64': 'm'}>
 CONFIG_PWM_FSL_FTM                              policy<{'riscv64': 'n'}>
 CONFIG_PWM_GPIO                                 policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_PWM_IQS620A                              policy<{'x86_64': 'm'}>
@@ -7832,6 +7836,7 @@ CONFIG_RENESAS_USB_DMAC                         policy<{'riscv64': 'n'}>
 CONFIG_RENESAS_WDT                              policy<{'riscv64': 'n'}>
 CONFIG_RESET_ATTACK_MITIGATION                  policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_RESET_CONTROLLER                         policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_RESET_EIC7700_HSP                        policy<{'riscv64': 'y'}>
 CONFIG_RESET_GPIO                               policy<{'riscv64': 'y', 'x86_64': 'n'}>
 CONFIG_RESET_K230                               policy<{'riscv64': 'y'}>
 CONFIG_RESET_POLARFIRE_SOC                      policy<{'riscv64': 'y'}>
@@ -8561,6 +8566,8 @@ CONFIG_SENSORS_DPS920AB                         policy<{'riscv64': 'n', 'x86_64'
 CONFIG_SENSORS_DRIVETEMP                        policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_SENSORS_DS1621                           policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_SENSORS_DS620                            policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_SENSORS_EIC7700_FAN                      policy<{'riscv64': 'm'}>
+CONFIG_SENSORS_EIC7700_PVT                      policy<{'riscv64': 'm'}>
 CONFIG_SENSORS_EMC1403                          policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_SENSORS_EMC2103                          policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_SENSORS_EMC2305                          policy<{'riscv64': 'n', 'x86_64': 'm'}>
