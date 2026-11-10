@@ -1499,7 +1499,7 @@ CONFIG_CMA                                      policy<{'riscv64': 'y', 'x86_64'
 CONFIG_CMA_ALIGNMENT                            policy<{'riscv64': '8', 'x86_64': '8'}>
 CONFIG_CMA_AREAS                                policy<{'riscv64': '19', 'x86_64': '7'}>
 CONFIG_CMA_DEBUGFS                              policy<{'riscv64': 'n', 'x86_64': 'n'}>
-CONFIG_CMA_SIZE_MBYTES                          policy<{'riscv64': '256', 'x86_64': '0'}>
+CONFIG_CMA_SIZE_MBYTES                          policy<{'riscv64': '512', 'x86_64': '0'}>
 CONFIG_CMA_SIZE_PERNUMA                         policy<{'riscv64': 'y'}>
 CONFIG_CMA_SIZE_SEL_MAX                         policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_CMA_SIZE_SEL_MBYTES                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -2330,7 +2330,8 @@ CONFIG_DRM_DW_HDMI_CEC                          policy<{'riscv64': 'n'}>
 CONFIG_DRM_DW_HDMI_GP_AUDIO                     policy<{'riscv64': 'n'}>
 CONFIG_DRM_DW_HDMI_I2S_AUDIO                    policy<{'riscv64': 'n'}>
 CONFIG_DRM_EFIDRM                               policy<{'x86_64': 'm'}>
-CONFIG_DRM_ETNAVIV                              policy<{'riscv64': 'n', 'x86_64': 'n'}>
+CONFIG_DRM_ETNAVIV                              policy<{'riscv64': 'm', 'x86_64': 'n'}>
+CONFIG_DRM_ETNAVIV_THERMAL                      policy<{'riscv64': 'y'}>
 CONFIG_DRM_EXEC                                 policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_DRM_FBDEV_EMULATION                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_DRM_FBDEV_LEAK_PHYS_SMEM                 policy<{'riscv64': 'n', 'x86_64': 'n'}>
@@ -2547,7 +2548,7 @@ CONFIG_DRM_PANIC_SCREEN                         policy<{'x86_64': '"user"'}>
 CONFIG_DRM_PARADE_PS8622                        policy<{'riscv64': 'n'}>
 CONFIG_DRM_PARADE_PS8640                        policy<{'riscv64': 'n'}>
 CONFIG_DRM_PIXPAPER                             policy<{'riscv64': 'n', 'x86_64': 'n'}>
-CONFIG_DRM_POWERVR                              policy<{'riscv64': 'n'}>
+CONFIG_DRM_POWERVR                              policy<{'riscv64': 'm'}>
 CONFIG_DRM_PRIVACY_SCREEN                       policy<{'x86_64': 'y'}>
 CONFIG_DRM_QXL                                  policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_DRM_RADEON                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
