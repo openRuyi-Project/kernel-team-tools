@@ -4811,6 +4811,7 @@ CONFIG_IRQSOFF_TRACER                           policy<{'riscv64': 'n', 'x86_64'
 CONFIG_IRQ_BYPASS_MANAGER                       policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_IRQ_DOMAIN                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_IRQ_DOMAIN_HIERARCHY                     policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_IRQ_FASTEOI_HIERARCHY_HANDLERS           policy<{'riscv64': 'y'}>
 CONFIG_IRQ_FORCED_THREADING                     policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_IRQ_MSI_LIB                              policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_IRQ_POLL                                 policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -8054,6 +8055,7 @@ CONFIG_RISCV_ISA_VENDOR_EXT_THEAD               policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_V_DEFAULT_ENABLE               policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_V_PREEMPTIVE                   policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_V_UCOPY_THRESHOLD              policy<{'riscv64': '768'}>
+CONFIG_RISCV_ISA_XLINUXMEMALIAS                 policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_XTHEADVECTOR                   policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_ZABHA                          policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_ZACAS                          policy<{'riscv64': 'y'}>
