@@ -11,6 +11,7 @@ local RPM builds (rpm-build), and patchset release tracking (metadata/manifest).
 | `configs/linux/` | Annotations and `config.env` for the `linux` package (mainline tracking) |
 | `configs/linux-lts/` | Annotations and `config.env` for the `linux-lts` package (LTS tracking) |
 | `metadata/manifest` | `ruyi/v<version>-<n> <commit>` pairs mapping each patchset release to a kernel commit |
+| `metadata/maintained-branches` | `ruyi/X.Y.y` branches of openRuyi-Project/linux that are currently maintained |
 | `spec/` | Spec templates used by rpm-build: `linux.spec` (ruyi layout), `kernel.spec` (openEuler layout) |
 | `rpm-build` | Script that builds RPM packages locally from a kernel source tree |
 

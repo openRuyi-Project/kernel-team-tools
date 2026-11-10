@@ -1,0 +1,8 @@
+# Kernel branches of openRuyi-Project/linux that are currently maintained.
+# One branch per line; '#' starts a comment. scripts/manifest-update reads
+# this list to propose the next round of ruyi/v<version>-<n> manifest entries,
+# in the order given here.
+ruyi/7.3.y
+ruyi/7.2.y
+ruyi/7.0.y
+ruyi/6.18.y
