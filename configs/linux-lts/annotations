@@ -2168,7 +2168,7 @@ CONFIG_DMA_FENCE_TRACE                          policy<{'riscv64': 'n', 'x86_64'
 CONFIG_DMA_MAP_BENCHMARK                        policy<{'riscv64': 'y', 'x86_64': 'n'}>
 CONFIG_DMA_NEED_SYNC                            policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_DMA_NONCOHERENT_MMAP                     policy<{'riscv64': 'y'}>
-CONFIG_DMA_NUMA_CMA                             policy<{'riscv64': 'n', 'x86_64': 'n'}>
+CONFIG_DMA_NUMA_CMA                             policy<{'riscv64': 'y', 'x86_64': 'n'}>
 CONFIG_DMA_OF                                   policy<{'riscv64': 'y'}>
 CONFIG_DMA_OPS_HELPERS                          policy<{'x86_64': 'y'}>
 CONFIG_DMA_RESTRICTED_POOL                      policy<{'riscv64': 'n'}>
@@ -4009,7 +4009,7 @@ CONFIG_I2C_CROS_EC_TUNNEL                       policy<{'x86_64': 'm'}>
 CONFIG_I2C_DEBUG_ALGO                           policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_I2C_DEBUG_BUS                            policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_I2C_DEBUG_CORE                           policy<{'riscv64': 'n', 'x86_64': 'n'}>
-CONFIG_I2C_DEMUX_PINCTRL                        policy<{'riscv64': 'n'}>
+CONFIG_I2C_DEMUX_PINCTRL                        policy<{'riscv64': 'm'}>
 CONFIG_I2C_DESIGNWARE_AMDISP                    policy<{'x86_64': 'm'}>
 CONFIG_I2C_DESIGNWARE_BAYTRAIL                  policy<{'x86_64': 'y'}>
 CONFIG_I2C_DESIGNWARE_CORE                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -4040,14 +4040,14 @@ CONFIG_I2C_MICROCHIP_CORE                       policy<{'riscv64': 'n'}>
 CONFIG_I2C_MLXCPLD                              policy<{'x86_64': 'm'}>
 CONFIG_I2C_MUX                                  policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_I2C_MUX_GPIO                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
-CONFIG_I2C_MUX_GPMUX                            policy<{'riscv64': 'n'}>
-CONFIG_I2C_MUX_LTC4306                          policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_I2C_MUX_GPMUX                            policy<{'riscv64': 'm'}>
+CONFIG_I2C_MUX_LTC4306                          policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_I2C_MUX_MLXCPLD                          policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_I2C_MUX_MULE                             policy<{'riscv64': 'n'}>
 CONFIG_I2C_MUX_PCA9541                          policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_I2C_MUX_PCA954x                          policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_I2C_MUX_PINCTRL                          policy<{'riscv64': 'm'}>
-CONFIG_I2C_MUX_REG                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_I2C_MUX_REG                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_I2C_MV64XXX                              policy<{'riscv64': 'n'}>
 CONFIG_I2C_NFORCE2                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_I2C_NOMADIK                              policy<{'riscv64': 'n'}>
@@ -6088,13 +6088,14 @@ CONFIG_MTRR                                     policy<{'x86_64': 'y'}>
 CONFIG_MTRR_SANITIZER                           policy<{'x86_64': 'y'}>
 CONFIG_MTRR_SANITIZER_ENABLE_DEFAULT            policy<{'x86_64': '1'}>
 CONFIG_MTRR_SANITIZER_SPARE_REG_NR_DEFAULT      policy<{'x86_64': '1'}>
-CONFIG_MULTIPLEXER                              policy<{'x86_64': 'm'}>
+CONFIG_MULTIPLEXER                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_MULTIUSER                                policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_MUSB_PIO_ONLY                            policy<{'x86_64': 'y'}>
 CONFIG_MUTEX_SPIN_ON_OWNER                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_MUX_ADG792A                              policy<{'x86_64': 'm'}>
-CONFIG_MUX_ADGS1408                             policy<{'x86_64': 'm'}>
-CONFIG_MUX_GPIO                                 policy<{'x86_64': 'm'}>
+CONFIG_MUX_ADG792A                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_MUX_ADGS1408                             policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_MUX_GPIO                                 policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_MUX_MMIO                                 policy<{'riscv64': 'n'}>
 CONFIG_MVMDIO                                   policy<{'x86_64': 'm'}>
 CONFIG_MWAVE                                    policy<{'x86_64': 'm'}>
 CONFIG_MWIFIEX                                  policy<{'x86_64': 'm'}>
@@ -8837,7 +8838,7 @@ CONFIG_SERIAL_8250_PERICOM                      policy<{'riscv64': 'y', 'x86_64'
 CONFIG_SERIAL_8250_PNP                          policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_SERIAL_8250_RSA                          policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_SERIAL_8250_RT288X                       policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_SERIAL_8250_RUNTIME_UARTS                policy<{'riscv64': '4', 'x86_64': '32'}>
+CONFIG_SERIAL_8250_RUNTIME_UARTS                policy<{'riscv64': '32', 'x86_64': '32'}>
 CONFIG_SERIAL_8250_SHARE_IRQ                    policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_SERIAL_ALTERA_JTAGUART                   policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_SERIAL_ALTERA_UART                       policy<{'riscv64': 'n', 'x86_64': 'm'}>
