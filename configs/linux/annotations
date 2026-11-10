@@ -7626,7 +7626,8 @@ CONFIG_PWM_CRC                                  policy<{'x86_64': 'y'}>
 CONFIG_PWM_CROS_EC                              policy<{'x86_64': 'm'}>
 CONFIG_PWM_DEBUG                                policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_PWM_DWC                                  policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_PWM_DWC_CORE                             policy<{'x86_64': 'm'}>
+CONFIG_PWM_DWC_CORE                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_PWM_DWC_OF                               policy<{'riscv64': 'm'}>
 CONFIG_PWM_FSL_FTM                              policy<{'riscv64': 'n'}>
 CONFIG_PWM_GPIO                                 policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_PWM_IQS620A                              policy<{'x86_64': 'm'}>
@@ -8733,6 +8734,7 @@ CONFIG_SENSORS_DRIVETEMP                        policy<{'riscv64': 'n', 'x86_64'
 CONFIG_SENSORS_DS1621                           policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_SENSORS_DS620                            policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_SENSORS_E50SN12051                       policy<{'riscv64': 'n', 'x86_64': 'n'}>
+CONFIG_SENSORS_EIC7700_FAN                      policy<{'riscv64': 'm'}>
 CONFIG_SENSORS_EIC7700_PVT                      policy<{'riscv64': 'm'}>
 CONFIG_SENSORS_EMC1403                          policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_SENSORS_EMC1812                          policy<{'riscv64': 'n', 'x86_64': 'n'}>
