@@ -39,6 +39,15 @@ CONFIG_ERRATA_THEAD_PMU                         note<'Errata for non-RVA23 machi
 CONFIG_ERRATA_THEAD_WRITE_ONCE                  policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
 CONFIG_ERRATA_THEAD_WRITE_ONCE                  note<'SG2042/TH1520 requires it'>
 
+CONFIG_RISCV_ALTERNATIVE_EARLY                  policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
+CONFIG_RISCV_ALTERNATIVE_EARLY                  note<'Selected by non-RVA23 errata'>
+
+CONFIG_RISCV_ISA_XLINUXMEMALIAS                 policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
+CONFIG_RISCV_ISA_XLINUXMEMALIAS                 note<'Physical memory aliases for non-coherent DMA - non-RVA23'>
+
+CONFIG_RISCV_ISA_XTHEADVECTOR                   policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
+CONFIG_RISCV_ISA_XTHEADVECTOR                   note<'T-Head vector 0.7.1 - non-RVA23'>
+
 
 # ---- Annotations without notes ----
 
@@ -7884,7 +7893,6 @@ CONFIG_RIONET_RX_SIZE                           policy<{'x86_64': '128'}>
 CONFIG_RIONET_TX_SIZE                           policy<{'x86_64': '128'}>
 CONFIG_RISCV                                    policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ALTERNATIVE                        policy<{'riscv64': 'y'}>
-CONFIG_RISCV_ALTERNATIVE_EARLY                  policy<{'riscv64': 'y'}>
 CONFIG_RISCV_APLIC                              policy<{'riscv64': 'y'}>
 CONFIG_RISCV_APLIC_MSI                          policy<{'riscv64': 'y'}>
 CONFIG_RISCV_BOOT_SPINWAIT                      policy<{'riscv64': 'n'}>
@@ -7910,8 +7918,6 @@ CONFIG_RISCV_ISA_VENDOR_EXT_THEAD               policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_V_DEFAULT_ENABLE               policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_V_PREEMPTIVE                   policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_V_UCOPY_THRESHOLD              policy<{'riscv64': '768'}>
-CONFIG_RISCV_ISA_XLINUXMEMALIAS                 policy<{'riscv64': 'y'}>
-CONFIG_RISCV_ISA_XTHEADVECTOR                   policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_ZABHA                          policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_ZACAS                          policy<{'riscv64': 'y'}>
 CONFIG_RISCV_ISA_ZAWRS                          policy<{'riscv64': 'y'}>
