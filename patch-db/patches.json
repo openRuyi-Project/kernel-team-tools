@@ -5396,10 +5396,12 @@
         "subject": "RISC-V: KVM: Fix G-stage page table memory leak on VM destroy"
     },
     "mail:20261103-imsic-remote-sync-irqwork-v1-1-8b5c951fc62a@linux.dev": {
-        "subject": "irqchip/riscv-imsic: Synchronize remote state with IRQ work"
+        "subject": "irqchip/riscv-imsic: Synchronize remote state with IRQ work",
+        "replacement": "mail:20261112-imsic-remote-sync-irqwork-v2-1-680f65b24ff6@linux.dev"
     },
     "mail:20261104-aplic-affinity-fix-v1-1-e538cd76e563@linux.dev": {
-        "subject": "irqchip/riscv-aplic: Process pending affinity changes on EOI"
+        "subject": "irqchip/riscv-aplic: Process pending affinity changes on EOI",
+        "replacement": "mail:20261112-aplic-affinity-fix-v3-1-943d25cfbfad@linux.dev"
     },
     "mail:20261105-k3-com260-module-sd-nor-mac-v1-1-138b39d74602@linux.spacemit.com": {
         "subject": "riscv: dts: spacemit: k3-com260-ifx: Drop wrong SD card vmmc-supply"
@@ -5501,25 +5503,32 @@
         "subject": "riscv: disable local interrupts and stop other CPUs before reboot/shutdown"
     },
     "mail:20261025-ultrarisc-dts-v7-1-621eca2b8790@ultrarisc.com": {
-        "subject": "dt-bindings: vendor-prefixes: Add shenrongda"
+        "subject": "dt-bindings: vendor-prefixes: Add shenrongda",
+        "replacement": "mail:20261112-ultrarisc-dts-v8-1-14fa0834cac4@ultrarisc.com"
     },
     "mail:20261025-ultrarisc-dts-v7-2-621eca2b8790@ultrarisc.com": {
-        "subject": "dt-bindings: riscv: cpus: Add UltraRISC CP100 compatible"
+        "subject": "dt-bindings: riscv: cpus: Add UltraRISC CP100 compatible",
+        "replacement": "mail:20261112-ultrarisc-dts-v8-2-14fa0834cac4@ultrarisc.com"
     },
     "mail:20261025-ultrarisc-dts-v7-3-621eca2b8790@ultrarisc.com": {
-        "subject": "dt-bindings: riscv: Add UltraRISC DP1000 board compatibles"
+        "subject": "dt-bindings: riscv: Add UltraRISC DP1000 board compatibles",
+        "replacement": "mail:20261112-ultrarisc-dts-v8-3-14fa0834cac4@ultrarisc.com"
     },
     "mail:20261025-ultrarisc-dts-v7-4-621eca2b8790@ultrarisc.com": {
-        "subject": "dt-bindings: timer: Add UltraRISC DP1000 CLINT"
+        "subject": "dt-bindings: timer: Add UltraRISC DP1000 CLINT",
+        "replacement": "mail:20261112-ultrarisc-dts-v8-4-14fa0834cac4@ultrarisc.com"
     },
     "mail:20261025-ultrarisc-dts-v7-5-621eca2b8790@ultrarisc.com": {
-        "subject": "riscv: dts: ultrarisc: Add initial device tree for UltraRISC DP1000"
+        "subject": "riscv: dts: ultrarisc: Add initial device tree for UltraRISC DP1000",
+        "replacement": "mail:20261112-ultrarisc-dts-v8-5-14fa0834cac4@ultrarisc.com"
     },
     "mail:20261025-ultrarisc-dts-v7-6-621eca2b8790@ultrarisc.com": {
-        "subject": "riscv: dts: ultrarisc: Add Shenzhen Rongda M0 board device tree"
+        "subject": "riscv: dts: ultrarisc: Add Shenzhen Rongda M0 board device tree",
+        "replacement": "mail:20261112-ultrarisc-dts-v8-6-14fa0834cac4@ultrarisc.com"
     },
     "mail:20261025-ultrarisc-dts-v7-7-621eca2b8790@ultrarisc.com": {
-        "subject": "riscv: dts: ultrarisc: Add Milk-V Titan board device tree"
+        "subject": "riscv: dts: ultrarisc: Add Milk-V Titan board device tree",
+        "replacement": "mail:20261112-ultrarisc-dts-v8-7-14fa0834cac4@ultrarisc.com"
     },
     "mail:20261103081444.1983071-2-zhengxingda@iscas.ac.cn": {
         "subject": "dt-bindings: phy: add binding for T-Head TH1520 USB PHY"
@@ -5733,16 +5742,20 @@
         "subject": "riscv: errata: picoheart: Add workaround for AMOCASQ errata"
     },
     "mail:20261108-04-k3-pm-support-v3-1-b9dc0857039b@kernel.org": {
-        "subject": "dt-bindings: power: spacemit: Add power domain controller IDs"
+        "subject": "dt-bindings: power: spacemit: Add power domain controller IDs",
+        "replacement": "mail:20261112-04-k3-pm-support-v4-1-de3931aa5153@kernel.org"
     },
     "mail:20261108-04-k3-pm-support-v3-2-b9dc0857039b@kernel.org": {
-        "subject": "pmdomain: spacemit: Add power domain driver"
+        "subject": "pmdomain: spacemit: Add power domain driver",
+        "replacement": "mail:20261112-04-k3-pm-support-v4-2-de3931aa5153@kernel.org"
     },
     "mail:20261110-aplic-affinity-fix-v2-1-6c143b8b4e8c@linux.dev": {
-        "subject": "irqchip/riscv-aplic: Use handle_edge_irq() for edge-triggered MSI sources"
+        "subject": "irqchip/riscv-aplic: Use handle_edge_irq() for edge-triggered MSI sources",
+        "replacement": "mail:20261112-aplic-affinity-fix-v3-1-943d25cfbfad@linux.dev"
     },
     "mail:20261110-aplic-affinity-fix-v2-2-6c143b8b4e8c@linux.dev": {
-        "subject": "irqchip/riscv-aplic: Apply pending affinity changes for level MSI sources"
+        "subject": "irqchip/riscv-aplic: Apply pending affinity changes for level MSI sources",
+        "replacement": "mail:20261112-aplic-affinity-fix-v3-2-943d25cfbfad@linux.dev"
     },
     "mail:20261030-mj070bi30ia2-v1-1-a0f65b65c290@iscas.ac.cn": {
         "subject": "dt-bindings: vendor-prefixes: add Shenzhen Mingjun Optoelectronics"
@@ -5754,7 +5767,8 @@
         "subject": "drm/panel: ilitek-ili9881c: add Mingjun MJ070BI30IA2"
     },
     "mail:20261030094024.3226356-1-chunyan.zhang@linux.spacemit.com": {
-        "subject": "riscv: dts: spacemit: k3: add USB3 port A (DRD) nodes"
+        "subject": "riscv: dts: spacemit: k3: add USB3 port A (DRD) nodes",
+        "replacement": "mail:20261105103125.2727341-1-chunyan.zhang@linux.spacemit.com"
     },
     "mail:20261107134613.17830-2-jszhang@kernel.org": {
         "subject": "riscv: word-at-a-time: improve find_zero() for !RISCV_ISA_ZBB or no Zbb"
@@ -5775,10 +5789,12 @@
         "subject": "clk: eswin: Keep the TCU AXI clock enabled"
     },
     "mail:20260424095435.1721-1-dongxuyang@eswincomputing.com": {
-        "subject": "dt-bindings: pwm: dwc: add optional reset"
+        "subject": "dt-bindings: pwm: dwc: add optional reset",
+        "replacement": "mail:20260730111504.1735-1-dongxuyang@eswincomputing.com"
     },
     "mail:20260424095709.2210-1-dongxuyang@eswincomputing.com": {
-        "subject": "pwm: dwc: add of/platform support"
+        "subject": "pwm: dwc: add of/platform support",
+        "replacement": "mail:20260730111553.1886-1-dongxuyang@eswincomputing.com"
     },
     "mail:20261023134801.108890-1-pinkesh.vaghela@einfochips.com": {
         "subject": "cache: sifive_ccache: Enable all ways on EIC7700"
@@ -5924,5 +5940,50 @@
     },
     "commit:f9af1329b98a478f4bba605ec6db429ef0e38d54": {
         "subject": "pinctrl: eswin: Fix Handling of PIN_CONFIG_PERSIST_STATE"
+    },
+    "mail:20261112-imsic-remote-sync-irqwork-v2-1-680f65b24ff6@linux.dev": {
+        "subject": "irqchip/riscv-imsic: Synchronize remote state with IRQ work"
+    },
+    "mail:20261112-aplic-affinity-fix-v3-1-943d25cfbfad@linux.dev": {
+        "subject": "irqchip/riscv-aplic: Use handle_edge_irq() for edge-triggered MSI sources"
+    },
+    "mail:20261112-ultrarisc-dts-v8-1-14fa0834cac4@ultrarisc.com": {
+        "subject": "dt-bindings: vendor-prefixes: Add shenrongda"
+    },
+    "mail:20261112-ultrarisc-dts-v8-2-14fa0834cac4@ultrarisc.com": {
+        "subject": "dt-bindings: riscv: cpus: Add UltraRISC CP100 compatible"
+    },
+    "mail:20261112-ultrarisc-dts-v8-3-14fa0834cac4@ultrarisc.com": {
+        "subject": "dt-bindings: riscv: Add UltraRISC DP1000 board compatibles"
+    },
+    "mail:20261112-ultrarisc-dts-v8-4-14fa0834cac4@ultrarisc.com": {
+        "subject": "dt-bindings: timer: Add UltraRISC DP1000 CLINT"
+    },
+    "mail:20261112-ultrarisc-dts-v8-5-14fa0834cac4@ultrarisc.com": {
+        "subject": "riscv: dts: ultrarisc: Add initial device tree for UltraRISC DP1000"
+    },
+    "mail:20261112-ultrarisc-dts-v8-6-14fa0834cac4@ultrarisc.com": {
+        "subject": "riscv: dts: ultrarisc: Add Shenzhen Rongda M0 board device tree"
+    },
+    "mail:20261112-ultrarisc-dts-v8-7-14fa0834cac4@ultrarisc.com": {
+        "subject": "riscv: dts: ultrarisc: Add Milk-V Titan board device tree"
+    },
+    "mail:20261112-04-k3-pm-support-v4-1-de3931aa5153@kernel.org": {
+        "subject": "dt-bindings: power: spacemit: Add power domain controller IDs"
+    },
+    "mail:20261112-04-k3-pm-support-v4-2-de3931aa5153@kernel.org": {
+        "subject": "pmdomain: spacemit: Add power domain driver"
+    },
+    "mail:20261112-aplic-affinity-fix-v3-2-943d25cfbfad@linux.dev": {
+        "subject": "irqchip/riscv-aplic: Apply pending affinity changes for level MSI sources"
+    },
+    "mail:20261105103125.2727341-1-chunyan.zhang@linux.spacemit.com": {
+        "subject": "riscv: dts: spacemit: k3: add USB3 port A (DRD) nodes"
+    },
+    "mail:20260730111504.1735-1-dongxuyang@eswincomputing.com": {
+        "subject": "dt-bindings: pwm: dwc: Document optional resets property"
+    },
+    "mail:20260730111553.1886-1-dongxuyang@eswincomputing.com": {
+        "subject": "pwm: dwc: add of/platform support"
     }
 }
