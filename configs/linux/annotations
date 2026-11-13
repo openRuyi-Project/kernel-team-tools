@@ -5204,7 +5204,7 @@ CONFIG_LEDS_TRIGGER_GPIO                        policy<{'riscv64': 'n', 'x86_64'
 CONFIG_LEDS_TRIGGER_HEARTBEAT                   policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_LEDS_TRIGGER_INPUT_EVENTS                policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_LEDS_TRIGGER_MTD                         policy<{'riscv64': 'n', 'x86_64': 'n'}>
-CONFIG_LEDS_TRIGGER_NETDEV                      policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_LEDS_TRIGGER_NETDEV                      policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_LEDS_TRIGGER_ONESHOT                     policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_LEDS_TRIGGER_PANIC                       policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_LEDS_TRIGGER_PATTERN                     policy<{'riscv64': 'n', 'x86_64': 'm'}>
@@ -7677,7 +7677,7 @@ CONFIG_QUOTA_NETLINK_INTERFACE                  policy<{'riscv64': 'y', 'x86_64'
 CONFIG_QUOTA_TREE                               policy<{'riscv64': 'y', 'x86_64': 'm'}>
 CONFIG_R6040                                    policy<{'x86_64': 'm'}>
 CONFIG_R8169                                    policy<{'riscv64': 'm', 'x86_64': 'm'}>
-CONFIG_R8169_LEDS                               policy<{'x86_64': 'y'}>
+CONFIG_R8169_LEDS                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_RADIO_ADAPTERS                           policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_RADIO_MAXIRADIO                          policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_RADIO_SAA7706H                           policy<{'riscv64': 'n', 'x86_64': 'm'}>
