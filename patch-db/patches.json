@@ -5985,5 +5985,23 @@
     },
     "mail:20260730111553.1886-1-dongxuyang@eswincomputing.com": {
         "subject": "pwm: dwc: add of/platform support"
+    },
+    "mail:20261112-ultrarisc-dts-v8-8-14fa0834cac4@ultrarisc.com": {
+        "subject": "MAINTAINERS: Update UltraRISC platform maintainer and tree"
+    },
+    "mail:20260730111534.1834-1-dongxuyang@eswincomputing.com": {
+        "subject": "dt-bindings: pwm: dwc: Add eswin compatible"
+    },
+    "mail:20260730111608.1938-1-dongxuyang@eswincomputing.com": {
+        "subject": "dt-bindings: timer: dwc: Update resets property items"
+    },
+    "mail:20260730111628.1990-1-dongxuyang@eswincomputing.com": {
+        "subject": "clocksource: dw_apb_timer: Use reset array API to handle all resets"
+    },
+    "mail:20261113023158.2872492-1-montrealtango@gmail.com": {
+        "subject": "riscv: dts: spacemit: k1: give each PCIe port its own DMA window"
+    },
+    "mail:20261113-ast-vgasr1-sd-v1-1-0f9e7d727c06@iscas.ac.cn": {
+        "subject": "drm/ast: Clear VGASR1 screen disable on CRTC enable"
     }
 }
