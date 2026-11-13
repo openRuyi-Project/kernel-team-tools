@@ -7278,7 +7278,7 @@ CONFIG_PHY_MAPPHONE_MDM6600                     policy<{'riscv64': 'n'}>
 CONFIG_PHY_NXP_PTN3222                          policy<{'riscv64': 'n'}>
 CONFIG_PHY_NXP_TJA1145                          policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_PHY_OCELOT_SERDES                        policy<{'riscv64': 'n'}>
-CONFIG_PHY_PACKAGE                              policy<{'riscv64': 'y', 'x86_64': 'm'}>
+CONFIG_PHY_PACKAGE                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_PHY_PXA_28NM_HSIC                        policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_PHY_PXA_28NM_USB2                        policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_PHY_QCOM_USB_HS                          policy<{'riscv64': 'n', 'x86_64': 'm'}>
@@ -7676,7 +7676,7 @@ CONFIG_QUOTA_DEBUG                              policy<{'riscv64': 'n', 'x86_64'
 CONFIG_QUOTA_NETLINK_INTERFACE                  policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_QUOTA_TREE                               policy<{'riscv64': 'y', 'x86_64': 'm'}>
 CONFIG_R6040                                    policy<{'x86_64': 'm'}>
-CONFIG_R8169                                    policy<{'riscv64': 'y', 'x86_64': 'm'}>
+CONFIG_R8169                                    policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_R8169_LEDS                               policy<{'x86_64': 'y'}>
 CONFIG_RADIO_ADAPTERS                           policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_RADIO_MAXIRADIO                          policy<{'riscv64': 'n', 'x86_64': 'm'}>
@@ -7756,8 +7756,8 @@ CONFIG_RD_XZ                                    policy<{'riscv64': 'y', 'x86_64'
 CONFIG_RD_ZSTD                                  policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_READABLE_ASM                             policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_REALTEK_AUTOPM                           policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_REALTEK_PHY                              policy<{'riscv64': 'y', 'x86_64': 'm'}>
-CONFIG_REALTEK_PHY_HWMON                        policy<{'riscv64': 'n', 'x86_64': 'y'}>
+CONFIG_REALTEK_PHY                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
+CONFIG_REALTEK_PHY_HWMON                        policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_REDMI_WMI                                policy<{'x86_64': 'n'}>
 CONFIG_REED_SOLOMON                             policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_REED_SOLOMON_DEC16                       policy<{'x86_64': 'y'}>
