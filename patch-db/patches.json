@@ -5300,19 +5300,24 @@
         "replacement": "commit:5a83606d9f31a38273ee803f3aae2e39247032c5"
     },
     "mail:20261017083100.40157-2-yang.yicong@picoheart.com": {
-        "subject": "riscv: Make get_insn public for instruction fault handling"
+        "subject": "riscv: Make get_insn public for instruction fault handling",
+        "replacement": "mail:20261104075706.73657-2-yang.yicong@picoheart.com"
     },
     "mail:20261017083100.40157-3-yang.yicong@picoheart.com": {
-        "subject": "riscv: insn: Support decoding of CBO instructions"
+        "subject": "riscv: insn: Support decoding of CBO instructions",
+        "replacement": "mail:20261104075706.73657-3-yang.yicong@picoheart.com"
     },
     "mail:20261017083100.40157-4-yang.yicong@picoheart.com": {
-        "subject": "riscv: errata: Add init framework for picoheart errata"
+        "subject": "riscv: errata: Add init framework for picoheart errata",
+        "replacement": "mail:20261104075706.73657-4-yang.yicong@picoheart.com"
     },
     "mail:20261017083100.40157-5-yang.yicong@picoheart.com": {
-        "subject": "riscv: errata: picoheart: Add workaround for cbo.clean errata"
+        "subject": "riscv: errata: picoheart: Add workaround for cbo.clean errata",
+        "replacement": "mail:20261104075706.73657-5-yang.yicong@picoheart.com"
     },
     "mail:20261017083100.40157-6-yang.yicong@picoheart.com": {
-        "subject": "riscv: errata: picoheart: Add workaround for AMOCASQ errata"
+        "subject": "riscv: errata: picoheart: Add workaround for AMOCASQ errata",
+        "replacement": "mail:20261104075706.73657-6-yang.yicong@picoheart.com"
     },
     "mail:20261007100022.2512187-2-joshua.yeong@starfivetech.com": {
         "subject": "dt-bindings: regulator: Add RPMI voltage service bindings"
@@ -5330,10 +5335,12 @@
         "subject": "clk: spacemit: register pm domain auxiliary driver"
     },
     "mail:20261008-04-k3-pm-support-v2-1-6f778a53dd2d@kernel.org": {
-        "subject": "dt-bindings: power: spacemit: Add power domain controller IDs"
+        "subject": "dt-bindings: power: spacemit: Add power domain controller IDs",
+        "replacement": "mail:20261108-04-k3-pm-support-v3-1-b9dc0857039b@kernel.org"
     },
     "mail:20261008-04-k3-pm-support-v2-2-6f778a53dd2d@kernel.org": {
-        "subject": "pmdomain: spacemit: Add power domain driver"
+        "subject": "pmdomain: spacemit: Add power domain driver",
+        "replacement": "mail:20261108-04-k3-pm-support-v3-2-b9dc0857039b@kernel.org"
     },
     "mail:20261017140805.3278709-1-alan.tseng.cs@gmail.com": {
         "subject": "reset: spacemit: Fix the RCPU2 PWM reset registers",
@@ -5531,5 +5538,371 @@
     },
     "mail:20261103054716.1767730-1-zhengxingda@iscas.ac.cn": {
         "subject": "dt-bindings: mfd: syscon: add T-Head TH1520 compatibles"
+    },
+    "commit:277a1ae3879a82a15a2e2d6741e38e31ea6487ee": {
+        "subject": "mm: softdirty: add pgtable_supports_soft_dirty()"
+    },
+    "commit:59f6acb4be0209b1451ac186c6d7d4175889c949": {
+        "subject": "riscv: add RISC-V Svrsw60t59b extension support"
+    },
+    "commit:2a3ebad4db63e86a9443d6bff4a5977320dc09f6": {
+        "subject": "riscv: mm: add soft-dirty page tracking support"
+    },
+    "commit:519912bdaee8ae8529241d4763326e6120489459": {
+        "subject": "dt-bindings: riscv: Add Svrsw60t59b extension description"
+    },
+    "commit:9471a274803accb273ea22b37087e269c3d52549": {
+        "subject": "dt-bindings: gpu: img,powervr-rogue: Drop useless power domains items"
+    },
+    "commit:c1a7cc00cd412505e070eb4e62bc0b0ca85243e0": {
+        "subject": "dt-bindings: gpu: img,powervr-rogue: Rework the allOf section"
+    },
+    "commit:18ff1dc462ef6dacba76ea9cb9a4fadb385d6ec4": {
+        "subject": "dt-bindings: gpu: img,powervr-rogue: Document GX6250 GPU in Renesas R-Car M3-W/M3-W+"
+    },
+    "commit:75d42e0351ac5ea080c33a15a92293155f51c9c9": {
+        "subject": "dt-bindings: gpu: img,powervr-rogue: Drop duplicate newline"
+    },
+    "commit:cc2a5cae75720b41ba58b7d3ce977e0729c9b82d": {
+        "subject": "dt-bindings: gpu: img,powervr-rogue: Keep lists sorted alphabetically"
+    },
+    "commit:6126a7f27f002408803f3fc50ff610699e57601d": {
+        "subject": "dt-bindings: gpu: img,powervr-rogue: Document GE7800 GPU in Renesas R-Car M3-N"
+    },
+    "commit:67549b73f10b85172a0cbb1109904542b97e6177": {
+        "subject": "dt-bindings: gpu: img,powervr-rogue: Document GE7800 GPU in Renesas R-Car V3U"
+    },
+    "commit:5abffd7ff012c1950d52313327fea44eaaefc64a": {
+        "subject": "dt-bindings: gpu: img: Add AM62P SoC specific compatible"
+    },
+    "commit:8fca3d8dbebf8d960dad7b10db3cb4a61139454b": {
+        "subject": "dt-bindings: gpu: img,powervr-*: Add maintainer entries"
+    },
+    "commit:2f6f6b525f52e458eb1c023b8467e8ab75f795d3": {
+        "subject": "dt-bindings: gpu: img,powervr-*: Remove Matt Coster as maintainer"
+    },
+    "commit:bfd4e4b12d6fc5f74557963b13ca703f297520bf": {
+        "subject": "dt-bindings: gpu: powervr-rogue: Add MediaTek MT8173 GPU"
+    },
+    "commit:0a067ae21bf26e245f2687ef24cfb7302393a8a0": {
+        "subject": "riscv: pgtable: Use riscv_has_extension_unlikely"
+    },
+    "commit:8b2c4f88c6ee86efdbc81bed1684e13e2efebd53": {
+        "subject": "pinctrl: Export pinctrl_get_group_selector()"
+    },
+    "commit:3d4b40fc881ea3f502d499564ab56987515cf6e2": {
+        "subject": "dt-bindings: PCI: ultrarisc: Add required DP1000 PCIe clocks"
+    },
+    "commit:e152c295d32a15975c480c352000454b9eb5fb07": {
+        "subject": "PCI: ultrarisc: Get and enable DP1000 PCIe controller clocks"
+    },
+    "commit:22a415e623e9ebc79cf0b5c83064af8aa11acdd7": {
+        "subject": "PCI: ultrarisc: Use module_platform_driver()"
+    },
+    "commit:17b478b29cf15f3a96d441d5de773bfd9859b4c2": {
+        "subject": "PCI: dwc: Allow drivers to skip MEM outbound iATU setup"
+    },
+    "commit:8da2b970ed4c8188ef464cee060707f2370e015c": {
+        "subject": "PCI: ultrarisc: Skip MEM outbound iATU setup on DP1000"
+    },
+    "commit:0d59891c42e11c3840276d8a632dbc355d6ddc4f": {
+        "subject": "dmaengine: dw-axi-dmac: Fix AXI burst length encoding"
+    },
+    "commit:e6b49f8016ee8b642e8e495d1704342ee0b35d72": {
+        "subject": "dmaengine: dw-axi-dmac: Fix LLI dump out-of-bounds access"
+    },
+    "commit:2a9013c20c46216b92ff09e2283b5244a91c59da": {
+        "subject": "dmaengine: dw-axi-dmac: Fix CH_CFG2 channel priority position"
+    },
+    "commit:a72f75e1f5552df8765920b678a9037b7f31a91c": {
+        "subject": "dmaengine: dw-axi-dmac: Use bitfield helpers for registers"
+    },
+    "commit:c9d869fb29d3844ec6a48b1255d6ad582309011f": {
+        "subject": "dt-bindings: ata: eswin: Document for EIC7700 SoC ahci"
+    },
+    "commit:23818ebb9c76bac8dfedec252cf33157230efc23": {
+        "subject": "dt-bindings: reset: eswin: Documentation for eic7700 SoC"
+    },
+    "commit:0884bd97c08cfad9c23166ddee953498cf535284": {
+        "subject": "reset: eswin: Add eic7700 reset driver"
+    },
+    "commit:5f7ac24ba232180caf77e9ddd6ccad61b9948706": {
+        "subject": "dt-bindings: mmc: dwcmshc-sdhci: Fix resets array validation"
+    },
+    "commit:249c48a55856245d5f6dcfd53e1e15fb5d0c467b": {
+        "subject": "dt-bindings: PCI: eswin: Add ESWIN PCIe Root Complex"
+    },
+    "commit:b593c26d081a4fbeabd34badb0a9e9a971a79cb4": {
+        "subject": "PCI: eswin: Add ESWIN PCIe Root Complex driver"
+    },
+    "commit:820265f7b666d588bcb7df06f3332265c59e8cea": {
+        "subject": "dt-bindings: phy: eswin: Document the EIC7700 SoC SATA PHY"
+    },
+    "commit:67ee9ccaa34a11c317411bb8e7d305d93d0b4111": {
+        "subject": "phy: eswin: Create eswin directory and add EIC7700 SATA PHY driver"
+    },
+    "commit:1fb83132603c7c7c1b9431c4e98194a233613a2a": {
+        "subject": "dt-bindings: clock: eswin: Documentation for eic7700 SoC"
+    },
+    "commit:8add6d87dc69c0620c7e60bdc6be6b3b0092d9fa": {
+        "subject": "clk: divider: Add devm_clk_hw_register_divider_parent_data"
+    },
+    "commit:cd44f127c1d42833a32ba0a0965255ee6184f8c1": {
+        "subject": "clk: eswin: Add eic7700 clock driver"
+    },
+    "commit:858f6273cf003e97c817903a07d8001b483fe40b": {
+        "subject": "MAINTAINERS: Add entry for ESWIN EIC7700 clock driver"
+    },
+    "commit:c2cd08e8f150738515c8df415ad7ecfa3d38124a": {
+        "subject": "phy: eswin: Fix incorrect error check in probe()"
+    },
+    "commit:f1ecb0e563595d4ba9a3b8e39ed52a3dc2d8e328": {
+        "subject": "dt-bindings: usb: Fix EIC7700 USB reset's issue"
+    },
+    "commit:8d4ae34e997062076a9098602eaca43353665bd9": {
+        "subject": "mmc: sdhci-of-dwcmshc: Fix reset, clk, and SDIO support for Eswin EIC7700"
+    },
+    "commit:dea5db8c5775704f24519d130482d9ceaf66c441": {
+        "subject": "riscv: defconfig: Enable Eswin SoCs"
+    },
+    "commit:9a916636384dafe75c258b2799ccbef45e632137": {
+        "subject": "dt-bindings: hwmon: Add Eswin EIC7700 PVT sensor"
+    },
+    "commit:a24f4ea5f3c26ee235d5a8491324ccec53ff120d": {
+        "subject": "hwmon: Add Eswin EIC7700 PVT sensor driver"
+    },
+    "commit:22109b7329f9b3bf2fee73087c73ce46e9bf3751": {
+        "subject": "clk: eswin: Add CLK_IGNORE_UNUSED to NoC clock"
+    },
+    "commit:fc8c21a2b5247a56c3b5e2a40e3c59b6805c2212": {
+        "subject": "dt-bindings: clock: Add ESWIN eic7700 HSP clock and reset generator"
+    },
+    "commit:8d92085fd79a7c13b72e8a05c5f89c800f575339": {
+        "subject": "clk: eswin: Add eic7700 HSP clock driver"
+    },
+    "commit:b37fe0ee3691b9da358cdfbbdad67874e562ac90": {
+        "subject": "reset: eswin: Add eic7700 HSP reset driver"
+    },
+    "commit:011d8de504bc84402aabc1dda1cf0552fe9a5af2": {
+        "subject": "clk: eswin: Zero-initialize stack-allocated clk_init_data"
+    },
+    "commit:d86dadc6feeaa86b6a29db5509bfe8c65b66c7b2": {
+        "subject": "dt-bindings: mfd: syscon: Add ESWIN EIC7700 compatible"
+    },
+    "commit:e564a064a2d61641d6c5068d41e677e6180aa5b8": {
+        "subject": "PCI: eswin: Publish the platform driver OF alias"
+    },
+    "commit:06bb2e5c71e9983519929a8482bea89da6d80ad8": {
+        "subject": "drm/dp: keep MOT set between messages when no_zero_sized is set"
+    },
+    "mail:20261106-spacemit-k1-pcie-fix-v2-1-6d74563b01d5@linux.spacemit.com": {
+        "subject": "PCI: spacemit: Ignore PERST# input in RC mode on K1"
+    },
+    "mail:20261022083212.84721-1-cuiyunhui@bytedance.com": {
+        "subject": "riscv: Fix SR_SUM leakage across context switches"
+    },
+    "mail:20261104075706.73657-2-yang.yicong@picoheart.com": {
+        "subject": "riscv: Make get_insn public for instruction fault handling"
+    },
+    "mail:20261104075706.73657-3-yang.yicong@picoheart.com": {
+        "subject": "riscv: insn: Support decoding of CBO instructions"
+    },
+    "mail:20261104075706.73657-4-yang.yicong@picoheart.com": {
+        "subject": "riscv: errata: Add init framework for picoheart errata"
+    },
+    "mail:20261104075706.73657-5-yang.yicong@picoheart.com": {
+        "subject": "riscv: errata: picoheart: Add workaround for cbo.clean errata"
+    },
+    "mail:20261104075706.73657-6-yang.yicong@picoheart.com": {
+        "subject": "riscv: errata: picoheart: Add workaround for AMOCASQ errata"
+    },
+    "mail:20261108-04-k3-pm-support-v3-1-b9dc0857039b@kernel.org": {
+        "subject": "dt-bindings: power: spacemit: Add power domain controller IDs"
+    },
+    "mail:20261108-04-k3-pm-support-v3-2-b9dc0857039b@kernel.org": {
+        "subject": "pmdomain: spacemit: Add power domain driver"
+    },
+    "mail:20261110-aplic-affinity-fix-v2-1-6c143b8b4e8c@linux.dev": {
+        "subject": "irqchip/riscv-aplic: Use handle_edge_irq() for edge-triggered MSI sources"
+    },
+    "mail:20261110-aplic-affinity-fix-v2-2-6c143b8b4e8c@linux.dev": {
+        "subject": "irqchip/riscv-aplic: Apply pending affinity changes for level MSI sources"
+    },
+    "mail:20261030-mj070bi30ia2-v1-1-a0f65b65c290@iscas.ac.cn": {
+        "subject": "dt-bindings: vendor-prefixes: add Shenzhen Mingjun Optoelectronics"
+    },
+    "mail:20261030-mj070bi30ia2-v1-2-a0f65b65c290@iscas.ac.cn": {
+        "subject": "dt-bindings: ili9881c: add compatible string for Mingjun MJ070BI30IA2"
+    },
+    "mail:20261102140524.1544755-1-zhengxingda@iscas.ac.cn": {
+        "subject": "drm/panel: ilitek-ili9881c: add Mingjun MJ070BI30IA2"
+    },
+    "mail:20261030094024.3226356-1-chunyan.zhang@linux.spacemit.com": {
+        "subject": "riscv: dts: spacemit: k3: add USB3 port A (DRD) nodes"
+    },
+    "mail:20261107134613.17830-2-jszhang@kernel.org": {
+        "subject": "riscv: word-at-a-time: improve find_zero() for !RISCV_ISA_ZBB or no Zbb"
+    },
+    "mail:20261107134613.17830-3-jszhang@kernel.org": {
+        "subject": "riscv: word-at-a-time: improve find_zero() for RV32"
+    },
+    "mail:20261107134613.17830-4-jszhang@kernel.org": {
+        "subject": "riscv: word-at-a-time: improve find_zero() for Zbb"
+    },
+    "mail:20261110061429.2036-1-linux.amoon@gmail.com": {
+        "subject": "i2c: spacemit: Avoid sleeping during bus reset in atomic context"
+    },
+    "mail:20261110061429.2036-2-linux.amoon@gmail.com": {
+        "subject": "power: reset: spacemit-p1: Use atomic I2C transfers for power-off and restart"
+    },
+    "mail:20261110-eic7700-tcu-aclk-v1-1-72db82bf59c1@iscas.ac.cn": {
+        "subject": "clk: eswin: Keep the TCU AXI clock enabled"
+    },
+    "mail:20260424095435.1721-1-dongxuyang@eswincomputing.com": {
+        "subject": "dt-bindings: pwm: dwc: add optional reset"
+    },
+    "mail:20260424095709.2210-1-dongxuyang@eswincomputing.com": {
+        "subject": "pwm: dwc: add of/platform support"
+    },
+    "mail:20261023134801.108890-1-pinkesh.vaghela@einfochips.com": {
+        "subject": "cache: sifive_ccache: Enable all ways on EIC7700"
+    },
+    "mail:20261015125454.1381941-2-pinkesh.vaghela@einfochips.com": {
+        "subject": "riscv: dts: eswin: add reset generator for EIC7700 SoC"
+    },
+    "mail:20261015125454.1381941-3-pinkesh.vaghela@einfochips.com": {
+        "subject": "riscv: dts: eswin: add clock generator for EIC7700 SoC"
+    },
+    "mail:20261015125454.1381941-4-pinkesh.vaghela@einfochips.com": {
+        "subject": "riscv: dts: eswin: eic7700: add pinctrl support"
+    },
+    "mail:20261015125454.1381941-5-pinkesh.vaghela@einfochips.com": {
+        "subject": "riscv: dts: eswin: add hsp bus node"
+    },
+    "mail:20261015125454.1381941-6-pinkesh.vaghela@einfochips.com": {
+        "subject": "dt-bindings: i2c: dw: add ESWIN EIC7700 SoC I2C controller"
+    },
+    "mail:20261015125454.1381941-7-pinkesh.vaghela@einfochips.com": {
+        "subject": "riscv: dts: eswin: add I2C controller support"
+    },
+    "mail:20261015125454.1381941-8-pinkesh.vaghela@einfochips.com": {
+        "subject": "riscv: dts: eswin: add watchdog support"
+    },
+    "mail:20260630063445.1226-1-lizhi2@eswincomputing.com": {
+        "subject": "riscv: dts: eswin: eic7700-hifive-premier-p550: enable Ethernet controller"
+    },
+    "commit:11119b19f62dc8f3aac6e458fb27a468ad5861ce": {
+        "subject": "mm/ptdump: replace READ_ONCE() with standard page table accessors"
+    },
+    "commit:b4e53984f24082005a92ec76f91348a73653dadb": {
+        "subject": "mm/dirty: replace READ_ONCE() with pudp_get()"
+    },
+    "commit:5a84b600050c5f16b8bba25dd0e7aea845880407": {
+        "subject": "perf/events: Replace READ_ONCE() with standard pgtable accessors"
+    },
+    "mail:20251113014656.2605447-6-samuel.holland@sifive.com": {
+        "subject": "mm: Move the fallback definitions of pXXp_get()"
+    },
+    "mail:20251113014656.2605447-7-samuel.holland@sifive.com": {
+        "subject": "mm: Always use page table accessor functions"
+    },
+    "mail:20251113014656.2605447-8-samuel.holland@sifive.com": {
+        "subject": "checkpatch: Warn on page table access without accessors"
+    },
+    "mail:20251113014656.2605447-9-samuel.holland@sifive.com": {
+        "subject": "mm: Allow page table accessors to be non-idempotent"
+    },
+    "mail:20251113014656.2605447-10-samuel.holland@sifive.com": {
+        "subject": "riscv: hibernate: Replace open-coded pXXp_get()"
+    },
+    "mail:20251113014656.2605447-11-samuel.holland@sifive.com": {
+        "subject": "riscv: mm: Always use page table accessor functions"
+    },
+    "mail:20251113014656.2605447-12-samuel.holland@sifive.com": {
+        "subject": "riscv: mm: Simplify set_p4d() and set_pgd()"
+    },
+    "mail:20251113014656.2605447-13-samuel.holland@sifive.com": {
+        "subject": "riscv: mm: Deduplicate _PAGE_CHG_MASK definition"
+    },
+    "mail:20251113014656.2605447-14-samuel.holland@sifive.com": {
+        "subject": "riscv: ptdump: Only show N and MT bits when enabled in the kernel"
+    },
+    "mail:20251113014656.2605447-15-samuel.holland@sifive.com": {
+        "subject": "riscv: mm: Fix up memory types when writing page tables"
+    },
+    "mail:20251113014656.2605447-16-samuel.holland@sifive.com": {
+        "subject": "riscv: mm: Expose all page table bits to assembly code"
+    },
+    "mail:20251113014656.2605447-17-samuel.holland@sifive.com": {
+        "subject": "riscv: alternative: Add an ALTERNATIVE_3 macro"
+    },
+    "mail:20251113014656.2605447-18-samuel.holland@sifive.com": {
+        "subject": "riscv: alternative: Allow calls with alternate link registers"
+    },
+    "mail:20251113014656.2605447-19-samuel.holland@sifive.com": {
+        "subject": "riscv: Fix logic for selecting DMA_DIRECT_REMAP"
+    },
+    "mail:20251113014656.2605447-20-samuel.holland@sifive.com": {
+        "subject": "dt-bindings: riscv: Describe physical memory regions"
+    },
+    "mail:20251113014656.2605447-21-samuel.holland@sifive.com": {
+        "subject": "riscv: mm: Use physical memory aliases to apply PMAs"
+    },
+    "mail:20251113014656.2605447-22-samuel.holland@sifive.com": {
+        "subject": "riscv: dts: starfive: jh7100: Use physical memory ranges for DMA"
+    },
+    "mail:20251113014656.2605447-23-samuel.holland@sifive.com": {
+        "subject": "riscv: dts: eswin: eic7700: Use physical memory ranges for DMA"
+    },
+    "mail:20261110225741763HzyrdGiR7ZOAU1NiFmCCZ@zte.com.cn": {
+        "subject": "spi: sifive: clamp the clock divider to the register range"
+    },
+    "commit:553483f88352a436f19d3cf2fd444128e634ec30": {
+        "subject": "SPACEMIT: ufs: spacemit: enable WriteBooster capability"
+    },
+    "commit:f29719b5064c07cec23c928055df302181374df5": {
+        "subject": "PCI: dwc: Align register macros with Synopsys documentation"
+    },
+    "commit:3a4067658363e34bf4e1d7039e5b52951fcb4012": {
+        "subject": "perf/dwc_pcie: Fix PCI device reference leak in probe"
+    },
+    "mail:20261102075710.1286456-2-zhengxingda@iscas.ac.cn": {
+        "subject": "drm/verisilicon: disable the output before enabling it"
+    },
+    "mail:20261102075710.1286456-3-zhengxingda@iscas.ac.cn": {
+        "subject": "drm/verisilicon: nuke planes' atomic_enable hooks"
+    },
+    "mail:20261102075710.1286456-4-zhengxingda@iscas.ac.cn": {
+        "subject": "drm/verisilicon: fix DC8200 primary plane disable clearing FB_EN"
+    },
+    "mail:20261102075710.1286456-5-zhengxingda@iscas.ac.cn": {
+        "subject": "drm/verisilicon: check old state CRTC in plane atomic_disable"
+    },
+    "commit:4626d370ae89b8af4d46a45372b269f926ec662d": {
+        "subject": "perf machine: Fix NULL deref in thread__resolve_callchain_sample()"
+    },
+    "commit:148ab873d8194cb44f29474da3b4428fa2e100d1": {
+        "subject": "RISC-V: errata: Add SiFive MAL-9092 workaround"
+    },
+    "commit:e56e3cff2a1bb29545ddbec562e76c0419363a40": {
+        "subject": "drm/amd/display: Backport dml21 DC_RUN_WITH_PREEMPTION_ENABLED addition from DC 3.2.373"
+    },
+    "commit:9a5bf2f53b76b1619c602f9e751fe4c0e64713ca": {
+        "subject": "gpio: dwapb: reduce allocation to single kzalloc"
+    },
+    "commit:d775b9451eb8f52021dea6483ad758fef81dbf1e": {
+        "subject": "gpio: dwapb: Defer clock gating until noirq"
+    },
+    "commit:8ae12ccaec6ec74945d8c1ef39f2c1b8df779abc": {
+        "subject": "RISC-V: KVM: Serialize IMSIC attributes with vCPU migration"
+    },
+    "commit:ed54fdb460a6e81d5f8f38388d1f10b385dd4a58": {
+        "subject": "RISC-V: KVM: Release unused page after MMU invalidation"
+    },
+    "commit:f41fb17143df890855d3de980f8eb92dfd595817": {
+        "subject": "RISC-V: KVM: Propagate interrupted G-stage faults"
+    },
+    "commit:f9af1329b98a478f4bba605ec6db429ef0e38d54": {
+        "subject": "pinctrl: eswin: Fix Handling of PIN_CONFIG_PERSIST_STATE"
     }
 }
