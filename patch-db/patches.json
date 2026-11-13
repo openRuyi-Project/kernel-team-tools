@@ -5101,7 +5101,10 @@
         "subject": "riscv: dts: spacemit: k3: Drop guest properties from M-level IMSIC"
     },
     "commit:69f95409f0053f787ad60175944080621a8b7d95": {
-        "subject": "riscv: dts: spacemit: k3: fix IMSIC num-guest-ids"
+        "subject": "riscv: dts: spacemit: k3: fix IMSIC num-guest-ids",
+        "merged": [
+            "v7.3.4"
+        ]
     },
     "commit:d4871c29f21dda76990cd3138c72ceb71c856b93": {
         "subject": "riscv: dts: spacemit: sort nodes on OrangePi RV2"
@@ -5239,10 +5242,16 @@
         "subject": "dt-bindings: gpu: img,powervr-rogue: add spacemit,k1-gpu and spacemit,k3-gpu"
     },
     "commit:df333b72c0e14d6cffec72ce9a00503f12d1e28d": {
-        "subject": "riscv: cfi: Bounds check restore token before swap"
+        "subject": "riscv: cfi: Bounds check restore token before swap",
+        "merged": [
+            "v7.3.4"
+        ]
     },
     "commit:ca47e289113552fcbd7ab9268cee1f0c27d35590": {
-        "subject": "riscv: cfi: Only write envcfg CSR when task is current"
+        "subject": "riscv: cfi: Only write envcfg CSR when task is current",
+        "merged": [
+            "v7.3.4"
+        ]
     },
     "commit:79e07ac60869cc95895c5f74424fe5cf32c5dac3": {
         "subject": "perf bench futex: Define SYS_futex on 32-bit arches with 64-bit time_t"
@@ -5278,10 +5287,17 @@
         "subject": "dt-bindings: dma: snps,dw-axi-dmac: Add UltraRISC DP1000 compatible"
     },
     "commit:36e96b469da24868f727b4cd168d7cf01cbd163d": {
-        "subject": "ACPI: CPPC: Propagate errors from cross-CPU FFH calls"
+        "subject": "ACPI: CPPC: Propagate errors from cross-CPU FFH calls",
+        "merged": [
+            "v7.3.4"
+        ]
     },
     "commit:a2f482407d33ebe7f12e30d6cf383ffb1c7d709d": {
-        "subject": "irqchip/riscv-imsic: Report successful hardware retrigger"
+        "subject": "irqchip/riscv-imsic: Report successful hardware retrigger",
+        "merged": [
+            "v6.18.63",
+            "v7.3.4"
+        ]
     },
     "mail:20261009-b4-spacemit-k1-usb2-v4-2-2d98e5324d9a@linux.spacemit.com": {
         "subject": "usb: chipidea: usb2: use devm_clk_get_optional_enabled()"
@@ -5879,7 +5895,11 @@
         "subject": "drm/verisilicon: check old state CRTC in plane atomic_disable"
     },
     "commit:4626d370ae89b8af4d46a45372b269f926ec662d": {
-        "subject": "perf machine: Fix NULL deref in thread__resolve_callchain_sample()"
+        "subject": "perf machine: Fix NULL deref in thread__resolve_callchain_sample()",
+        "merged": [
+            "v6.18.63",
+            "v7.3.4"
+        ]
     },
     "commit:148ab873d8194cb44f29474da3b4428fa2e100d1": {
         "subject": "RISC-V: errata: Add SiFive MAL-9092 workaround"
