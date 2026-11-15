@@ -4381,7 +4381,7 @@ CONFIG_INPUT_CS40L50_VIBRA                      policy<{'x86_64': 'm'}>
 CONFIG_INPUT_DA7280_HAPTICS                     policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_INPUT_DA9052_ONKEY                       policy<{'x86_64': 'm'}>
 CONFIG_INPUT_DA9055_ONKEY                       policy<{'x86_64': 'm'}>
-CONFIG_INPUT_DA9063_ONKEY                       policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_INPUT_DA9063_ONKEY                       policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_INPUT_DRV260X_HAPTICS                    policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_INPUT_DRV2665_HAPTICS                    policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_INPUT_DRV2667_HAPTICS                    policy<{'riscv64': 'n', 'x86_64': 'm'}>
@@ -5616,7 +5616,7 @@ CONFIG_MFD_DA9052_I2C                           policy<{'riscv64': 'n', 'x86_64'
 CONFIG_MFD_DA9052_SPI                           policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_MFD_DA9055                               policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_MFD_DA9062                               policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_MFD_DA9063                               policy<{'riscv64': 'm', 'x86_64': 'y'}>
+CONFIG_MFD_DA9063                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_MFD_DA9150                               policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_MFD_DLN2                                 policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_MFD_GATEWORKS_GSC                        policy<{'riscv64': 'n'}>
@@ -7797,7 +7797,7 @@ CONFIG_REGULATOR_DA903X                         policy<{'x86_64': 'm'}>
 CONFIG_REGULATOR_DA9052                         policy<{'x86_64': 'm'}>
 CONFIG_REGULATOR_DA9055                         policy<{'x86_64': 'm'}>
 CONFIG_REGULATOR_DA9062                         policy<{'x86_64': 'm'}>
-CONFIG_REGULATOR_DA9063                         policy<{'riscv64': 'n'}>
+CONFIG_REGULATOR_DA9063                         policy<{'riscv64': 'm'}>
 CONFIG_REGULATOR_DA9121                         policy<{'riscv64': 'n'}>
 CONFIG_REGULATOR_DA9210                         policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_REGULATOR_DA9211                         policy<{'riscv64': 'n', 'x86_64': 'm'}>
