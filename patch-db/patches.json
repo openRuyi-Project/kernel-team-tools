@@ -5497,7 +5497,8 @@
         ]
     },
     "mail:20261104161512.883885-2-anup.patel@oss.qualcomm.com": {
-        "subject": "RISC-V: Add common csr_read_num() and csr_write_num() functions"
+        "subject": "RISC-V: Add common csr_read_num() and csr_write_num() functions",
+        "replacement": "mail:20261115084218.951411-2-anup.patel@oss.qualcomm.com"
     },
     "mail:20261104-v7-0-rc1-rv-dis-int-before-restart-v5-1-956ec09c900d@linux.dev": {
         "subject": "riscv: disable local interrupts and stop other CPUs before reboot/shutdown"
@@ -6015,5 +6016,14 @@
     },
     "mail:20261113132435.434615-3-alitariq45892@gmail.com": {
         "subject": "net: spacemit: Hold RTNL lock in emac_resume() and emac_suspend()"
+    },
+    "mail:20261115084218.951411-2-anup.patel@oss.qualcomm.com": {
+        "subject": "RISC-V: Add common csr_read_num() and csr_write_num() functions"
+    },
+    "commit:80f6e72b21aa773e71c748e1e5a6d3aa8d458bd7": {
+        "subject": "RISC-V: KVM: Use a raw lock for IMSIC wakeup state"
+    },
+    "mail:20261115081149.901590-1-anup.patel@oss.qualcomm.com": {
+        "subject": "RISC-V: KVM: Convert IMSIC vsfile_lock to a raw spinlock"
     }
 }
