@@ -45,6 +45,7 @@ CONFIG_RISCV_ISA_XLINUXMEMALIAS                 note<'Physical memory aliases fo
 CONFIG_RISCV_ISA_XTHEADVECTOR                   policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
 CONFIG_RISCV_ISA_XTHEADVECTOR                   note<'T-Head vector 0.7.1 - non-RVA23'>
 
+
 # ---- Annotations without notes ----
 
 CONFIG_60XX_WDT                                 policy<{'x86_64': 'm'}>
@@ -3235,7 +3236,7 @@ CONFIG_FRAMEBUFFER_CONSOLE_LEGACY_ACCELERATION  policy<{'riscv64': 'y', 'x86_64'
 CONFIG_FRAMEBUFFER_CONSOLE_ROTATION             policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_FRAMER                                   policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_FRAME_POINTER                            policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_FRAME_WARN                               policy<{'riscv64': '2048', 'x86_64': '1024'}>
+CONFIG_FRAME_WARN                               policy<{'riscv64': '2048', 'x86_64': '2048'}>
 CONFIG_FREEZER                                  policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_FSCACHE                                  policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_FSCACHE_STATS                            policy<{'x86_64': 'y'}>
