@@ -11665,7 +11665,7 @@ CONFIG_WCN36XX                                  policy<{'riscv64': 'n', 'x86_64'
 CONFIG_WCN36XX_DEBUGFS                          policy<{'x86_64': 'n'}>
 CONFIG_WDAT_WDT                                 policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_WDTPCI                                   policy<{'riscv64': 'm', 'x86_64': 'm'}>
-CONFIG_WERROR                                   policy<{'riscv64': 'n', 'x86_64': 'n'}>
+CONFIG_WERROR                                   policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_WEXT_CORE                                policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_WEXT_PRIV                                policy<{'x86_64': 'y'}>
 CONFIG_WEXT_PROC                                policy<{'riscv64': 'y', 'x86_64': 'y'}>
