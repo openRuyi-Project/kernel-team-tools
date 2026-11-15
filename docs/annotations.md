@@ -65,8 +65,8 @@ enabled only in the flavour key `'riscv64-rva20'`. Give each such entry a
 note that tells why:
 
 ```
-CONFIG_ERRATA_SIFIVE_H_0_6_1                    policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
-CONFIG_ERRATA_SIFIVE_H_0_6_1                    note<'P550 implements H-extension draft 0.6.1 - non-RVA23'>
+CONFIG_ERRATA_THEAD_GHOSTWRITE                  policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
+CONFIG_ERRATA_THEAD_GHOSTWRITE                  note<'c906fdv/c910v1/c920v1 - only rva20 support is required'>
 ```
 
 Keep these entries in the first block of the file, directly after the
