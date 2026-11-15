@@ -6867,7 +6867,7 @@ CONFIG_NO_HZ_COMMON                             policy<{'riscv64': 'y', 'x86_64'
 CONFIG_NO_HZ_FULL                               policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_NO_HZ_IDLE                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_NO_PAGE_MAPCOUNT                         policy<{'riscv64': 'n', 'x86_64': 'n'}>
-CONFIG_NR_CPUS                                  policy<{'riscv64': '256', 'x86_64': '256'}>
+CONFIG_NR_CPUS                                  policy<{'riscv64': '256', 'x86_64': '512'}>
 CONFIG_NR_CPUS_DEFAULT                          policy<{'x86_64': '64'}>
 CONFIG_NR_CPUS_RANGE_BEGIN                      policy<{'x86_64': '2'}>
 CONFIG_NR_CPUS_RANGE_END                        policy<{'x86_64': '512'}>
