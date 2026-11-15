@@ -9959,7 +9959,7 @@ CONFIG_STACKPROTECTOR                           policy<{'riscv64': 'y', 'x86_64'
 CONFIG_STACKPROTECTOR_PER_TASK                  policy<{'riscv64': 'y'}>
 CONFIG_STACKPROTECTOR_STRONG                    policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_STACKTRACE                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_STACKTRACE_BUILD_ID                      policy<{'riscv64': 'n', 'x86_64': 'y'}>
+CONFIG_STACKTRACE_BUILD_ID                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_STACKTRACE_SUPPORT                       policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_STACK_TRACER                             policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_STACK_VALIDATION                         policy<{'x86_64': 'y'}>
