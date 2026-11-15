@@ -48,7 +48,6 @@ CONFIG_RISCV_ISA_XLINUXMEMALIAS                 note<'Physical memory aliases fo
 CONFIG_RISCV_ISA_XTHEADVECTOR                   policy<{'riscv64': 'n', 'riscv64-rva20': 'y'}>
 CONFIG_RISCV_ISA_XTHEADVECTOR                   note<'T-Head vector 0.7.1 - non-RVA23'>
 
-
 # ---- Annotations without notes ----
 
 CONFIG_60XX_WDT                                 policy<{'x86_64': 'm'}>
@@ -2592,7 +2591,6 @@ CONFIG_DRM_VMWGFX                               policy<{'x86_64': 'm'}>
 CONFIG_DRM_VMWGFX_MKSSTATS                      policy<{'x86_64': 'n'}>
 CONFIG_DRM_VRAM_HELPER                          policy<{'x86_64': 'm'}>
 CONFIG_DRM_WAVESHARE_BRIDGE                     policy<{'riscv64': 'n'}>
-CONFIG_DRM_WERROR                               policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_DRM_XE                                   policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_DRM_XEN                                  policy<{'x86_64': 'y'}>
 CONFIG_DRM_XEN_FRONTEND                         policy<{'x86_64': 'm'}>
@@ -5099,7 +5097,7 @@ CONFIG_LD_CAN_USE_KEEP_IN_OVERLAY               policy<{'riscv64': 'y', 'x86_64'
 CONFIG_LD_DEAD_CODE_DATA_ELIMINATION            policy<{'riscv64': 'n'}>
 CONFIG_LD_IS_BFD                                policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_LD_ORPHAN_WARN                           policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_LD_ORPHAN_WARN_LEVEL                     policy<{'riscv64': '"warn"', 'x86_64': '"warn"'}>
+CONFIG_LD_ORPHAN_WARN_LEVEL                     policy<{'riscv64': '"error"', 'x86_64': '"error"'}>
 CONFIG_LD_VERSION                               policy<{'riscv64': '24650', 'x86_64': '24650'}>
 CONFIG_LEDS_88PM860X                            policy<{'x86_64': 'm'}>
 CONFIG_LEDS_AAT1290                             policy<{'riscv64': 'n'}>
