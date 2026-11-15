@@ -6003,5 +6003,17 @@
     },
     "mail:20261113-ast-vgasr1-sd-v1-1-0f9e7d727c06@iscas.ac.cn": {
         "subject": "drm/ast: Clear VGASR1 screen disable on CRTC enable"
+    },
+    "mail:20261114-macb-jumbo-jml-v1-1-f501395eaf9e@iscas.ac.cn": {
+        "subject": "net: macb: limit jumbo frames to the RX buffer size"
+    },
+    "mail:20261023173731.3559650-1-dave@stgolabs.net": {
+        "subject": "RISC-V: KVM: Do not touch the envcfg CSRs on the SiFive P550"
+    },
+    "mail:20261113132435.434615-2-alitariq45892@gmail.com": {
+        "subject": "net: spacemit: Fix TX timeout work deadlocking on itself"
+    },
+    "mail:20261113132435.434615-3-alitariq45892@gmail.com": {
+        "subject": "net: spacemit: Hold RTNL lock in emac_resume() and emac_suspend()"
     }
 }
