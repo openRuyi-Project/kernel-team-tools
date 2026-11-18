@@ -5020,22 +5020,28 @@
         "subject": "PCI: spacemit-k1: Add Spacemit K3 PCIe host controller support"
     },
     "mail:20261009-b4-spacemit-k1-usb2-v4-1-2d98e5324d9a@linux.spacemit.com": {
-        "subject": "dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible"
+        "subject": "dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible",
+        "replacement": "mail:20261117-b4-spacemit-k1-usb2-v5-1-52c3829cca69@linux.spacemit.com"
     },
     "mail:20261009-b4-spacemit-k1-usb2-v4-3-2d98e5324d9a@linux.spacemit.com": {
-        "subject": "usb: chipidea: usb2: add optional reset support"
+        "subject": "usb: chipidea: usb2: add optional reset support",
+        "replacement": "mail:20261117-b4-spacemit-k1-usb2-v5-4-52c3829cca69@linux.spacemit.com"
     },
     "mail:20261009-b4-spacemit-k1-usb2-v4-4-2d98e5324d9a@linux.spacemit.com": {
-        "subject": "usb: chipidea: usb2: add SpacemiT K1 support"
+        "subject": "usb: chipidea: usb2: add SpacemiT K1 support",
+        "replacement": "mail:20261117-b4-spacemit-k1-usb2-v5-5-52c3829cca69@linux.spacemit.com"
     },
     "mail:20261009-b4-spacemit-k1-usb2-v4-5-2d98e5324d9a@linux.spacemit.com": {
-        "subject": "riscv: dts: spacemit: add USB2.0 controller nodes for K1"
+        "subject": "riscv: dts: spacemit: add USB2.0 controller nodes for K1",
+        "replacement": "mail:20261117-b4-spacemit-k1-usb2-v5-6-52c3829cca69@linux.spacemit.com"
     },
     "mail:20261009-b4-spacemit-k1-usb2-v4-6-2d98e5324d9a@linux.spacemit.com": {
-        "subject": "riscv: dts: spacemit: enable USB2.0 controllers on BananaPi F3"
+        "subject": "riscv: dts: spacemit: enable USB2.0 controllers on BananaPi F3",
+        "replacement": "mail:20261117-b4-spacemit-k1-usb2-v5-7-52c3829cca69@linux.spacemit.com"
     },
     "mail:20261009-b4-spacemit-k1-usb2-v4-8-2d98e5324d9a@linux.spacemit.com": {
-        "subject": "riscv: defconfig: enable ChipIdea USB controller support"
+        "subject": "riscv: defconfig: enable ChipIdea USB controller support",
+        "replacement": "mail:20261117-b4-spacemit-k1-usb2-v5-9-52c3829cca69@linux.spacemit.com"
     },
     "mail:20260929085235.469515-2-inochiama@gmail.com": {
         "subject": "phy: core: Add common helper to add phy phandle device link"
@@ -5050,10 +5056,12 @@
         "subject": "phy: core: Add managed phy bulk data helper functions"
     },
     "mail:20261002-08-k3-ufs-support-v7-1-bb39007ff9ae@kernel.org": {
-        "subject": "scsi: ufs: spacemit: dt-bindings: Add UFS controller for K3 SoC"
+        "subject": "scsi: ufs: spacemit: dt-bindings: Add UFS controller for K3 SoC",
+        "replacement": "mail:20261116-08-k3-ufs-support-v8-1-e3b256972dd4@kernel.org"
     },
     "mail:20261002-08-k3-ufs-support-v7-2-bb39007ff9ae@kernel.org": {
-        "subject": "scsi: ufs: spacemit: k3: Add UFS Host Controller driver"
+        "subject": "scsi: ufs: spacemit: k3: Add UFS Host Controller driver",
+        "replacement": "mail:20261116-08-k3-ufs-support-v8-2-e3b256972dd4@kernel.org"
     },
     "mail:20260928205012.3689405-2-aurelien@aurel32.net": {
         "subject": "riscv: dts: spacemit: k3: move USB3 phy to board level",
@@ -5300,10 +5308,12 @@
         ]
     },
     "mail:20261009-b4-spacemit-k1-usb2-v4-2-2d98e5324d9a@linux.spacemit.com": {
-        "subject": "usb: chipidea: usb2: use devm_clk_get_optional_enabled()"
+        "subject": "usb: chipidea: usb2: use devm_clk_get_optional_enabled()",
+        "replacement": "mail:20261117-b4-spacemit-k1-usb2-v5-2-52c3829cca69@linux.spacemit.com"
     },
     "mail:20261009-b4-spacemit-k1-usb2-v4-7-2d98e5324d9a@linux.spacemit.com": {
-        "subject": "riscv: dts: spacemit: enable USB2.0 controllers on OrangePi RV2"
+        "subject": "riscv: dts: spacemit: enable USB2.0 controllers on OrangePi RV2",
+        "replacement": "mail:20261117-b4-spacemit-k1-usb2-v5-8-52c3829cca69@linux.spacemit.com"
     },
     "mail:20261009-jupiter-usb2-v1-1-ab84a00d3b64@redhat.com": {
         "subject": "riscv: dts: spacemit: enable USB2.0 controllers on Milk-V Jupiter"
@@ -5563,7 +5573,8 @@
         "subject": "firmware/sysfb: Avoid simple-framebuffer behind DT PCI host bridges"
     },
     "mail:20261103054716.1767730-1-zhengxingda@iscas.ac.cn": {
-        "subject": "dt-bindings: mfd: syscon: add T-Head TH1520 compatibles"
+        "subject": "dt-bindings: mfd: syscon: add T-Head TH1520 compatibles",
+        "replacement": "mail:20261117052456.3747585-1-zhengxingda@iscas.ac.cn"
     },
     "commit:277a1ae3879a82a15a2e2d6741e38e31ea6487ee": {
         "subject": "mm: softdirty: add pgtable_supports_soft_dirty()"
@@ -5781,7 +5792,8 @@
         "subject": "riscv: word-at-a-time: improve find_zero() for Zbb"
     },
     "mail:20261110061429.2036-1-linux.amoon@gmail.com": {
-        "subject": "i2c: spacemit: Avoid sleeping during bus reset in atomic context"
+        "subject": "i2c: spacemit: Avoid sleeping during bus reset in atomic context",
+        "replacement": "mail:20261118104935.1716-1-linux.amoon@gmail.com"
     },
     "mail:20261110061429.2036-2-linux.amoon@gmail.com": {
         "subject": "power: reset: spacemit-p1: Use atomic I2C transfers for power-off and restart"
@@ -6025,5 +6037,83 @@
     },
     "mail:20261115081149.901590-1-anup.patel@oss.qualcomm.com": {
         "subject": "RISC-V: KVM: Convert IMSIC vsfile_lock to a raw spinlock"
+    },
+    "mail:20261116-08-k3-ufs-support-v8-1-e3b256972dd4@kernel.org": {
+        "subject": "scsi: ufs: spacemit: dt-bindings: Add UFS controller for K3 SoC"
+    },
+    "mail:20261116-08-k3-ufs-support-v8-2-e3b256972dd4@kernel.org": {
+        "subject": "scsi: ufs: spacemit: k3: Add UFS Host Controller driver"
+    },
+    "mail:20261117-b4-spacemit-k1-usb2-v5-1-52c3829cca69@linux.spacemit.com": {
+        "subject": "dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible"
+    },
+    "mail:20261117-b4-spacemit-k1-usb2-v5-2-52c3829cca69@linux.spacemit.com": {
+        "subject": "usb: chipidea: usb2: use devm_clk_get_optional_enabled()"
+    },
+    "mail:20261117-b4-spacemit-k1-usb2-v5-3-52c3829cca69@linux.spacemit.com": {
+        "subject": "usb: chipidea: usb2: drop the ci_hdrc_usb2_priv wrapper struct"
+    },
+    "mail:20261117-b4-spacemit-k1-usb2-v5-4-52c3829cca69@linux.spacemit.com": {
+        "subject": "usb: chipidea: usb2: add optional reset support"
+    },
+    "mail:20261117-b4-spacemit-k1-usb2-v5-5-52c3829cca69@linux.spacemit.com": {
+        "subject": "usb: chipidea: usb2: add SpacemiT K1 support"
+    },
+    "mail:20261117-b4-spacemit-k1-usb2-v5-6-52c3829cca69@linux.spacemit.com": {
+        "subject": "riscv: dts: spacemit: add USB2.0 controller nodes for K1"
+    },
+    "mail:20261117-b4-spacemit-k1-usb2-v5-7-52c3829cca69@linux.spacemit.com": {
+        "subject": "riscv: dts: spacemit: enable USB2.0 controllers on BananaPi F3"
+    },
+    "mail:20261117-b4-spacemit-k1-usb2-v5-8-52c3829cca69@linux.spacemit.com": {
+        "subject": "riscv: dts: spacemit: enable USB2.0 controllers on OrangePi RV2"
+    },
+    "mail:20261117-b4-spacemit-k1-usb2-v5-9-52c3829cca69@linux.spacemit.com": {
+        "subject": "riscv: defconfig: enable ChipIdea USB controller support"
+    },
+    "mail:20261117-k3-tq-dts-based-on-com260-v2-1-68b337bd8938@linux.spacemit.com": {
+        "subject": "dt-bindings: riscv: spacemit: Add K3 CoM260 TQ"
+    },
+    "mail:20261117-k3-tq-dts-based-on-com260-v2-2-68b337bd8938@linux.spacemit.com": {
+        "subject": "riscv: dts: spacemit: Add K3 CoM260 TQ support"
+    },
+    "mail:20261117052456.3747585-1-zhengxingda@iscas.ac.cn": {
+        "subject": "dt-bindings: mfd: syscon: add T-Head TH1520 compatibles"
+    },
+    "mail:20261118104935.1716-1-linux.amoon@gmail.com": {
+        "subject": "i2c: spacemit: Avoid sleeping during bus reset in atomic context"
+    },
+    "mail:20261118104935.1716-2-linux.amoon@gmail.com": {
+        "subject": "riscv: sbi: Register SRST handlers with firmware priority"
+    },
+    "mail:20261118104935.1716-3-linux.amoon@gmail.com": {
+        "subject": "power: reset: Remove SpacemiT P1 reboot driver"
+    },
+    "mail:20261116022433.49952-1-nickolai@csail.mit.edu": {
+        "subject": "riscv: mm: Skip the icache flush for special PTEs"
+    },
+    "mail:20261117-spacemit-soc-timer-v2-1-9264d0ea7755@linux.spacemit.com": {
+        "subject": "dt-bindings: timer: Add SpacemiT K1 timer"
+    },
+    "mail:20261117-spacemit-soc-timer-v2-2-9264d0ea7755@linux.spacemit.com": {
+        "subject": "clocksource/drivers/spacemit: Add K1 timer support"
+    },
+    "mail:20261117-spacemit-soc-timer-v2-3-9264d0ea7755@linux.spacemit.com": {
+        "subject": "riscv: dts: spacemit: Add the K1 APB timer"
+    },
+    "mail:20261117-spacemit-soc-timer-v2-4-9264d0ea7755@linux.spacemit.com": {
+        "subject": "riscv: dts: spacemit: Add the K3 APB timer"
+    },
+    "mail:20261117-spacemit-soc-timer-v2-5-9264d0ea7755@linux.spacemit.com": {
+        "subject": "MAINTAINERS: Add entry for SpacemiT timer"
+    },
+    "mail:20261118-eic7700-megrez-v2-1-0113ebc5b670@iscas.ac.cn": {
+        "subject": "dt-bindings: riscv: eswin: Add Milk-V Megrez"
+    },
+    "mail:20261118-eic7700-megrez-v2-2-0113ebc5b670@iscas.ac.cn": {
+        "subject": "riscv: dts: eswin: Add Milk-V Megrez board"
+    },
+    "mail:20261118-riscv-marchid-fix-v1-1-6d677fcd5461@linux.spacemit.com": {
+        "subject": "riscv: cpu: Fix incorrect cached machine IDs on secondary harts"
     }
 }
