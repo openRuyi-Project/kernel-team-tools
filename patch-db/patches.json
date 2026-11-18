@@ -5297,7 +5297,8 @@
     "commit:36e96b469da24868f727b4cd168d7cf01cbd163d": {
         "subject": "ACPI: CPPC: Propagate errors from cross-CPU FFH calls",
         "merged": [
-            "v7.3.4"
+            "v7.3.4",
+            "v6.18.64"
         ]
     },
     "commit:a2f482407d33ebe7f12e30d6cf383ffb1c7d709d": {
@@ -5730,7 +5731,11 @@
         "subject": "PCI: eswin: Publish the platform driver OF alias"
     },
     "commit:06bb2e5c71e9983519929a8482bea89da6d80ad8": {
-        "subject": "drm/dp: keep MOT set between messages when no_zero_sized is set"
+        "subject": "drm/dp: keep MOT set between messages when no_zero_sized is set",
+        "merged": [
+            "v7.3.5",
+            "v6.18.64"
+        ]
     },
     "mail:20261106-spacemit-k1-pcie-fix-v2-1-6d74563b01d5@linux.spacemit.com": {
         "subject": "PCI: spacemit: Ignore PERST# input in RC mode on K1"
