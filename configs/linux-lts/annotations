@@ -2252,7 +2252,7 @@ CONFIG_DPTF_POWER                               policy<{'x86_64': 'm'}>
 CONFIG_DQL                                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_DRAGONRISE_FF                            policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_DRBD_FAULT_INJECTION                     policy<{'riscv64': 'n', 'x86_64': 'n'}>
-CONFIG_DRM                                      policy<{'riscv64': 'y', 'x86_64': 'm'}>
+CONFIG_DRM                                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_DRM_ACCEL                                policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_DRM_ACCEL_AMDXDNA                        policy<{'x86_64': 'm'}>
 CONFIG_DRM_ACCEL_HABANALABS                     policy<{'x86_64': 'm'}>
@@ -2290,9 +2290,9 @@ CONFIG_DRM_CLIENT                               policy<{'riscv64': 'y', 'x86_64'
 CONFIG_DRM_CLIENT_DEFAULT                       policy<{'riscv64': '"fbdev"', 'x86_64': '"fbdev"'}>
 CONFIG_DRM_CLIENT_DEFAULT_FBDEV                 policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_DRM_CLIENT_DEFAULT_LOG                   policy<{'x86_64': 'n'}>
-CONFIG_DRM_CLIENT_LIB                           policy<{'riscv64': 'y', 'x86_64': 'm'}>
+CONFIG_DRM_CLIENT_LIB                           policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_DRM_CLIENT_LOG                           policy<{'riscv64': 'n', 'x86_64': 'y'}>
-CONFIG_DRM_CLIENT_SELECTION                     policy<{'riscv64': 'y', 'x86_64': 'm'}>
+CONFIG_DRM_CLIENT_SELECTION                     policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_DRM_CLIENT_SETUP                         policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_DRM_DEBUG_DP_MST_TOPOLOGY_REFS           policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_DRM_DEBUG_MM                             policy<{'riscv64': 'n', 'x86_64': 'n'}>
@@ -2317,7 +2317,7 @@ CONFIG_DRM_DW_HDMI_AHB_AUDIO                    policy<{'riscv64': 'n'}>
 CONFIG_DRM_DW_HDMI_CEC                          policy<{'riscv64': 'n'}>
 CONFIG_DRM_DW_HDMI_GP_AUDIO                     policy<{'riscv64': 'n'}>
 CONFIG_DRM_DW_HDMI_I2S_AUDIO                    policy<{'riscv64': 'n'}>
-CONFIG_DRM_EFIDRM                               policy<{'riscv64': 'y', 'x86_64': 'm'}>
+CONFIG_DRM_EFIDRM                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_DRM_ETNAVIV                              policy<{'riscv64': 'm', 'x86_64': 'n'}>
 CONFIG_DRM_ETNAVIV_THERMAL                      policy<{'riscv64': 'y'}>
 CONFIG_DRM_EXEC                                 policy<{'riscv64': 'm', 'x86_64': 'm'}>
@@ -2325,7 +2325,7 @@ CONFIG_DRM_FBDEV_EMULATION                      policy<{'riscv64': 'y', 'x86_64'
 CONFIG_DRM_FBDEV_LEAK_PHYS_SMEM                 policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_DRM_FBDEV_OVERALLOC                      policy<{'riscv64': '100', 'x86_64': '100'}>
 CONFIG_DRM_GEM_DMA_HELPER                       policy<{'riscv64': 'm', 'x86_64': 'm'}>
-CONFIG_DRM_GEM_SHMEM_HELPER                     policy<{'riscv64': 'y', 'x86_64': 'm'}>
+CONFIG_DRM_GEM_SHMEM_HELPER                     policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_DRM_GM12U320                             policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_DRM_GMA500                               policy<{'x86_64': 'm'}>
 CONFIG_DRM_GPUSVM                               policy<{'riscv64': 'm', 'x86_64': 'm'}>
@@ -2366,7 +2366,7 @@ CONFIG_DRM_I915_WERROR                          policy<{'x86_64': 'n'}>
 CONFIG_DRM_ITE_IT6263                           policy<{'riscv64': 'n'}>
 CONFIG_DRM_ITE_IT6505                           policy<{'riscv64': 'n'}>
 CONFIG_DRM_ITE_IT66121                          policy<{'riscv64': 'n'}>
-CONFIG_DRM_KMS_HELPER                           policy<{'riscv64': 'y', 'x86_64': 'm'}>
+CONFIG_DRM_KMS_HELPER                           policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_DRM_KOMEDA                               policy<{'riscv64': 'n'}>
 CONFIG_DRM_LOAD_EDID_FIRMWARE                   policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_DRM_LOGICVC                              policy<{'riscv64': 'n'}>
@@ -2538,7 +2538,7 @@ CONFIG_DRM_ST7586                               policy<{'riscv64': 'n', 'x86_64'
 CONFIG_DRM_ST7735R                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_DRM_SUBALLOC_HELPER                      policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_DRM_SUN4I                                policy<{'riscv64': 'n'}>
-CONFIG_DRM_SYSFB_HELPER                         policy<{'riscv64': 'y', 'x86_64': 'm'}>
+CONFIG_DRM_SYSFB_HELPER                         policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_DRM_THEAD_TH1520_DW_HDMI                 policy<{'riscv64': 'm'}>
 CONFIG_DRM_THINE_THC63LVD1024                   policy<{'riscv64': 'n'}>
 CONFIG_DRM_TI_DLPC3433                          policy<{'riscv64': 'n'}>
@@ -2557,7 +2557,7 @@ CONFIG_DRM_TTM_HELPER                           policy<{'riscv64': 'm', 'x86_64'
 CONFIG_DRM_UDL                                  policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_DRM_VBOXVIDEO                            policy<{'x86_64': 'm'}>
 CONFIG_DRM_VERISILICON_DC                       policy<{'riscv64': 'm'}>
-CONFIG_DRM_VESADRM                              policy<{'x86_64': 'm'}>
+CONFIG_DRM_VESADRM                              policy<{'x86_64': 'y'}>
 CONFIG_DRM_VGEM                                 policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_DRM_VIRTIO_GPU                           policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_DRM_VIRTIO_GPU_KMS                       policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -3063,7 +3063,7 @@ CONFIG_FB_DEFERRED_IO                           policy<{'riscv64': 'y', 'x86_64'
 CONFIG_FB_DEVICE                                policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_FB_DMAMEM_HELPERS                        policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_FB_DMAMEM_HELPERS_DEFERRED               policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_FB_EFI                                   policy<{'riscv64': 'n', 'x86_64': 'y'}>
+CONFIG_FB_EFI                                   policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_FB_FOREIGN_ENDIAN                        policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_FB_GOLDFISH                              policy<{'riscv64': 'n'}>
 CONFIG_FB_HECUBA                                policy<{'x86_64': 'm'}>
@@ -3159,7 +3159,7 @@ CONFIG_FB_TILEBLITTING                          policy<{'riscv64': 'y', 'x86_64'
 CONFIG_FB_TRIDENT                               policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_FB_UDL                                   policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_FB_UVESA                                 policy<{'riscv64': 'n', 'x86_64': 'm'}>
-CONFIG_FB_VESA                                  policy<{'x86_64': 'y'}>
+CONFIG_FB_VESA                                  policy<{'x86_64': 'n'}>
 CONFIG_FB_VGA16                                 policy<{'x86_64': 'm'}>
 CONFIG_FB_VIA                                   policy<{'x86_64': 'm'}>
 CONFIG_FB_VIA_DIRECT_PROCFS                     policy<{'x86_64': 'n'}>
