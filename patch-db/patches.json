@@ -5917,16 +5917,20 @@
         "subject": "perf/dwc_pcie: Fix PCI device reference leak in probe"
     },
     "mail:20261102075710.1286456-2-zhengxingda@iscas.ac.cn": {
-        "subject": "drm/verisilicon: disable the output before enabling it"
+        "subject": "drm/verisilicon: disable the output before enabling it",
+        "replacement": "mail:20261118153448.375639-2-zhengxingda@iscas.ac.cn"
     },
     "mail:20261102075710.1286456-3-zhengxingda@iscas.ac.cn": {
-        "subject": "drm/verisilicon: nuke planes' atomic_enable hooks"
+        "subject": "drm/verisilicon: nuke planes' atomic_enable hooks",
+        "replacement": "mail:20261118153448.375639-4-zhengxingda@iscas.ac.cn"
     },
     "mail:20261102075710.1286456-4-zhengxingda@iscas.ac.cn": {
-        "subject": "drm/verisilicon: fix DC8200 primary plane disable clearing FB_EN"
+        "subject": "drm/verisilicon: fix DC8200 primary plane disable clearing FB_EN",
+        "replacement": "mail:20261118153448.375639-3-zhengxingda@iscas.ac.cn"
     },
     "mail:20261102075710.1286456-5-zhengxingda@iscas.ac.cn": {
-        "subject": "drm/verisilicon: check old state CRTC in plane atomic_disable"
+        "subject": "drm/verisilicon: check old state CRTC in plane atomic_disable",
+        "replacement": "mail:20261118153448.375639-5-zhengxingda@iscas.ac.cn"
     },
     "commit:4626d370ae89b8af4d46a45372b269f926ec662d": {
         "subject": "perf machine: Fix NULL deref in thread__resolve_callchain_sample()",
@@ -5987,10 +5991,12 @@
         "subject": "riscv: dts: ultrarisc: Add Milk-V Titan board device tree"
     },
     "mail:20261112-04-k3-pm-support-v4-1-de3931aa5153@kernel.org": {
-        "subject": "dt-bindings: power: spacemit: Add power domain controller IDs"
+        "subject": "dt-bindings: power: spacemit: Add power domain controller IDs",
+        "replacement": "mail:20261118-04-k3-pm-support-v5-1-42394acdf3e3@kernel.org"
     },
     "mail:20261112-04-k3-pm-support-v4-2-de3931aa5153@kernel.org": {
-        "subject": "pmdomain: spacemit: Add power domain driver"
+        "subject": "pmdomain: spacemit: Add power domain driver",
+        "replacement": "mail:20261118-04-k3-pm-support-v5-2-42394acdf3e3@kernel.org"
     },
     "mail:20261112-aplic-affinity-fix-v3-2-943d25cfbfad@linux.dev": {
         "subject": "irqchip/riscv-aplic: Apply pending affinity changes for level MSI sources"
@@ -6120,5 +6126,29 @@
     },
     "mail:20261118-riscv-marchid-fix-v1-1-6d677fcd5461@linux.spacemit.com": {
         "subject": "riscv: cpu: Fix incorrect cached machine IDs on secondary harts"
+    },
+    "mail:20261118-04-k3-pm-support-v5-1-42394acdf3e3@kernel.org": {
+        "subject": "dt-bindings: power: spacemit: Add power domain controller IDs"
+    },
+    "mail:20261118-04-k3-pm-support-v5-2-42394acdf3e3@kernel.org": {
+        "subject": "pmdomain: spacemit: Add power domain driver"
+    },
+    "mail:20261118153448.375639-2-zhengxingda@iscas.ac.cn": {
+        "subject": "drm/verisilicon: disable the output before enabling it"
+    },
+    "mail:20261118153448.375639-3-zhengxingda@iscas.ac.cn": {
+        "subject": "drm/verisilicon: fix DC8200 primary plane disable clearing FB_EN"
+    },
+    "mail:20261118153448.375639-4-zhengxingda@iscas.ac.cn": {
+        "subject": "drm/verisilicon: nuke planes' atomic_enable hooks"
+    },
+    "mail:20261118153448.375639-5-zhengxingda@iscas.ac.cn": {
+        "subject": "drm/verisilicon: check old state CRTC in plane atomic_disable"
+    },
+    "mail:20261118153448.375639-6-zhengxingda@iscas.ac.cn": {
+        "subject": "drm/verisilicon: nuke planes' atomic_disable hooks"
+    },
+    "mail:20261119050049.174124-1-evers_chen@163.com": {
+        "subject": "riscv: mm: Disable GCOV instrumentation in set_satp_mode()"
     }
 }
