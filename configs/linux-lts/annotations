@@ -2311,13 +2311,13 @@ CONFIG_DRM_DISPLAY_HDMI_CEC_NOTIFIER_HELPER     policy<{'riscv64': 'y', 'x86_64'
 CONFIG_DRM_DISPLAY_HDMI_HELPER                  policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_DRM_DISPLAY_HDMI_STATE_HELPER            policy<{'riscv64': 'y'}>
 CONFIG_DRM_DISPLAY_HELPER                       policy<{'riscv64': 'm', 'x86_64': 'm'}>
-CONFIG_DRM_DRAW                                 policy<{'x86_64': 'y'}>
+CONFIG_DRM_DRAW                                 policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_DRM_DW_HDMI                              policy<{'riscv64': 'm'}>
 CONFIG_DRM_DW_HDMI_AHB_AUDIO                    policy<{'riscv64': 'n'}>
 CONFIG_DRM_DW_HDMI_CEC                          policy<{'riscv64': 'n'}>
 CONFIG_DRM_DW_HDMI_GP_AUDIO                     policy<{'riscv64': 'n'}>
 CONFIG_DRM_DW_HDMI_I2S_AUDIO                    policy<{'riscv64': 'n'}>
-CONFIG_DRM_EFIDRM                               policy<{'x86_64': 'm'}>
+CONFIG_DRM_EFIDRM                               policy<{'riscv64': 'y', 'x86_64': 'm'}>
 CONFIG_DRM_ETNAVIV                              policy<{'riscv64': 'm', 'x86_64': 'n'}>
 CONFIG_DRM_ETNAVIV_THERMAL                      policy<{'riscv64': 'y'}>
 CONFIG_DRM_EXEC                                 policy<{'riscv64': 'm', 'x86_64': 'm'}>
@@ -2506,11 +2506,12 @@ CONFIG_DRM_PANEL_VISIONOX_RM692E5               policy<{'riscv64': 'n'}>
 CONFIG_DRM_PANEL_VISIONOX_VTDR6130              policy<{'riscv64': 'n'}>
 CONFIG_DRM_PANEL_WIDECHIPS_WS2401               policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_DRM_PANEL_XINPENG_XPP055C272             policy<{'riscv64': 'n'}>
-CONFIG_DRM_PANIC                                policy<{'riscv64': 'n', 'x86_64': 'y'}>
-CONFIG_DRM_PANIC_BACKGROUND_COLOR               policy<{'x86_64': '0x000000'}>
-CONFIG_DRM_PANIC_DEBUG                          policy<{'x86_64': 'n'}>
-CONFIG_DRM_PANIC_FOREGROUND_COLOR               policy<{'x86_64': '0xffffff'}>
-CONFIG_DRM_PANIC_SCREEN                         policy<{'x86_64': '"user"'}>
+CONFIG_DRM_PANIC                                policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_DRM_PANIC_BACKGROUND_COLOR               policy<{'riscv64': '0x000000', 'x86_64': '0x000000'}>
+CONFIG_DRM_PANIC_DEBUG                          policy<{'riscv64': 'n', 'x86_64': 'n'}>
+CONFIG_DRM_PANIC_FOREGROUND_COLOR               policy<{'riscv64': '0xffffff', 'x86_64': '0xffffff'}>
+CONFIG_DRM_PANIC_SCREEN                         policy<{'riscv64': '"user"', 'x86_64': '"user"'}>
+CONFIG_DRM_PANIC_SCREEN_QR_CODE                 policy<{'riscv64': 'n'}>
 CONFIG_DRM_PARADE_PS8622                        policy<{'riscv64': 'n'}>
 CONFIG_DRM_PARADE_PS8640                        policy<{'riscv64': 'n'}>
 CONFIG_DRM_PIXPAPER                             policy<{'riscv64': 'n', 'x86_64': 'n'}>
@@ -3062,7 +3063,7 @@ CONFIG_FB_DEFERRED_IO                           policy<{'riscv64': 'y', 'x86_64'
 CONFIG_FB_DEVICE                                policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_FB_DMAMEM_HELPERS                        policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_FB_DMAMEM_HELPERS_DEFERRED               policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_FB_EFI                                   policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_FB_EFI                                   policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_FB_FOREIGN_ENDIAN                        policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_FB_GOLDFISH                              policy<{'riscv64': 'n'}>
 CONFIG_FB_HECUBA                                policy<{'x86_64': 'm'}>
@@ -10068,7 +10069,7 @@ CONFIG_SYSCTL                                   policy<{'riscv64': 'y', 'x86_64'
 CONFIG_SYSCTL_ARCH_UNALIGN_ALLOW                policy<{'riscv64': 'y'}>
 CONFIG_SYSCTL_EXCEPTION_TRACE                   policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_SYSFB                                    policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_SYSFB_SIMPLEFB                           policy<{'riscv64': 'y', 'x86_64': 'n'}>
+CONFIG_SYSFB_SIMPLEFB                           policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_SYSFS                                    policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_SYSFS_SYSCALL                            policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_SYSTEM76_ACPI                            policy<{'x86_64': 'm'}>
