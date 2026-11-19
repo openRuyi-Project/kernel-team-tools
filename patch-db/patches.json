@@ -2755,7 +2755,11 @@
         "subject": "rtc: spacemit: default module when MFD_SPACEMIT_P1 is enabled"
     },
     "mail:20260303-k1-ethernet-more-fixes-v1-4-0ab0122fdd14@iscas.ac.cn": {
-        "subject": "net: spacemit: Free rings of memory after unmapping DMA"
+        "subject": "net: spacemit: Free rings of memory after unmapping DMA",
+        "replacement": [
+            "mail:20260305-k1-ethernet-more-fixes-v2-1-e4e434d65055@iscas.ac.cn",
+            "mail:20260305-k1-ethernet-more-fixes-v2-2-e4e434d65055@iscas.ac.cn"
+        ]
     },
     "mail:20260626-shadow-deps-v4-1-bba9831f2f1d@mailbox.org": {
         "subject": "cpufreq: dt-platdev: Add SpacemiT K1 SoC to the allowlist",
@@ -2797,7 +2801,12 @@
         "subject": "riscv: mm: Do not probe satp mode limit if known in FDT"
     },
     "mail:20260507-i2s-same-blk-v2-3-ede05a22f732@linux.spacemit.com": {
-        "subject": "ASoC: spacemit: declare shared BCLK for cross-DAI rate constraint"
+        "subject": "ASoC: spacemit: declare shared BCLK for cross-DAI rate constraint",
+        "replacement": [
+            "mail:20260522-i2s-same-blk-v4-1-a71a86faaa20@linux.spacemit.com",
+            "mail:20260522-i2s-same-blk-v4-2-a71a86faaa20@linux.spacemit.com",
+            "mail:20260522-i2s-same-blk-v4-3-a71a86faaa20@linux.spacemit.com"
+        ]
     },
     "mail:20260507081710.4090814-2-zhengxingda@iscas.ac.cn": {
         "subject": "dt-bindings: clock: thead: add TH1520 MISC subsys clock controller"
@@ -5430,10 +5439,12 @@
         "subject": "riscv: dts: spacemit: k3-com260: Set Ethernet MAC from EEPROM"
     },
     "mail:20261105-k3-tq-dts-based-on-com260-v1-1-aa0b7714aed0@linux.spacemit.com": {
-        "subject": "dt-bindings: riscv: spacemit: Add K3 CoM260 IFX TQ"
+        "subject": "dt-bindings: riscv: spacemit: Add K3 CoM260 IFX TQ",
+        "replacement": "mail:20261117-k3-tq-dts-based-on-com260-v2-1-68b337bd8938@linux.spacemit.com"
     },
     "mail:20261105-k3-tq-dts-based-on-com260-v1-2-aa0b7714aed0@linux.spacemit.com": {
-        "subject": "riscv: dts: spacemit: Add K3 CoM260 IFX TQ support"
+        "subject": "riscv: dts: spacemit: Add K3 CoM260 IFX TQ support",
+        "replacement": "mail:20261117-k3-tq-dts-based-on-com260-v2-2-68b337bd8938@linux.spacemit.com"
     },
     "mail:20261105-csky_c930_pmu-v3-1-3f33e6b3d259@kernel.org": {
         "subject": "perf vendor events riscv: Add C-SKY C930 JSON file"
@@ -5801,7 +5812,12 @@
         "replacement": "mail:20261118104935.1716-1-linux.amoon@gmail.com"
     },
     "mail:20261110061429.2036-2-linux.amoon@gmail.com": {
-        "subject": "power: reset: spacemit-p1: Use atomic I2C transfers for power-off and restart"
+        "subject": "power: reset: spacemit-p1: Use atomic I2C transfers for power-off and restart",
+        "replacement": [
+            "mail:20261118104935.1716-1-linux.amoon@gmail.com",
+            "mail:20261118104935.1716-2-linux.amoon@gmail.com",
+            "mail:20261118104935.1716-3-linux.amoon@gmail.com"
+        ]
     },
     "mail:20261110-eic7700-tcu-aclk-v1-1-72db82bf59c1@iscas.ac.cn": {
         "subject": "clk: eswin: Keep the TCU AXI clock enabled"
@@ -6150,5 +6166,20 @@
     },
     "mail:20261119050049.174124-1-evers_chen@163.com": {
         "subject": "riscv: mm: Disable GCOV instrumentation in set_satp_mode()"
+    },
+    "mail:20260305-k1-ethernet-more-fixes-v2-1-e4e434d65055@iscas.ac.cn": {
+        "subject": "net: spacemit: Fix error handling in emac_alloc_rx_desc_buffers()"
+    },
+    "mail:20260305-k1-ethernet-more-fixes-v2-2-e4e434d65055@iscas.ac.cn": {
+        "subject": "net: spacemit: Fix error handling in emac_tx_mem_map()"
+    },
+    "mail:20260522-i2s-same-blk-v4-1-a71a86faaa20@linux.spacemit.com": {
+        "subject": "ASoC: soc-dai: add shared BCLK clock for cross-DAI rate constraints"
+    },
+    "mail:20260522-i2s-same-blk-v4-2-a71a86faaa20@linux.spacemit.com": {
+        "subject": "ASoC: soc-pcm: add DEFINE_GUARD for snd_soc_card_mutex"
+    },
+    "mail:20260522-i2s-same-blk-v4-3-a71a86faaa20@linux.spacemit.com": {
+        "subject": "ASoC: soc-pcm: constrain hw_params when DAIs share the same BCLK"
     }
 }
