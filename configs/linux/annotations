@@ -7464,7 +7464,6 @@ CONFIG_POWER_RESET_MT6323                       policy<{'x86_64': 'n'}>
 CONFIG_POWER_RESET_QEMU_VIRT_CTRL               policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_POWER_RESET_REGULATOR                    policy<{'riscv64': 'n'}>
 CONFIG_POWER_RESET_RESTART                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
-CONFIG_POWER_RESET_SPACEMIT_P1                  policy<{'riscv64': 'm'}>
 CONFIG_POWER_RESET_SYSCON                       policy<{'riscv64': 'y'}>
 CONFIG_POWER_RESET_SYSCON_POWEROFF              policy<{'riscv64': 'y'}>
 CONFIG_POWER_RESET_TH1520_AON                   policy<{'riscv64': 'm'}>
@@ -9974,6 +9973,7 @@ CONFIG_SPACEMIT_K1_EMAC                         policy<{'riscv64': 'm'}>
 CONFIG_SPACEMIT_K1_TSENSOR                      policy<{'riscv64': 'm'}>
 CONFIG_SPACEMIT_K3_CCU                          policy<{'riscv64': 'y'}>
 CONFIG_SPACEMIT_PM_DOMAINS                      policy<{'riscv64': 'y'}>
+CONFIG_SPACEMIT_TIMER                           policy<{'riscv64': 'y'}>
 CONFIG_SPARSEMEM                                policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_SPARSEMEM_EXTREME                        policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_SPARSEMEM_MANUAL                         policy<{'riscv64': 'y'}>
