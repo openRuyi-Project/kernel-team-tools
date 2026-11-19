@@ -26,7 +26,6 @@ this file.
 
 ```
 ruyi/7.3.y
-ruyi/7.2.y
 ruyi/7.0.y
 ruyi/6.18.y
 ```
