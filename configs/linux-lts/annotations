@@ -491,6 +491,7 @@ CONFIG_ARCH_HAS_PREEMPT_LAZY                    policy<{'riscv64': 'y', 'x86_64'
 CONFIG_ARCH_HAS_PREPARE_SYNC_CORE_CMD           policy<{'riscv64': 'y'}>
 CONFIG_ARCH_HAS_PTDUMP                          policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_ARCH_HAS_PTE_SPECIAL                     policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_ARCH_HAS_RESET_CONTROLLER                policy<{'riscv64': 'y'}>
 CONFIG_ARCH_HAS_SETUP_DMA_OPS                   policy<{'riscv64': 'y'}>
 CONFIG_ARCH_HAS_SET_DIRECT_MAP                  policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_ARCH_HAS_SET_MEMORY                      policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -609,6 +610,7 @@ CONFIG_ARCH_WANT_OPTIMIZE_DAX_VMEMMAP           policy<{'riscv64': 'y', 'x86_64'
 CONFIG_ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP       policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_ARCH_WANT_PMD_MKWRITE                    policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_ARCH_WEAK_RELEASE_ACQUIRE                policy<{'riscv64': 'y'}>
+CONFIG_ARCH_ZHIHE                               policy<{'riscv64': 'y'}>
 CONFIG_ARCNET                                   policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_ARCNET_1051                              policy<{'x86_64': 'm'}>
 CONFIG_ARCNET_1201                              policy<{'x86_64': 'm'}>
@@ -624,6 +626,18 @@ CONFIG_ARM_AMBA                                 policy<{'riscv64': 'y'}>
 CONFIG_ARM_HISI_UNCORE_DEVFREQ                  policy<{'riscv64': 'n'}>
 CONFIG_ARM_MHU                                  policy<{'riscv64': 'n'}>
 CONFIG_ARM_MHU_V2                               policy<{'riscv64': 'n'}>
+CONFIG_ARM_SCMI_CPUFREQ                         policy<{'riscv64': 'n'}>
+CONFIG_ARM_SCMI_DEBUG_COUNTERS                  policy<{'riscv64': 'n'}>
+CONFIG_ARM_SCMI_HAVE_SHMEM                      policy<{'riscv64': 'y'}>
+CONFIG_ARM_SCMI_HAVE_TRANSPORT                  policy<{'riscv64': 'y'}>
+CONFIG_ARM_SCMI_PERF_DOMAIN                     policy<{'riscv64': 'y'}>
+CONFIG_ARM_SCMI_POWER_CONTROL                   policy<{'riscv64': 'n'}>
+CONFIG_ARM_SCMI_POWER_DOMAIN                    policy<{'riscv64': 'y'}>
+CONFIG_ARM_SCMI_PROTOCOL                        policy<{'riscv64': 'y', 'x86_64': 'n'}>
+CONFIG_ARM_SCMI_QUIRKS                          policy<{'riscv64': 'y'}>
+CONFIG_ARM_SCMI_RAW_MODE_SUPPORT                policy<{'riscv64': 'n'}>
+CONFIG_ARM_SCMI_TRANSPORT_MAILBOX               policy<{'riscv64': 'y'}>
+CONFIG_ARM_SCMI_TRANSPORT_VIRTIO                policy<{'riscv64': 'n'}>
 CONFIG_ARM_SUN8I_A33_MBUS_DEVFREQ               policy<{'riscv64': 'n'}>
 CONFIG_AS21XXX_PHY                              policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_AS3935                                   policy<{'x86_64': 'm'}>
@@ -1620,6 +1634,7 @@ CONFIG_COMMON_CLK_PALMAS                        policy<{'x86_64': 'm'}>
 CONFIG_COMMON_CLK_PWM                           policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_COMMON_CLK_RPMI                          policy<{'riscv64': 'y'}>
 CONFIG_COMMON_CLK_RS9_PCIE                      policy<{'riscv64': 'n'}>
+CONFIG_COMMON_CLK_SCMI                          policy<{'riscv64': 'y'}>
 CONFIG_COMMON_CLK_SI514                         policy<{'riscv64': 'n'}>
 CONFIG_COMMON_CLK_SI521XX                       policy<{'riscv64': 'n'}>
 CONFIG_COMMON_CLK_SI5341                        policy<{'riscv64': 'n', 'x86_64': 'm'}>
@@ -2317,6 +2332,7 @@ CONFIG_DRM_DW_HDMI_AHB_AUDIO                    policy<{'riscv64': 'n'}>
 CONFIG_DRM_DW_HDMI_CEC                          policy<{'riscv64': 'n'}>
 CONFIG_DRM_DW_HDMI_GP_AUDIO                     policy<{'riscv64': 'n'}>
 CONFIG_DRM_DW_HDMI_I2S_AUDIO                    policy<{'riscv64': 'n'}>
+CONFIG_DRM_DW_MIPI_DSI                          policy<{'riscv64': 'm'}>
 CONFIG_DRM_EFIDRM                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_DRM_ETNAVIV                              policy<{'riscv64': 'm', 'x86_64': 'n'}>
 CONFIG_DRM_ETNAVIV_THERMAL                      policy<{'riscv64': 'y'}>
@@ -2540,6 +2556,7 @@ CONFIG_DRM_SUBALLOC_HELPER                      policy<{'riscv64': 'm', 'x86_64'
 CONFIG_DRM_SUN4I                                policy<{'riscv64': 'n'}>
 CONFIG_DRM_SYSFB_HELPER                         policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_DRM_THEAD_TH1520_DW_HDMI                 policy<{'riscv64': 'm'}>
+CONFIG_DRM_THEAD_TH1520_DW_MIPI_DSI             policy<{'riscv64': 'm'}>
 CONFIG_DRM_THINE_THC63LVD1024                   policy<{'riscv64': 'n'}>
 CONFIG_DRM_TI_DLPC3433                          policy<{'riscv64': 'n'}>
 CONFIG_DRM_TI_SN65DSI83                         policy<{'riscv64': 'n'}>
@@ -4247,6 +4264,7 @@ CONFIG_IMA_SIG_TEMPLATE                         policy<{'riscv64': 'n', 'x86_64'
 CONFIG_IMA_WRITE_POLICY                         policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_IMA_X509_PATH                            policy<{'riscv64': '"/etc/keys/x509_ima.der"'}>
 CONFIG_IMG_ASCII_LCD                            policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_IMX_SCMI_BBM_EXT                         policy<{'riscv64': 'n'}>
 CONFIG_INA2XX_ADC                               policy<{'x86_64': 'm'}>
 CONFIG_INET                                     policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_INET6_AH                                 policy<{'riscv64': 'm', 'x86_64': 'm'}>
@@ -7261,6 +7279,7 @@ CONFIG_PINCTRL_ELKHARTLAKE                      policy<{'x86_64': 'm'}>
 CONFIG_PINCTRL_EMMITSBURG                       policy<{'x86_64': 'm'}>
 CONFIG_PINCTRL_GEMINILAKE                       policy<{'x86_64': 'm'}>
 CONFIG_PINCTRL_ICELAKE                          policy<{'x86_64': 'm'}>
+CONFIG_PINCTRL_IMX_SCMI                         policy<{'riscv64': 'n'}>
 CONFIG_PINCTRL_INTEL                            policy<{'x86_64': 'y'}>
 CONFIG_PINCTRL_INTEL_PLATFORM                   policy<{'x86_64': 'm'}>
 CONFIG_PINCTRL_JASPERLAKE                       policy<{'x86_64': 'm'}>
@@ -7277,6 +7296,7 @@ CONFIG_PINCTRL_METEORPOINT                      policy<{'x86_64': 'm'}>
 CONFIG_PINCTRL_MICROCHIP_SGPIO                  policy<{'riscv64': 'n'}>
 CONFIG_PINCTRL_OCELOT                           policy<{'riscv64': 'n'}>
 CONFIG_PINCTRL_RENESAS                          policy<{'riscv64': 'y'}>
+CONFIG_PINCTRL_SCMI                             policy<{'riscv64': 'n'}>
 CONFIG_PINCTRL_SINGLE                           policy<{'riscv64': 'n'}>
 CONFIG_PINCTRL_SOPHGO_COMMON                    policy<{'riscv64': 'y'}>
 CONFIG_PINCTRL_SOPHGO_CV1800B                   policy<{'riscv64': 'n'}>
@@ -7326,6 +7346,7 @@ CONFIG_PINCTRL_TIGERLAKE                        policy<{'x86_64': 'm'}>
 CONFIG_PINCTRL_ULTRARISC                        policy<{'riscv64': 'y'}>
 CONFIG_PINCTRL_ULTRARISC_DP1000                 policy<{'riscv64': 'y'}>
 CONFIG_PINCTRL_UPBOARD                          policy<{'x86_64': 'n'}>
+CONFIG_PINCTRL_ZHIHE_A210                       policy<{'riscv64': 'y'}>
 CONFIG_PING                                     policy<{'x86_64': 'm'}>
 CONFIG_PINMUX                                   policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_PKCS7_MESSAGE_PARSER                     policy<{'riscv64': 'y', 'x86_64': 'y'}>
@@ -7705,6 +7726,7 @@ CONFIG_REGULATOR_AD5398                         policy<{'riscv64': 'n', 'x86_64'
 CONFIG_REGULATOR_ADP5055                        policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_REGULATOR_ARIZONA_LDO1                   policy<{'x86_64': 'm'}>
 CONFIG_REGULATOR_ARIZONA_MICSUPP                policy<{'x86_64': 'm'}>
+CONFIG_REGULATOR_ARM_SCMI                       policy<{'riscv64': 'n'}>
 CONFIG_REGULATOR_AS3711                         policy<{'x86_64': 'm'}>
 CONFIG_REGULATOR_ATC260X                        policy<{'x86_64': 'm'}>
 CONFIG_REGULATOR_AW37503                        policy<{'riscv64': 'n', 'x86_64': 'm'}>
@@ -7859,6 +7881,7 @@ CONFIG_RESET_GPIO                               policy<{'riscv64': 'y', 'x86_64'
 CONFIG_RESET_K230                               policy<{'riscv64': 'y'}>
 CONFIG_RESET_POLARFIRE_SOC                      policy<{'riscv64': 'y'}>
 CONFIG_RESET_RZV2H_USB2PHY                      policy<{'riscv64': 'n'}>
+CONFIG_RESET_SCMI                               policy<{'riscv64': 'y'}>
 CONFIG_RESET_SIMPLE                             policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_RESET_SPACEMIT_COMMON                    policy<{'riscv64': 'y'}>
 CONFIG_RESET_SPACEMIT_K1                        policy<{'riscv64': 'y'}>
@@ -8553,6 +8576,7 @@ CONFIG_SENSORS_AMC6821                          policy<{'riscv64': 'm', 'x86_64'
 CONFIG_SENSORS_APDS990X                         policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_SENSORS_APPLESMC                         policy<{'x86_64': 'm'}>
 CONFIG_SENSORS_AQUACOMPUTER_D5NEXT              policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_SENSORS_ARM_SCMI                         policy<{'riscv64': 'n'}>
 CONFIG_SENSORS_AS370                            policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_SENSORS_ASB100                           policy<{'x86_64': 'm'}>
 CONFIG_SENSORS_ASC7621                          policy<{'riscv64': 'm', 'x86_64': 'm'}>
@@ -11780,6 +11804,7 @@ CONFIG_ZD1211RW                                 policy<{'x86_64': 'm'}>
 CONFIG_ZD1211RW_DEBUG                           policy<{'x86_64': 'n'}>
 CONFIG_ZEROPLUS_FF                              policy<{'riscv64': 'n', 'x86_64': 'y'}>
 CONFIG_ZERO_CALL_USED_REGS                      policy<{'riscv64': 'n', 'x86_64': 'y'}>
+CONFIG_ZHIHE_A210_MBOX                          policy<{'riscv64': 'y'}>
 CONFIG_ZIIRAVE_WATCHDOG                         policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_ZISOFS                                   policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_ZL3073X                                  policy<{'x86_64': 'm'}>
