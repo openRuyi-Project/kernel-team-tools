@@ -6088,19 +6088,24 @@
         "subject": "scsi: ufs: spacemit: k3: Add UFS Host Controller driver"
     },
     "mail:20261117-b4-spacemit-k1-usb2-v5-1-52c3829cca69@linux.spacemit.com": {
-        "subject": "dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible"
+        "subject": "dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible",
+        "replacement": "mail:20261119-b4-spacemit-k1-usb2-v6-1-4a9add848728@linux.spacemit.com"
     },
     "mail:20261117-b4-spacemit-k1-usb2-v5-2-52c3829cca69@linux.spacemit.com": {
-        "subject": "usb: chipidea: usb2: use devm_clk_get_optional_enabled()"
+        "subject": "usb: chipidea: usb2: use devm_clk_get_optional_enabled()",
+        "replacement": "mail:20261119-b4-spacemit-k1-usb2-v6-2-4a9add848728@linux.spacemit.com"
     },
     "mail:20261117-b4-spacemit-k1-usb2-v5-3-52c3829cca69@linux.spacemit.com": {
-        "subject": "usb: chipidea: usb2: drop the ci_hdrc_usb2_priv wrapper struct"
+        "subject": "usb: chipidea: usb2: drop the ci_hdrc_usb2_priv wrapper struct",
+        "replacement": "mail:20261119-b4-spacemit-k1-usb2-v6-3-4a9add848728@linux.spacemit.com"
     },
     "mail:20261117-b4-spacemit-k1-usb2-v5-4-52c3829cca69@linux.spacemit.com": {
-        "subject": "usb: chipidea: usb2: add optional reset support"
+        "subject": "usb: chipidea: usb2: add optional reset support",
+        "replacement": "mail:20261119-b4-spacemit-k1-usb2-v6-4-4a9add848728@linux.spacemit.com"
     },
     "mail:20261117-b4-spacemit-k1-usb2-v5-5-52c3829cca69@linux.spacemit.com": {
-        "subject": "usb: chipidea: usb2: add SpacemiT K1 support"
+        "subject": "usb: chipidea: usb2: add SpacemiT K1 support",
+        "replacement": "mail:20261119-b4-spacemit-k1-usb2-v6-5-4a9add848728@linux.spacemit.com"
     },
     "mail:20261117-b4-spacemit-k1-usb2-v5-6-52c3829cca69@linux.spacemit.com": {
         "subject": "riscv: dts: spacemit: add USB2.0 controller nodes for K1"
@@ -6314,5 +6319,20 @@
     },
     "commit:3fdeae134ba956aacbd87d5532c025913c98fc49": {
         "subject": "drm/bridge: add next_bridge pointer to struct drm_bridge"
+    },
+    "mail:20261119-b4-spacemit-k1-usb2-v6-1-4a9add848728@linux.spacemit.com": {
+        "subject": "dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible"
+    },
+    "mail:20261119-b4-spacemit-k1-usb2-v6-2-4a9add848728@linux.spacemit.com": {
+        "subject": "usb: chipidea: usb2: use devm_clk_get_optional_enabled()"
+    },
+    "mail:20261119-b4-spacemit-k1-usb2-v6-3-4a9add848728@linux.spacemit.com": {
+        "subject": "usb: chipidea: usb2: drop the ci_hdrc_usb2_priv wrapper struct"
+    },
+    "mail:20261119-b4-spacemit-k1-usb2-v6-4-4a9add848728@linux.spacemit.com": {
+        "subject": "usb: chipidea: usb2: add optional reset support"
+    },
+    "mail:20261119-b4-spacemit-k1-usb2-v6-5-4a9add848728@linux.spacemit.com": {
+        "subject": "usb: chipidea: usb2: add SpacemiT K1 support"
     }
 }
