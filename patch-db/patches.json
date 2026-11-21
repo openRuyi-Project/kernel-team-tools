@@ -3543,52 +3543,68 @@
         "subject": "riscv: kexec: reserve the PMD-aligned kernel image range"
     },
     "mail:20260809-k3-display-v2-1-327d7910bf71@gmail.com": {
-        "subject": "dt-bindings: display: spacemit: add K3 Saturn DPU controller"
+        "subject": "dt-bindings: display: spacemit: add K3 Saturn DPU controller",
+        "replacement": "mail:20261121-k3-display-v3-1-ec419e8e96b8@gmail.com"
     },
     "mail:20260809-k3-display-v2-2-327d7910bf71@gmail.com": {
-        "subject": "dt-bindings: phy: add SpacemiT K3 Innosilicon DP PHY"
+        "subject": "dt-bindings: phy: add SpacemiT K3 Innosilicon DP PHY",
+        "replacement": "mail:20261121-k3-display-v3-2-ec419e8e96b8@gmail.com"
     },
     "mail:20260809-k3-display-v2-3-327d7910bf71@gmail.com": {
-        "subject": "dt-bindings: display: spacemit: add K3 Innosilicon DP/eDP controller"
+        "subject": "dt-bindings: display: spacemit: add K3 Innosilicon DP/eDP controller",
+        "replacement": "mail:20261121-k3-display-v3-3-ec419e8e96b8@gmail.com"
     },
     "mail:20260809-k3-display-v2-4-327d7910bf71@gmail.com": {
-        "subject": "dt-bindings: soc: spacemit: allow eDP/DP PHY PLL pixel clocks on K3 APMU"
+        "subject": "dt-bindings: soc: spacemit: allow eDP/DP PHY PLL pixel clocks on K3 APMU",
+        "replacement": "mail:20261121-k3-display-v3-4-ec419e8e96b8@gmail.com"
     },
     "mail:20260809-k3-display-v2-5-327d7910bf71@gmail.com": {
-        "subject": "phy: spacemit: add Innosilicon DP TX PHY driver"
+        "subject": "phy: spacemit: add Innosilicon DP TX PHY driver",
+        "replacement": "mail:20261121-k3-display-v3-5-ec419e8e96b8@gmail.com"
     },
     "mail:20260809-k3-display-v2-6-327d7910bf71@gmail.com": {
-        "subject": "clk: spacemit: k3: parent eDP/DP pixel clock to the PHY PLL"
+        "subject": "clk: spacemit: k3: parent eDP/DP pixel clock to the PHY PLL",
+        "replacement": "mail:20261121-k3-display-v3-6-ec419e8e96b8@gmail.com"
     },
     "mail:20260809-k3-display-v2-7-327d7910bf71@gmail.com": {
-        "subject": "drm/spacemit: add Saturn DPU register model"
+        "subject": "drm/spacemit: add Saturn DPU register model",
+        "replacement": "mail:20261121-k3-display-v3-7-ec419e8e96b8@gmail.com"
     },
     "mail:20260809-k3-display-v2-8-327d7910bf71@gmail.com": {
-        "subject": "drm/spacemit: add Saturn DPU core types, cmdlist and display MMU"
+        "subject": "drm/spacemit: add Saturn DPU core types, cmdlist and display MMU",
+        "replacement": "mail:20261121-k3-display-v3-8-ec419e8e96b8@gmail.com"
     },
     "mail:20260809-k3-display-v2-9-327d7910bf71@gmail.com": {
-        "subject": "drm/spacemit: add Saturn DPU hardware backend"
+        "subject": "drm/spacemit: add Saturn DPU hardware backend",
+        "replacement": "mail:20261121-k3-display-v3-9-ec419e8e96b8@gmail.com"
     },
     "mail:20260809-k3-display-v2-10-327d7910bf71@gmail.com": {
-        "subject": "drm/spacemit: add Saturn DPU KMS pipeline"
+        "subject": "drm/spacemit: add Saturn DPU KMS pipeline",
+        "replacement": "mail:20261121-k3-display-v3-10-ec419e8e96b8@gmail.com"
     },
     "mail:20260809-k3-display-v2-11-327d7910bf71@gmail.com": {
-        "subject": "drm/spacemit: add Saturn DPU DRM device driver"
+        "subject": "drm/spacemit: add Saturn DPU DRM device driver",
+        "replacement": "mail:20261121-k3-display-v3-11-ec419e8e96b8@gmail.com"
     },
     "mail:20260809-k3-display-v2-12-327d7910bf71@gmail.com": {
-        "subject": "drm/spacemit: add Innosilicon DP/eDP controller bridge driver"
+        "subject": "drm/spacemit: add Innosilicon DP/eDP controller bridge driver",
+        "replacement": "mail:20261121-k3-display-v3-12-ec419e8e96b8@gmail.com"
     },
     "mail:20260809-k3-display-v2-14-327d7910bf71@gmail.com": {
-        "subject": "riscv: dts: spacemit: k3: add display nodes"
+        "subject": "riscv: dts: spacemit: k3: add display nodes",
+        "replacement": "mail:20261121-k3-display-v3-14-ec419e8e96b8@gmail.com"
     },
     "mail:20260809-k3-display-v2-15-327d7910bf71@gmail.com": {
-        "subject": "riscv: dts: spacemit: k3-pico-itx: enable the DisplayPort output"
+        "subject": "riscv: dts: spacemit: k3-pico-itx: enable the DisplayPort output",
+        "replacement": "mail:20261121-k3-display-v3-15-ec419e8e96b8@gmail.com"
     },
     "mail:20260809-k3-display-v2-16-327d7910bf71@gmail.com": {
-        "subject": "riscv: dts: spacemit: k3-com260-ifx: enable the DisplayPort output"
+        "subject": "riscv: dts: spacemit: k3-com260-ifx: enable the DisplayPort output",
+        "replacement": "mail:20261121-k3-display-v3-16-ec419e8e96b8@gmail.com"
     },
     "mail:20260809-k3-display-v2-17-327d7910bf71@gmail.com": {
-        "subject": "riscv: defconfig: spacemit: k3: enable display driver"
+        "subject": "riscv: defconfig: spacemit: k3: enable display driver",
+        "replacement": "mail:20261121-k3-display-v3-17-ec419e8e96b8@gmail.com"
     },
     "mail:20260810-k3-pll5-pll8-1800mhz-v2-1-aabff510a797@linux.spacemit.com": {
         "subject": "clk: spacemit: k3: add 1.8 GHz PLL5 and PLL8 rates",
@@ -6174,12 +6190,129 @@
         "subject": "net: spacemit: Fix error handling in emac_tx_mem_map()"
     },
     "mail:20260522-i2s-same-blk-v4-1-a71a86faaa20@linux.spacemit.com": {
-        "subject": "ASoC: soc-dai: add shared BCLK clock for cross-DAI rate constraints"
+        "subject": "ASoC: soc-dai: add shared BCLK clock for cross-DAI rate constraints",
+        "replacement": "commit:94bdfad3a665da68731deb56b0fe80f00a3e6da8"
     },
     "mail:20260522-i2s-same-blk-v4-2-a71a86faaa20@linux.spacemit.com": {
-        "subject": "ASoC: soc-pcm: add DEFINE_GUARD for snd_soc_card_mutex"
+        "subject": "ASoC: soc-pcm: add DEFINE_GUARD for snd_soc_card_mutex",
+        "replacement": "commit:2555c62275a10bb7dfb4476ebe73d48df11f3112"
     },
     "mail:20260522-i2s-same-blk-v4-3-a71a86faaa20@linux.spacemit.com": {
-        "subject": "ASoC: soc-pcm: constrain hw_params when DAIs share the same BCLK"
+        "subject": "ASoC: soc-pcm: constrain hw_params when DAIs share the same BCLK",
+        "replacement": "commit:c8c2ffd722a6e497b9c6bb9961a7afb6ee5e2c28"
+    },
+    "commit:2d697fd246338ef7fe748c8bcf5798b9ee76e3f0": {
+        "subject": "drm/print: add drm_warn_ratelimited logging macro"
+    },
+    "mail:20261120012712.1957564-1-guoren@kernel.org": {
+        "subject": "riscv: errata: Add ERRATA WRITE_ONCE fixup"
+    },
+    "mail:20261121-k3-display-v3-1-ec419e8e96b8@gmail.com": {
+        "subject": "dt-bindings: display: spacemit: add K3 Saturn DPU controller"
+    },
+    "mail:20261121-k3-display-v3-2-ec419e8e96b8@gmail.com": {
+        "subject": "dt-bindings: phy: add SpacemiT K3 Innosilicon DP PHY"
+    },
+    "mail:20261121-k3-display-v3-3-ec419e8e96b8@gmail.com": {
+        "subject": "dt-bindings: display: spacemit: add K3 Innosilicon DP/eDP controller"
+    },
+    "mail:20261121-k3-display-v3-4-ec419e8e96b8@gmail.com": {
+        "subject": "dt-bindings: soc: spacemit: allow eDP/DP PHY PLL pixel clocks on K3 APMU"
+    },
+    "mail:20261121-k3-display-v3-5-ec419e8e96b8@gmail.com": {
+        "subject": "phy: spacemit: add Innosilicon DP TX PHY driver"
+    },
+    "mail:20261121-k3-display-v3-6-ec419e8e96b8@gmail.com": {
+        "subject": "clk: spacemit: k3: parent eDP/DP pixel clock to the PHY PLL"
+    },
+    "mail:20261121-k3-display-v3-7-ec419e8e96b8@gmail.com": {
+        "subject": "drm/spacemit: add Saturn DPU register model"
+    },
+    "mail:20261121-k3-display-v3-8-ec419e8e96b8@gmail.com": {
+        "subject": "drm/spacemit: add Saturn DPU core types, cmdlist and display MMU"
+    },
+    "mail:20261121-k3-display-v3-9-ec419e8e96b8@gmail.com": {
+        "subject": "drm/spacemit: add Saturn DPU hardware backend"
+    },
+    "mail:20261121-k3-display-v3-10-ec419e8e96b8@gmail.com": {
+        "subject": "drm/spacemit: add Saturn DPU KMS pipeline"
+    },
+    "mail:20261121-k3-display-v3-11-ec419e8e96b8@gmail.com": {
+        "subject": "drm/spacemit: add Saturn DPU DRM device driver"
+    },
+    "mail:20261121-k3-display-v3-12-ec419e8e96b8@gmail.com": {
+        "subject": "drm/spacemit: add Innosilicon DP/eDP controller bridge driver"
+    },
+    "mail:20261121-k3-display-v3-13-ec419e8e96b8@gmail.com": {
+        "subject": "MAINTAINERS: add SpacemiT K3 display driver entry"
+    },
+    "mail:20261121-k3-display-v3-14-ec419e8e96b8@gmail.com": {
+        "subject": "riscv: dts: spacemit: k3: add display nodes"
+    },
+    "mail:20261121-k3-display-v3-15-ec419e8e96b8@gmail.com": {
+        "subject": "riscv: dts: spacemit: k3-pico-itx: enable the DisplayPort output"
+    },
+    "mail:20261121-k3-display-v3-16-ec419e8e96b8@gmail.com": {
+        "subject": "riscv: dts: spacemit: k3-com260-ifx: enable the DisplayPort output"
+    },
+    "mail:20261121-k3-display-v3-17-ec419e8e96b8@gmail.com": {
+        "subject": "riscv: defconfig: spacemit: k3: enable display driver"
+    },
+    "mail:20261119-th1520-dw-mipi-dsi-v2-1-9ab5f9808f87@iscas.ac.cn": {
+        "subject": "dt-bindings: display: bridge: document TH1520 MIPI DSI controller"
+    },
+    "mail:20261119-th1520-dw-mipi-dsi-v2-2-9ab5f9808f87@iscas.ac.cn": {
+        "subject": "drm/bridge: add TH1520 DesignWare MIPI DSI host controller"
+    },
+    "mail:20261107-arm-scmi-arch-dep-v1-1-514872e8ede4@iscas.ac.cn": {
+        "subject": "firmware: arm: scmi: Drop the ARM architecture dependency"
+    },
+    "mail:20261121-a210-scmi-v4-1-4a795a0a9fc9@iscas.ac.cn": {
+        "subject": "riscv: add Zhihe A210 support"
+    },
+    "mail:20261121-a210-scmi-v4-2-4a795a0a9fc9@iscas.ac.cn": {
+        "subject": "dt-bindings: mailbox: add Zhihe A210 AP to E902 mailbox"
+    },
+    "mail:20261121-a210-scmi-v4-3-4a795a0a9fc9@iscas.ac.cn": {
+        "subject": "mailbox: add Zhihe A210 AP to E902 mailbox driver"
+    },
+    "mail:20261121-a210-scmi-v4-4-4a795a0a9fc9@iscas.ac.cn": {
+        "subject": "dt-bindings: interrupt-controller: add Zhihe A210 PLIC"
+    },
+    "mail:20261121-a210-scmi-v4-5-4a795a0a9fc9@iscas.ac.cn": {
+        "subject": "dt-bindings: riscv: add Melon Pi V1 and V2"
+    },
+    "mail:20261121-a210-scmi-v4-6-4a795a0a9fc9@iscas.ac.cn": {
+        "subject": "dt-bindings: timer: add Zhihe A210 CLINT"
+    },
+    "mail:20261121-a210-scmi-v4-7-4a795a0a9fc9@iscas.ac.cn": {
+        "subject": "dt-bindings: serial: snps-dw-apb-uart: add Zhihe A210 UART"
+    },
+    "mail:20261121-a210-scmi-v4-8-4a795a0a9fc9@iscas.ac.cn": {
+        "subject": "riscv: dts: zhihe: add A210 core support"
+    },
+    "mail:20261121-a210-scmi-v4-9-4a795a0a9fc9@iscas.ac.cn": {
+        "subject": "riscv: dts: zhihe: add A210 UARTs"
+    },
+    "mail:20261121-a210-scmi-v4-10-4a795a0a9fc9@iscas.ac.cn": {
+        "subject": "riscv: dts: zhihe: add A210 module memory"
+    },
+    "mail:20261121-a210-scmi-v4-11-4a795a0a9fc9@iscas.ac.cn": {
+        "subject": "riscv: dts: zhihe: add Melon Pi V1 and V2"
+    },
+    "mail:20261121-a210-scmi-v4-12-4a795a0a9fc9@iscas.ac.cn": {
+        "subject": "riscv: defconfig: enable A210 support"
+    },
+    "mail:20261121-a210-scmi-v4-13-4a795a0a9fc9@iscas.ac.cn": {
+        "subject": "MAINTAINERS: add Zhihe A210"
+    },
+    "mail:20261121-b4-sg2042-efi-rtc-v1-1-19898b8ad497@iscas.ac.cn": {
+        "subject": "riscv: efi: Map runtime MMIO with device attributes"
+    },
+    "mail:20261121-b4-sg2042-efi-rtc-v1-2-19898b8ad497@iscas.ac.cn": {
+        "subject": "clk: sophgo: sg2042-clkgen: Keep gates of reserved devices enabled"
+    },
+    "commit:3fdeae134ba956aacbd87d5532c025913c98fc49": {
+        "subject": "drm/bridge: add next_bridge pointer to struct drm_bridge"
     }
 }
