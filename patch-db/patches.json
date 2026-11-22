@@ -6334,5 +6334,17 @@
     },
     "mail:20261119-b4-spacemit-k1-usb2-v6-5-4a9add848728@linux.spacemit.com": {
         "subject": "usb: chipidea: usb2: add SpacemiT K1 support"
+    },
+    "mail:20261122-b4-sg2042-efi-rtc-v2-1-6d087e03e4e8@iscas.ac.cn": {
+        "subject": "dt-bindings: clock: sophgo: Allow protected gate clocks on SG2042"
+    },
+    "mail:20261122-b4-sg2042-efi-rtc-v2-2-6d087e03e4e8@iscas.ac.cn": {
+        "subject": "clk: sophgo: Keep SG2042 gates listed in protected-clocks enabled"
+    },
+    "mail:20261122-sg2042-evb-rtc-v1-1-f222c64cc7b9@iscas.ac.cn": {
+        "subject": "riscv: dts: sophgo: Enable the RTC on SG2042 EVB v1"
+    },
+    "mail:20261122-sg2042-evb-rtc-v1-2-f222c64cc7b9@iscas.ac.cn": {
+        "subject": "riscv: dts: sophgo: Enable the RTC on SG2042 EVB v2"
     }
 }
