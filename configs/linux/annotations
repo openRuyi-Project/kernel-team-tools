@@ -2281,6 +2281,7 @@ CONFIG_DRM_AMDGPU_USERPTR                       policy<{'riscv64': 'y', 'x86_64'
 CONFIG_DRM_AMDGPU_WERROR                        policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_DRM_AMD_ACP                              policy<{'riscv64': 'n', 'x86_64': 'n'}>
 CONFIG_DRM_AMD_DC                               policy<{'riscv64': 'y', 'x86_64': 'y'}>
+CONFIG_DRM_AMD_DC_DCE                           policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_DRM_AMD_DC_FP                            policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_DRM_AMD_DC_SI                            policy<{'riscv64': 'y', 'x86_64': 'n'}>
 CONFIG_DRM_AMD_ISP                              policy<{'riscv64': 'n', 'x86_64': 'y'}>
