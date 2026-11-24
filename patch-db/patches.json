@@ -5131,7 +5131,10 @@
         "replacement": "commit:a3a8c25c59f8024eb70a460767ff0d7bcb213338"
     },
     "commit:01e2f07c44fc46180bdb10e70506f8acf44a53dd": {
-        "subject": "riscv: dts: spacemit: k3: Drop guest properties from M-level IMSIC"
+        "subject": "riscv: dts: spacemit: k3: Drop guest properties from M-level IMSIC",
+        "merged": [
+            "v7.3.6"
+        ]
     },
     "commit:69f95409f0053f787ad60175944080621a8b7d95": {
         "subject": "riscv: dts: spacemit: k3: fix IMSIC num-guest-ids",
@@ -5146,7 +5149,11 @@
         "subject": "riscv: dts: spacemit: enable onboard eeprom for OrangePi"
     },
     "commit:f4ba4f8cc8e8df45e57c1754955b3a6b9b089a97": {
-        "subject": "dt-bindings: vendor-prefixes: Add Sensylink"
+        "subject": "dt-bindings: vendor-prefixes: Add Sensylink",
+        "merged": [
+            "v6.18.65",
+            "v7.3.6"
+        ]
     },
     "commit:2ebe47827efd944b7057e8987671b938736451d4": {
         "subject": "dt-bindings: hwmon: Move LM63 family to a dedicated binding"
@@ -5176,10 +5183,17 @@
         "subject": "riscv: dts: spacemit: orangepi-r2s: Add cpu scaling for K1 SoC"
     },
     "commit:789eed2d8bfa83d79e24d185f736b038a121b3ce": {
-        "subject": "riscv: dts: spacemit: set console baud rate on OrangePi RV2"
+        "subject": "riscv: dts: spacemit: set console baud rate on OrangePi RV2",
+        "merged": [
+            "v6.18.65",
+            "v7.3.6"
+        ]
     },
     "commit:a87ca1e5b5d28dee5af42f59f3c6f833c5ad1da0": {
-        "subject": "riscv: dts: spacemit: k3: move USB3 phy to board level"
+        "subject": "riscv: dts: spacemit: k3: move USB3 phy to board level",
+        "merged": [
+            "v7.3.6"
+        ]
     },
     "commit:2b9612eceb96fb23bb81b044ce13f3bf5bab954f": {
         "subject": "riscv: dts: spacemit: k3: add USB3 B and C controllers for Pico-ITX board"
@@ -5191,7 +5205,10 @@
         "subject": "riscv: dts: spacemit: k3: add rfkill node for WLAN on the K3 Pico-ITX board"
     },
     "commit:f314c98807c12272a1902aeda9c648d81b39bad2": {
-        "subject": "riscv: dts: spacemit: k3-com260: keep dldo4 enabled"
+        "subject": "riscv: dts: spacemit: k3-com260: keep dldo4 enabled",
+        "merged": [
+            "v7.3.6"
+        ]
     },
     "commit:bd56cb9b84f74ef472c71285fee9e28ee414b10a": {
         "subject": "riscv: dts: spacemit: k3-com260-ifx: Add USB nodes"
@@ -5200,22 +5217,40 @@
         "subject": "riscv: dts: spacemit: k3-com260-ifx: Add rfkill nodes"
     },
     "commit:73329198cdc273008bd273b0c5ad4c65251cb49e": {
-        "subject": "dt-bindings: timer: thead,c900-aclint-mtimer: Add SpacemiT K3"
+        "subject": "dt-bindings: timer: thead,c900-aclint-mtimer: Add SpacemiT K3",
+        "merged": [
+            "v7.3.6"
+        ]
     },
     "commit:c9bae665035f345ca050e98d6f4d6830c3d74f84": {
-        "subject": "dt-bindings: interrupt-controller: thead,c900-aclint-mswi: Add SpacemiT K3"
+        "subject": "dt-bindings: interrupt-controller: thead,c900-aclint-mswi: Add SpacemiT K3",
+        "merged": [
+            "v7.3.6"
+        ]
     },
     "commit:08257b5b3d38b3e19b61b807850f5a637fd1421b": {
-        "subject": "dt-bindings: interrupt-controller: thead,c900-aclint-sswi: Add SpacemiT K3"
+        "subject": "dt-bindings: interrupt-controller: thead,c900-aclint-sswi: Add SpacemiT K3",
+        "merged": [
+            "v7.3.6"
+        ]
     },
     "commit:5397ba147c28427d3728812dec999fdab0f53619": {
-        "subject": "dt-bindings: timer: sifive,clint: Remove spacemit,k3-clint"
+        "subject": "dt-bindings: timer: sifive,clint: Remove spacemit,k3-clint",
+        "merged": [
+            "v7.3.6"
+        ]
     },
     "commit:b424b3b0ab920a25c23fbd7d226a0174b38d0de7": {
-        "subject": "irqchip/aclint-sswi: Add support for SpacemiT K3"
+        "subject": "irqchip/aclint-sswi: Add support for SpacemiT K3",
+        "merged": [
+            "v7.3.6"
+        ]
     },
     "commit:cc6371a7f5195387584e56054f3af671ff7354dc": {
-        "subject": "riscv: dts: spacemit: k3: Replace incorrect CLINT node with ACLINT nodes"
+        "subject": "riscv: dts: spacemit: k3: Replace incorrect CLINT node with ACLINT nodes",
+        "merged": [
+            "v7.3.6"
+        ]
     },
     "commit:d05c6236496071916e19012cda7149465f15e66e": {
         "subject": "riscv: dts: spacemit: set ETH MAC from eeprom for OrangePi"
@@ -5263,10 +5298,16 @@
         "subject": "riscv: dts: thead: enable HDMI on Milk-V Meles"
     },
     "commit:6575bb5d0d3c7db0d7d293428ecc07cb38e46ecc": {
-        "subject": "drm: verisilicon: fix cursor offset field update"
+        "subject": "drm: verisilicon: fix cursor offset field update",
+        "merged": [
+            "v7.3.6"
+        ]
     },
     "commit:063019ac51afffda4ab3d658701b086caa0c8e9e": {
-        "subject": "drm/verisilicon: Switch to drm_fb_dma_get_addr() for framebuffer addresses"
+        "subject": "drm/verisilicon: Switch to drm_fb_dma_get_addr() for framebuffer addresses",
+        "merged": [
+            "v7.3.6"
+        ]
     },
     "commit:3069e8f3e1e9bdf007316eadae4d1777065e7b78": {
         "subject": "iommu/riscv: Report cache coherency capability"
@@ -5671,13 +5712,25 @@
         "subject": "PCI: ultrarisc: Skip MEM outbound iATU setup on DP1000"
     },
     "commit:0d59891c42e11c3840276d8a632dbc355d6ddc4f": {
-        "subject": "dmaengine: dw-axi-dmac: Fix AXI burst length encoding"
+        "subject": "dmaengine: dw-axi-dmac: Fix AXI burst length encoding",
+        "merged": [
+            "v6.18.65",
+            "v7.3.6"
+        ]
     },
     "commit:e6b49f8016ee8b642e8e495d1704342ee0b35d72": {
-        "subject": "dmaengine: dw-axi-dmac: Fix LLI dump out-of-bounds access"
+        "subject": "dmaengine: dw-axi-dmac: Fix LLI dump out-of-bounds access",
+        "merged": [
+            "v6.18.65",
+            "v7.3.6"
+        ]
     },
     "commit:2a9013c20c46216b92ff09e2283b5244a91c59da": {
-        "subject": "dmaengine: dw-axi-dmac: Fix CH_CFG2 channel priority position"
+        "subject": "dmaengine: dw-axi-dmac: Fix CH_CFG2 channel priority position",
+        "merged": [
+            "v6.18.65",
+            "v7.3.6"
+        ]
     },
     "commit:a72f75e1f5552df8765920b678a9037b7f31a91c": {
         "subject": "dmaengine: dw-axi-dmac: Use bitfield helpers for registers"
@@ -5755,7 +5808,10 @@
         "subject": "dt-bindings: mfd: syscon: Add ESWIN EIC7700 compatible"
     },
     "commit:e564a064a2d61641d6c5068d41e677e6180aa5b8": {
-        "subject": "PCI: eswin: Publish the platform driver OF alias"
+        "subject": "PCI: eswin: Publish the platform driver OF alias",
+        "merged": [
+            "v7.3.6"
+        ]
     },
     "commit:06bb2e5c71e9983519929a8482bea89da6d80ad8": {
         "subject": "drm/dp: keep MOT set between messages when no_zero_sized is set",
@@ -5947,7 +6003,11 @@
         "subject": "PCI: dwc: Align register macros with Synopsys documentation"
     },
     "commit:3a4067658363e34bf4e1d7039e5b52951fcb4012": {
-        "subject": "perf/dwc_pcie: Fix PCI device reference leak in probe"
+        "subject": "perf/dwc_pcie: Fix PCI device reference leak in probe",
+        "merged": [
+            "v6.18.65",
+            "v7.3.6"
+        ]
     },
     "mail:20261102075710.1286456-2-zhengxingda@iscas.ac.cn": {
         "subject": "drm/verisilicon: disable the output before enabling it",
