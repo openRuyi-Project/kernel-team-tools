@@ -9313,6 +9313,7 @@ CONFIG_SND_SOC_AW88261                          policy<{'riscv64': 'n', 'x86_64'
 CONFIG_SND_SOC_AW88395                          policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_SND_SOC_AW88395_LIB                      policy<{'x86_64': 'm'}>
 CONFIG_SND_SOC_AW88399                          policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_SND_SOC_AW88399_LIB                      policy<{'x86_64': 'm'}>
 CONFIG_SND_SOC_BD28623                          policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_SND_SOC_BT_SCO                           policy<{'riscv64': 'n', 'x86_64': 'm'}>
 CONFIG_SND_SOC_CHV3_CODEC                       policy<{'riscv64': 'n', 'x86_64': 'm'}>
