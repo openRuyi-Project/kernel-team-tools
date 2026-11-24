@@ -5768,7 +5768,8 @@
         "subject": "PCI: spacemit: Ignore PERST# input in RC mode on K1"
     },
     "mail:20261022083212.84721-1-cuiyunhui@bytedance.com": {
-        "subject": "riscv: Fix SR_SUM leakage across context switches"
+        "subject": "riscv: Fix SR_SUM leakage across context switches",
+        "replacement": "commit:807b09be9c8f234ce758bcf43101f34e0a036b83"
     },
     "mail:20261104075706.73657-2-yang.yicong@picoheart.com": {
         "subject": "riscv: Make get_insn public for instruction fault handling"
@@ -6067,10 +6068,12 @@
         "subject": "RISC-V: KVM: Do not touch the envcfg CSRs on the SiFive P550"
     },
     "mail:20261113132435.434615-2-alitariq45892@gmail.com": {
-        "subject": "net: spacemit: Fix TX timeout work deadlocking on itself"
+        "subject": "net: spacemit: Fix TX timeout work deadlocking on itself",
+        "replacement": "commit:0dcf21648f258d2be36def2aacc8c7ee5e15e2ee"
     },
     "mail:20261113132435.434615-3-alitariq45892@gmail.com": {
-        "subject": "net: spacemit: Hold RTNL lock in emac_resume() and emac_suspend()"
+        "subject": "net: spacemit: Hold RTNL lock in emac_resume() and emac_suspend()",
+        "replacement": "commit:f60eae61466cca9b50690bd3f2b5b4b2397d9376"
     },
     "mail:20261115084218.951411-2-anup.patel@oss.qualcomm.com": {
         "subject": "RISC-V: Add common csr_read_num() and csr_write_num() functions"
@@ -6210,7 +6213,8 @@
         "subject": "drm/print: add drm_warn_ratelimited logging macro"
     },
     "mail:20261120012712.1957564-1-guoren@kernel.org": {
-        "subject": "riscv: errata: Add ERRATA WRITE_ONCE fixup"
+        "subject": "riscv: errata: Add ERRATA WRITE_ONCE fixup",
+        "replacement": "mail:20261124-write_once-v7-1-4158a930aa80@kernel.org"
     },
     "mail:20261121-k3-display-v3-1-ec419e8e96b8@gmail.com": {
         "subject": "dt-bindings: display: spacemit: add K3 Saturn DPU controller"
@@ -6264,10 +6268,12 @@
         "subject": "riscv: defconfig: spacemit: k3: enable display driver"
     },
     "mail:20261119-th1520-dw-mipi-dsi-v2-1-9ab5f9808f87@iscas.ac.cn": {
-        "subject": "dt-bindings: display: bridge: document TH1520 MIPI DSI controller"
+        "subject": "dt-bindings: display: bridge: document TH1520 MIPI DSI controller",
+        "replacement": "mail:20261124-th1520-dw-mipi-dsi-v3-1-ffcf2d87971b@iscas.ac.cn"
     },
     "mail:20261119-th1520-dw-mipi-dsi-v2-2-9ab5f9808f87@iscas.ac.cn": {
-        "subject": "drm/bridge: add TH1520 DesignWare MIPI DSI host controller"
+        "subject": "drm/bridge: add TH1520 DesignWare MIPI DSI host controller",
+        "replacement": "mail:20261124-th1520-dw-mipi-dsi-v3-2-ffcf2d87971b@iscas.ac.cn"
     },
     "mail:20261107-arm-scmi-arch-dep-v1-1-514872e8ede4@iscas.ac.cn": {
         "subject": "firmware: arm: scmi: Drop the ARM architecture dependency"
@@ -6346,5 +6352,59 @@
     },
     "mail:20261122-sg2042-evb-rtc-v1-2-f222c64cc7b9@iscas.ac.cn": {
         "subject": "riscv: dts: sophgo: Enable the RTC on SG2042 EVB v2"
+    },
+    "commit:807b09be9c8f234ce758bcf43101f34e0a036b83": {
+        "subject": "riscv: Fix SR_SUM leakage across context switches"
+    },
+    "commit:0dcf21648f258d2be36def2aacc8c7ee5e15e2ee": {
+        "subject": "net: spacemit: Fix TX timeout work deadlocking on itself"
+    },
+    "commit:f60eae61466cca9b50690bd3f2b5b4b2397d9376": {
+        "subject": "net: spacemit: Hold RTNL lock in emac_resume() and emac_suspend()"
+    },
+    "commit:fc91dacd0c2b4f9ca7e0ce30016f5aee6256cba5": {
+        "subject": "riscv: mm: reserve the DTB before scanning reserved memory"
+    },
+    "mail:20261124-write_once-v7-1-4158a930aa80@kernel.org": {
+        "subject": "riscv: errata: Add ERRATA WRITE_ONCE fixup"
+    },
+    "mail:20261124-vl817-uneval-prop-v1-1-137c093fb300@iscas.ac.cn": {
+        "subject": "dt-bindings: usb: vialab,vl817: use unevaluatedProperties"
+    },
+    "mail:20261124-vl817-uneval-prop-v1-2-137c093fb300@iscas.ac.cn": {
+        "subject": "dt-bindings: usb: vialab,vl817: derive from usb-hub.yaml"
+    },
+    "mail:20261124-vl817-uneval-prop-v1-3-137c093fb300@iscas.ac.cn": {
+        "subject": "dt-bindings: usb: vialab,vl817: deduplicate properties in usb-hub.yaml"
+    },
+    "mail:20261124-th1520-dw-mipi-dsi-v3-1-ffcf2d87971b@iscas.ac.cn": {
+        "subject": "dt-bindings: display: bridge: document TH1520 MIPI DSI controller"
+    },
+    "mail:20261124-th1520-dw-mipi-dsi-v3-2-ffcf2d87971b@iscas.ac.cn": {
+        "subject": "drm/bridge: add TH1520 DesignWare MIPI DSI host controller"
+    },
+    "mail:20261123-fix-bpf3-eeprom-v1-1-df8cce6ef2b5@gmail.com": {
+        "subject": "riscv: dts: spacemit: k1: fix the EEPROM page size"
+    },
+    "mail:20261123094843.540808-1-liutong@iscas.ac.cn": {
+        "subject": "serial: earlycon: bail out on zero progress in SBI DBCN write"
+    },
+    "mail:20261124-dwc-iatu-boundary-v1-1-03c8e58514e1@iscas.ac.cn": {
+        "subject": "PCI: dwc: Split iATU windows at region limit boundaries"
+    },
+    "mail:20261124072924.556678-2-inochiama@gmail.com": {
+        "subject": "dt-bindings: nvmem: Add SG2044 eFuse controller"
+    },
+    "mail:20261124072924.556678-3-inochiama@gmail.com": {
+        "subject": "nvmem: Add Sophgo SG2044 eFuse driver"
+    },
+    "mail:20261124072924.556678-4-inochiama@gmail.com": {
+        "subject": "riscv: dts: sophgo: sg2044: Add eFUSE device"
+    },
+    "mail:20261125-eic7700-cpu-pll-postdiv-v1-1-b1ccd6339a20@iscas.ac.cn": {
+        "subject": "clk: eswin: Fix the EIC7700 PLL post-divider"
+    },
+    "mail:20261125-eic7700-cpu-pll-postdiv-v1-2-b1ccd6339a20@iscas.ac.cn": {
+        "subject": "clk: eswin: Use REFDIV and the post-dividers in the EIC7700 PLL rate"
     }
 }
