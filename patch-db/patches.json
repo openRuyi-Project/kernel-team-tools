@@ -6381,7 +6381,11 @@
         "subject": "riscv: efi: Map runtime MMIO with device attributes"
     },
     "mail:20261121-b4-sg2042-efi-rtc-v1-2-19898b8ad497@iscas.ac.cn": {
-        "subject": "clk: sophgo: sg2042-clkgen: Keep gates of reserved devices enabled"
+        "subject": "clk: sophgo: sg2042-clkgen: Keep gates of reserved devices enabled",
+        "replacement": [
+            "mail:20261122-b4-sg2042-efi-rtc-v2-1-6d087e03e4e8@iscas.ac.cn",
+            "mail:20261122-b4-sg2042-efi-rtc-v2-2-6d087e03e4e8@iscas.ac.cn"
+        ]
     },
     "commit:3fdeae134ba956aacbd87d5532c025913c98fc49": {
         "subject": "drm/bridge: add next_bridge pointer to struct drm_bridge"
