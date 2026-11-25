@@ -5907,7 +5907,7 @@ CONFIG_MOST_NET                                 policy<{'x86_64': 'm'}>
 CONFIG_MOST_SND                                 policy<{'x86_64': 'm'}>
 CONFIG_MOST_USB_HDM                             policy<{'x86_64': 'm'}>
 CONFIG_MOST_VIDEO                               policy<{'x86_64': 'm'}>
-CONFIG_MOTORCOMM_PHY                            policy<{'riscv64': 'n', 'x86_64': 'm'}>
+CONFIG_MOTORCOMM_PHY                            policy<{'riscv64': 'y', 'x86_64': 'y'}>
 CONFIG_MOUSE_APPLETOUCH                         policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_MOUSE_BCM5974                            policy<{'riscv64': 'm', 'x86_64': 'm'}>
 CONFIG_MOUSE_CYAPA                              policy<{'riscv64': 'm', 'x86_64': 'm'}>
